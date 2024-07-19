@@ -4,6 +4,7 @@ from rest_framework import viewsets
 from .models import Profile, FailedProject, Comment
 from .serializers import ProfileSerializer, FailedProjectSerializer, CommentSerializer
 
+
 class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
