@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'todo'
+    'rest_framework',
+    'corsheaders',
+    'projects',
 ]
 
 MIDDLEWARE = [
@@ -48,7 +50,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5000",  # Svelte dev server
+]
+
 
 ROOT_URLCONF = 'my_project.urls'
 
@@ -76,11 +84,14 @@ WSGI_APPLICATION = 'my_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'creative_fails',
+        'USER': 'u88zg4h2jvc',
+        'PASSWORD': 'XTugDYbhDMYL',
+        'HOST': 'ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech',
+        'Database URL': 'postgres://u88zg4h2jvc:XTugDYbhDMYL@ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech/decor_gem_flock_388856'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -122,3 +133,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# CORS settings
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5000",
+]
