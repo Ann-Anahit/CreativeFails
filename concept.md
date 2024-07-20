@@ -22,7 +22,10 @@ Users can leave comments.
 * User can set profile picture
 
 ### Won’t Have this time
-* 
+* Create event models and database schema
+* Implement event creation and management
+* Create calendar view for displaying events
+* Integrate event registration functionality
 
 ### Technologies
 * Django
