@@ -1,0 +1,11 @@
+nav {
+    background-color: $primary_color;
+    ul {
+        li {
+            padding: $basic_padding;
+            a {
+                color: $white_color;
+            }
+        }
+    }
+}

@@ -1,5 +1,17 @@
+/* colors */
+/* spacing */
 html, body {
   margin: 0;
   min-width: 100%;
   min-height: 100%;
+}
+
+nav {
+  background-color: blue;
+}
+nav ul li {
+  padding: 16px;
+}
+nav ul li a {
+  color: #e3e3e3;
 }/*# sourceMappingURL=app.css.map */
