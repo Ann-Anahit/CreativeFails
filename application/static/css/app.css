@@ -6,7 +6,7 @@ html, body {
   min-height: 100%;
 }
 
-nav {
+nav, footer {
   background-color: #C2A4CD;
 
 }
