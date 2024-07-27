@@ -1,10 +1,80 @@
 nav {
     background-color: $primary_color;
+
     ul {
         li {
-            padding: $basic_padding;
+            padding: $basic_distance;
+
             a {
                 color: $white_color;
+            }
+        }
+    }
+
+    .menu-icon {
+        top: $basic_distance;
+        display: none;
+        position: relative;
+        width: $basic_distance;
+        height: 2px;
+        background: $primary_color;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            height: 2px;
+            width: 100%;
+            background: $primary_color;
+            transition: all 0.3s ease;
+        }
+
+        &::before {
+            top: -10px;
+        }
+
+        &::after {
+            bottom: -10px;
+        }
+
+        #menu-toggle {
+            top: $basic_distance;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 2;
+
+            &:checked {
+                &~.menu-icon {
+                    background: transparent;
+
+                    &::before {
+                        transform: rotate(45deg);
+                        top: 0;
+                    }
+
+                    &::after {
+                        transform: rotate(-45deg);
+                        bottom: 0;
+                    }
+                }
+
+                &~nav ul {
+                    display: flex;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width:768px) {
+        nav {
+            position: absolute;
+
+            .menu-icon {
+                display: block;
             }
         }
     }

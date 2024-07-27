@@ -1,130 +1,52 @@
-/* colors */
-/* spacing */
 html, body {
   height: 100%;
-  padding: 0;
-  margin:0;
-}
-body{
-  display: flex;
-  flex-direction: column;
-}
-header {
-  background-color: #C2A4CD;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 10px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-
-.header-element__logo img {
-  width: 100px;
   margin: 0;
-  display: flex;
-  gap: 16px;
 }
 
 h1 {
-  font-family: 'Bebas Neue';
-  display: flex;
-  
-
-}
-
-main {
-  flex: 1;
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+  font-family: "Bebas Neue";
+  font-weight: bold;
 }
 
 article {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-size: 16px;
-  line-height: 32px;
-  text-align: justify;
-  display: flex;
-}
-.header-element {
-  display: flex;
-  align-items: center;
-  gap: 16px;
 }
 
-/* navbar */
-
-nav ul {
-  display: flex;
-  list-style: none;
-  padding: 0;
+nav {
+  background-color: #C2A4CD;
 }
-
 nav ul li {
-  margin: 1rem;
+  padding: 16px;
 }
-
 nav ul li a {
-  text-decoration: none;
-  font-size: 18px;
   color: #e3e3e3;
 }
-
-nav ul li a:hover {
-  color: #7fd9c2;
-}
-
-/* Hamburger/Cross icon styles */
-.menu-icon {
-  top: var(--basic-distance);
+nav .menu-icon {
+  top: 16px;
   display: none;
   position: relative;
-  width: 20px;
+  width: 16px;
   height: 2px;
-  background: var(--primary-color);
+  background: #C2A4CD;
 }
-
-.menu-icon::before,
-.menu-icon::after {
+nav .menu-icon::before, nav .menu-icon::after {
   content: "";
   position: absolute;
   left: 0;
   height: 2px;
   width: 100%;
-  background: var(--primary-color);
+  background: #C2A4CD;
   transition: all 0.3s ease;
 }
-
-.menu-icon::before {
+nav .menu-icon::before {
   top: -10px;
 }
-
-.menu-icon::after {
+nav .menu-icon::after {
   bottom: -10px;
 }
-
-#menu-toggle:checked~.menu-icon {
-  background: transparent;
-}
-
-#menu-toggle:checked~.menu-icon::before {
-  transform: rotate(45deg);
-  top: 0;
-}
-
-#menu-toggle:checked~.menu-icon::after {
-  transform: rotate(-45deg);
-  bottom: 0;
-}
-
-#menu-toggle {
-  top: var(--basic-distance);
+nav .menu-icon #menu-toggle {
+  top: 16px;
   position: absolute;
   width: 30px;
   height: 30px;
@@ -132,22 +54,33 @@ nav ul li a:hover {
   cursor: pointer;
   z-index: 2;
 }
-
-#menu-toggle:checked~nav ul {
+nav .menu-icon #menu-toggle:checked ~ .menu-icon {
+  background: transparent;
+}
+nav .menu-icon #menu-toggle:checked ~ .menu-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+nav .menu-icon #menu-toggle:checked ~ .menu-icon::after {
+  transform: rotate(-45deg);
+  bottom: 0;
+}
+nav .menu-icon #menu-toggle:checked ~ nav ul {
   display: flex;
 }
+@media screen and (max-width: 768px) {
+  nav nav {
+    position: absolute;
+  }
+  nav nav .menu-icon {
+    display: block;
+  }
+}
 
-
-footer {
+header {
   background-color: #C2A4CD;
   display: flex;
-  justify-content: center;
-  padding: 30px;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
-}
-
-.social {
-  
-  width: 30px; 
-  margin: 0 25px;
-}
+}/*# sourceMappingURL=app.css.map */

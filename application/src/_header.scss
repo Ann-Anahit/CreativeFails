@@ -1,23 +1,9 @@
-nav ul {
+
+
+  header {
+    background-color: $primary_color;
     display: flex;
-    list-style: none;
-    padding: 0;
-  }
-  
-  nav ul li {
-    margin: 1rem;
-  }
-  
-  nav ul li a {
-    text-decoration: none;
-    font-size: 18px;
-  }
-  
-  nav ul li a:hover {
-    color: #7fd9c2;
-  }
-  
-  nav, footer {
-    background-color: #C2A4CD;
-  
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
   }
