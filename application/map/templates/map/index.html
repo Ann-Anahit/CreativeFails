@@ -4,21 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/webfonts.css' %}">
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
     <title>Creative Fails</title>
 </head>
 <body>
-    <nav>
-
-    </nav>
-    <header>
-
+     <header>
+        <div class="logo">
+            <img src="./static/images/logo_cf.png" alt="Logo">
+        </div>
+        <nav>
+            <label class="menu-icon">
+                <input type="checkbox" id="menu-toggle">
+                <div class="bar"></div>
+            </label> 
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="signin.html">SignIn</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        </div>
     </header>
+   <div>
+    <h1>Welcome to Creative Fails!</h1>
+   </div>
     <main>
-        <article></article>
+        
+        <article>
+           
+            <p>Welcome to Creative Fails, the unique platform dedicated to the art of failure. Here, we share stories of setbacks in art, digital art, and film – not to discourage, but to inspire. Our mission is to learn from our mistakes and support each other on the journey to creative masterpieces.
+            
+            In a world where successes often take center stage, the valuable lessons from failures often remain hidden. We believe that these stories are essential for growth and innovation. Whether you're an experienced artist, an emerging filmmaker, or a curious creative, you'll find a community here that understands and shares your challenges.
+            
+            Discover touching and honest stories, engage in lively discussions, and learn how to turn every mistake into a positive outcome. Be inspired by the experiences of others and share your own with our supportive community.
+            
+            Together, we celebrate the creative missteps that make us better artists and people. Dive into the world of creative failures and find new ways to elevate your projects to the next level.
+            
+            Join our community and let’s grow together!</p>
+        </article>
     </main>
     <footer>
-        
+            <a href="https://www.twitter.com/" target="_blank" rel="noopener" aria-label="Visit our Twitter page">
+                <img src="./static/images/x-twitter.png" alt="Twitter" class="social">
+            </a>
+            <a href="https://github.com" aria-label="Open-source code GitHub" target="_blank">
+                <img src="./static/images/github.png" alt="GitHub" class="social">
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Visit our Instagram page">
+                <img src="./static/images/instagram.png" alt="Instagram" class="social">
+            </a>
+        </div>
     </footer>
 </body>
 </html>
