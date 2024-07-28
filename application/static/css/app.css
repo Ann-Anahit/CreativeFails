@@ -26,6 +26,7 @@ h4 {
 header {
   display: flex;
   flex-direction: column;
+  margin: 0;
 }
 header nav {
   background-color: #C2A4CD;
@@ -80,6 +81,9 @@ header .hero {
 
 #menu-toggle {
   display: none;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
 }
 #menu-toggle:checked + .menu-icon {
   background: transparent;
@@ -93,29 +97,26 @@ header .hero {
   bottom: 0;
 }
 #menu-toggle:checked + .menu-icon + nav ul {
-  border: 1px solid red;
   display: flex;
-  flex-direction: column;
 }
 
 @media screen and (max-width: 768px) {
   #menu-toggle,
   .menu-icon {
     display: block;
+    margin: 16px;
   }
   nav {
     position: absolute;
   }
   nav ul {
-    position: absolute;
     top: 80px;
     right: 0;
     display: none;
     flex-direction: column;
     align-items: center;
-    background-color: #E0FFFF;
+    background-color: #C2A4CD;
     z-index: 200;
-    width: 100%;
   }
 }
 main .welcome {
@@ -152,4 +153,13 @@ main .blog-posts article .meta .author {
 
 footer {
   background-color: #C2A4CD;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 16px 0;
+}
+footer img {
+  height: 32px;
 }/*# sourceMappingURL=app.css.map */

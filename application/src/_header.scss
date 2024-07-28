@@ -1,6 +1,7 @@
 header {
   display: flex;
   flex-direction: column;
+  margin: 0;
 
   nav {
     background-color: $primary_color;
@@ -37,7 +38,6 @@ header {
   }
 }
 
-
 .menu-icon {
   display: none;
   width: $basic_distance;
@@ -68,6 +68,9 @@ header {
 
 #menu-toggle {
   display: none;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
 
   &:checked+.menu-icon {
     background: transparent;
@@ -84,9 +87,7 @@ header {
   }
 
   &:checked+.menu-icon+nav ul {
-    border: 1px solid red;
     display: flex;
-    flex-direction: column;
   }
 }
 
@@ -95,21 +96,21 @@ header {
   #menu-toggle,
   .menu-icon {
     display: block;
+    margin: $basic_distance;
+
   }
 
   nav {
     position: absolute;
 
     ul {
-      position: absolute;
       top: 80px;
       right: 0;
       display: none;
       flex-direction: column;
       align-items: center;
-      background-color: #E0FFFF;
+      background-color: $primary_color;
       z-index: 200;
-      width: 100%;
     }
   }
 }
