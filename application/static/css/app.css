@@ -1,65 +1,91 @@
 /* colors */
 /* spacing */
 html, body {
-  height: 100%;
-  padding: 0;
-  margin:0;
-}
-body{
-  display: flex;
-  flex-direction: column;
-}
-header {
-  background-color: #C2A4CD;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 10px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-
-.header-element__logo img {
-  width: 100px;
   margin: 0;
-  display: flex;
-  gap: 16px;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 h1 {
-  font-family: 'Bebas Neue';
-  display: flex;
-  
-
+  font-family: "Bebas Neue";
+  font-weight: bold;
 }
 
-main {
-  flex: 1;
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+nav {
+  background-color: #C2A4CD;
+}
+nav ul li {
+  padding: 16px;
+}
+nav ul li a {
+  color: #e3e3e3;
+  text-decoration: none;
 }
 
-article {
-  font-family: 'Roboto';
-  font-size: 16px;
-  line-height: 32px;
-  text-align: justify;
-  display: flex;
+.menu-icon {
+  display: none;
+  width: 16px;
+  height: 2px;
+  background: #C2A4CD;
+  position: relative;
+  cursor: pointer;
 }
-.header-element {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+.menu-icon::before, .menu-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: #C2A4CD;
+  transition: all 0.3s ease;
+}
+.menu-icon::before {
+  top: -10px;
+}
+.menu-icon::after {
+  bottom: -10px;
 }
 
-/* navbar */
+#menu-toggle {
+  display: none;
+}
+#menu-toggle:checked + .menu-icon {
+  background: transparent;
+}
+#menu-toggle:checked + .menu-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+#menu-toggle:checked + .menu-icon::after {
+  transform: rotate(-45deg);
+  bottom: 0;
+}
+#menu-toggle:checked + .menu-icon + nav ul {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+}
 
+@media screen and (max-width: 768px) {
+  #menu-toggle,
+  .menu-icon {
+    display: block;
+  }
+  nav {
+    position: absolute;
+  }
+  nav ul {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #E0FFFF;
+    z-index: 200;
+    width: 100%;
+  }
+}
 nav ul {
   display: flex;
   list-style: none;
@@ -73,81 +99,12 @@ nav ul li {
 nav ul li a {
   text-decoration: none;
   font-size: 18px;
-  color: #e3e3e3;
 }
 
 nav ul li a:hover {
   color: #7fd9c2;
 }
 
-/* Hamburger/Cross icon styles */
-.menu-icon {
-  top: var(--basic-distance);
-  display: none;
-  position: relative;
-  width: 20px;
-  height: 2px;
-  background: var(--primary-color);
-}
-
-.menu-icon::before,
-.menu-icon::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  height: 2px;
-  width: 100%;
-  background: var(--primary-color);
-  transition: all 0.3s ease;
-}
-
-.menu-icon::before {
-  top: -10px;
-}
-
-.menu-icon::after {
-  bottom: -10px;
-}
-
-#menu-toggle:checked~.menu-icon {
-  background: transparent;
-}
-
-#menu-toggle:checked~.menu-icon::before {
-  transform: rotate(45deg);
-  top: 0;
-}
-
-#menu-toggle:checked~.menu-icon::after {
-  transform: rotate(-45deg);
-  bottom: 0;
-}
-
-#menu-toggle {
-  top: var(--basic-distance);
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  opacity: 0;
-  cursor: pointer;
-  z-index: 2;
-}
-
-#menu-toggle:checked~nav ul {
-  display: flex;
-}
-
-
-footer {
+nav, footer {
   background-color: #C2A4CD;
-  display: flex;
-  justify-content: center;
-  padding: 30px;
-  width: 100%;
-}
-
-.social {
-  
-  width: 30px; 
-  margin: 0 25px;
-}
+}/*# sourceMappingURL=app.css.map */
