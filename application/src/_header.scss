@@ -1,23 +1,115 @@
-nav ul {
+header {
+  display: flex;
+  flex-direction: column;
+
+  nav {
+    background-color: $primary_color;
+
+    ul {
+      display: flex;
+      align-items: center;
+      list-style: none;
+
+      li {
+        padding: $basic_distance;
+
+        a {
+          text-decoration: none;
+          font-size: 16px;
+          color: $white_color;
+          text-decoration: none;
+
+          img.logo {
+            height: 32px;
+          }
+
+          &:hover {
+
+            color: #7fd9c2;
+          }
+        }
+      }
+    }
+  }
+
+  .hero {
+    margin: 0 auto;
+  }
+}
+
+
+.menu-icon {
+  display: none;
+  width: $basic_distance;
+  height: 2px;
+  background: $primary_color;
+  position: relative;
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: $primary_color;
+    transition: all 0.3s ease;
+  }
+
+  &::before {
+    top: -10px;
+  }
+
+  &::after {
+    bottom: -10px;
+  }
+}
+
+#menu-toggle {
+  display: none;
+
+  &:checked+.menu-icon {
+    background: transparent;
+
+    &::before {
+      transform: rotate(45deg);
+      top: 0;
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+      bottom: 0;
+    }
+  }
+
+  &:checked+.menu-icon+nav ul {
+    border: 1px solid red;
     display: flex;
-    list-style: none;
-    padding: 0;
+    flex-direction: column;
   }
-  
-  nav ul li {
-    margin: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+
+  #menu-toggle,
+  .menu-icon {
+    display: block;
   }
-  
-  nav ul li a {
-    text-decoration: none;
-    font-size: 18px;
+
+  nav {
+    position: absolute;
+
+    ul {
+      position: absolute;
+      top: 80px;
+      right: 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      background-color: #E0FFFF;
+      z-index: 200;
+      width: 100%;
+    }
   }
-  
-  nav ul li a:hover {
-    color: #7fd9c2;
-  }
-  
-  nav, footer {
-    background-color: #C2A4CD;
-  
-  }
+}

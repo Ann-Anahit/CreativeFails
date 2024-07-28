@@ -1,0 +1,40 @@
+main {
+    .welcome {
+        border: 8px solid $primary_color;
+        padding: 0 $basic_distance;
+        line-height: 24px;
+    }
+
+    .blog-posts {
+        line-height: 24px;
+
+        h2,
+        h3,
+        p,
+        .meta {
+            padding: 0 calc($basic_distance + 8px);
+        }
+
+        article {
+            border-bottom: 4px solid $secondary_color;
+            padding-bottom: $basic_distance;
+
+            &:nth-of-type(even) {
+                border-color: $primary_color;
+            }
+
+            .meta {
+                font-size: 12px;
+                color: transparentize($black_color, 0.5);
+
+                .date {
+                    color: $secondary_color;
+                }
+
+                .author {
+                    color: $primary_color;
+                }
+            }
+        }
+    }
+}
