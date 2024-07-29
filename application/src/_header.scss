@@ -5,11 +5,14 @@ header {
 
   nav {
     background-color: $primary_color;
+    width: 100%;
 
     ul {
       display: flex;
       align-items: center;
       list-style: none;
+      margin: 0;
+      padding: 0;
 
       li {
         padding: $basic_distance;
@@ -18,15 +21,13 @@ header {
           text-decoration: none;
           font-size: 16px;
           color: $white_color;
-          text-decoration: none;
 
           img.logo {
             height: 32px;
           }
 
           &:hover {
-
-            color: #7fd9c2;
+            color: $secondary_color;
           }
         }
       }
@@ -35,82 +36,7 @@ header {
 
   .hero {
     margin: 0 auto;
-  }
-}
-
-.menu-icon {
-  display: none;
-  width: $basic_distance;
-  height: 2px;
-  background: $primary_color;
-  position: relative;
-  cursor: pointer;
-
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    height: 2px;
-    width: 100%;
-    background: $primary_color;
-    transition: all 0.3s ease;
-  }
-
-  &::before {
-    top: -10px;
-  }
-
-  &::after {
-    bottom: -10px;
-  }
-}
-
-#menu-toggle {
-  display: none;
-  opacity: 0;
-  cursor: pointer;
-  z-index: 2;
-
-  &:checked+.menu-icon {
-    background: transparent;
-
-    &::before {
-      transform: rotate(45deg);
-      top: 0;
-    }
-
-    &::after {
-      transform: rotate(-45deg);
-      bottom: 0;
-    }
-  }
-
-  &:checked+.menu-icon+nav ul {
-    display: flex;
-  }
-}
-
-@media screen and (max-width: 768px) {
-
-  #menu-toggle,
-  .menu-icon {
-    display: block;
-    margin: $basic_distance;
-
-  }
-
-  nav {
-    position: absolute;
-
-    ul {
-      top: 80px;
-      right: 0;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      background-color: $primary_color;
-      z-index: 200;
-    }
+    padding: $basic_distance;
+    text-align: center;
   }
 }
