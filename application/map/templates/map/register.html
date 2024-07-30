@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/webfonts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <title>Register - Creative Fails</title>
+</head>
+
+<body>
+    <header>
+        <div class="header-element">
+            <nav>
+                <ul>
+                    <li><a href="/"><img class="logo" src="{% static 'images/logo_cf.png' %}" alt="Logo"></a></li>
+                    <li><a href="/post">Write Article</a></li>
+                    <li><a href="/register">Register</a></li>
+                    <li><a href="/login">SignIn</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="hero">
+            <h1>Creative Fails</h1>
+        </div>
+    </header>
+    <main>
+        <div class="registration-form">
+            <h2>Register</h2>
+            <form action="/register" method="post">
+                {% csrf_token %}
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <a href="https://www.twitter.com/" target="_blank" rel="noopener" aria-label="Visit our Twitter page">
+            <img src="{% static 'images/x-twitter.png' %}" alt="Twitter" class="social">
+        </a>
+        <a href="https://github.com" aria-label="Open-source code GitHub" target="_blank">
+            <img src="{% static 'images/github.png' %}" alt="GitHub" class="social">
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Visit our Instagram page">
+            <img src="{% static 'images/instagram.png' %}" alt="Instagram" class="social">
+        </a>
+    </footer>
+</body>
+
+</html>
