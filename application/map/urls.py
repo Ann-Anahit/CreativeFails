@@ -1,8 +1,9 @@
 
 from django.urls import path
+from django.contrib import admin
 from . import views
-from django.views.generic import TemplateView
 from .views import register_view, index_view  
+from map import views
 
 urlpatterns = [
 path('admin/', admin.site.urls),
