@@ -1,6 +1,5 @@
 from django.urls import path
 from django.views.generic.base import TemplateView
-from hello_world import views as index_views
 
 from . import views
 
