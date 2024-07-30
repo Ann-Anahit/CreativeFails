@@ -29,7 +29,7 @@
     <main>
         <div class="registration-form">
             <h2>Register</h2>
-            <form action="/register" method="post">
+            <form action="{% url 'register' %}" method="post">
                 {% csrf_token %}
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
@@ -45,6 +45,14 @@
 
                 <button type="submit">Register</button>
             </form>
+
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
     </main>
     <footer>

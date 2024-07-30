@@ -27,24 +27,26 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['8000-annanahit-creativefails-eunzjv2fi27.ws.codeinstitute-ide.net']
 
-
+CSRF_TRUSTED_ORIGINS = [  
+    'https://8000-annanahit-creativefails-eunzjv2fi27.ws.codeinstitute-ide.net',  
+]  
 # Application definition
 
 INSTALLED_APPS = [
-    "map.apps.MapConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "map.apps.MapConfig",
     "application",
-
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
+    'django.middleware.csrf.CsrfViewMiddleware', 
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -58,7 +60,7 @@ ROOT_URLCONF = 'application.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
