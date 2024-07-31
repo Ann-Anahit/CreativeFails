@@ -1,6 +1,7 @@
 /* colors */
 /* spacing */
-html, body {
+html,
+body {
   margin: 0;
   min-width: 100%;
   min-height: 100%;
@@ -92,39 +93,43 @@ main .blog-posts article .meta .author {
   color: #C2A4CD;
 }
 
-.registration-form {
+.main-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  height: 100%;
+}
+
+.registration-form {
+  padding: 24px;
   border: 1px solid #e3e3e3;
-  border-radius: 10px;
+  border-radius: 8px;
   background: #C2A4CD;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 400px;
+  text-align: center;
   width: 100%;
 }
 .registration-form form {
   display: flex;
   flex-direction: column;
-  width: 100%;
 }
 .registration-form form div {
-  display: flex;
-  flex-direction: column;
   margin-bottom: 1rem;
 }
 .registration-form form div label {
   margin-bottom: 0.5rem;
+  font-size: 16px;
+  color: #e3e3e3;
 }
 .registration-form form div input {
   padding: 0.5rem;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 4px;
   width: 100%;
 }
-.registration-form form button {
+
+button {
   padding: 0.75rem;
   border: none;
   border-radius: 5px;
@@ -134,12 +139,12 @@ main .blog-posts article .meta .author {
   cursor: pointer;
   width: 100%;
 }
-.registration-form form button:hover {
+button:hover {
   background-color: #EB8573;
 }
 
 @media (max-width: 768px) {
-  .register-container {
+  .register-form {
     padding: 1rem;
   }
   form div {
