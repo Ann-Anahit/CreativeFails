@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "map.apps.MapConfig",
     "application",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
