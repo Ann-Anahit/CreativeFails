@@ -9,8 +9,14 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+import django_heroku
 import os
 from pathlib import Path
+import dj_database_url
+
+DATABASES = {
+    'default': dj_database_url.parse('postgres://u88zg4h2jvc:XTugDYbhDMYL@ep-gentle-mountain-a23bxz6h-pooler.eu-central-1.aws.neon.tech/sport_pond_doing_88171')
+}
 
 heroku_settings(locals(), staticfiles=False)
 
@@ -132,6 +138,6 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-APPEND_SLASH = False
 
+django_heroku.settings(locals())
 
