@@ -21,4 +21,5 @@ from map import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("map.urls")),
-  path('register/', views.register_view, name='register'),]
+    path("register/", views.register_view, name="register"),
+  ]
