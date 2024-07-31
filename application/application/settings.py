@@ -18,7 +18,7 @@ DATABASES = {
     'default': dj_database_url.parse('postgres://u88zg4h2jvc:XTugDYbhDMYL@ep-gentle-mountain-a23bxz6h-pooler.eu-central-1.aws.neon.tech/sport_pond_doing_88171')
 }
 
-heroku_settings(locals(), staticfiles=False)
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -139,5 +139,5 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-django_heroku.settings(locals())
+heroku_settings(locals(), staticfiles=False)
 
