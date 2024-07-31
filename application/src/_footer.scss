@@ -1,0 +1,13 @@
+footer {
+    background-color: #C2A4CD;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: calc($basic_distance * 2);
+    padding: $basic_distance 0;
+
+    img {
+        height: 32px;
+    }
+}

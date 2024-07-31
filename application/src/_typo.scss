@@ -1,4 +1,16 @@
+* {
+    font-family: 'Roboto';
+    color: $black_color;
+}
+
 h1 {
+    font-size: 64px;
+}
+
+h1,
+h2,
+h3,
+h4 {
     font-family: 'Bebas Neue';
     font-weight: bold;
 }

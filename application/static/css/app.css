@@ -1,13 +1,102 @@
 html, body {
+<<<<<<< HEAD
+  margin: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+* {
+  font-family: "Roboto";
+  color: #333333;
+}
+
+h1 {
+  font-size: 64px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+=======
   height: 100%;
   margin: 0;
 }
 
 h1 {
+>>>>>>> 403467dd26c32ca26dd11b39d29510826669d964
   font-family: "Bebas Neue";
   font-weight: bold;
 }
 
+<<<<<<< HEAD
+header {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+header nav {
+  background-color: #C2A4CD;
+  width: 100%;
+}
+header nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+header nav ul li {
+  padding: 16px;
+}
+header nav ul li a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #e3e3e3;
+}
+header nav ul li a img.logo {
+  height: 32px;
+}
+header nav ul li a:hover {
+  color: #7fd9c2;
+}
+header .hero {
+  margin: 0 auto;
+  padding: 16px;
+  text-align: center;
+}
+
+main .welcome {
+  border: 8px solid #C2A4CD;
+  padding: 0 16px;
+  line-height: 24px;
+}
+main .blog-posts {
+  line-height: 24px;
+}
+main .blog-posts h2,
+main .blog-posts h3,
+main .blog-posts p,
+main .blog-posts .meta {
+  padding: 0 24px;
+}
+main .blog-posts article {
+  border-bottom: 4px solid #7fd9c2;
+  padding-bottom: 16px;
+}
+main .blog-posts article:nth-of-type(even) {
+  border-color: #C2A4CD;
+}
+main .blog-posts article .meta {
+  font-size: 12px;
+  color: rgba(51, 51, 51, 0.5);
+}
+main .blog-posts article .meta .date {
+  color: #7fd9c2;
+}
+main .blog-posts article .meta .author {
+  color: #C2A4CD;
+=======
 article {
   font-family: "Roboto";
   font-size: 16px;
@@ -67,6 +156,7 @@ nav .menu-icon #menu-toggle:checked ~ .menu-icon::after {
 }
 nav .menu-icon #menu-toggle:checked ~ nav ul {
   display: flex;
+>>>>>>> 403467dd26c32ca26dd11b39d29510826669d964
 }
 @media screen and (max-width: 768px) {
   nav nav {
@@ -77,10 +167,24 @@ nav .menu-icon #menu-toggle:checked ~ nav ul {
   }
 }
 
+<<<<<<< HEAD
+footer {
+  background-color: #C2A4CD;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 16px 0;
+}
+footer img {
+  height: 32px;
+=======
 header {
   background-color: #C2A4CD;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
+>>>>>>> 403467dd26c32ca26dd11b39d29510826669d964
 }/*# sourceMappingURL=app.css.map */
