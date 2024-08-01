@@ -1,8 +1,8 @@
-
 from django.urls import path
-from .views import register_view, index_view
+from django.views.generic.base import TemplateView
+
+from . import views
 
 urlpatterns = [
-path('register/', register_view, name='register'),
-path('', index_view, name='index'),
+    path("", TemplateView.as_view(template_name="map/index.html"), name="index"),
 ]
