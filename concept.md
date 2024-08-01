@@ -29,5 +29,4 @@ Users can leave comments.
 
 ### Technologies
 * Django
-* Svelte
-* MongoDB
+* PostgreSQL

@@ -1,7 +1,12 @@
+<<<<<<< HEAD:static/css/app.css
 /* colors */
 /* spacing */
 html,
 body {
+=======
+html, body {
+<<<<<<< HEAD
+>>>>>>> 15d048ce4b1f6efe27bf01f1904e2330a8fcf931:application/static/css/app.css
   margin: 0;
   min-width: 100%;
   height: 100%;
@@ -20,10 +25,18 @@ h1,
 h2,
 h3,
 h4 {
+=======
+  height: 100%;
+  margin: 0;
+}
+
+h1 {
+>>>>>>> 403467dd26c32ca26dd11b39d29510826669d964
   font-family: "Bebas Neue";
   font-weight: bold;
 }
 
+<<<<<<< HEAD
 header {
   display: flex;
   flex-direction: column;
@@ -91,8 +104,13 @@ main .blog-posts article .meta .date {
 }
 main .blog-posts article .meta .author {
   color: #C2A4CD;
+=======
+article {
+  font-family: "Roboto";
+  font-size: 16px;
 }
 
+<<<<<<< HEAD:static/css/app.css
 .main-container {
   display: flex;
   align-items: center;
@@ -150,6 +168,74 @@ button:hover {
     flex-direction: column;
   }
 }
+=======
+nav {
+  background-color: #C2A4CD;
+}
+nav ul li {
+  padding: 16px;
+}
+nav ul li a {
+  color: #e3e3e3;
+}
+nav .menu-icon {
+  top: 16px;
+  display: none;
+  position: relative;
+  width: 16px;
+  height: 2px;
+  background: #C2A4CD;
+}
+nav .menu-icon::before, nav .menu-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: #C2A4CD;
+  transition: all 0.3s ease;
+}
+nav .menu-icon::before {
+  top: -10px;
+}
+nav .menu-icon::after {
+  bottom: -10px;
+}
+nav .menu-icon #menu-toggle {
+  top: 16px;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+nav .menu-icon #menu-toggle:checked ~ .menu-icon {
+  background: transparent;
+}
+nav .menu-icon #menu-toggle:checked ~ .menu-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+nav .menu-icon #menu-toggle:checked ~ .menu-icon::after {
+  transform: rotate(-45deg);
+  bottom: 0;
+}
+nav .menu-icon #menu-toggle:checked ~ nav ul {
+  display: flex;
+>>>>>>> 403467dd26c32ca26dd11b39d29510826669d964
+}
+@media screen and (max-width: 768px) {
+  nav nav {
+    position: absolute;
+  }
+  nav nav .menu-icon {
+    display: block;
+  }
+}
+
+<<<<<<< HEAD
+>>>>>>> 15d048ce4b1f6efe27bf01f1904e2330a8fcf931:application/static/css/app.css
 footer {
   background-color: #C2A4CD;
   display: flex;
@@ -161,4 +247,12 @@ footer {
 }
 footer img {
   height: 32px;
+=======
+header {
+  background-color: #C2A4CD;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+>>>>>>> 403467dd26c32ca26dd11b39d29510826669d964
 }/*# sourceMappingURL=app.css.map */
