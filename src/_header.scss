@@ -1,0 +1,54 @@
+<<<<<<< HEAD
+header {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+
+  nav {
+    background-color: $primary_color;
+    width: 100%;
+
+    ul {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        padding: $basic_distance;
+
+        a {
+          text-decoration: none;
+          font-size: 16px;
+          color: $white_color;
+
+          img.logo {
+            height: 32px;
+          }
+
+          &:hover {
+            color: $secondary_color;
+          }
+        }
+      }
+    }
+  }
+
+  .hero {
+    margin: 0 auto;
+    padding: $basic_distance;
+    text-align: center;
+  }
+}
+=======
+
+
+  header {
+    background-color: $primary_color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+>>>>>>> 403467dd26c32ca26dd11b39d29510826669d964
