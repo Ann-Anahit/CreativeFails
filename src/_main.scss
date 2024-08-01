@@ -1,0 +1,109 @@
+main {
+    .welcome {
+        border: 8px solid $primary_color;
+        padding: 0 $basic_distance;
+        line-height: 24px;
+        text-align: justify;
+    }
+
+    .blog-posts {
+        line-height: 24px;
+
+        h2,
+        h3,
+        p,
+        .meta {
+            padding: 0 calc($basic_distance + 8px);
+        }
+
+        article {
+            border-bottom: 4px solid $secondary_color;
+            padding-bottom: $basic_distance;
+
+            &:nth-of-type(even) {
+                border-color: $primary_color;
+            }
+
+            .meta {
+                font-size: 12px;
+                color: transparentize($black_color, 0.5);
+
+                .date {
+                    color: $secondary_color;
+                }
+
+                .author {
+                    color: $primary_color;
+                }
+            }
+        }
+    }
+}
+
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.registration-form {
+    padding: 24px;
+    border: 32px solid $white_color;
+    border-radius: 8px;
+    background: $primary_color;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    text-align: center;
+    width: 100%;
+
+
+    form {
+        display: flex;
+        flex-direction: column;
+
+
+        div {
+            margin-bottom: 1rem;
+
+
+            label {
+                margin-bottom: 0.5rem;
+                font-size: 16px;
+                color: $white_color;
+
+            }
+
+            input {
+                padding: 0.5rem;
+                border: 1px solid $white_color;
+                border-radius: 4px;
+                width: 100%;
+            }
+        }
+    }
+}
+
+button {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    background-color: $secondary_color;
+    color: $white_color;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+
+    &:hover {
+        background-color: $tertiary_color;
+    }
+}
+
+@media (max-width: 768px) {
+    .register-form {
+        padding: 1rem;
+    }
+
+    form div {
+        flex-direction: column;
+    }
+}
