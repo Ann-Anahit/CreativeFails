@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User  
 from .forms import RegistrationForm  
 
+def index(request):
+    return render(request, 'map/index.html')
+    
 def register_view(request):  
     if request.method == 'POST':  
         form = RegistrationForm(request.POST)  
