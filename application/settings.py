@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "map",
     "creative_fails", 
     "accounts",
+    "posts",
 ]
 
 MIDDLEWARE = [
