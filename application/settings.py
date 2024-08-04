@@ -50,8 +50,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "map",
-    "creative_fails", 
+    "map", 
     "accounts",
     "posts",
 ]
