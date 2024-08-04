@@ -1,21 +1,20 @@
 from django.shortcuts import render, redirect  
-from django.contrib.auth import login, authenticate  
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm  
-from django.contrib.auth.decorators import login_required 
+from django.contrib.auth import login, authenticate, logout  
+from django.contrib.auth.forms import AuthenticationForm  
+from django.contrib.auth.decorators import login_required   
+from .forms import CustomUserCreationForm  
 
 def register(request):  
     if request.method == 'POST':  
-        form = UserCreationForm(request.POST)  
+        form = CustomUserCreationForm(request.POST)  # Use your custom form here  
         if form.is_valid():  
-            form.save()  
-            username = form.cleaned_data.get('username')  
-            password = form.cleaned_data.get('password1')  
-            user = authenticate(username=username, password=password)  
-            login(request, user)  
-            return redirect('home')  
+            user = form.save()  # Save the new user  
+            login(request, user)  # Automatically log in the user after creation  
+            return redirect('index')  # Redirect to the index or any destination  
     else:  
-        form = UserCreationForm()  
-    return render(request, 'register.html', {'form': form})  
+        form = CustomUserCreationForm()  # Create a blank form instance  
+
+    return render(request, 'accounts/register.html', {'form': form})  # Update the template path if necessary  
 
 def login_view(request):  
     if request.method == 'POST':  
@@ -23,18 +22,16 @@ def login_view(request):
         if form.is_valid():  
             user = form.get_user()  
             login(request, user)  
-            return redirect('home')  
+            return redirect('index')  
     else:  
         form = AuthenticationForm()  
-    return render(request, 'login.html', {'form': form}) 
+    return render(request, 'login.html', {'form': form})   
 
 @login_required   
 def profile_view(request):  
     user = request.user  
-    return render(request, 'profile.html', {'user': user})   
+    return render(request, 'profiles.html', {'user': user})   
 
 def logout_view(request):  
-    from django.contrib.auth import logout  
     logout(request)  
-    return redirect('home')  
-
+    return redirect('index')

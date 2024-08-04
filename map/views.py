@@ -1,9 +1,7 @@
 from django.shortcuts import render, redirect  
 from django.contrib.auth.models import User  
 from .forms import RegistrationForm  
-
 from django.conf import settings  
-print(settings.TEMPLATES)  
 
 def index_view(request):  
     return render(request, 'map/index.html')  
@@ -20,4 +18,5 @@ def register_view(request):
     else:  
         form = RegistrationForm()  
 
-    return render(request, 'map/register.html', {'form': form})
+    # Update the template path to the accounts app  
+    return render(request, 'accounts/register.html', {'form': form})
