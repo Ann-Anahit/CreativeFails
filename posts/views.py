@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post  
 from .forms import PostForm 
 from django.views import generic 
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 @login_required
 def write_article_view(request):
