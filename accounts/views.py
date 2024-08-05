@@ -10,6 +10,7 @@ def register_view(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
+            user_logged_in.send(sender=request.user.__class__, user=request.user, request=request)
             return redirect('write_article')
     else:
         form = CustomUserCreationForm()

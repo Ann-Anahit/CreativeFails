@@ -9,9 +9,16 @@ class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = CustomUser
         fields = ('username', 'email', 'password1', 'password2')
-        help_texts = {
-            'username': '',
-        }
+        error_messages = {
+        'username': {
+            'required': '',
+            'max_length': '',
+        },
+    }
+        
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        return username
 
     def clean_email(self):  
         email = self.cleaned_data.get('email')
