@@ -3,6 +3,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm
+from django.contrib.auth.signals import user_logged_in
 
 def register_view(request):
     if request.method == 'POST':
