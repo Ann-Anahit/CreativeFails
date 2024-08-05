@@ -46,52 +46,18 @@
         </div>
         <div class="blog-posts">
             <h2>Blog Posts</h2>
+            {% for post in published_posts %}
             <article>
-                <h3>{headline}</h3>
-                <p>{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores veniam pariatur culpa, nobis
-                    optio sed consequuntur libero eveniet labore voluptatum adipisci delectus iusto dicta commodi
-                    ducimus aperiam! Natus, aperiam at?}</p>
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.content|truncatechars:150 }}</p>
                 <div class="meta">
-                    Posted on <span class="date">{yyyy/mm/dd}</span> by <span class="author">{authorName}</span>
+                    Posted on <span class="date">{{ post.created_at|date:"Y/m/d" }}</span>
+                    by <span class="author">{{ post.author.username }}</span>
                 </div>
             </article>
-            <article>
-                <h3>{headline}</h3>
-                <p>{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores veniam pariatur culpa, nobis
-                    optio sed consequuntur libero eveniet labore voluptatum adipisci delectus iusto dicta commodi
-                    ducimus aperiam! Natus, aperiam at?}</p>
-                <div class="meta">
-                    Posted on <span class="date">{yyyy/mm/dd}</span> by <span class="author">{authorName}</span>
-                </div>
-            </article>
-            <article>
-                <h3>{headline}</h3>
-                <p>{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores veniam pariatur culpa, nobis
-                    optio sed consequuntur libero eveniet labore voluptatum adipisci delectus iusto dicta commodi
-                    ducimus aperiam! Natus, aperiam at?}</p>
-                <div class="meta">
-                    Posted on <span class="date">{yyyy/mm/dd}</span> by <span class="author">{authorName}</span>
-                </div>
-            </article>
-            <article>
-                <h3>{headline}</h3>
-                <p>{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores veniam pariatur culpa, nobis
-                    optio sed consequuntur libero eveniet labore voluptatum adipisci delectus iusto dicta commodi
-                    ducimus aperiam! Natus, aperiam at?}</p>
-                <div class="meta">
-                    Posted on <span class="date">{yyyy/mm/dd}</span> by <span class="author">{authorName}</span>
-                </div>
-            </article>
-            <article>
-                <h3>{headline}</h3>
-                <p>{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores veniam pariatur culpa, nobis
-                    optio sed consequuntur libero eveniet labore voluptatum adipisci delectus iusto dicta commodi
-                    ducimus aperiam! Natus, aperiam at?}</p>
-                <div class="meta">
-                    Posted on <span class="date">{yyyy/mm/dd}</span> by <span class="author">{authorName}</span>
-                </div>
-            </article>
+            {% endfor %}
         </div>
+
     </main>
     <footer>
         <a href="https://www.twitter.com/" target="_blank" rel="noopener" aria-label="Visit our Twitter page">

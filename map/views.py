@@ -14,7 +14,7 @@ def register_view(request):
             user = form.save(commit=False)  
             user.set_password(form.cleaned_data['password'])  # Hash the password  
             user.save()  
-            return redirect('index')  # Redirect after successful registration  
+            return redirect('home')  # Redirect after successful registration  
     else:  
         form = RegistrationForm()  
 
