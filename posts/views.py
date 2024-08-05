@@ -29,7 +29,8 @@ def write_article_view(request):
         if form.is_valid():  
             post = form.save(commit=False)  
             post.author = request.user    
-            post.save()  
+            post.save()
+              
             return redirect('post_list')  
     else:  
         form = PostForm()  
