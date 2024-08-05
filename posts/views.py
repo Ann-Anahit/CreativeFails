@@ -1,6 +1,17 @@
 from django.shortcuts import render, get_object_or_404, redirect  
 from .models import Post  
-from .forms import PostForm  # Assuming you have created a form for Post  
+from .forms import PostForm 
+from django.views import generic 
+
+@login_required
+def write_article_view(request):
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+        post = Post.objects.create(title=title, content=content, author=request.user)
+        messages.success(request, 'Your post has been created successfully!')
+        return redirect('index')
+    return render(request, 'posts/write_article.html')
 
 def post_list_view(request):  
     posts = Post.objects.all()  
@@ -15,7 +26,7 @@ def create_post_view(request):
         form = PostForm(request.POST)  
         if form.is_valid():  
             post = form.save(commit=False)  
-            post.author = request.user  # Assuming user is logged in  
+            post.author = request.user    
             post.save()  
             return redirect('post_list')  
     else:  

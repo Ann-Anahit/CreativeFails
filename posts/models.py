@@ -4,7 +4,7 @@ from accounts.models import CustomUser
 
 class Post(models.Model):  
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)  
-    title = models.CharField(max_length=200)  # Added title field  
+    title = models.CharField(max_length=200)  
     content = models.TextField()  
     created_at = models.DateTimeField(default=timezone.now)  
     visibility = models.BooleanField(default=True)  
@@ -19,4 +19,4 @@ class Comment(models.Model):
     created_at = models.DateTimeField(default=timezone.now)  
 
     def __str__(self):  
-        return f"Comment by {self.user.username} on post {self.post.id}"  # Return a descriptive string  
+        return f"Comment by {self.user.username} on post {self.post.id}"  

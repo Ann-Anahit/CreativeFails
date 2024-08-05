@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "map", 
     "accounts",
     "posts",
+    "application",
 ]
 
 MIDDLEWARE = [
