@@ -6,18 +6,14 @@ from django.core.exceptions import ValidationError
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
 
-    class RegistrationForm(forms.ModelForm):
-        def clean_password(self):
-            password = self.cleaned_data.get('password')
-            if len(password) < 6:
-                raise ValidationError('Password must be at least 6 characters long')
-            return password
-    
     class Meta:
         model = CustomUser
         fields = ('username', 'email', 'password1', 'password2')
+        help_texts = {
+            'username': '',
+        }
 
-    def clean_email(self):
+    def clean_email(self):  
         email = self.cleaned_data.get('email')
         if CustomUser.objects.filter(email=email).exists():
             raise forms.ValidationError("Email address already exists.")
@@ -31,7 +27,18 @@ class CustomUserCreationForm(UserCreationForm):
             user.save()
         return user
 
-    class CustomUserChangeForm(UserChangeForm):
+class CustomUserChangeForm(UserChangeForm):
         class Meta:
             model = CustomUser
             exclude = ('password',) 
+
+class RegistrationForm(forms.ModelForm):
+        def clean_password(self):
+            password = self.cleaned_data.get('password')
+            if len(password) < 6:
+                raise ValidationError('Password must be at least 6 characters long')
+            return password
+    
+   
+
+    
