@@ -23,18 +23,21 @@ def post_detail_view(request, post_id):
     post = get_object_or_404(Post, id=post_id)  
     return render(request, 'posts/post_detail.html', {'post': post})  
 
-def write_article_view(request):  
-    if request.method == 'POST':  
-        form = PostForm(request.POST)  
-        if form.is_valid():  
-            post = form.save(commit=False)  
-            post.author = request.user    
+def write_article_view(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
             post.save()
-              
-            return redirect('post_list')  
-    else:  
-        form = PostForm()  
-    return render(request, 'posts/post_form.html', {'form': form})  
+            
+            messages.success(request, 'Your post has been created successfully!')
+            
+        else:
+            form = PostForm()
+    else:
+        form = PostForm()
+    return render(request, 'posts/write_article.html', {'form': form})
 
 def update_post_view(request, post_id):  
     post = get_object_or_404(Post, id=post_id)  
