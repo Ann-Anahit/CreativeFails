@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 @login_required
-def write_article_view(request):
+def create_post_view(request):
     if request.method == 'POST':
         title = request.POST.get('title')
         content = request.POST.get('content')
@@ -23,7 +23,7 @@ def post_detail_view(request, post_id):
     post = get_object_or_404(Post, id=post_id)  
     return render(request, 'posts/post_detail.html', {'post': post})  
 
-def create_post_view(request):  
+def write_article_view(request):  
     if request.method == 'POST':  
         form = PostForm(request.POST)  
         if form.is_valid():  
