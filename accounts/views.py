@@ -22,7 +22,7 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('index')
+            return redirect('home')
     else:
         form = AuthenticationForm()
     
@@ -35,4 +35,4 @@ def profile_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('index')
+    return redirect('home')
