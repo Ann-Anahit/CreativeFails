@@ -6,18 +6,16 @@ from .forms import CustomUserCreationForm  # Assuming this is your custom user r
 from django.contrib.auth.signals import user_logged_in  
 from django.contrib import messages  
 
-def register_view(request):  
-    if request.method == 'POST':  
-        form = CustomUserCreationForm(request.POST)  # Use the appropriate form here  
-        if form.is_valid():  
-            user = form.save()  
-            login(request, user)  
-            user_logged_in.send(sender=user.__class__, user=user, request=request)  
-            return redirect('write_article')  # Redirect to write article after registration  
-    else:  
-        form = CustomUserCreationForm()  
-
-    return render(request, 'accounts/register.html', {'form': form})  
+def register_view(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('home')
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'accounts/register.html', {'form': form})
 
 def login_view(request):  
     if request.method == "POST":  
