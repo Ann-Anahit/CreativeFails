@@ -2,15 +2,25 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate  
 from django.contrib.auth.forms import AuthenticationForm  
 from django.contrib.auth.decorators import login_required  
-from .forms import CustomUserCreationForm  # Assuming this is your custom user registration form  
-from django.contrib.auth.signals import user_logged_in  
+from .forms import CustomUserCreationForm  
+from django.contrib.auth.signals import user_logged_in 
+from django.contrib.auth.views import LoginView   
 from django.contrib import messages  
+from .models import CustomUser
 
 def register_view(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            user = form.save()
+            email = form.cleaned_data['email']
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1'] 
+
+            user = CustomUser.objects.create_user(
+                email=email,
+                username=username,
+                password=password
+            )
             login(request, user)
             return redirect('home')
     else:
@@ -34,7 +44,10 @@ def login_view(request):
     else:  
         form = AuthenticationForm()  
 
-    return render(request, 'accounts/login.html', {'form': form})  
+    return render(request, 'accounts/registration/login.html', {'form': form})  
+
+class CustomLoginView(LoginView):  
+    template_name = 'accounts/registration/login.html'
 
 @login_required  
 def profile_view(request):  

@@ -17,12 +17,14 @@ Including another URLconf
 from django.contrib import admin  
 from django.urls import path, include  
 from . import views
+from .views import CustomLoginView 
 
 urlpatterns = [  
     path("admin/", admin.site.urls),  
     path("", include("map.urls")),  
     path("register/", views.register_view, name="register"),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path("login/", CustomLoginView.as_view(), name="login"),
+    path("accounts/", include("django.contrib.auth.urls")),
     path("posts/", include("posts.urls")),       
 ]  
   

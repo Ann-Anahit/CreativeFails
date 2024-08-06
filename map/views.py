@@ -7,7 +7,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 
 def profile_view(request):
-    user = request.user  # Assuming you're using Django's auth system
+    user = request.user  
     # Additional logic to fetch profile data if needed
     return render(request, 'profile.html', {'user': user})
 
@@ -15,26 +15,25 @@ def home_view(request):
     return render(request, 'map/home.html')  
 
 def login_view(request):
-    # Your login logic here (e.g., handling authentication forms, etc.)
-    return render(request, 'login.html')  # Replace with your login template name
+    return render(request, 'registration/login.html')  
 
 def logout_view(request):
-    logout(request)  # Log the user out using Django's logout function
-    return render(request, 'logout.html')  # Redirect to a logout confirmation page (optional)
+    logout(request)  
+    return render(request, 'registration/logout.html')  
 
 def register_view(request):  
     if request.method == 'POST':  
         form = RegistrationForm(request.POST)  
         if form.is_valid():  
-            # Create and save the new user  
+           
             user = form.save(commit=False)  
-            user.set_password(form.cleaned_data['password'])  # Hash the password  
+            user.set_password(form.cleaned_data['password'])  
             user.save()  
-            return redirect('home')  # Redirect after successful registration  
+            return redirect('home')   
     else:  
         form = RegistrationForm()  
 
-    # Update the template path to the accounts app  
+  
     return render(request, 'accounts/register.html', {'form': form})
 
 def custom_404_view(request, exception):

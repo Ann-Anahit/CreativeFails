@@ -3,6 +3,7 @@ from django.db import models
 from django.utils import timezone
 
 
+
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, username, password=None, **extra_fields):
         if not email:
