@@ -2,6 +2,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Permis
 from django.db import models
 from django.utils import timezone
 
+
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, username, password=None, **extra_fields):
         if not email:
@@ -41,7 +42,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         return self.email
 
 class Post(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True, related_name='account_posts')
     title = models.CharField(max_length=255) 
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    

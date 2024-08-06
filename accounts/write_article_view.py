@@ -1,18 +1,17 @@
 from django.contrib.auth.decorators import login_required
+from django import forms
+from .models import Post
 
 @login_required
 def write_article_view(request):
     if request.method == 'POST':
-        form = WriteArticleForm(request.POST, request.FILES)  # Assuming a WriteArticleForm
+        form =PostForm(request.POST) 
         if form.is_valid():
-            # Get the currently logged-in user
-            user = request.user
-            # Set the user for the form's instance
-            form.instance.user = user
-            post = form.save()
-            # ... other logic
-            return redirect('some_success_view')
+            post = form.save(commit=False)  # Don't save immediately
+            post.user = request.user  # Assign the logged-in user
+            post.save()  # Now save the post with the assigned user
+            # ... other success logic ...
     else:
-        form = WriteArticleForm()
+        form = PostForm()
 
     return render(request, 'posts/write_article.html', {'form': form})

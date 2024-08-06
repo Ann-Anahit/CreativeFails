@@ -4,7 +4,7 @@ from accounts.models import CustomUser
 
 
 class Post(models.Model):  
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)  
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True, related_name='user_posts')
     title = models.CharField(max_length=200) 
 
     content = models.TextField()  
