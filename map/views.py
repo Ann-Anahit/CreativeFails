@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 from .forms import RegistrationForm  
 from django.conf import settings  
 
-def index_view(request):  
-    return render(request, 'map/index.html')  
+def home_view(request):  
+    return render(request, 'map/home.html')  
 
 def register_view(request):  
     if request.method == 'POST':  

@@ -11,7 +11,7 @@ def register_view(request):
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}!')
             login(request, user)
-            return redirect('index')
+            return redirect('home')
     else:
         form = UserCreationForm()
     return render(request, 'accounts/register.html', {'form': form})
