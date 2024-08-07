@@ -38,10 +38,19 @@ def update_post_view(request, post_id):
         if form.is_valid():  
             form.save()  
             messages.success(request, 'Your post has been updated successfully!')
-            return redirect('post_detail', post_id=post.id)  
+            return redirect('post_detail', post_id=post.id) 
+        if request.user != post.author:
+            return HttpResponseForbidden("You can only edit your own posts.") 
     else:  
         form = PostForm(instance=post)  
     return render(request, 'posts/post_form.html', {'form': form})  
+
+@login_required
+def write_article_view(request):
+    if request.user.is_authenticated:
+        return render(request, 'write_article.html')
+    else:
+       return redirect('login')
 
 @login_required
 def delete_post_view(request, post_id):  

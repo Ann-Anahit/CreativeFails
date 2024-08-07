@@ -16,6 +16,9 @@
         <button type="submit">Delete Post</button>
     </form>
     <br>
+    {% if post.author == request.user %}
+    <a href="{% url 'update_post' post.id %}">Edit Post</a>
+    {% endif %}
     <a href="{% url 'post_list' %}">Back to List</a>
 </body>
 

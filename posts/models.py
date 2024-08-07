@@ -1,9 +1,11 @@
 from django.db import models  
 from django.utils import timezone  
 from accounts.models import CustomUser
+from django.core.validators import MaxLengthValidator
 
 class Post(models.Model):  
-    title = models.CharField(max_length=200)  
+    title = models.CharField(max_length=200)
+    content = models.TextField(validators=[MaxLengthValidator(1000)])  
     content = models.TextField()  
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)  
     created_at = models.DateTimeField(auto_now_add=True)  
