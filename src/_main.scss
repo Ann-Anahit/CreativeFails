@@ -108,3 +108,32 @@ button {
         flex-direction: column;
     }
 }
+
+
+.post-detail {
+    h1 {
+        color: $black_color;
+    }
+
+    p {
+        color: $black_color;
+    }
+
+    a {
+        margin-right: 10px;
+        color: $secondary_color;
+        text-decoration: none;
+    }
+
+    button {
+        background-color: $secondary_color;
+        color: $white_color;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $tertiary_color;
+        }
+    }
+}

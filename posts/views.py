@@ -13,7 +13,7 @@ def create_post_view(request):
             post.user = request.user
             post.save()
             messages.success(request, 'Your post has been created successfully!')
-            return redirect('home')
+            return redirect('home') 
     else:
         form = PostForm()
     return render(request, 'posts/write_article.html', {'form': form})
@@ -32,22 +32,22 @@ def post_detail_view(request, post_id):
 
 @login_required
 def update_post_view(request, post_id):  
-    post = get_object_or_404(Post, id=post_id)  
+    post = get_object_or_404(Post, id=post_id)  # Use id to get the specific post
     if request.method == 'POST':  
         form = PostForm(request.POST, instance=post)  
         if form.is_valid():  
             form.save()  
             messages.success(request, 'Your post has been updated successfully!')
-            return redirect('post_detail', post_id=post.id)  
+            return redirect('post_detail', post_id=post.id)  # Redirect to the updated post's detail view
     else:  
         form = PostForm(instance=post)  
     return render(request, 'posts/post_form.html', {'form': form})  
 
 @login_required
 def delete_post_view(request, post_id):  
-    post = get_object_or_404(Post, id=post_id)  
+    post = get_object_or_404(Post, id=post_id)  # Use id to get the specific post
     if request.method == 'POST':  
         post.delete()  
         messages.success(request, 'Your post has been deleted successfully!')
-        return redirect('post_list')  
+        return redirect('post_list') 
     return render(request, 'posts/post_confirm_delete.html', {'post': post})  
