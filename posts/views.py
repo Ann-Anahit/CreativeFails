@@ -20,7 +20,7 @@ def create_post_view(request):
 
 def home_view(request):
     posts = Post.objects.all()
-    return render(request, 'home.html', {'posts': posts})
+    return render(request, 'map/home.html', {'posts': posts})
 
 def post_list_view(request):  
     posts = Post.objects.all()  

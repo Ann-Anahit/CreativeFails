@@ -1,16 +1,17 @@
-<!-- posts/templates/posts/post_list.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post List</title>
 </head>
 
 <body>
-    <h1>Posts</h1>
+    <h1>Post List</h1>
     <ul>
         {% for post in posts %}
-        <li>{{ post.title }}</li> <!-- Display post title -->
+        <li>{{ post.title }} - {{ post.content }}</li>
         {% endfor %}
     </ul>
 </body>

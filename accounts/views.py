@@ -43,10 +43,10 @@ def login_view(request):
     else:  
         form = AuthenticationForm()  
 
-    return render(request, 'accounts/registration/login.html', {'form': form})  
+    return render(request, 'registration/login.html', {'form': form})  
 
 class CustomLoginView(LoginView):  
-    template_name = 'accounts/registration/login.html'
+    template_name = 'registration/login.html'
 
 @login_required  
 def profile_view(request):  
