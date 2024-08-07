@@ -1,11 +1,10 @@
-from django.shortcuts import render, redirect  
-from django.contrib.auth import login, logout, authenticate  
-from django.contrib.auth.forms import AuthenticationForm  
-from django.contrib.auth.decorators import login_required  
-from .forms import CustomUserCreationForm  
-from django.contrib.auth.signals import user_logged_in 
-from django.contrib.auth.views import LoginView   
-from django.contrib import messages  
+from django.shortcuts import render, redirect
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import LoginView
+from django.contrib import messages
+from .forms import CustomUserCreationForm
 from .models import CustomUser
 
 def register_view(request):
@@ -56,4 +55,4 @@ def profile_view(request):
 
 def logout_view(request):  
     logout(request)  
-    return redirect('home') 
+    return redirect('home')

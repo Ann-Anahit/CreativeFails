@@ -1,12 +1,11 @@
-from django import forms  
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm  
-from .models import CustomUser  
+from django import forms
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from .models import CustomUser
 from django.core.exceptions import ValidationError
-
-
 
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
+    
     class Meta:
         model = CustomUser
         fields = ('username', 'email', 'password1', 'password2')
@@ -45,8 +44,7 @@ class CustomUserCreationForm(UserCreationForm):
         
         if commit:  
             user.save()  
-        return user  
-
+        return user
 
 class CustomUserChangeForm(UserChangeForm):  
     class Meta:  

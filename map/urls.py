@@ -1,8 +1,8 @@
-from django.urls import path  
-from .views import home_view, custom_404_view  
+from django.urls import path
+from . import views
 
-urlpatterns = [  
-    path('', home_view, name='home'),  
+urlpatterns = [
+    path('', views.home_view, name='home'),
 ]  
 
-handler404 = custom_404_view
+handler404 = 'map.views.custom_404_view'
