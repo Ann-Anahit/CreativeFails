@@ -29,6 +29,9 @@
         </div>
     </header>
     <main>
+        {% if user.is_authenticated %}
+        <h2>Welcome, {{ user.username }}!</h2>
+        {% endif %}
         <div class="welcome">
             <h3>Welcome to Creative Fails, </h3>
             <p>the unique platform dedicated to the art of failure. Here, we share stories of setbacks in art, digital

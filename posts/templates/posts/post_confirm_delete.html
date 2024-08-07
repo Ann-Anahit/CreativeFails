@@ -4,16 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Delete Post</title>
+
 </head>
 
 <body>
-    <h1>Confirm Delete Post</h1>
-    <p>Are you sure you want to delete "{{ post.title }}"?</p>
-    <form action="{% url 'delete_post' post.id %}" method="POST">
+    <h1>Delete Post</h1>
+    <p>Are you sure you want to delete the post titled "{{ post.title }}"?</p>
+    <form method="POST">
         {% csrf_token %}
-        <button type="submit">Confirm Delete</button>
+        <button type="submit">Yes, Delete</button>
+        <a href="{% url 'post_detail' post.id %}">Cancel</a>
     </form>
-    <a href="{% url 'post_detail' post.id %}">Cancel</a>
 </body>
 
 </html>
