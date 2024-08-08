@@ -8,7 +8,7 @@ class CustomLoginView(LoginView):
     def form_valid(self, form):
         user = form.get_user()
         login(self.request, user)
-        return redirect('home')
+        return redirect('map/home')
 
 def register_view(request):
     if request.method == 'POST':
@@ -18,7 +18,7 @@ def register_view(request):
             username = form.cleaned_data.get('username')
             messages.success(request, 'Account created for {username}!')
             login(request, user)
-            return redirect('home')
+            return redirect('map/home')
     else:
         form = UserCreationForm()
     return render(request, 'accounts/register.html', {'form': form})

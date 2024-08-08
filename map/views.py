@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 
 def profile_view(request):
     user = request.user  
-    return render(request, 'profile.html', {'user': user})
+    return render(request, 'accounts/profile.html', {'user': user})
 
 def home_view(request):  
     return render(request, 'map/home.html')  
@@ -28,7 +28,7 @@ def register_view(request):
             user = form.save(commit=False)  
             user.set_password(form.cleaned_data['password'])  
             user.save()  
-            return redirect('home')   
+            return redirect('map/home')   
     else:  
         form = RegistrationForm()  
 

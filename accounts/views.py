@@ -21,32 +21,28 @@ def register_view(request):
                 password=password
             )
             login(request, user)
-            return redirect('home')
+            return redirect('map/home')
     else:
         form = CustomUserCreationForm()
     return render(request, 'accounts/register.html', {'form': form})
 
-def login_view(request):  
-    if request.method == "POST":  
-        form = AuthenticationForm(data=request.POST)  
+class CustomLoginView(LoginView): 
+    template_name = 'accounts/login.html'   
+
+    def post(self, request, *args, **kwargs):  
+        form = self.get_form()  
         if form.is_valid():  
             username = form.cleaned_data.get('username')  
             password = form.cleaned_data.get('password')  
             user = authenticate(request, username=username, password=password)  
             if user is not None:  
                 login(request, user)  
-                return redirect('map/home')  # Redirect after successful login  
+                return redirect('map/home')   
             else:  
                 messages.error(request, "Invalid username or password.")  
         else:  
             messages.error(request, "Please correct the errors below.")  
-    else:  
-        form = AuthenticationForm()  
-
-    return render(request, 'accounts/login.html', {'form': form})  
-
-class CustomLoginView(LoginView):  
-    template_name = 'accounts/login.html'
+        return self.form_invalid(form)   
 
 @login_required  
 def profile_view(request):  
