@@ -6,6 +6,7 @@ footer {
     justify-content: center;
     gap: calc($basic_distance * 2);
     padding: $basic_distance 0;
+    flex-grow: 1;
 
 
     img {

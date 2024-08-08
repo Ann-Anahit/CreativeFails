@@ -7,6 +7,10 @@ from django.contrib import messages
 from .forms import CustomUserCreationForm
 from .models import CustomUser
 
+
+class CustomLoginView(LoginView):  
+    template_name = 'accounts/login.html' 
+
 def register_view(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
@@ -26,11 +30,9 @@ def register_view(request):
         form = CustomUserCreationForm()
     return render(request, 'accounts/register.html', {'form': form})
 
-class CustomLoginView(LoginView): 
-    template_name = 'accounts/login.html'   
-
-    def post(self, request, *args, **kwargs):  
-        form = self.get_form()  
+def custom_login(request):  
+    if request.method == 'POST':  
+        form = AuthenticationForm(data=request.POST)  
         if form.is_valid():  
             username = form.cleaned_data.get('username')  
             password = form.cleaned_data.get('password')  
@@ -38,11 +40,9 @@ class CustomLoginView(LoginView):
             if user is not None:  
                 login(request, user)  
                 return redirect('map/home')   
-            else:  
-                messages.error(request, "Invalid username or password.")  
-        else:  
-            messages.error(request, "Please correct the errors below.")  
-        return self.form_invalid(form)   
+    else:  
+        form = AuthenticationForm()  
+    return render(request, 'accounts/login.html', {'form': form})  
 
 @login_required  
 def profile_view(request):  
