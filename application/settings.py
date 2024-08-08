@@ -99,7 +99,7 @@ DATABASES = {
         'USER': 'u88zg4h2jvc',
         'PASSWORD': 'XTugDYbhDMYL',
         'HOST': 'ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech',
-        'PORT': '5432',  # Default PostgreSQL port
+        'PORT': '5432', 
     }
 }
 
