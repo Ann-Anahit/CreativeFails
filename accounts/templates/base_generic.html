@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/webfonts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <title>{% block title %}Creative Fails{% endblock %}</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}"><img class="logo" src="{% static 'images/logo_cf.png' %}" alt="Logo"></a>
+                </li>
+                <li><a href="{% url 'write_article' %}">Write Article</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main class="main-container">
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <a href="https://www.twitter.com/" target="_blank" rel="noopener" aria-label="Visit our Twitter page">
+            <img src="{% static 'images/x-twitter.png' %}" alt="Twitter" class="social">
+        </a>
+        <a href="https://github.com" aria-label="Open-source code on GitHub" target="_blank">
+            <img src="{% static 'images/github.png' %}" alt="GitHub" class="social">
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Visit our Instagram page">
+            <img src="{% static 'images/instagram.png' %}" alt="Instagram" class="social">
+        </a>
+    </footer>
+</body>
+
+</html>

@@ -8,14 +8,13 @@ from django.contrib.auth.decorators import login_required
 
 def profile_view(request):
     user = request.user  
-    # Additional logic to fetch profile data if needed
     return render(request, 'profile.html', {'user': user})
 
 def home_view(request):  
     return render(request, 'map/home.html')  
 
 def login_view(request):
-    return render(request, 'registration/login.html')  
+    return render(request, 'accounts/login.html')  
 
 def logout_view(request):
     logout(request)

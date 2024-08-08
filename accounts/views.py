@@ -35,7 +35,7 @@ def login_view(request):
             user = authenticate(request, username=username, password=password)  
             if user is not None:  
                 login(request, user)  
-                return redirect('home')  # Redirect after successful login  
+                return redirect('map/home')  # Redirect after successful login  
             else:  
                 messages.error(request, "Invalid username or password.")  
         else:  
@@ -43,10 +43,10 @@ def login_view(request):
     else:  
         form = AuthenticationForm()  
 
-    return render(request, 'registration/login.html', {'form': form})  
+    return render(request, 'accounts/login.html', {'form': form})  
 
 class CustomLoginView(LoginView):  
-    template_name = 'registration/login.html'
+    template_name = 'accounts/login.html'
 
 @login_required  
 def profile_view(request):  
@@ -55,4 +55,4 @@ def profile_view(request):
 
 def logout_view(request):  
     logout(request)  
-    return redirect('home')
+    return redirect('map/home')

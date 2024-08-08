@@ -99,9 +99,11 @@ main .blog-posts article .meta .author {
 }
 
 .main-container {
+  flex-grow: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-grow: 1;
 }
 
 .registration-form {
@@ -113,6 +115,7 @@ main .blog-posts article .meta .author {
   max-width: 400px;
   text-align: center;
   width: 100%;
+  margin-bottom: 2rem;
 }
 .registration-form form {
   display: flex;
