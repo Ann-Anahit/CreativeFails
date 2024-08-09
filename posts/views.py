@@ -63,5 +63,4 @@ def delete_post_view(request, post_id):
 @login_required  
 def custom_logout_view(request):  
     logout(request)  
-    messages.success(request, 'You have been logged out successfully.')  
     return redirect('home')   
