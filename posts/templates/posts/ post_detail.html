@@ -13,10 +13,17 @@
     <p>{{ post.content }}</p>
     <p>Created at: {{ post.created_at }}</p>
 
-    {% if post.user == request.user %}
-    <a href="{% url 'update_post' post.id %}">Edit Post</a>
-    <a href="{% url 'delete_post' post.id %}">Delete Post</a>
-    {% endif %}
+    <ul>
+        {% for post in posts %}
+        {% if post.user == request.user %}
+        <li>
+            <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+            <a href="{% url 'update_post' post.id %}">Edit Post</a>
+            <a href="{% url 'delete_post' post.id %}">Delete Post</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
 
     <br>
     <a href="{% url 'post_list' %}">Back to List</a>
