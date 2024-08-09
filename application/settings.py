@@ -14,9 +14,7 @@ import os
 from pathlib import Path
 import dj_database_url
 
-DATABASES = {
-    'default':dj_database_url.parse(os.environ.get("DATABASE_URL"))
-}
+
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeinstitute-ide.net/",
@@ -100,15 +98,20 @@ WSGI_APPLICATION = 'application.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+ #    'default': {
+  #      'ENGINE': 'django.db.backends.postgresql',
+    #    'NAME': 'sport_pond_doing_88171',
+     #   'USER': 'u88zg4h2jvc',
+      #  'PASSWORD': 'XTugDYbhDMYL',
+       # 'HOST': 'ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech',
+        #'PORT': '5432', 
+ #   }
+#}
+
+
 DATABASES = {
-     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sport_pond_doing_88171',
-        'USER': 'u88zg4h2jvc',
-        'PASSWORD': 'XTugDYbhDMYL',
-        'HOST': 'ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech',
-        'PORT': '5432', 
-    }
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
 # Password validation
