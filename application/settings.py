@@ -111,8 +111,9 @@ WSGI_APPLICATION = 'application.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL').encode('utf-8').decode('utf-8'))
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
