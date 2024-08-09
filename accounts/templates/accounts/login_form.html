@@ -1,19 +1,42 @@
-<form action="{% url 'login' %}" method="post">
-    {% csrf_token %}
-    <label for="username">Username or email:</label>
-    <input type="text" id="username" name="username" placeholder="Enter your username or email" required>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" placeholder="Enter your password" required>
-    <button type="submit">Login</button>
-    {% if form.errors %}
-    <div class="error-messages">
-        {% for field in form %}
-        {% for error in field.errors %}
-        <p>{{ error }}</p>
-        {% endfor %}
-        {% endfor %}
-    </div>
-    {% endif %}
-</form>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
 
-<a href="{% url 'password_reset' %}">Forgot Password?</a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <!-- You can link any CSS files here -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- example for linking CSS -->
+</head>
+
+<body>
+
+    <h1>Login</h1>
+
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <label for="username">Username or email:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username or email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+        <button type="submit">Login</button>
+
+        {% if form.errors %}
+        <div class="error-messages">
+            {% for field in form %}
+            {% for error in field.errors %}
+            <p>{{ error }}</p>
+            {% endfor %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    </form>
+
+    <a href="{% url 'password_reset' %}">Forgot Password?</a>
+
+</body>
+
+</html>

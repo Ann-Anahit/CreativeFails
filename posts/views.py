@@ -15,7 +15,7 @@ def create_post_view(request):
             post.user = request.user
             post.save()
             messages.success(request, 'Your post has been created successfully!')
-            return redirect('posts/post_detail', post_id=post.id)
+            return redirect('post_detail', post_id=post.id)
     else:
         form = PostForm()
     return render(request, 'posts/post_form.html', {'form': form, 'post': None})
@@ -30,7 +30,7 @@ def post_list_view(request):
 
 def post_detail_view(request, post_id):
     post = get_object_or_404(Post, id=post_id)
-    return render(request, 'posts/post_detail.html', {'post': post})
+    return render(request, 'posts/write', {'post': post})
 
 @login_required  
 def update_post_view(request, post_id):  
@@ -64,4 +64,4 @@ def delete_post_view(request, post_id):
 def custom_logout_view(request):  
     logout(request)  
     messages.success(request, 'You have been logged out successfully.')  
-    return redirect('map/home.html')   
+    return redirect('home')   

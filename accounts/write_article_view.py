@@ -7,10 +7,10 @@ def write_article_view(request):
     if request.method == 'POST':
         form =PostForm(request.POST) 
         if form.is_valid():
-            post = form.save(commit=False)  # Don't save immediately
-            post.user = request.user  # Assign the logged-in user
-            post.save()  # Now save the post with the assigned user
-            # ... other success logic ...
+            post = form.save(commit=False)  
+            post.user = request.user  
+            post.save() 
+      
     else:
         form = PostForm()
 
