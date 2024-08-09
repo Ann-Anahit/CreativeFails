@@ -15,9 +15,13 @@ from pathlib import Path
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.parse('postgres://u88zg4h2jvc:XTugDYbhDMYL@ep-gentle-mountain-a23bxz6h-pooler.eu-central-1.aws.neon.tech/sport_pond_doing_88171')
+    'default':dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.codeinstitute-ide.net/",
+    "https://*.herokuapp.com"
+]
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -31,7 +35,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@-_n)l8^ri0wfl3ybep&&!f&pwkn#1kga-61nc-xb=$6=n8sb3'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
