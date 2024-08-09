@@ -2,11 +2,13 @@ from django.db import models
 from django.utils import timezone
 from accounts.models import CustomUser
 from django.core.validators import MaxLengthValidator
+from cloudinary.models import CloudinaryField
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField(validators=[MaxLengthValidator(2000)])  
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    featured_image = CloudinaryField('image', default='placeholder')
     created_at = models.DateTimeField(auto_now_add=True)
     visibility = models.BooleanField(default=True)
 
