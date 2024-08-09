@@ -1,9 +1,10 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseForbidden
-from django.contrib import messages
-from .models import Post, Comment
-from .forms import PostForm, CommentForm
+from django.shortcuts import render, get_object_or_404, redirect  
+from django.contrib.auth.decorators import login_required  
+from django.contrib.auth import logout 
+from django.http import HttpResponseForbidden  
+from django.contrib import messages  
+from .models import Post, Comment  
+from .forms import PostForm, CommentForm  
 
 @login_required
 def create_post_view(request):
@@ -31,11 +32,11 @@ def post_detail_view(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     return render(request, 'posts/post_detail.html', {'post': post})
 
-@login_required
-def update_post_view(request, post_id):
-    post = get_object_or_404(Post, id=post_id)
-    if request.user != post.user:
-        return HttpResponseForbidden("You can only edit your own posts.")
+@login_required  
+def update_post_view(request, post_id):  
+    post = get_object_or_404(Post, id=post_id)  
+    if request.user != post.user:  
+        return HttpResponseForbidden("You can only edit your own posts.")  
     
     if request.method == 'POST':
         form = PostForm(request.POST, instance=post)
@@ -58,3 +59,9 @@ def delete_post_view(request, post_id):
         messages.success(request, 'Your post has been deleted successfully!')
         return redirect('posts/post_list')
     return render(request, 'posts/confirm_delete.html', {'post': post})
+
+@login_required  
+def custom_logout_view(request):  
+    logout(request)  
+    messages.success(request, 'You have been logged out successfully.')  
+    return redirect('map/home.html')   
