@@ -1,11 +1,18 @@
-{% load static %}
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <h2>Recent Posts</h2>
 {% for post in posts %}
 <h3>{{ post.title }}</h3>
-<p>{{ post.content|truncatewords:30 }}</p>
-<p>By {{ post.author }}</p>
-{% endfor %}
-{% endblock %}
+<div class="image-container">
+    {% if "placeholder" in post.featured_image.url %}
+    <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+    {% else %}
+    <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
+    {% endif %}
+    <div class="image-flash">
+        <p>{{ post.content|truncatewords:30 }}</p>
+        <p>By {{ post.author }}</p>
+        {% endfor %}
+        {% endblock %}
