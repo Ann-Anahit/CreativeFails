@@ -14,12 +14,8 @@ import os
 from pathlib import Path
 import dj_database_url
 
-
-
-CSRF_TRUSTED_ORIGINS = [
-    "https://*.codeinstitute-ide.net/",
-    "https://*.herokuapp.com"
-]
+if os.path.isfile("env.py"):
+    import env
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -36,7 +32,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '8000-annanahit-creativefails-eunzjv2fi27.ws.codeinstitute-ide.net', '.herokuapp.com']
 
@@ -73,7 +69,6 @@ MIDDLEWARE = [
     
 ]
 
-
 ROOT_URLCONF = 'application.urls'
 
 TEMPLATES = [
@@ -98,22 +93,15 @@ WSGI_APPLICATION = 'application.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
- #    'default': {
-  #      'ENGINE': 'django.db.backends.postgresql',
-    #    'NAME': 'sport_pond_doing_88171',
-     #   'USER': 'u88zg4h2jvc',
-      #  'PASSWORD': 'XTugDYbhDMYL',
-       # 'HOST': 'ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech',
-        #'PORT': '5432', 
- #   }
-#}
-
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL", "postgres://user:password@localhost:5432/mydb"))
 }
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.gitpod.io",
+    "https://*.herokuapp.com"
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
