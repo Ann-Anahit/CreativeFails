@@ -1,133 +1,394 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# CreativeFails
 
-Welcome Anna Afijan,
+![Project-image](documentation/responsive.png)
 
 
+[View the website here](https://fooroom-9cc630806337.herokuapp.com/)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## Contents
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+* [Features](#Features)
+  * [Existing Features](#existing-features)
+    * [Home page](#home-page)
+    * [Post page](#post-page)
+    * [Profile page](#profile-page)
+    * [Register/Login page](#registerlogin-page)
+  * [Future Implementations](#future-implementations)
+  * [Defensive Design Feaures](#defensive-design-features)
 
-## Gitpod Reminders
+* [User Experience](#User-Experience)
+  * [User Stories](#User-Stories)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+* [Design](#Design)
+  * [Color Scheme](#color-scheme)
+  * [Typography](#Typography)
+  * [Images](#Images)
+  * [Wireframes](#wireframes)
+  * [Accessibility](#Accessibility)
+  * [Agile Methodology](#agile-methodology)
+  * [Data Model](#data-model)
 
-`python3 -m http.server`
+* [Technologies Used](#Technologies-Used)
+  * [Languages Used](#Languages-Used)
+  * [Frameworks, Libraries & Programs Used](#frameworks--libraries-used)
+  * [Other Technologies Used](#other-technologies-used)
 
-A blue button should appear to click: _Make Public_,
+* [Deployment](#Deployment)
+  * [Heroku](#heroku)
+  * [GitHub](#github)
 
-Another blue button should appear to click: _Open Browser_.
+* [Testing](#Testing)
+  * [Solved Bugs](#solved-bugs)
+  * [Unfixed Bugs](#unfixed-bugs)
+  
+* [Credits](#Credits)
+  * [Media](#Media)
+  * [Tutorials & Code Used](#tutorials--code-used)
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+## Features
 
-A blue button should appear to click: _Make Public_,
+The site has two pages, one for the main menu and one for the game itself.
 
-Another blue button should appear to click: _Open Browser_.
+### Existing Features
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+#### Home Page:
+![Home page](documentation/index.png)
 
-To log into the Heroku toolbelt CLI:
+The home page displays a list of posts sorted by recent activity. Each post shows the avatar of the original poster along with information about when the post was posted, how many likes and comments it has, and when it got its latest comment. Clicking any of the posts opens the corresponding post as a new page. Posts designated as "sticky" are always displayed at the top of the list with a light border and a symbol before the title.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+The search bar lets users filter posts to easily find what they're looking for.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+#### Post Page:
+![Post page](documentation/post-detail.png)
 
-### Connecting your Mongo database
+Here, users can see the full contents of a chosen post along with any comments it has. Comments are sorted from oldest to newest in descending order. Under the main content of each post, there's a like button with its associated counter. To the right of it, there are buttons for editing and deleting the post. Given an authenticated user, the buttons appear to give the user full CRUD capabilities. Any user assigned as staff or administrator also gets these controls for all posts and not just their own.
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+#### Profile Page:
+![Profile page](documentation/profile.png)
 
-------
+On the profile page, an authenticated user can write a presentation and upload a profile picture. There's also a button for deleting the account. Users can also see a list of posts and comments made by the associated user, each one linking to its origin.
 
-## Release History
+#### Register/Login Page:
+![Login page](documentation/login.png)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+The pages for account registration and user authentication are kept simple and clean. New users can sign up using a username, with email registration kept optional for a better user experience.
 
-**June 18, 2024,** Add Mongo back into template
+### Future Implementations:
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+The main thing I'd change in the future is the setup for image hosting and external resources. With the current setup, I can't access and change certain factors that are detrimental to page loading and general performace. Cloudinary is slow, Summernote's internal structure doesn't fully comply with current best practices, and the bootstrap imports redundant data. In the scope of a bigger project, I'd have dealt with this, but it wasn't a feasible investment of time for this study project.
 
-**May 28 2024:** Fix Mongo and Links installs
+In a potential future iteration, I'd also like to add private messaging and a friend system. The list view and post detail view should also enable sorting choices.
 
-**April 26 2024:** Update node version to 16
+### Defensive Design Features
 
-**September 20 2023:** Update Python version to 3.9.17.
+These are the features I have implemented for defensive design.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+* Authentication checks
+  * With the @login_required decorator on certain views, I restrict access for unauthenticated users.
+  * Using Django's UserPassesTestMixin, I ensure that users can not edit other user's posts (unless they have administrator access)
+  * Admin features are only accessible if signed in as a superuser
+  * I refrained from using the @csrf_exempt decorator for ajax calls to avoid potential cross-site exploits
+  * Manually inputting URLs to sensitive endpoints such as account deletion does not grant access
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+* Form validation
+  * If a form contains any invalid data on submission, it will refuse to submit and instead warn the user
+  * Image file size is restricted using a custom validator
+  * Model fields that can be manipulated have default values and restrictions such as maximum character count
+  * CSRF token checks ensure that forms can only be submitted by users on the site
+  * No base forms that could enable code injection
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+* Backup and default values
+  * Image fields have a placeholder to prevent broken links
+  * Profiles, images, and more have a creation routine that automatically adds them to prevent null references
+  * Template tags check for placeholders and nonexistent values before rendering anything to the page
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+* Error pages
+  * A custom 404 page appears if users try to visit a non-existent page. The page features a button for returning to the home page.
+  * A custom 500 page appears if the site encounters a server error trying to load content. The same "return to home" button is found here too.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+## User Experience
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### User stories
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+__Site owner / Administrator goals__
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+EPIC - Site Administration
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+* As a site admin, I can manage, edit, and delete content on the site
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+* As a site admin, I can delete user accounts from the site
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+__User goals__
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+EPIC - Site navigation
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+* As a site user, I can have a clear idea of the site as soon as I open it so that I can know whether I should stay there.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+* As a site user, I can see how to navigate the site intuitively so that I can find what I want and find the around the site
 
-------
+* As a site user, I can see a segmented list of posts so that I can select what to read
 
-## FAQ about the uptime script
+* As a site user, I can click on a chosen post to see the whole post and its thread of comments on its own page
 
-**Why have you added this script?**
+EPIC - User posting
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+* As a site user, I can submit a new post to the forum so that people can read my post
 
-**How will this affect me?**
+* As a site user, I can post replies to other people's posts and replies so that we can discuss the content of the post
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+* As a site user, I can edit or delete my posts so that I can correct mistakes
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+* As a site user, I can like posts and see how many likes a post has
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+EPIC - User profile
 
-**So….?**
+* As a site user, I can upload a profile picture
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+* As a site user, I can view the profile page for my account and others
 
-**Can I opt out?**
+* As a site user, I can see my posts and profile picture on my profile page
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+## Design
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+### Color Scheme
 
-**Anything more?**
+![Color Palette](documentation/color-palette.png)
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+I decided from the start that I wanted a "night mode" design for this site, but not just grayscale. I went with muted purple tones. This palette is consistently applied across the whole site, including widgets. Certain important buttons are kept red to highlight their nature, but everything else adheres to the color theme.
 
----
+### Typography
 
-Happy coding!
+For this site, I kept it simple with a clean sans-serif font across the whole site. Roboto is the name of the font, which I imported from Google Fonts.
+
+### Images
+
+The site uses no imagery of its own and instead leaves the whole image space for users' profile pictures.
+
+### Wireframes
+
+Before building the site, I made wireframes for all the main sites. I added a potential sidebar to the wireframe designs to show how the design would respond to such a sidebar if implemented. However, with only basic features on the site, the sidebar has no purpose and has been removed in the final design. 
+
+<details>
+<summary>Post list wireframe</summary>
+
+![Wireframe](documentation/wf-post-list.png)
+</details>
+
+<details>
+<summary>Post detail (thread) wireframe</summary>
+
+![Wireframe](documentation/wf-thread-view.png)
+</details>
+
+<details>
+<summary>Profile page wireframe</summary>
+
+![Wireframe](documentation/wf-profile-page.png)
+</details>
+
+### Accessibility
+
+I ensure high accessibility by using high-contrast design across the entire site. I have also used ARIA features such as the aria-label and aria-hidden HTML tags to help screen readers perform well. I verified the accessibility with Lighthouse, WAVE, and Internet Disability Simulator. 
+
+### Agile Methodology
+
+I used GitHub projects to manage this project's development stages using Agile methodology. You can see my [iterations](https://github.com/EmilionR/django-pp4/milestones) and [project board](https://github.com/users/EmilionR/projects/4/views/1) to learn more.
+
+After breaking up the epics into user stories, I added all the user stories to the Issues page and connected them to the project board. I then set up milestones for each iteration and sorted relevant user stories into the corresponding iteration milestone based on urgency and importance. I kept iterations short and somewhat flexible.
+Each user story has a list of acceptance criteria and associated tasks, each one with a checkbox for easy tracking of progress.
+
+
+### Data Model
+
+![Data model](documentation/forum-erd2.png)
+
+I used a PostgreSQL relational database for this project. The entity relationship diagram (ERD) above represents the database of the project. The one below represents the original idea I envisioned before building the program.
+I had to make some alterations to harmonize better with Django's modular design and safety features.
+
+I use a highly object-oriented design for the project, using abstraction and mixins where applicable to reduce repetitions and redundancy. For example, I have an abstract model laying the foundation for posts and comments. I had to break away from this abstraction a few times due to the way django handles certain relations.
+
+The models for posts and comments are there to let users create content. Each time a user submits a post or comment, a new object based its model is created. Similarly, a profile object is assigned to each new user created. And each time a user likes a post or a comment, this creates a new like object pairing the user and the entry so that users can only like any given entry once.
+
+<details>
+<summary>Old data model</summary>
+
+![Old data model](documentation/forum-erd.png)
+</details>
+
+## Technologies Used
+
+### Languages Used
+
+Python, HTML, CSS, and JavaScript.
+
+### Frameworks & Libraries Used
+
+Django - The main framework, used for database handling and templates
+
+Bootstrap - Used for more efficient styling and scripting
+
+Summernote - Posting forms
+
+FontAwesome - Supplies the icons used across the site
+
+Google Fonts - Supplies the webfont used
+
+### Other Technologies Used
+
+VSCode - Used for all the coding.
+
+Git - For version control.
+
+GitHub - For project management and storage
+
+Heroku - For live site deployment
+
+AWS - Hosting the database
+
+Cloudinary - Hosting the profile images
+
+Google & Mozilla Developer Tools - For debugging and trying out design improvements on the fly.
+
+GNU Image Manipulation Program - Cropping and scaling images for faster load times.
+
+Figma - Wireframing
+
+Lucidchart - ERD design
+
+Multi Device Webiste Mockup Generator - For testing how the site looks on different devices.
+
+WAVE Evaluation Tool - To check accessibility.
+
+Web Disability Simulator - To check accessibility.
+
+realfavicongenerator.net/ - For the Favicon
+
+## Deployment
+
+### Heroku
+
+To deploy the project to Heroku, I took the following steps.
+
+__Requirements and Procfile__
+
+In order to deploy the project, Heroku needs information about the technologies used. Before deployment, I create a Procfile and a list of requirements. In some cases, you may also need a runtime.txt file specifying the version of Python to use.
+
+* Create a plain file called Procfile without any file suffix, at the root level of the project.
+* Type ```web: gunicorn fooroom.wsgi:application``` into the Procfile and save.
+* In your IDE terminal, type ```pip3 freeze local > requirements.txt``` to create the requirements.
+* (Optional) Create a runtime.txt and type ```python-3.12.1``` (or whichever version you use)
+* Commit and push these files to the project repository.
+
+__Create the Heroku app:__
+
+* Sign in or sign up to [Heroku](https://heroku.com/).
+* Click the button that says "Create new app."
+* Enter a unique app name.
+* Choose your region from the dropdown menu.
+* Click the "Create app" button.
+
+__Heroku Settings:__
+
+For Heroku to be able to process and render the project, you must define some environment variables.
+Deploying the project without these is like trying to start a car without the key.
+
+* Go to the settings page of your new app
+* Scroll down and open the Config Vars
+* Add a DATABASE_URL variable and assign it a link to your database
+* Add a SECRET_KEY variable and assign it a secret key of your choice
+* Add a CLOUDINARY_URL variable and assign it a link to your Cloudinary
+
+__Project Settings:__
+
+It's important that the environment variables and settings in the django project are compatible with the settings on heroku. These are the steps to ensure a proper setup.
+
+* Include ```https://<your_app_name>.herokuapp.com``` in the ALLOWED_HOSTS and CSRF_TRUSTED_ORIGINS lists inside the settings.py file.
+* Make sure that the environment variables (DATABASE_URL, SECRET_KEY, and CLOUDINARY_URL) are correctly set to ```os.environ.get("<variable_name>")```
+* If making changes to static files or apps, make sure to run collectstatic or migrate as needed.
+* Commit and push to the repository.
+
+__Connect the repository__
+
+Once your Heroku settings and GitHub repository are up to date, it's time to connect the two.
+
+* Go to the Deploy tab of your Heroku app.
+* Find the "Deployment method" section and click GitHub.
+* Type in the name of your repository to search for it
+* Click 'Connect' to connect the repository
+* (Optional) Enable automatic deployment to automatically update the Heroku app whenever you push to GitHub
+
+__Deploy the project to Heroku__
+
+Now, all that's left to do is to deploy and open the app.
+
+* Click "Deploy branch"
+* Wait for Heroku to finish building the app.
+* Upon successful deployment, click the "View" button to open the app.
+
+### GitHub
+
+__How to Fork the Repository__
+
+1. Log in (or sign up) to GitHub.
+2. Go to the repository for this project, [EmilionR/django-pp4](https://github.com/EmilionR/django-pp4)
+3. Click the Fork button in the top right corner.
+
+__How to Clone the Repository__
+
+1. Log in (or sign up) to GitHub.
+2. Go to the repository for this project, [EmilionR/django-pp4](https://github.com/EmilionR/django-pp4)
+3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+5. Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
+
+## Testing
+
+Please refer to [TESTING.md](TESTING.md) for full testing documentation.
+
+### Solved Bugs
+
+During development, I came across a multitude of bugs. With some debugging, I got to the root of each issue and corrected its behavior.
+
+* User content would display with incorrect formatting, and editing posts would sometimes load html tags. I fixed this by improving the template tags used and replacing Crispy forms with Summernote.
+* Avatar images would load incorrectly or not at all for new users. I fixed this by building robust checks in the templates for displaying user images.
+* Image upload file size restriction didn't work. I had to create a custom validator to make sure that any image bigger than half a megabyte is rejected.
+* Comments sometimes loaded inside one another, creating a staircase effect. I found the quirk in the template logic that prevented a certain closing div tag from rendering under certain circumstances.
+* The "Delete profile" button incorrectly appeared to any authenticated user viewing another profile (but did not allow deletion of other profiles). With a quick change to the view and template, it no longer appears.
+* Certain forms would re-send their requests when refreshing the page. I added additional checks to the requests to make sure they cannot re-send form data.
+* At one point, the navbar toggler became unresponsive under certain circumstances. I found a bootstrap tag that I had placed in the wrong place and moved it to the right place, and the navbar became fully functional again.
+
+### Unfixed Bugs
+
+The Summernote text editor often appears in its own original theme in the deployed version. I had no luck troubleshooting this issue.
+
+The responsive styling can be somewhat inconsistent. When testing on different browsers and viewport sizes, certain text elements go out of alignment.
+
+## Credits
+
+### Media
+
+**Images used**
+
+Grandmaster - [Generated with Night Cafe](https://creator.nightcafe.studio/)
+
+Cat - [Photo by Raoul Droog](https://unsplash.com/photos/russian-blue-cat-wearing-yellow-sunglasses-yMSecCHsIBc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+  
+Mouse - [Photo by Joshua J. Cottenhttps](https://unsplash.com/photos/a-rat-sitting-on-a-piece-of-wood-QxW15BmJxOQ?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+
+### Tutorials & Code Used
+
+Unique together, abstract classes, and more - [Django Docs](https://docs.djangoproject.com/en/5.0/ref/models/options/)
+
+Signals used for automatically creating a profile when a new user is created and updating post activity when new comments are posted [SimpleIsBetterThanComplex](https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#onetoone) and [GeeksForGeeks](https://www.geeksforgeeks.org/how-to-create-and-use-signals-in-django/)
+
+For cloudinary and profile image form - [Cloudinary Docs](https://cloudinary.com/blog/managing-media-files-in-django) and [Mozilla Developer](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/enctype)
+
+Shortening the datetime format - [Python Docs](https://docs.python.org/3/library/datetime.html)
+
+CSRF without forms for the 'like' button AJAX code - [StackOverflow](https://stackoverflow.com/questions/7827079/django-csrf-token-without-forms)
+
+Queryset manipulation with Django Q model - [Django Docs](https://docs.djangoproject.com/en/5.0/topics/db/queries/#complex-lookups-with-q-objects)
+
+Scrollbar styling - [W3schools](https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp)
+
+Summernote form integration - [Django-Summernote Readme](https://github.com/summernote/django-summernote?tab=readme-ov-file#form)

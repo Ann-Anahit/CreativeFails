@@ -26,7 +26,7 @@ def home_view(request):
 
 def post_list_view(request):
     posts = Post.objects.all()
-    return render(request, 'posts/post_list.html', {'posts': posts})
+    return render(request, 'map/home.html', {'posts': posts})
 
 def post_detail_view(request, post_id):
     post = get_object_or_404(Post, id=post_id)

@@ -32,7 +32,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', '8000-annanahit-creativefails-eunzjv2fi27.ws.codeinstitute-ide.net', '.herokuapp.com']
 
@@ -95,7 +95,8 @@ WSGI_APPLICATION = 'application.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL", "postgres://user:password@localhost:5432/mydb"))
+    'default': dj_database_url.config(
+        default=os.getenv("postgres://user:password@localhost:5432/mydb"))
 }
 
 CSRF_TRUSTED_ORIGINS = [
