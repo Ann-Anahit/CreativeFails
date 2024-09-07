@@ -127,7 +127,7 @@ main .blog-posts article .meta .author {
 .registration-form form div label {
   margin-bottom: 0.5rem;
   font-size: 16px;
-  color: #e3e3e3;
+  color: #333333;
 }
 .registration-form form div input {
   padding: 0.5rem;
@@ -141,7 +141,7 @@ button {
   border: none;
   border-radius: 5px;
   background-color: #7fd9c2;
-  color: #e3e3e3;
+  color: #333333;
   font-size: 1rem;
   cursor: pointer;
   width: 100%;
@@ -171,7 +171,7 @@ button:hover {
 }
 .post-detail button {
   background-color: #7fd9c2;
-  color: #e3e3e3;
+  color: #333333;
   border: none;
   padding: 10px 20px;
   cursor: pointer;

@@ -38,19 +38,19 @@ def register_view(request):
         form = CustomUserCreationForm()  
     return render(request, 'accounts/register.html', {'form': form})
 
-def custom_login(request):  
-    if request.method == 'POST':  
-        form = AuthenticationForm(data=request.POST)  
-        if form.is_valid():  
-            username = form.cleaned_data.get('username')  
-            password = form.cleaned_data.get('password')  
-            user = authenticate(request, username=username, password=password)  
-            if user is not None:  
-                login(request, user)  
-                return redirect('map/home')   
-    else:  
-        form = AuthenticationForm()  
-    return render(request, 'accounts/login.html', {'form': form})  
+def custom_login(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('map/home')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'accounts/login.html', {'form': form})
 
 @login_required  
 def profile_view(request):

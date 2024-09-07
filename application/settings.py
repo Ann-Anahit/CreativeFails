@@ -29,16 +29,22 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'fallback-secret-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '8000-annanahit-creativefails-eunzjv2fi27.ws.codeinstitute-ide.net', '.herokuapp.com']
+ALLOWED_HOSTS = [
+    '8000-annanahit-creativefails-w1lxi9mga0d.ws.codeinstitute-ide.net',
+    'localhost',
+    '127.0.0.1',
+]
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-annanahit-creativefails-w1lxi9mga0d.ws.codeinstitute-ide.net',
+    'https://*.herokuapp.com',
+]
 
-CSRF_TRUSTED_ORIGINS = [  
-    'https://8000-annanahit-creativefails-eunzjv2fi27.ws.codeinstitute-ide.net',  
-]  
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -59,15 +65,14 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
-    'django.middleware.csrf.CsrfViewMiddleware', 
+    "django.middleware.csrf.CsrfViewMiddleware", 
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    
 ]
+
 
 ROOT_URLCONF = 'application.urls'
 
@@ -95,9 +100,17 @@ WSGI_APPLICATION = 'application.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv("postgres://user:password@localhost:5432/mydb"))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'sport_pond_doing_88171',
+        'USER': 'u88zg4h2jvc',
+        'PASSWORD': 'XTugDYbhDMYL',
+        'HOST': 'ep-gentle-mountain-a23bxz6h-pooler.eu-central-1.aws.neon.tech',
+        'PORT': '5432',
+    }
 }
+
+
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.herokuapp.com"
