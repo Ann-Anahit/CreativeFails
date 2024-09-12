@@ -33,7 +33,7 @@ def clean_password1(self):
     password = self.cleaned_data.get('password1')  
     if password and len(password) < 6:  
             raise ValidationError('Your password must contain at least 6 characters.')   
-    return password  # Ensure to return the validated password
+    return password 
 
 def save(self, commit=True):  
     user = super().save(commit=False)  

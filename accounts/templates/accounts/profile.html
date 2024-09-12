@@ -1,9 +1,12 @@
 {% extends 'base_generic.html' %}
 {% load static %}
-{% csrf_token %}
 
 {% block content %}
-<h2>User Profile</h2>
-<p>Welcome, {{ user.username }}!</p>
-
+<div class="main-container">
+    <div class="container">
+        <h3>Welcome, {{ user.username }}!</h3>
+        <p>We're glad to have you here. Feel free to share your experiences with us or draw inspiration from
+            others. We encourage you to comment on other posts and join the conversation!</p>
+    </div>
+</div>
 {% endblock %}

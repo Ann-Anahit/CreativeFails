@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
+</html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
-    <meta name="csrf-token" content="{% csrf_token %}">
     <link rel="stylesheet" href="{% static 'css/webfonts.css' %}">
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
     <title>Register - Creative Fails</title>
@@ -92,14 +92,6 @@
 
                 <button type="submit">Register</button>
             </form>
-            {% csrf_token %}
-            {% if messages %}
-            <ul>
-                {% for message in messages %}
-                <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
         </div>
     </main>
     <footer>
