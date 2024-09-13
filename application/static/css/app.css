@@ -102,16 +102,24 @@ main .blog-posts article .meta .author {
 
 .main-container {
   flex-grow: 1;
-  display: flex;
   align-items: center;
   justify-content: center;
   align-items: flex-start;
   padding: 20px;
   gap: 20px;
+  text-align: center;
+  margin: 1 auto;
+}
+
+.container {
+  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .registration-form {
-  padding: 32px;
+  padding: 24px;
   border: 32px solid #e3e3e3;
   border-radius: 8px;
   background: #C2A4CD;
@@ -121,6 +129,7 @@ main .blog-posts article .meta .author {
   width: 100%;
   margin-top: auto;
   margin-bottom: 1rem;
+  margin: auto;
 }
 .registration-form form {
   display: flex;
@@ -156,8 +165,11 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-  .register-form .write-article-form {
-    padding: 1rem;
+  .register-form,
+  .main-container {
+    padding: 0.5rem;
+    max-width: 200px;
+    margin: 0;
   }
   form div {
     flex-direction: column;
@@ -193,7 +205,7 @@ footer {
   justify-content: center;
   gap: 32px;
   padding: 16px 0;
-  margin-top: auto;
+  margin-top: 100%;
   width: 100%;
 }
 
