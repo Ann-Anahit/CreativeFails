@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/webfonts.css' %}">
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
-    <title>Write Article - Creative Fails</title>
+    <title>{% if post %}Edit Post{% else %}Write Article{% endif %} - Creative Fails</title>
 </head>
 
 <body>
@@ -28,16 +28,24 @@
             <h1>Creative Fails</h1>
         </div>
     </header>
+
     <main>
         <div class="registration-form">
-            <h2>Write Article</h2>
-            <form action="{% url 'write_article' %}" method="post">
+            <!-- Dynamic heading based on whether it's an edit or a new post -->
+            <h2>{% if post %}Edit Post{% else %}Write Article{% endif %}</h2>
+
+            <!-- Form action URL dynamically changes for create or update -->
+            <form action="{% if post %}{% url 'update_post' post.id %}{% else %}{% url 'write_article' %}{% endif %}"
+                method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit">Submit</button>
+
+                <!-- Submit button text changes depending on the action -->
+                <button type="submit">{% if post %}Update{% else %}Submit{% endif %}</button>
             </form>
         </div>
     </main>
+
     <footer>
         <a href="https://www.twitter.com/" target="_blank" rel="noopener" aria-label="Visit our Twitter page">
             <img src="{% static 'images/x-twitter.png' %}" alt="Twitter" class="social">

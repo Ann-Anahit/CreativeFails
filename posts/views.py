@@ -7,20 +7,26 @@ from .models import Post, Comment
 from .forms import PostForm, CommentForm  
 
 @login_required
-def create_post_view(request):
-    """View to create a new post."""
-    if request.method == 'POST':
-        form = PostForm(request.POST, request.FILES)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.user = request.user  
-            post.save()
-            messages.success(request, 'Your post has been created successfully!')
-            return redirect('post_list')
-    else:
-        form = PostForm()
-    return render(request, 'posts/post_form.html', {'form': form, 'post': None})
+def write_article_view(request, post_id=None):
+    if post_id:  # Editing an existing post
+        post = get_object_or_404(Post, id=post_id)
+        if post.user != request.user:  # Ensure the post belongs to the logged-in user
+            return HttpResponseForbidden("You can only edit your own posts.")
+    else:  # Creating a new post
+        post = None
 
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            new_post = form.save(commit=False)  # Don't save to the DB yet
+            new_post.user = request.user  # Set the user field to the logged-in user
+            new_post.save()  # Now save to the DB
+            messages.success(request, 'Your post has been saved successfully!')
+            return redirect('post_list')  # Redirect to post list after saving
+    else:
+        form = PostForm(instance=post)
+
+    return render(request, 'posts/write_article.html', {'form': form, 'post': post})
 
 def home_view(request):  
     """View for the homepage, showing all posts."""  
