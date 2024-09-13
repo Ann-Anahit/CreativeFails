@@ -43,7 +43,7 @@ def custom_login(request):
 @login_required
 def profile_view(request):
     user = request.user
-    return render(request, 'accounts/profile.html', {'user': user})  
+    return render(request, 'map/home.html', {'user': user})  
 
 class CustomLogoutView(LogoutView):
     next_page = 'home' 
