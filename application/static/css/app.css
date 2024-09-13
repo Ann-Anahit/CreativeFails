@@ -5,6 +5,8 @@ body {
   margin: 0;
   min-width: 100%;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 * {
@@ -188,11 +190,11 @@ footer {
   gap: 32px;
   padding: 16px 0;
   margin-top: auto;
-  position: fixed;
-  bottom: 0;
+  position: static;
   width: 100%;
 }
-footer img {
+
+img {
   height: 32px;
 }
 
