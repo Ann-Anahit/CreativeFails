@@ -156,7 +156,6 @@ button {
   border: none;
   border-radius: 5px;
   background-color: #7fd9c2;
-  color: #e3e3e3;
   font-size: 1rem;
   cursor: pointer;
   width: 100%;
@@ -179,14 +178,12 @@ button:hover {
 footer {
   background-color: #C2A4CD;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: calc(16px * 2);
   padding: 16px 0;
   margin-top: auto;
-  position: fixed;
-  bottom: 0;
+  position: static;
   width: 100%;
 
 

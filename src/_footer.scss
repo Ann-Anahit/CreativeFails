@@ -7,9 +7,9 @@ footer {
     gap: calc($basic_distance * 2);
     padding: $basic_distance 0;
     margin-top: auto;
-    position: static;
+    position: fixed;
+    bottom: 0;
     width: 100%;
-
 }
 
 

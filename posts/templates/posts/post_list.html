@@ -1,25 +1,19 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'posts/base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post List</title>
-</head>
+{% block title %}Post List{% endblock %}
 
-<body>
-    <h1>Post List</h1>
-    <ul>
-        {% for post in posts %}
-        <li>
-            <strong>{{ post.title }}</strong> - {{ post.content }}
-            {% if user == post.user %}
-            <a href="{% url 'update_post' post.id %}">Edit</a>
-            {% endif %}
-        </li>
-        {% endfor %}
-    </ul>
-</body>
-
-</html>
+{% block content %}
+<h1>Post List</h1>
+<ul>
+    {% for post in posts %}
+    <li>
+        <h2><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>
+        <p>{{ post.content|truncatewords:20 }}</p>
+        {% if post.featured_image %}
+        <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" style="max-width: 200px;">
+        {% endif %}
+        <a href="{% url 'update_post' post.id %}">Edit</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
