@@ -12,7 +12,12 @@
     <h1>Post List</h1>
     <ul>
         {% for post in posts %}
-        <li>{{ post.title }} - {{ post.content }}</li>
+        <li>
+            <strong>{{ post.title }}</strong> - {{ post.content }}
+            {% if user == post.user %}
+            <a href="{% url 'update_post' post.id %}">Edit</a>
+            {% endif %}
+        </li>
         {% endfor %}
     </ul>
 </body>

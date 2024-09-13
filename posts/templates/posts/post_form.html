@@ -1,12 +1,12 @@
 {% extends 'posts/base.html' %}
 
-{% block title %}{% if post %}Edit Post{% else %}Create Post{% endif %}{% endblock %}
+{% block title %}{% if post %}Edit Post{% else %}Write Article{% endif %}{% endblock %}
 
 {% block content %}
 <div class="registration-form">
     <h2>{% if post %}Edit Post{% else %}Write Article{% endif %}</h2>
     <form action="{% if post %}{% url 'update_post' post.id %}{% else %}{% url 'write_article' %}{% endif %}"
-        method="POST">
+        method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">{% if post %}Update Post{% else %}Create Post{% endif %}</button>
