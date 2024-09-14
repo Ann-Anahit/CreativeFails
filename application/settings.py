@@ -40,7 +40,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-X_FRAME_OPTIONS = 'ALLOWALL'
+
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -53,7 +53,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.herokuapp.com"
 ]
 
-
+X_FRAME_OPTIONS = 'ALLOWALL'
 # Application definition
 
 INSTALLED_APPS = [
