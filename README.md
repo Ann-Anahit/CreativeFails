@@ -3,8 +3,8 @@
 Welcome to Creative Fails! This is a platform where people can share their stories of creative projects that didn't go as planned. Whether it's a design mishap, a crafting disaster, or a failed artistic experiment, Creative Fails embraces the idea that mistakes are part of the creative journey. The community encourages learning from these experiences, sharing laughs, and finding inspiration in imperfection. It's a space where failure isn't the end—it's just another step toward creative growth.
 
 
-Visit the deployed website here → [Creative-Fails](https://zen-oasis-spa-5b31090aaae5.herokuapp.com/)<br>
-The Epics and User Stories you can see here → [GitHub Project](https://github.com/users/enniovilla/projects/3)
+Visit the deployed website here → [Creative-Fails](https://creativefails-b08c6c63e317.herokuapp.com/)<br>
+The User Stories you can see here → [GitHub Project](https://github.com/users/Ann-Anahit/projects/1/views/1)
 
 ![Creative-Fails](documentation/images/am-i-responsive.png)
 
@@ -39,26 +39,28 @@ The Epics and User Stories you can see here → [GitHub Project](https://github.
 
 ### Site Objectives
 
-With the creation of this website I aim to make life easier for clients who want to spend some quiet time in a spa. By booking online, the customer just has to go to our spa and enjoy the time. On the website, customers can also check out all the services we offer.
+CreativeFails is a dynamic platform designed for artists to embrace and learn from their creative missteps. Our mission is to foster a supportive community where artists can share their failures openly, exchange valuable feedback, and gain insights to enhance their craft. By transforming setbacks into opportunities for growth, CreativeFails aims to cultivate resilience and innovation in the artistic journey. Join us in celebrating the imperfect and turning artistic challenges into stepping stones for success.
 
 ### User Stories
 
 #### First Time User
 
-* I want to relax.
-* I want to disconnect from the world.
-* I want to see what kind of services I can find at a spa.
-* I want to book a day to go to the spa.
+* I want to share my Experiences.
+* I want to Receive and Give Feedback.
+* I want to Signe up and Sign in.
+* I want responsiveness from my website.   
+* I want to Connect with the Community.
 
 #### Returning User
 
-* I want to check new treatments the spa has to offer.
-* I want to contact the establishment.
-* I want to sign up and book a date.
+* I want to edit my posts.
+* I want to Explore New art Projects.
+* I want to write new articles.
 
 #### Frequent User
 
-* I want to book new dates to go back.
+* I want to Keep my profile and project gallery fresh, update it.
+* I want to Use my expertise to mentor newer members and offer constructive feedback.
 
 [Back to top](<#content>)
 
@@ -66,73 +68,55 @@ With the creation of this website I aim to make life easier for clients who want
 
 ### Website Structure
 
-My plan was much bigger than I really thought I could do. I didn't expect the fourth Code Institute project to be so extensive and complicated, I hope I can deliver and I say that because it's 5 o'clock in the morning, I haven't slept yet and today is my deadline, but that said, you'll see that the final product came out with less content than what I put in the wireframes, but what matters is that I managed to do a cohesive job!
+My plan was to support artists at all levels. The Home Page welcomes users and highlights featured projects. User Dashboard provides access to posts. Share Your Work lets you upload and showcase projects.
+This website consists of a home page, a posts page, a login page, a registration page.
 
-This website consists of a home page, a treatment page, a booking page, a login page, a registration page, a contact page and a page for users to manage their bookings.
+These additional features will be introduced soon.
+
+Explore: A gallery, search function, and success stories.
+Feedback & Discussion: For sharing and receiving comments.
+Resources: Articles, workshops, and tools.
+Challenges & Collaboration: Current challenges and group projects.
+Events: Upcoming activities.
+Community: Member directories and groups.
+Help & Support: FAQs and contact information.
+Blog: Updates on news and guest posts.
+Privacy Policy & Terms of Service: Ensure transparency and user rights.
+
 
 ### Wireframes
 
-Figma was the software I opted to create the wireframes. I created wireframes for mobile and desktop. Click on the button below to see them.
-<details>
-<summary>Wireframes</summary>
+Figma was the software I opted to create the wireframes. I created wireframes for mobile and desktop.
+
 <br><br>
 Home page<br>
-<img src="documentation/images/index.png">
-<br><br>
-Discover Zen Oasis page - This page I ended up merging with the index page because of the redundant content.<br>
-<img src="documentation/images/discover.png">
-<br><br>
-Treatments/Services page<br>
-<img src="documentation/images/treatments_services.png">
-<br><br>
-Booking page<br>
-<img src="documentation/images/booking.png">
-<br><br>
-Contact page<br>
-<img src="documentation/images/contact.png">
-<br><br>
-Sign In page<br>
-<img src="documentation/images/sign_in.png">
-<br><br>
-Sign Up page<br>
-<img src="documentation/images/sign_up.png">
-<br><br>
-My Bookings page<br>
-<img src="documentation/images/my_bookings.png">
-</details>
-<br>
+<img src="documentation/images/wareframe.png">
+
 
 [Back to top](<#content>)
 
 ### Color Scheme
 
-This website has two main colors, `#78C2AD` being the primary and `#FFF5E0` the secondary, in addition to the black color `#000000` as the font color, the top bar above the navigation bar and details. The color `#609C8B` was used to make some hover effects.
+This website has two main colors, `#C2A4CD` being the primary was used for the the navigation bar and details. The color `#609C8B` was used to make some hover effects.
+and `#FFFFFF` in addition to the black color `#050505` as the font color, 
+Some other singular colors also appear in the project. 
 
-Some other singular colors also appear in the project, such as the colors of the standard Bootstrap buttons.
-
-![Creative-Fails Color Scheme](documentation/images/coolors.png)
-
-[Back to top](<#content>)
-
-### Flow Diagram
-
-This is a very basic flow diagram about the flow an user and an admin could have when using the website.
-
-![Creative-Fails Diagram](documentation/images/diagram.png)
+![Creative-Fails Color Scheme](documentation/images/colors.png)
 
 [Back to top](<#content>)
+
 
 ### Entity Relationship Diagram
 
-The ERD is pretty simple too, thanks to my bad time management.
+The ERD is pretty simple too, thanks to my bad time management. Unfortunately, comments are not yet functioning.
 
-![Creative-Fails Diagram](documentation/images/erd.png)
+![Creative-Fails Diagram](documentation/images/ERD.jpg)
 
 [Back to top](<#content>)
 
 ### Typography
 
-The font I chose to use was [Roboto](https://fonts.google.com/specimen/Roboto) from Google Fonts and as a fall back font, sans-serif.
+The fonts I chose to use were [Roboto](https://fonts.google.com/specimen/Roboto) and [Bebas-Neue] (https://fonts.google.com/specimen/Bebas+Neue?query=bebas+neue) from Google Fonts and as a fall back font, sans-serif.
 
 [Back to top](<#content>)
 
@@ -145,7 +129,7 @@ This is a multi-page website and all of them are responsive. On each page we hav
 - A favicon.<br>
 ![Creative-Fails favicon](documentation/images/favicon.png)
 
-- A navigation bar with clickable logo and names that will take the user to the home page and the menu with sign up button highlighted to facilitate the user experience. If the user can scroll down, the navigation bar will be fixed at the top of the screen for easy access. There is a top bar on top of the navigation bar with the login navigation source.
+- A navigation bar with clickable logo will take the user to the home page and the menu with sign up button highlighted to facilitate the user experience. If the user can scroll down, the navigation bar will be fixed at the top of the screen for easy access. There is a top bar on top of the navigation bar with the login navigation source.
 ![Creative-Fails navbar](documentation/images/navbar.png)
 
 - A footer with social media icons that lead to external pages and to my github page in case you click my name.
@@ -155,22 +139,17 @@ This is a multi-page website and all of them are responsive. On each page we hav
 
 ### The Home Page
 
-On the home page the user can see a carousel with pictures of clients enjoying their times in the spa and also a welcome text, as well as seeing the navigation bar.
-![Creative-Fails home page](documentation/images/index_page.png)
+
+ The Home Page is displayed initially, featuring a welcome text and navigation options.  Clicking the "Sign In" link takes users to the Sign-In Page, and after signing in, they are redirected to the Posts Page to view and interact with posts.
+
+![Creative-Fails home page](documentation/images/home.png)
 
 [Back to top](<#content>)
 
-### The Treatments Page
+### The Posts page
 
-On this page the user will find the treatments the spa has to offer, they are in accordions to improve user experience.
-![Creative-Fails treatment page](documentation/gifs/treatments.gif)
-
-[Back to top](<#content>)
-
-### The Contact Page
-
-The user will find a contact form on this page.
-![Creative-Fails contact page](documentation/images/contact_page.png)
+When users click the logo, they are directed to the Posts Page, which displays all posts from all users.
+![Creative-Fails Posts page](documentation/images/posts.png)
 
 [Back to top](<#content>)
 
@@ -188,45 +167,28 @@ The user can sign up here.
 
 [Back to top](<#content>)
 
-### Book Now Page
+### Write Article Page
 
-This page will take you to the login page in case you are not logged in, but in case you are, you are redirected to the booking page. A small detail is that if you are logged in, at the top right of the screen, below the navigation bar, you can see a message "Hello, username" and this message is seen from every page of the website.
-![Creative-Fails booking page](documentation/images/booking_page.png)
-
-[Back to top](<#content>)
-
-### Booking Successful Page
-
-The user will be able to see a page with a message informing them the booking was made. This message will also show details about the booking. In case the user cannot make the booking because of date mistakes or something else, he will be notified with an alert and won't be able to proceed.
-![Creative-Fails booking successful page](documentation/images/booking_successful.jpg)
+This page will take you to the login page in case you are not logged in, but in case you are, you are redirected to the write article page. 
+![Creative-Fails write article page](documentation/images/write_article.png)
 
 [Back to top](<#content>)
 
-### My Bookings Page
 
-On this page the user will be able to see bookings details, edit and delete their bookings. If the user has no bookings, they will see a message informing them about it.
-![Creative-Fails my bookings page](documentation/images/my_bookings_feature.png)
 
-[Back to top](<#content>)
-
-### Edit & Delete Booking Pages
-Whenever the user tries to edit or delete a booking, they will be notified if they succeeded. In case of editing a booking, if there is something wrong, they will also be notified.
-![Creative-Fails edit bookings page](documentation/gifs/edit_booking.gif)
-![Creative-Fails delete bookings page](documentation/gifs/delete_booking.gif)
-
-[Back to top](<#content>)
-
-### Sign Out Page
-Last but not least we have the logout page that takes the user to the home page after successfully logging out
-![Creative-Fails my bookings page](documentation/images/sign_out_page.png)
-
-[Back to top](<#content>)
 
 ### Future Features
 
-- I would like to have a better booking system, so the user can book singular treatments.
-- I would like to have a payment system integrated to the booking system, so the user can pay ahead and don't have to worry about it later.
-- I would like to have a fully functional authentication system, where users can recover their passwords and get messages on their emails.
+- I would like to have: 
+- Explore: A gallery, search function, and success stories.
+- Feedback & Discussion: For sharing and receiving comments.
+- Resources: Articles, workshops, and tools.
+- Challenges & Collaboration: Current challenges and group projects.
+- Events: Upcoming activities.
+- Community: Member directories and groups.
+- Help & Support: FAQs and contact information.
+- Blog: Updates on news and guest posts.
+-Privacy Policy & Terms of Service: Ensure transparency and user rights.
 
 [Back to top](<#content>)
 
@@ -242,7 +204,8 @@ Last but not least we have the logout page that takes the user to the home page 
 - [Figma](https://www.figma.com/) to create the wireframes.
 - [Chat GPT](https://chat.openai.com/) to generate fictional texts.
 - [Google Fonts](https://fonts.google.com/) to import the font used on the website.
-- [Logo](https://logo.com/) to create favicon.
+- [Favico](https://favicon.io/favicon-converter/) to create favicon.
+- [Logo](https://www.canva.com/) to create Logo.
 - [Am I Responsive?](https://ui.dev/amiresponsive) to display the website image across various devices.
 - [Appetize.io](https://appetize.io/) to simulate the iOS environment.
 - [PostgreSQL](https://www.postgresql.org/) through Code Institute databases.
@@ -300,43 +263,27 @@ Performed tests can be found in [TESTING.md](TESTING.md).
 
 ### Known Bugs
 
-- Sometimes the confirmation alert that you logged in or out successfully pops up next time you change the page.
-- The style of inputs on sign in and sign up pages.
+- The User can't edit/delete the own posts. 
+- The style of the footer on home page.
 
 ### Fixed Bugs
 
-- A few days after submitting the project, I realized that the sign in and sign up pages weren't working, and neither was the admin page, so I asked for permission to fix them and managed to correct this error.
+- A few days after submitting the project, the link didn't open, so I managed to correct this error.
 
 [Back to top](<#content>)
 
 ## Credits
 
-- All the features of my website were developed with the guidance of the lessons from the Code Institute's I Think Therefore I Blog project.
-- This particular [video](https://www.youtube.com/watch?v=-9dhCQ7FdD0&t=1410s) made me understand the logic behind reservation systems.
-- With [this other video](https://www.youtube.com/watch?v=I2-JYxnSiB0) I could learn how to render calendars on my html.
+- The most of the features of my website were developed with the guidance of the lessons from the Code Institute's I Think Therefore I Blog project.
 - [Django's documentation](https://docs.djangoproject.com/en/5.0/) has become my best friend alongside [W3Schools](https://www.w3schools.com/).
 
-## Content
 
-- The spa home page text and treatments descriptions were generated by [Chat GPT](https://chat.openai.com/).
-- I was having trouble building the booking system, until [Denis](https://github.com/dhardi) shared on Code Institute's Slack that he wanted a review of his project, which although it was another topic, also involved a booking system and although the work wasn't finished, it helped me A LOT.
-
-## Media
-
-The images were taken from [Pexels](https://www.pexels.com/).
-
-- [First image on carousel](https://www.pexels.com/photo/woman-in-white-tank-top-lying-on-gray-bed-3673941/)
-- [Second image on carousel](https://www.pexels.com/photo/woman-doing-facial-mask-3212179/)
-- [Third image on carousel](https://www.pexels.com/photo/woman-in-bathrobe-applying-cream-on-leg-5938595/)
-- [Booking successful image](https://www.pexels.com/photo/happy-women-with-cosmetic-masks-on-face-3851696/)
 
 ## Acknowledgments
 
 I would like to acknowledge:
 - Kay Welfare - My cohort facilitator who's always there for us.
-- Jubril Akolade - My Code Institute mentor for understanding my struggles and always giving me nice suggestions.
-- My friends who are supporting me and understand if I can't hang out with them because I need to finish my project.
-- [Denis](https://github.com/dhardi) you literally saved me two days before my project submission.
-- My mom. Just because she's my mom. Love you!!!
+- Tristan and my sister Seda for supporting me.
+
 
 [Back to top](<#content>)
