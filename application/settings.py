@@ -47,7 +47,8 @@ ALLOWED_HOSTS = [
     '.herokuapp.com'
 ]
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-annanahit-creativefails-w1lxi9mga0d.ws.codeinstitute-ide.net',  # Use your correct URL
+    "https://*.codeinstitute-ide.net",
+    "https://*.herokuapp.com"
 ]
 
 
@@ -111,11 +112,6 @@ WSGI_APPLICATION = 'application.wsgi.application'
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
-
-CSRF_TRUSTED_ORIGINS = [
-    "https://*.codeinstitute-ide.net",
-    "https://*.herokuapp.com"
-]
 
 AUTH_USER_MODEL = "accounts.CustomUser"
 
