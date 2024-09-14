@@ -49,12 +49,16 @@ ALLOWED_HOSTS = [
     '.herokuapp.com'
 ]
 CSRF_TRUSTED_ORIGINS = [
-    "https://*.codeinstitute-ide.net",
-    "https://*.herokuapp.com"
+   "https://*.codeinstitute-ide.net",
+    "https://*.herokuapp.com",
     "https://creativefails-b08c6c63e317.herokuapp.com"
 ]
 
 X_FRAME_OPTIONS = 'ALLOWALL'
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
 # Application definition
 
 INSTALLED_APPS = [
