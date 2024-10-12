@@ -2,8 +2,6 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Permis
 from django.db import models
 from django.utils import timezone
 
-
-
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, username, password=None, **extra_fields):
         if not email:
@@ -47,4 +45,3 @@ class Post(models.Model):
     title = models.CharField(max_length=255) 
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
-    
