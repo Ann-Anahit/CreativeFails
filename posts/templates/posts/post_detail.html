@@ -1,33 +1,15 @@
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'posts/base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>{{ post.title }}</title>
-</head>
+{% block title %}Delete Post{% endblock %}
 
-<body>
-    <h1>{{ post.title }}</h1>
-    <div>{{ post.content }}</div>
-    <p>Posted by: {{ post.user.username }} on {{ post.created_at }}</p>
-
-    <h2>Your Posts</h2>
-    <ul>
-        {% for post in posts %}
-        {% if post.user == request.user %}
-        <li>
-            <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
-            <a href="{% url 'edit_post' post.pk %}">Edit</a>
-            <a href="{% url 'delete_post' post.pk %}">Delete</a>
-        </li>
-        {% endif %}
-        {% endfor %}
-    </ul>
-
-    <br>
-    <a href="{% url 'post_list' %}">Back to List</a>
-</body>
-
-</html>
+{% block content %}
+<h1>Delete Post</h1>
+<p>Are you sure you want to delete the post titled "{{ post.title }}"?</p>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a href="{% url 'post_detail' post.pk %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

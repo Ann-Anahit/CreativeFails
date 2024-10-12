@@ -1,20 +1,13 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'posts/base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Edit Post</title>
+{% block title %}Edit Post{% endblock %}
 
-</head>
-
-<body>
-    <h1>Edit Post</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Save changes</button>
-    </form>
-</body>
-
-</html>
+{% block content %}
+<h1>Edit Post</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Save changes</button>
+</form>
+<a href="{% url 'post_list' %}" class="btn btn-secondary">Back to List</a>
+{% endblock %}
