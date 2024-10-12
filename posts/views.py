@@ -45,27 +45,26 @@ def post_detail_view(request, post_id):
     return render(request, 'posts/post_detail.html', {'post': post, 'is_owner': is_owner})  
 
 @login_required
-def update_post_view(request, post_id):
-    """View to update an existing post."""
-    post = get_object_or_404(Post, id=post_id)
-    if request.user != post.user:  
+def edit_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if post.user != request.user:
         return HttpResponseForbidden("You can only edit your own posts.")
     
     if request.method == 'POST':
-        form = PostForm(request.POST, request.FILES, instance=post)
+        form = PostForm(request.POST, instance=post)
         if form.is_valid():
             form.save()
             messages.success(request, 'Your post has been updated successfully!')
             return redirect('post_detail', post_id=post.id)
     else:
         form = PostForm(instance=post)
-    return render(request, 'posts/post_form.html', {'form': form, 'post': post})
+    return render(request, 'posts/edit_post.html', {'form': form, 'post': post})
 
 @login_required  
-def delete_post_view(request, post_id):  
+def delete_post(request, pk):  
     """View to delete a post."""  
-    post = get_object_or_404(Post, id=post_id)  
-    if request.user != post.author:  # assuming 'author' is the field name  
+    post = get_object_or_404(Post, pk=pk)  
+    if post.user != request.user:
         return HttpResponseForbidden("You can only delete your own posts.")  
     
     if request.method == 'POST':  

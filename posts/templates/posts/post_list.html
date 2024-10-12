@@ -10,7 +10,6 @@
         <h2><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>
         <p>{{ post.content|truncatewords:20 }}</p>
         {% if post.featured_image %}
-        <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" style="max-width: 200px;">
         {% endif %}
         <a href="{% url 'update_post' post.id %}">Edit</a>
     </li>

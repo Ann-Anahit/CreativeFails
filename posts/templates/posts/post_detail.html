@@ -6,8 +6,6 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ post.title }}</title>
-    <!-- You can link your CSS files here if needed -->
-    <!-- <link rel="stylesheet" href="{% static 'css/styles.css' %}"> -->
 </head>
 
 <body>
@@ -21,8 +19,8 @@
         {% if post.user == request.user %}
         <li>
             <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
-            <a href="{% url 'update_post' post.id %}">Edit Post</a>
-            <a href="{% url 'delete_post' post.id %}">Delete Post</a>
+            <a href="{% url 'edit_post' post.pk %}">Edit</a>
+            <a href="{% url 'delete_post' post.pk %}">Delete</a>
         </li>
         {% endif %}
         {% endfor %}
