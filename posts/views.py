@@ -8,6 +8,7 @@ from .forms import PostForm, CommentForm
 
 @login_required
 def write_article_view(request, post_id=None):
+    """View for creating or editing posts."""
     if post_id:  # Editing an existing post
         post = get_object_or_404(Post, id=post_id)
         if post.user != request.user:  # Ensure the post belongs to the logged-in user
@@ -28,16 +29,19 @@ def write_article_view(request, post_id=None):
 
     return render(request, 'posts/write_article.html', {'form': form, 'post': post})
 
+@login_required
 def home_view(request):  
     """View for the homepage, showing all posts."""  
     posts = Post.objects.all()  
     return render(request, 'map/home.html', {'posts': posts})  
 
+@login_required
 def post_list_view(request):  
     """View to list all posts."""  
     posts = Post.objects.all()  
     return render(request, 'map/home.html', {'posts': posts})  
 
+@login_required
 def post_detail_view(request, post_id):  
     """View to display a single post's details."""  
     post = get_object_or_404(Post, id=post_id) 
@@ -46,6 +50,7 @@ def post_detail_view(request, post_id):
 
 @login_required
 def edit_post(request, pk):
+    """View to edit a post."""
     post = get_object_or_404(Post, pk=pk)
     if post.user != request.user:
         return HttpResponseForbidden("You can only edit your own posts.")

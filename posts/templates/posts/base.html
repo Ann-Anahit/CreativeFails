@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,8 +16,8 @@
             <ul>
                 <li><a href="{% url 'home' %}"><img class="logo" src="{% static 'images/logo_cf.png' %}" alt="Logo"></a>
                 </li>
-                <li><a href="{% url 'write_article' %}">Write Article</a></li>
                 {% if user.is_authenticated %}
+                <li><a href="{% url 'write_article' %}">Write Article</a></li>
                 <li><a href="{% url 'logout' %}">Logout</a></li>
                 {% else %}
                 <li><a href="{% url 'login' %}">Login</a></li>
@@ -41,6 +40,19 @@
             <img src="{% static 'images/instagram.png' %}" alt="Instagram" class="social">
         </a>
     </footer>
+
+    <!-- Your JavaScript code for delete confirmation -->
+    <script>
+        const deleteButtons = document.querySelectorAll('.delete-button');
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', function (event) {
+                const confirmed = confirm('Are you sure you want to delete this post?');
+                if (!confirmed) {
+                    event.preventDefault(); // Prevent the form from submitting
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

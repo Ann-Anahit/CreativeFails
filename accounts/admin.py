@@ -7,14 +7,16 @@ class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
     model = CustomUser
-    list_display = ['email', 'username', 'is_staff', 'is_active']
-    list_filter = ['is_staff', 'is_active']
-    search_fields = ['email', 'username']
-    ordering = ['email']
     
+    # Update list_display, search_fields, and ordering
+    list_display = ['username', 'is_staff', 'is_active']  # No email here
+    list_filter = ['is_staff', 'is_active']
+    search_fields = ['username']  # Search by username only
+    ordering = ['username']  # Order by username
+
     fieldsets = (
-        (None, {'fields': ('email', 'password')}),
-        ('Personal info', {'fields': ('username', 'profile_picture', 'bio')}),
+        (None, {'fields': ('username', 'password')}),
+        ('Personal info', {'fields': ('profile_picture', 'bio')}),
         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
         ('Important dates', {'fields': ('last_login', 'created_at')}),
     )
@@ -22,7 +24,7 @@ class CustomUserAdmin(UserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'username', 'password1', 'password2', 'is_active', 'is_staff', 'is_superuser')}
+            'fields': ('username', 'password1', 'password2', 'is_active', 'is_staff', 'is_superuser')}
         ),
     )
 

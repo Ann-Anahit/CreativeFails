@@ -10,7 +10,7 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.http import require_http_methods
 
 class CustomLoginView(LoginView):
-    template_name = 'accounts/login.html'
+    template_name = 'accounts/post_list.html'
 
 def register_view(request):
     if request.method == 'POST':
@@ -38,7 +38,7 @@ def custom_login(request):
                 return redirect('home') 
     else:
         form = AuthenticationForm()
-    return render(request, 'accounts/login.html', {'form': form})
+    return render(request, 'accounts/post_list.html', {'form': form})
 
 @login_required
 def profile_view(request):
