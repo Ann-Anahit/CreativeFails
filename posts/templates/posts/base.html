@@ -40,19 +40,6 @@
             <img src="{% static 'images/instagram.png' %}" alt="Instagram" class="social">
         </a>
     </footer>
-
-    <!-- Your JavaScript code for delete confirmation -->
-    <script>
-        const deleteButtons = document.querySelectorAll('.delete-button');
-        deleteButtons.forEach(button => {
-            button.addEventListener('click', function (event) {
-                const confirmed = confirm('Are you sure you want to delete this post?');
-                if (!confirmed) {
-                    event.preventDefault(); // Prevent the form from submitting
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>

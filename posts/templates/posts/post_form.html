@@ -5,7 +5,7 @@
 {% block content %}
 <div class="registration-form">
     <h2>{% if post %}Edit Post{% else %}Write Article{% endif %}</h2>
-    <form action="{% if post %}{% url 'update_post' post.id %}{% else %}{% url 'write_article' %}{% endif %}"
+    <form action="{% if post %}{% url 'update_post' post.pk %}{% else %}{% url 'write_article' %}{% endif %}"
         method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}

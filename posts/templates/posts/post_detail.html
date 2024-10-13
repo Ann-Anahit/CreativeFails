@@ -1,22 +1,22 @@
 {% extends 'base_generic.html' %}
 
 {% block content %}
-<h1>{{ post.title }}</h1>
+<h1>{{ post.title }} - {{ post.author.id }}</h1>
 <p>{{ post.content }}</p>
 
 {% if post.image %}
 <img src="{{ post.image.url }}" alt="{{ post.title }}">
+{% else %}
+<img src="{% static 'images/default.jpg' %}" alt="Default image">
 {% endif %}
 
 <p>Posted on {{ post.created_at }} by {{ post.user.username }}</p>
 
-{% if is_owner %}
-<a href="{% url 'edit_post' post.id %}" class="btn btn-primary">Edit Post</a>
-<form action="{% url 'delete_post' post.id %}" method="post" style="display:inline;">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-danger">Delete Post</button>
-</form>
+{% if user.is_authenticated %}
+- <a href="{% url 'edit_post' post.pk %}">Edit Post</a>
+- <a href="{% url 'delete_post' post.pk %}">Delete</a>
+{% csrf_token %}
+{{ form.as_p }}
 {% endif %}
 <div class="like-section">
     {% if user.is_authenticated %}

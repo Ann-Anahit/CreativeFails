@@ -45,6 +45,7 @@ def post_list_view(request):
 def post_detail_view(request, post_id):
     """View to display a single post's details."""
     post = get_object_or_404(Post, id=post_id)
+    print(f"Post: {post.title}, Image: {post.image}") 
     is_owner = request.user == post.user
     comments = post.comments.all()  # Fetch all comments for the post
     liked = post.likes.filter(id=request.user.id).exists()  # Check if the user liked this post

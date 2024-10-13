@@ -1,6 +1,9 @@
 {% extends 'base_generic.html' %}
 
 {% block content %}
+current user: {{ user.id }}
+post auther: {{ post.author.id }}
+
 <h1>Recent Posts</h1>
 
 {% for post in posts %}
@@ -9,6 +12,8 @@
     <p>{{ post.content }}</p>
     {% if post.image %}
     <img src="{{ post.image.url }}" alt="{{ post.title }}">
+    {% else %}
+    <img src="{% static 'images/default.jpg' %}" alt="Default image">
     {% endif %}
     <p>Posted on {{ post.created_at }} by {{ post.user.username }}</p>
 
