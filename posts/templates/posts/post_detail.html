@@ -9,6 +9,7 @@
 <a href="{% url 'edit_post' post.id %}" class="btn btn-primary">Edit Post</a>
 <form action="{% url 'delete_post' post.id %}" method="post" style="display:inline;">
     {% csrf_token %}
+    {{ form.as_p }}
     <button type="submit" class="btn btn-danger">Delete Post</button>
 </form>
 {% endif %}

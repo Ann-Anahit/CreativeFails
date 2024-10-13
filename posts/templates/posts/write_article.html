@@ -21,7 +21,7 @@
                                 alt="Logo"></a></li>
                     <li><a href="{% url 'write_article' %}">Write Article</a></li>
                     <li><a href="{% url 'register' %}">Register</a></li>
-                    <li><a href="{% url 'login' %}">SignIn</a></li>
+                    <li><a href="{% url 'login' %}">Sign In</a></li>
                 </ul>
             </nav>
         </div>
@@ -32,16 +32,29 @@
 
     <main>
         <div class="registration-form">
-            <!-- Dynamic heading based on whether it's an edit or a new post -->
             <h2>{% if post %}Edit Post{% else %}Write Article{% endif %}</h2>
 
-            <!-- Form action URL dynamically changes for create or update -->
+            <!-- Display form errors -->
+            {% if form.errors %}
+            <div class="error">
+                <ul>
+                    {% for field in form %}
+                    {% for error in field.errors %}
+                    <li>{{ field.label }}: {{ error }}</li>
+                    {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
             <form action="{% if post %}{% url 'update_post' post.id %}{% else %}{% url 'write_article' %}{% endif %}"
                 method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
 
-                <!-- Submit button text changes depending on the action -->
                 <button type="submit">{% if post %}Update{% else %}Submit{% endif %}</button>
             </form>
         </div>
