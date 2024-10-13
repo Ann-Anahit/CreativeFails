@@ -42,12 +42,19 @@ def post_list_view(request):
     return render(request, 'map/home.html', {'posts': posts})  
 
 @login_required
-def post_detail_view(request, post_id):  
-    """View to display a single post's details."""  
-    post = get_object_or_404(Post, id=post_id) 
-    is_owner = request.user == post.user  
-    return render(request, 'posts/post_detail.html', {'post': post, 'is_owner': is_owner})  
-
+def post_detail_view(request, post_id):
+    """View to display a single post's details."""
+    post = get_object_or_404(Post, id=post_id)
+    is_owner = request.user == post.user
+    comments = post.comments.all()  # Fetch all comments for the post
+    liked = post.likes.filter(id=request.user.id).exists()  # Check if the user liked this post
+    return render(request, 'posts/post_detail.html', {
+        'post': post,
+        'is_owner': is_owner,
+        'comments': comments,
+        'liked': liked,
+        'comment_form': CommentForm(),
+    })
 @login_required
 def edit_post(request, pk):
     """View to edit a post."""
@@ -103,3 +110,12 @@ def add_comment_view(request, post_id):
     
     # For rendering the post details and the comment form  
     return render(request, 'posts/post_detail.html', {'post': post, 'comment_form': form})
+
+@login_required
+def post_like(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+    else:
+        post.likes.add(request.user)
+    return redirect('post_detail', slug=slug)

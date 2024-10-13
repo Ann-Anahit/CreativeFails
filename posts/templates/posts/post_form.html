@@ -6,11 +6,13 @@
 <div class="registration-form">
     <h2>{% if post %}Edit Post{% else %}Write Article{% endif %}</h2>
     <form action="{% if post %}{% url 'update_post' post.id %}{% else %}{% url 'write_article' %}{% endif %}"
-        method="POST" enctype="multipart/form-data">
+        method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">{% if post %}Update Post{% else %}Create Post{% endif %}</button>
+
+        <button type="submit">{% if post %}Update{% else %}Submit{% endif %}</button>
     </form>
+
     {% if form.errors %}
     <ul class="errors">
         {% for error in form.errors %}

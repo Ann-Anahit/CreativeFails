@@ -3,9 +3,11 @@
 {% block content %}
 <h1>{{ post.title }}</h1>
 <p>{{ post.content }}</p>
+
 {% if post.image %}
 <img src="{{ post.image.url }}" alt="{{ post.title }}">
 {% endif %}
+
 <p>Posted on {{ post.created_at }} by {{ post.user.username }}</p>
 
 {% if is_owner %}
@@ -16,4 +18,28 @@
     <button type="submit" class="btn btn-danger">Delete Post</button>
 </form>
 {% endif %}
+<div class="like-section">
+    {% if user.is_authenticated %}
+    <form action="{% url 'post_like' post.slug %}" method="POST">
+        {% csrf_token %}
+        {% if liked %}
+        <!-- Unlike Button -->
+        <button type="submit" class="btn-like" aria-label="unlike this post">
+            <i class="fas fa-heart"></i>
+        </button>
+        {% else %}
+        <!-- Like Button -->
+        <button type="submit" class="btn-like" aria-label="like this post">
+            <i class="far fa-heart"></i>
+        </button>
+        {% endif %}
+    </form>
+    {% else %}
+    <!-- Display just the like icon if the user is not authenticated -->
+    <i class="far fa-heart text-secondary"></i>
+    {% endif %}
+    <!-- Display the total number of likes -->
+    <span class="like-count">{{ post.number_of_likes }}</span>
+</div>
+
 {% endblock %}

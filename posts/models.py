@@ -12,7 +12,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     published = models.BooleanField(default=True)  # This should be present in your model
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='images/', blank=True, null=True)
+    image = models.ImageField(upload_to='post_images/', blank=True, null=True)
     featured_image = models.ImageField(upload_to='featured_images/', blank=True, null=True)
     
     def __str__(self):
