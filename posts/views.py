@@ -71,7 +71,7 @@ def delete_post(request, pk):
         post.delete()  
         messages.success(request, 'Your post has been deleted successfully!')  
         return redirect('post_list')  
-    return render(request, 'posts/confirm_delete.html', {'post': post})  
+    return render(request, 'posts/delete_post.html', {'post': post})  
 
 @login_required  
 def custom_logout_view(request):  
