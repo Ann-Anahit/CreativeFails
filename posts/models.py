@@ -6,6 +6,8 @@ from cloudinary.models import CloudinaryField
 from django.contrib.auth.models import User 
 from django.conf import settings
 
+from django.utils.text import slugify
+
 class Post(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
@@ -17,7 +19,13 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.title)
+            base_slug = slugify(self.title)
+            slug = base_slug
+            num = 1
+            while Post.objects.filter(slug=slug).exists():
+                slug = f"{base_slug}-{num}"
+                num += 1
+            self.slug = slug
         super(Post, self).save(*args, **kwargs)
 
 class Comment(models.Model):
