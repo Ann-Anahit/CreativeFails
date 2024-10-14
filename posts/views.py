@@ -7,7 +7,7 @@ from .models import Post, Comment
 from .forms import PostForm, CommentForm  
 
 @login_required
-def like_post(request, post_id):
+def post_like(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     if request.user.is_authenticated:
         post.likes.add(request.user)
@@ -19,6 +19,13 @@ def unlike_post(request, post_id):
     if request.user.is_authenticated:
         post.likes.remove(request.user)
     return redirect('post_detail', post_id=post.id)
+
+@login_required
+def home_view(request):
+    """View for the homepage, showing all posts."""
+    posts = Post.objects.all()
+    return render(request, 'map/home.html', {'posts': posts})
+
 
 @login_required
 def write_article_view(request, post_id=None):
