@@ -4,6 +4,10 @@ from accounts import views as account_views
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
+from . import views
+from posts.views import post_like
+
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -12,6 +16,7 @@ urlpatterns = [
     path('accounts/login/', account_views.custom_login, name='login'),  
     path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'),
     path("accounts/profile/", account_views.profile_view, name="profile"),
+    path('post/<int:post_id>/like/', post_like, name='post_like'), 
     path("posts/", include("posts.urls")),
 ]
 if settings.DEBUG:

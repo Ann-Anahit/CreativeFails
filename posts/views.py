@@ -119,10 +119,10 @@ def add_comment_view(request, post_id):
     return render(request, 'posts/post_detail.html', {'post': post, 'comment_form': form})
 
 @login_required
-def post_like(request, slug):
-    post = get_object_or_404(Post, slug=slug)
+def post_like(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
     if post.likes.filter(id=request.user.id).exists():
         post.likes.remove(request.user)
     else:
         post.likes.add(request.user)
-    return redirect('post_detail', slug=slug)
+    return redirect('post_detail')
