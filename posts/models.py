@@ -6,27 +6,16 @@ from cloudinary.models import CloudinaryField
 from django.contrib.auth.models import User 
 from django.conf import settings
 
-from django.utils.text import slugify
-
 class Post(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
-    slug = models.SlugField(unique=True, blank=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='posts/', null=True, blank=True)
     likes = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='post_likes', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            base_slug = slugify(self.title)
-            slug = base_slug
-            num = 1
-            while Post.objects.filter(slug=slug).exists():
-                slug = f"{base_slug}-{num}"
-                num += 1
-            self.slug = slug
-        super(Post, self).save(*args, **kwargs)
+    def __str__(self):
+        return self.title
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
