@@ -15,6 +15,7 @@
 {% endif %}
 
 <p>Posted by {{ post.user.username }} on {{ post.created_at }}</p>
+<a href="{% url 'post_detail' post_id=post.id %}" class="btn">Click to see the post</a>
 
 {% if is_owner %}
 <!-- Only display these actions if the user owns the post -->
@@ -48,6 +49,10 @@
 {% for comment in comments %}
 <div>
     <p><strong>{{ comment.user.username }}</strong>: {{ comment.content }}</p>
+    {% if comment.user == request.user %}
+    <a href="{% url 'edit_comment' comment.id %}">Edit</a>
+    <a href="{% url 'delete_comment' comment.id %}">Delete</a>
+    {% endif %}
 </div>
 {% empty %}
 <p>No comments yet.</p>

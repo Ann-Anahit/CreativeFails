@@ -114,6 +114,10 @@ main {
     margin-top: 10px;
     /* Space above the buttons */
 
+    p {
+        margin: 0;
+    }
+
     form {
         flex: 1;
         /* Allow the comment form to take available space */

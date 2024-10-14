@@ -67,6 +67,7 @@
 
                 <!-- Likes functionality -->
                 <div class="interaction-buttons">
+                    <p>{{ post.likes.count }} like(s)</p> <!-- Display like count -->
                     <form action="{% url 'post_like' post.id %}" method="POST">
                         {% csrf_token %}
                         <button type="submit">
@@ -77,7 +78,7 @@
                             {% endif %}
                         </button>
                     </form>
-                    <p>{{ post.likes.count }} like(s)</p>
+
 
                     <!-- Edit and delete buttons for post owner -->
                     {% if post.user == user %}

@@ -12,6 +12,7 @@ post auther: {{ post.author.id }}
 <div class="post">
     <h2>{{ post.title }}</h2>
     <p>{{ post.content }}</p>
+    <a href="{% url 'post_detail' post_id=post.id %}" class="btn">Click to see the post</a>
     {% if post.image %}
     <img src="{{ post.image.url }}" alt="{{ post.title }}">
     {% else %}
