@@ -33,12 +33,17 @@ def write_article_view(request, post_id=None):
 def home_view(request):  
     """View for the homepage, showing all posts."""  
     posts = Post.objects.all()  
-    return render(request, 'map/home.html', {'posts': posts})  
+    return render(request, 'map/home.html', {'posts': posts,
+    })  
 
 @login_required
 def post_list_view(request):  
     """View to list all posts."""  
     posts = Post.objects.all()  
+
+    # Check if the user has liked each post
+    for post in posts:
+        post.is_liked = post.likes.filter(id=request.user.id).exists()
     return render(request, 'map/home.html', {'posts': posts})  
 
 @login_required
