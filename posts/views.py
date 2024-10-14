@@ -10,7 +10,7 @@ from .forms import PostForm, CommentForm
 def write_article_view(request, post_id=None):
     """View for creating or editing posts."""
     if post_id:  # Editing an existing post
-        post = get_object_or_404(Post, id=post_id)
+        post = get_object_or_404(Post, slug=post_id)
         if post.user != request.user:  # Ensure the post belongs to the logged-in user
             return HttpResponseForbidden("You can only edit your own posts.")
     else:  # Creating a new post
