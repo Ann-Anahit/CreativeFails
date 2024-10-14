@@ -1,5 +1,5 @@
 from django.urls import path, include 
-from . import views  
+from . import views 
 
 urlpatterns = [  
     path('', views.home_view, name='home'),  
@@ -9,5 +9,6 @@ urlpatterns = [
     path('posts/<int:post_id>/', views.post_detail_view, name='post_detail'),  
     path('posts/delete/<int:pk>/', views.delete_post, name='delete_post'),
     path('posts/<int:post_id>/comment/', views.add_comment_view, name='add_comment'),  
-    path('logout/', views.custom_logout_view, name='logout'),  
+    path('logout/', views.custom_logout_view, name='logout'),
+    path('posts/like/<slug:slug>/', views.post_like, name='post_like'),  
 ]
