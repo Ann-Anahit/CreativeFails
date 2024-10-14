@@ -1,45 +1,60 @@
-{% extends 'base_generic.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
-<h1>{{ post.title }} - {{ post.author.id }}</h1>
+<h1>{{ post.title }}</h1>
 <p>{{ post.content }}</p>
 
 {% if post.image %}
-<img src="{{ post.image.url }}" alt="{{ post.title }}">
+<!-- Display the image if it exists -->
+<img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 100%;">
 {% else %}
+<!-- Show a default image if no image exists for the post -->
 <img src="{% static 'images/default.jpg' %}" alt="Default image">
 {% endif %}
 
-<p>Posted on {{ post.created_at }} by {{ post.user.username }}</p>
+<p>Posted by {{ post.user.username }} on {{ post.created_at }}</p>
 
-{% if user.is_authenticated %}
-- <a href="{% url 'edit_post' post.pk %}">Edit Post</a>
-- <a href="{% url 'delete_post' post.pk %}">Delete</a>
-{% csrf_token %}
-{{ form.as_p }}
+{% if is_owner %}
+<!-- Only display these actions if the user owns the post -->
+<a href="{% url 'edit_post' post.id %}">Edit Post</a> |
+<a href="{% url 'delete_post' post.id %}">Delete Post</a>
 {% endif %}
+
 <div class="like-section">
     {% if user.is_authenticated %}
-    <form action="{% url 'post_like' post.slug %}" method="POST">
+    <form action="{% url 'post_like' post.id %}" method="POST">
         {% csrf_token %}
         {% if liked %}
-        <!-- Unlike Button -->
-        <button type="submit" class="btn-like" aria-label="unlike this post">
-            <i class="fas fa-heart"></i>
-        </button>
+        <!-- Show "Unlike" button -->
+        <button type="submit">Unlike</button>
         {% else %}
-        <!-- Like Button -->
-        <button type="submit" class="btn-like" aria-label="like this post">
-            <i class="far fa-heart"></i>
-        </button>
+        <!-- Show "Like" button -->
+        <button type="submit">Like</button>
         {% endif %}
     </form>
     {% else %}
-    <!-- Display just the like icon if the user is not authenticated -->
-    <i class="far fa-heart text-secondary"></i>
+    <p>Login to like this post.</p>
     {% endif %}
-    <!-- Display the total number of likes -->
-    <span class="like-count">{{ post.number_of_likes }}</span>
+    <!-- Display like count -->
+    <span>{{ post.likes.count }} likes</span>
 </div>
 
+<hr>
+
+<!-- Comments Section -->
+<h2>Comments</h2>
+{% for comment in comments %}
+<p>{{ comment.author.username }}: {{ comment.content }}</p>
+{% endfor %}
+
+<!-- Comment Form -->
+{% if user.is_authenticated %}
+<form action="{% url 'add_comment' post.id %}" method="POST">
+    {% csrf_token %}
+    {{ comment_form.as_p }}
+    <button type="submit">Add Comment</button>
+</form>
+{% else %}
+<p>Please log in to comment.</p>
+{% endif %}
 {% endblock %}

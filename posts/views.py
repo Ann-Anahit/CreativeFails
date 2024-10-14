@@ -49,7 +49,7 @@ def post_detail_view(request, post_id):
     is_owner = request.user == post.user
     comments = post.comments.all()  # Fetch all comments for the post
     liked = post.likes.filter(id=request.user.id).exists()  # Check if the user liked this post
-    return render(request, 'posts/post_detail.html', {
+    return render(request, 'post_detail.html', {
         'post': post,
         'is_owner': is_owner,
         'comments': comments,

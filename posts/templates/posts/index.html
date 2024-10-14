@@ -6,10 +6,10 @@
 {% for post in posts %}
 <h3>{{ post.title }}</h3>
 <div class="image-container">
-    {% if "placeholder" in post.featured_image.url %}
-    <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+    {% if post.image %}
+    <img src="{{ post.image.url }}" alt="{{ post.title }}">
     {% else %}
-    <img class="card-img-top" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+    <img src="{% static 'images/default.jpg' %}" alt="Default image">
     {% endif %}
     <div class="image-flash">
         <p>{{ post.content|truncatewords:30 }}</p>
@@ -20,5 +20,6 @@
             <input type="submit" value="Submit">
         </form>
     </div>
-    {% endfor %}
-    {% endblock %}
+</div>
+{% endfor %}
+{% endblock %}

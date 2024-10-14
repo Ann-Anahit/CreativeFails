@@ -1,76 +1,31 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block content %}
+<div class="registration-form">
+    <h2>{% if post %}Edit Post{% else %}Write Article{% endif %}</h2>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
-    <link rel="stylesheet" href="{% static 'css/webfonts.css' %}">
-    <link rel="stylesheet" href="{% static 'css/app.css' %}">
-    <title>{% if post %}Edit Post{% else %}Write Article{% endif %} - Creative Fails</title>
-</head>
+    <!-- Display form errors -->
+    {% if form.errors %}
+    <div class="error">
+        <ul>
+            {% for field in form %}
+            {% for error in field.errors %}
+            <li>{{ field.label }}: {{ error }}</li>
+            {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
 
-<body>
-    <header>
-        <div class="header-element">
-            <nav>
-                <ul>
-                    <li><a href="{% url 'home' %}"><img class="logo" src="{% static 'images/logo_cf.png' %}"
-                                alt="Logo"></a></li>
-                    <li><a href="{% url 'write_article' %}">Write Article</a></li>
-                    <li><a href="{% url 'register' %}">Register</a></li>
-                    <li><a href="{% url 'login' %}">Sign In</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div class="hero">
-            <h1>Creative Fails</h1>
-        </div>
-    </header>
-
-    <main>
-        <div class="registration-form">
-            <h2>{% if post %}Edit Post{% else %}Write Article{% endif %}</h2>
-
-            <!-- Display form errors -->
-            {% if form.errors %}
-            <div class="error">
-                <ul>
-                    {% for field in form %}
-                    {% for error in field.errors %}
-                    <li>{{ field.label }}: {{ error }}</li>
-                    {% endfor %}
-                    {% endfor %}
-                    {% for error in form.non_field_errors %}
-                    <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-            {% endif %}
-
-            <form action="{% if post %}{% url 'update_post' post.pk %}{% else %}{% url 'write_article' %}{% endif %}"
-                method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }}
-
-                <button type="submit">{% if post %}Update{% else %}Submit{% endif %}</button>
-            </form>
-        </div>
-    </main>
-
-    <footer>
-        <a href="https://www.twitter.com/" target="_blank" rel="noopener" aria-label="Visit our Twitter page">
-            <img src="{% static 'images/x-twitter.png' %}" alt="Twitter" class="social">
-        </a>
-        <a href="https://github.com" aria-label="Open-source code GitHub" target="_blank">
-            <img src="{% static 'images/github.png' %}" alt="GitHub" class="social">
-        </a>
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Visit our Instagram page">
-            <img src="{% static 'images/instagram.png' %}" alt="Instagram" class="social">
-        </a>
-    </footer>
-</body>
-
-</html>
+    <form action="{% if post %}{% url 'update_post' post.pk %}{% else %}{% url 'write_article' %}{% endif %}"
+        method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% if post %}Update{% else %}Submit{% endif %}</button>
+    </form>
+</div>
+{% endblock %}
