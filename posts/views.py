@@ -71,7 +71,9 @@ def edit_post(request, pk):
             return redirect('post_detail', post_id=post.id)
     else:
         form = PostForm(instance=post)
+    
     return render(request, 'posts/edit_post.html', {'form': form, 'post': post})
+
 
 @login_required  
 def delete_post(request, pk):  
