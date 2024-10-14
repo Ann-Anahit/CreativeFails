@@ -49,20 +49,21 @@ def post_detail_view(request, post_id):
     is_owner = request.user == post.user
     comments = post.comments.all()  # Fetch all comments for the post
     liked = post.likes.filter(id=request.user.id).exists()  # Check if the user liked this post
-    return render(request, 'post_detail.html', {
+    return render(request, 'posts/post_detail.html', {
         'post': post,
         'is_owner': is_owner,
         'comments': comments,
         'liked': liked,
         'comment_form': CommentForm(),
     })
+
 @login_required
 def edit_post(request, pk):
     """View to edit a post."""
     post = get_object_or_404(Post, pk=pk)
     if post.user != request.user:
         return HttpResponseForbidden("You can only edit your own posts.")
-    
+
     if request.method == 'POST':
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
@@ -71,9 +72,7 @@ def edit_post(request, pk):
             return redirect('post_detail', post_id=post.id)
     else:
         form = PostForm(instance=post)
-    
     return render(request, 'posts/edit_post.html', {'form': form, 'post': post})
-
 
 @login_required  
 def delete_post(request, pk):  

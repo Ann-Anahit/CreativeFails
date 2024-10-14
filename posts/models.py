@@ -10,8 +10,9 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
     image = CloudinaryField('image', blank=True, null=True)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Use AUTH_USER_MODEL here
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+    likes = models.IntegerField(default=0)  # Add this line
 
     def __str__(self):
         return self.title
