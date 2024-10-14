@@ -20,13 +20,24 @@
                                 alt="Logo"></a></li>
                     <li><a href="{% url 'write_article' %}">Write Article</a></li>
                     {% if user.is_authenticated %}
-                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                    <li>
+                        <a href="{% url 'logout' %}" id="logout-link">Logout</a>
+                        <form id="logout-form" action="{% url 'logout' %}" method="POST" style="display: none;">
+                            {% csrf_token %}
+                        </form>
+                    </li>
                     {% else %}
                     <li><a href="{% url 'login' %}">Login</a></li>
                     <li><a href="{% url 'register' %}">Register</a></li>
                     {% endif %}
                 </ul>
             </nav>
+            <script>
+                document.getElementById('logout-link').addEventListener('click', function (event) {
+                    event.preventDefault(); // Prevent the default link behavior
+                    document.getElementById('logout-form').submit(); // Submit the form
+                });
+            </script>
         </div>
         <div class="hero">
             <h1>Creative Fails</h1>
@@ -64,47 +75,82 @@
                     Posted on <span class="date">{{ post.created_at|date:"Y-m-d H:i" }}</span> by <span
                         class="author">{{ post.user.username }}</span>
                 </div>
+                <a href="{% url 'post_detail' post_id=post.id %}" class="btn">Click to see the post</a>
 
-                <!-- Likes functionality -->
+                <!-- Likes functionality 
                 <div class="interaction-buttons">
-                    <p>{{ post.likes.count }} like(s)</p> <!-- Display like count -->
                     <form action="{% url 'post_like' post.id %}" method="POST">
                         {% csrf_token %}
-                        <button type="submit">
+                      <button type="submit"> 
                             {% if post.is_liked %}
                             Unlike
                             {% else %}
                             Like
-                            {% endif %}
+                            {% endif %} | <p>{{ post.likes.count }} like(s)</p> 
                         </button>
-                    </form>
-
-
-                    <!-- Edit and delete buttons for post owner -->
+                    </form> -->
+                <div class="post-bar">
                     {% if post.user == user %}
-                    <p>
-                        <a href="{% url 'edit_post' post.id %}">Edit Post</a> |
-                        <a href="{% url 'delete_post' post.id %}">Delete Post</a>
-                    </p>
-                    {% endif %}
-                    <hr>
-
-                    <!-- Comments section -->
-                    <h4>Comments</h4>
-                    <div>
-                        {% for comment in post.comments.all %}
-                        <p><strong>{{ comment.user.username }}</strong>: {{ comment.content }}</p>
-                        <p>Likes: {{ comment.likes.count|default:0 }}</p>
-                        {% empty %}
-                        {% endfor %}
-                    </div>
-
-                    <!-- Add comment form -->
-                    <form action="{% url 'add_comment' post.id %}" method="POST">
+                    <span title="You can't like your own post!">
+                        <i class="far fa-heart"></i>
+                    </span>
+                    {% elif post.is_liked %}
+                    <span
+                        onclick="event.preventDefault(); document.getElementById('unlike-form-{{ post.id }}').submit();">
+                        <i class="fas fa-heart heart"></i>
+                    </span>
+                    <form id="unlike-form-{{ post.id }}" action="{% url 'post_unlike' post.id %}" method="POST"
+                        style="display: none;">
                         {% csrf_token %}
-                        <textarea name="content" placeholder="Add a comment..." required></textarea>
-                        <button type="submit">see comments here</button>
                     </form>
+                    {% elif user.is_authenticated %}
+                    <span
+                        onclick="event.preventDefault(); document.getElementById('like-form-{{ post.id }}').submit();">
+                        <i class="far fa-heart heart-outline"></i>
+                    </span>
+                    <form id="like-form-{{ post.id }}" action="{% url 'post_like' post.id %}" method="POST"
+                        style="display: none;">
+                        {% csrf_token %}
+                    </form>
+                    {% else %}
+                    <span title="Log in to like posts!">
+                        <i class="far fa-heart"></i>
+                    </span>
+                    {% endif %}
+                    {{ post.likes.count }} like(s)
+
+                    <a href="{% url 'post_detail' post.id %}">
+                        <i class="far fa-comments"></i>
+                    </a>
+                    {{ post.comments.count }} comment(s)
+                </div>
+
+
+                <!-- Edit and delete buttons for post owner -->
+                {% if post.user == user %}
+                <p>
+                    <a href="{% url 'edit_post' post.id %}">Edit Post</a> |
+                    <a href="{% url 'delete_post' post.id %}">Delete Post</a>
+                </p>
+                {% endif %}
+                <hr>
+
+                <!-- Comments section -->
+                <h4>Comments</h4>
+                <div>
+                    {% for comment in post.comments.all %}
+                    <p><strong>{{ comment.user.username }}</strong>: {{ comment.content }}</p>
+                    <p>Likes: {{ comment.likes.count|default:0 }}</p>
+                    {% empty %}
+                    {% endfor %}
+                </div>
+
+                <!-- Add comment form -->
+                <form action="{% url 'add_comment' post.id %}" method="POST">
+                    {% csrf_token %}
+                    <textarea name="content" placeholder="Add a comment..." required></textarea>
+                    <button type="submit">submit</button>
+                </form>
             </article>
             <hr>
             {% empty %}

@@ -4,7 +4,7 @@
 {% block content %}
 <h1>{{ post.title }}</h1>
 <p>{{ post.content }}</p>
-<p>Likes: {{ post.likes }}</p>
+
 
 {% if post.image %}
 <!-- Display the image if it exists -->
@@ -15,8 +15,6 @@
 {% endif %}
 
 <p>Posted by {{ post.user.username }} on {{ post.created_at }}</p>
-<a href="{% url 'post_detail' post_id=post.id %}" class="btn">Click to see the post</a>
-
 {% if is_owner %}
 <!-- Only display these actions if the user owns the post -->
 <a href="{% url 'edit_post' post.id %}">Edit Post</a> |

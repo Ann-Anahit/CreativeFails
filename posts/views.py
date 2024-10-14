@@ -7,14 +7,27 @@ from .models import Post, Comment
 from .forms import PostForm, CommentForm  
 
 @login_required
+def like_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if request.user.is_authenticated:
+        post.likes.add(request.user)
+    return redirect('post_detail', post_id=post.id)
+
+@login_required
+def unlike_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if request.user.is_authenticated:
+        post.likes.remove(request.user)
+    return redirect('post_detail', post_id=post.id)
+
+@login_required
 def write_article_view(request, post_id=None):
     """View for creating or editing posts."""
+    post = None
     if post_id:  # Editing an existing post
-        post = get_object_or_404(Post, slug=post_id)
+        post = get_object_or_404(Post, id=post_id)
         if post.user != request.user:  # Ensure the post belongs to the logged-in user
             return HttpResponseForbidden("You can only edit your own posts.")
-    else:  # Creating a new post
-        post = None
 
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES, instance=post)
@@ -28,13 +41,6 @@ def write_article_view(request, post_id=None):
         form = PostForm(instance=post)
 
     return render(request, 'posts/write_article.html', {'form': form, 'post': post})
-
-@login_required
-def home_view(request):  
-    """View for the homepage, showing all posts."""  
-    posts = Post.objects.all()  
-    return render(request, 'map/home.html', {'posts': posts,
-    })  
 
 @login_required
 def post_list_view(request):  
@@ -143,18 +149,4 @@ def delete_comment(request, comment_id):
 
     return render(request, 'comments/delete_comment.html', {'comment': comment})
 
-@login_required
-def post_like(request, post_id):
-    post = get_object_or_404(Post, id=post_id)
-    
-    if post.user == request.user:
-        messages.warning(request, "You cannot like your own post.")
-        return redirect('post_detail', post_id=post.id)
 
-    if post.likes.filter(id=request.user.id).exists():
-        post.likes.remove(request.user)  # Unlike the post
-    else:
-        post.likes.add(request.user)  # Like the post
-
-    messages.success(request, "Your like has been registered!")  # Success message
-    return redirect('post_detail', post_id=post.id)

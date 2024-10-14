@@ -5,6 +5,7 @@ from django.conf import settings
 from django.shortcuts import render 
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from posts.models import Post
 
 def profile_view(request):
     user = request.user  
@@ -16,11 +17,12 @@ def home_view(request):
     return render(request, 'map/home.html')  
 
 def login_view(request):
-    return render(request, 'accounts/login.html')  
+    posts = Post.objects.prefetch_related('comments').all()
+    return render(request, 'map/home.html')  
 
 def logout_view(request):
     logout(request)
-    return redirect('map/home') 
+    return redirect('home') 
 
 def register_view(request):  
     if request.method == 'POST':  
