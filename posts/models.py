@@ -6,6 +6,7 @@ from cloudinary.models import CloudinaryField
 from django.contrib.auth.models import User 
 from django.conf import settings
 
+
 class Post(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
