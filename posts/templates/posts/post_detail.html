@@ -63,4 +63,16 @@
 {% else %}
 <p>Please log in to comment.</p>
 {% endif %}
+<!-- Display success messages -->
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+</div>
+{% endif %}
+
+<!-- Back to Home button -->
+<a href="{% url 'home' %}" class="btn btn-primary">Back to Home</a>
+
 {% endblock %}

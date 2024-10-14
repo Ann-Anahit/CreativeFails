@@ -153,6 +153,26 @@ main .blog-posts article .meta .author {
   width: 100%;
 }
 
+.interaction-buttons {
+  display: flex;
+  gap: 10px;
+  /* Space between the buttons */
+  margin-top: 10px;
+  /* Space above the buttons */
+}
+
+.interaction-buttons form {
+  flex: 1;
+  /* Allow the comment form to take available space */
+}
+
+.interaction-buttons textarea {
+  width: 100%;
+  /* Make the textarea take the full width */
+  height: 40px;
+  /* Adjust the height as necessary */
+}
+
 button {
   padding: 0.75rem;
   border: none;
@@ -160,7 +180,8 @@ button {
   background-color: #7fd9c2;
   font-size: 1rem;
   cursor: pointer;
-  width: 100%;
+  padding: 10px 5px;
+
 }
 
 button:hover {

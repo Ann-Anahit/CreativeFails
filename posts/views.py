@@ -63,33 +63,31 @@ def post_detail_view(request, post_id):
     })
 
 @login_required
-def edit_post(request, pk):
-    """View to edit a post."""
-    post = get_object_or_404(Post, pk=pk)
-    if post.user != request.user:
-        return HttpResponseForbidden("You can only edit your own posts.")
+def edit_post(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
 
-    if request.method == 'POST':
-        form = PostForm(request.POST, instance=post)
+    if request.method == "POST":
+        form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             form.save()
             messages.success(request, 'Your post has been updated successfully!')
             return redirect('post_detail', post_id=post.id)
     else:
         form = PostForm(instance=post)
+
     return render(request, 'posts/edit_post.html', {'form': form, 'post': post})
 
 @login_required  
-def delete_post(request, pk):  
+def delete_post(request, post_id):  
     """View to delete a post."""  
-    post = get_object_or_404(Post, pk=pk)  
+    post = get_object_or_404(Post, pk=post_id)  
     if post.user != request.user:
         return HttpResponseForbidden("You can only delete your own posts.")  
     
     if request.method == 'POST':  
         post.delete()  
         messages.success(request, 'Your post has been deleted successfully!')  
-        return redirect('post_list')  
+        return redirect('home')  
     return render(request, 'posts/delete_post.html', {'post': post})  
 
 @login_required  
@@ -104,11 +102,12 @@ def add_comment_view(request, post_id):
     post = get_object_or_404(Post, id=post_id)  
     
     if request.method == 'POST':  
+        content = request.POST.get('content')
         form = CommentForm(request.POST)  
         if form.is_valid():  
             comment = form.save(commit=False)  
             comment.post = post  
-            comment.user = request.user  # assuming 'user' is the field name in Comment model  
+            comment.user = request.user   
             comment.save()  
             messages.success(request, 'Your comment has been added successfully!')  
             return redirect('post_detail', post_id=post.id)  
@@ -121,8 +120,15 @@ def add_comment_view(request, post_id):
 @login_required
 def post_like(request, post_id):
     post = get_object_or_404(Post, id=post_id)
+    
+    if post.user == request.user:
+        messages.warning(request, "You cannot like your own post.")
+        return redirect('post_detail', post_id=post.id)
+
     if post.likes.filter(id=request.user.id).exists():
-        post.likes.remove(request.user)
+        post.likes.remove(request.user)  # Unlike the post
     else:
-        post.likes.add(request.user)
-    return redirect('post_detail')
+        post.likes.add(request.user)  # Like the post
+
+    messages.success(request, "Your like has been registered!")  # Success message
+    return redirect('post_detail', post_id=post.id)

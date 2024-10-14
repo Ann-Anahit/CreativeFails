@@ -8,9 +8,11 @@ from django.contrib.auth.decorators import login_required
 
 def profile_view(request):
     user = request.user  
+    posts = Post.objects.prefetch_related('comments').all()
     return render(request, 'accounts/profile.html', {'user': user})
 
 def home_view(request):  
+    posts = Post.objects.prefetch_related('comments').all()
     return render(request, 'map/home.html')  
 
 def login_view(request):
