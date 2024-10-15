@@ -181,7 +181,6 @@ This page will take you to the login page in case you are not logged in, but in 
 
 - I would like to have: 
 - Explore: A gallery, search function, and success stories.
-- Feedback & Discussion: For sharing and receiving comments.
 - Resources: Articles, workshops, and tools.
 - Challenges & Collaboration: Current challenges and group projects.
 - Events: Upcoming activities.
@@ -260,11 +259,7 @@ Performed tests can be found in [TESTING.md](TESTING.md).
 [Back to top](<#content>)
 
 ## Bugs
-
-### Known Bugs
-
-- The User can't edit/delete the own posts. 
-- The style of the footer on home page.
+no bugs
 
 ### Fixed Bugs
 

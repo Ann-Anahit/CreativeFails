@@ -26,14 +26,13 @@ Visit the deployed website here → [Creative Fails](https://creativefails-b08c6
 |I want to Receive and Give Feedback.                                        | The User can only read the other posts, he can't give feedback yet.
 | I want to Signe up and Sign in. | The User can sign up and sign in easily.                                                  |
 | I want responsiveness from my website.                   | The website has full responsiveness.                                                                                                          |
-|I want to Connect with the Community.                                        | The User can only read the other posts, he can't connect with the community yet.
-
+|I want to Connect with the Community.                                        | The User can comment and like the other posts 
 <br>
 - Returning Visitors
 
 | Expectation                                          | Result                                                                                  |
 | :--------------------------------------------------- | :-------------------------------------------------------------------------------------- |
-| I want to edit my posts | The user can't edit the own posts yet.
+| I want to edit my posts | The user can edit and delete the own posts.
 | I want to Explore New art Projects.                | The user can see the posts and read them.              |
 | I want to write new articles.                  | The user can write new articles.|
 
@@ -55,7 +54,7 @@ Visit the deployed website here → [Creative Fails](https://creativefails-b08c6
 | Empty, false or wrong values                                                | Forms don't allow empty or false values                                       | Try to submit a form with empty inputs, wrong characters, etc | Passed |
 | Footer links open externally                                                | Footer links open externally                                                  | Click on the links in the footer                              | Passed |
 | Success message                                                             | User get a sucess message after submit any form (login, signup, booking, etc) | Submit a form                                                 | Passed |
-| Admin panel                                                                 | Admin can manage and edit informations, images and delete things              | Edit informations, update images, delete things               | Failed |
+| Admin panel                                                                 | Admin can manage and edit informations, images and delete things              | Edit informations, update images, delete things               | Passed |
 
 <br>
 
@@ -69,7 +68,6 @@ I tested the website in different browsers, both on computer and mobile. iOS tes
 | Microsoft Edge  | The website is responsive. |
 | Mozilla Firefox | The website is responsive. |
 | Opera           | The website is responsive. |
-| Safari          | The website is responsive. |
 
 [Back to top](#content)
 
