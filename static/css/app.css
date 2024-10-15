@@ -173,20 +173,23 @@ main .blog-posts article .meta .author {
   /* Adjust the height as necessary */
 }
 
+.btn,
 button {
-  padding: 0.75rem;
+  padding: 0.2rem;
   border: none;
   border-radius: 5px;
   background-color: #7fd9c2;
   font-size: 1rem;
   cursor: pointer;
-  padding: 10px 5px;
+  text-decoration: none;
 
 }
 
+.btn,
 button:hover {
-  background-color: #EB8573;
+  background-color: #C2A4CD;
 }
+
 
 @media (max-width: 768px) {
 

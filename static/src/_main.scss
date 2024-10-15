@@ -176,7 +176,8 @@ button .btn {
         text-decoration: none;
     }
 
-    .btn a button {
+    .btn,
+    button {
         background-color: $secondary_color;
         color: $black_color;
         border: none;
@@ -184,7 +185,7 @@ button .btn {
         cursor: pointer;
 
         &:hover {
-            background-color: $tertiary_color;
+            background-color: $primary_color;
         }
     }
 }

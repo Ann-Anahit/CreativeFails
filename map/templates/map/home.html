@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
     <link rel="stylesheet" href="{% static 'css/webfonts.css' %}">
     <title>Home - Creative Fails</title>
@@ -75,20 +76,18 @@
                     Posted on <span class="date">{{ post.created_at|date:"Y-m-d H:i" }}</span> by <span
                         class="author">{{ post.user.username }}</span>
                 </div>
-                <a href="{% url 'post_detail' post_id=post.id %}" class="btn">Click to see the post</a>
+                <!-- Edit and delete buttons for post owner -->
 
-                <!-- Likes functionality 
-                <div class="interaction-buttons">
-                    <form action="{% url 'post_like' post.id %}" method="POST">
-                        {% csrf_token %}
-                      <button type="submit"> 
-                            {% if post.is_liked %}
-                            Unlike
-                            {% else %}
-                            Like
-                            {% endif %} | <p>{{ post.likes.count }} like(s)</p> 
-                        </button>
-                    </form> -->
+
+                <!-- Display edit and delete options only for post owners -->
+                {% if post.user == user %}
+                <p>
+                    <a href="{% url 'edit_post' post.id %}" class="btn">Edit Post</a> |
+                    <a href="{% url 'delete_post' post.id %}" class="btn">Delete Post</a>
+                </p>
+                {% endif %}
+
+                <a href="{% url 'post_detail' post_id=post.id %}" class="btn">Click to see the post</a>
                 <div class="post-bar">
                     {% if post.user == user %}
                     <span title="You can't like your own post!">
@@ -97,7 +96,7 @@
                     {% elif post.is_liked %}
                     <span
                         onclick="event.preventDefault(); document.getElementById('unlike-form-{{ post.id }}').submit();">
-                        <i class="fas fa-heart heart"></i>
+                        <i class="fa-regular fa-heart"></i>
                     </span>
                     <form id="unlike-form-{{ post.id }}" action="{% url 'post_unlike' post.id %}" method="POST"
                         style="display: none;">
@@ -124,16 +123,6 @@
                     </a>
                     {{ post.comments.count }} comment(s)
                 </div>
-
-
-                <!-- Edit and delete buttons for post owner -->
-                {% if post.user == user %}
-                <p>
-                    <a href="{% url 'edit_post' post.id %}">Edit Post</a> |
-                    <a href="{% url 'delete_post' post.id %}">Delete Post</a>
-                </p>
-                {% endif %}
-                <hr>
 
                 <!-- Comments section -->
                 <h4>Comments</h4>

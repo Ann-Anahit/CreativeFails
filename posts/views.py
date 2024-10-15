@@ -50,14 +50,19 @@ def write_article_view(request, post_id=None):
     return render(request, 'posts/write_article.html', {'form': form, 'post': post})
 
 @login_required
-def post_list_view(request):  
-    """View to list all posts."""  
-    posts = Post.objects.all()  
-
-    # Check if the user has liked each post
+def post_list_view(request):
+    """View to list all posts."""
+    posts = Post.objects.all()  # Retrieve all posts from the database
     for post in posts:
+        # Check if the current user has liked each post
         post.is_liked = post.likes.filter(id=request.user.id).exists()
-    return render(request, 'map/home.html', {'posts': posts})  
+    
+    context = {
+        'posts': posts,  # Pass the posts to the template
+    }
+    
+    return render(request, 'map/home.html', context)  # Pass the full context
+ 
 
 @login_required
 def post_detail_view(request, post_id):
