@@ -108,9 +108,37 @@ Some other singular colors also appear in the project.
 
 ### Entity Relationship Diagram
 
-The ERD is pretty simple too, thanks to my bad time management. Unfortunately, comments are not yet functioning.
+The ERD is pretty simple.
+Entities and Relationships:
+1. User:
+Attributes: id, username, email, password, date_joined, is_active
+A User can create many Posts.
+A User can like many Posts (many-to-many).
+A User can comment on many Posts.
+A User can like many Comments.
+2. Post:
+Attributes: id, title, content, created_at, updated_at, image, user_id (foreign key to User)
+A Post belongs to a User.
+A Post can have many Likes (many-to-many with User).
+A Post can have many Comments.
+3. Like:
+Through table connecting User and Post (many-to-many relationship).
+Attributes: id, user_id, post_id, created_at
+A Like belongs to both a User and a Post.
+4. Comment:
+Attributes: id, content, created_at, post_id (foreign key to Post), user_id (foreign key to User)
+A Comment belongs to a User.
+A Comment belongs to a Post.
+A Comment can receive Likes (many-to-many with User).
+5. Category (optional):
+Attributes: id, name, description
+A Post can belong to one Category, but a Category can have many Posts.
+6. Tag (optional):
+Attributes: id, name
+A Post can have many Tags, and a Tag can belong to many Posts (many-to-many).
 
-![Creative-Fails Diagram](documentation/images/ERD.jpg)
+
+![Creative-Fails Diagram](documentation/images/ERD.png)
 
 [Back to top](<#content>)
 
