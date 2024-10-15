@@ -10,6 +10,7 @@ body {
 * {
   font-family: "Roboto";
   color: #333333;
+  line-height: 1.5;
 }
 
 h1 {
@@ -157,21 +158,18 @@ main .blog-posts article .meta .author {
 .interaction-buttons {
   display: flex;
   gap: 10px;
-  /* Space between the buttons */
   margin-top: 10px;
-  /* Space above the buttons */
+
 }
 
 .interaction-buttons form {
   flex: 1;
-  /* Allow the comment form to take available space */
 }
 
 .interaction-buttons textarea {
   width: 100%;
-  /* Make the textarea take the full width */
   height: 40px;
-  /* Adjust the height as necessary */
+
 }
 
 .btn,
@@ -198,6 +196,7 @@ img {
 
 @media (max-width: 768px) {
 
+  .blog-posts,
   .register-form,
   .main-container {
     padding: 0.5rem;
