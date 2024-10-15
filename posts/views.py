@@ -14,7 +14,7 @@ def post_like(request, post_id):
     return redirect('post_detail', post_id=post.id)
 
 @login_required
-def unlike_post(request, post_id):
+def post_unlike(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     if request.user.is_authenticated:
         post.likes.remove(request.user)
