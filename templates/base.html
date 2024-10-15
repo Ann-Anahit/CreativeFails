@@ -15,28 +15,47 @@
     <div class="wrapper">
         <header>
             <nav>
-                <ul>
-                    <li><a href="{% url 'home' %}"><img class="logo" src="{% static 'images/logo_cf.png' %}"
-                                alt="Logo"></a>
-                    </li>
-                    {% if user.is_authenticated %}
-                    <li><a href="{% url 'write_article' %}">Write Article</a></li>
-                    <li>
-                        <a href="{% url 'logout' %}" id="logout-link">Logout</a>
-                        <form id="logout-form" action="{% url 'logout' %}" method="POST" style="display: none;">
-                            {% csrf_token %}
-                        </form>
-                    </li>
-                    <!-- Only show the login and register links when the user is not authenticated -->
-                    <li><a href="{% url 'login' %}">Login</a></li>
-                    <li><a href="{% url 'register' %}">Register</a></li>
-                    {% endif %}
-                </ul>
+                <div class="nav-container">
+                    <!-- Hamburger icon -->
+                    <div class="hamburger" id="hamburger">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+
+                    <!-- Navigation menu -->
+                    <ul class="nav-links" id="nav-links">
+                        <li><a href="{% url 'home' %}"><img class="logo" src="{% static 'images/logo_cf.png' %}"
+                                    alt="Logo"></a></li>
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'write_article' %}">Write Article</a></li>
+                        <li>
+                            <a href="{% url 'logout' %}" id="logout-link">Logout</a>
+                            <form id="logout-form" action="{% url 'logout' %}" method="POST" style="display: none;">
+                                {% csrf_token %}
+                            </form>
+                        </li>
+                        {% else %}
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                        <li><a href="{% url 'register' %}">Register</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
             </nav>
+
             <script>
                 document.getElementById('logout-link').addEventListener('click', function (event) {
-                    event.preventDefault(); // Prevent the default link behavior
-                    document.getElementById('logout-form').submit(); // Submit the form
+                    event.preventDefault();
+                    document.getElementById('logout-form').submit();
+                });
+
+                // Hamburger menu toggle
+                const hamburger = document.getElementById('hamburger');
+                const navLinks = document.getElementById('nav-links');
+
+                hamburger.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    hamburger.classList.toggle('open');
                 });
             </script>
         </header>
@@ -44,6 +63,7 @@
         <main class="main-container">
             {% block content %}{% endblock %}
         </main>
+
         <footer>
             <a href="https://www.twitter.com/" target="_blank" rel="noopener" aria-label="Visit our Twitter page">
                 <img src="{% static 'images/x-twitter.png' %}" alt="Twitter" class="social">
@@ -56,7 +76,6 @@
             </a>
         </footer>
     </div>
-
 </body>
 
 </html>

@@ -16,7 +16,7 @@
     <header>
         <div class="header-element">
             <nav>
-                <ul>
+                <ul class="nav-links">
                     <li><a href="{% url 'home' %}"><img class="logo" src="{% static 'images/logo_cf.png' %}"
                                 alt="Logo"></a></li>
                     <li><a href="{% url 'write_article' %}">Write Article</a></li>
@@ -32,6 +32,11 @@
                     <li><a href="{% url 'register' %}">Register</a></li>
                     {% endif %}
                 </ul>
+                <div class="hamburger" id="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
             </nav>
             <script>
                 document.getElementById('logout-link').addEventListener('click', function (event) {
@@ -78,16 +83,12 @@
                         class="author">{{ post.user.username }}</span>
                 </div>
                 <!-- Edit and delete buttons for post owner -->
-
-                <!-- Display edit and delete options only for post owners -->
                 {% if post.user == user %}
                 <p>
                     <a href="{% url 'edit_post' post.id %}" class="btn">Edit Post</a> |
                     <a href="{% url 'delete_post' post.id %}" class="btn">Delete Post</a>
                 </p>
                 {% endif %}
-
-                <a href="{% url 'post_detail' post_id=post.id %}" class="btn">Click to see the post</a>
                 <div class="post-bar">
                     {% if post.user == user %}
                     <span title="You can't like your own post!">
@@ -123,7 +124,6 @@
                     </a>
                     {{ post.comments.count }} comment(s)
                 </div>
-
                 <!-- Comments section -->
                 <h4>Comments</h4>
                 <div class="comment">
@@ -140,6 +140,7 @@
                     <textarea name="content" placeholder="Add a comment..." required></textarea>
                     <button type="submit">submit</button>
                 </form>
+                <a href="{% url 'post_detail' post_id=post.id %}" class="btn">Click to see the post</a>
             </article>
             <hr>
             {% endfor %}
@@ -148,8 +149,6 @@
             <p>Sign up/in to see the posts and to share your experiences.</p>
             {% endif %}
         </div>
-        </div>
-
     </main>
 
     <footer>
@@ -163,6 +162,22 @@
             <img src="{% static 'images/instagram.png' %}" alt="Instagram" class="social">
         </a>
     </footer>
+
+    <script>
+        // JavaScript to toggle the navigation menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('open');
+        });
+
+        document.getElementById('logout-link').addEventListener('click', function (event) {
+            event.preventDefault();
+            document.getElementById('logout-form').submit();
+        });
+    </script>
 </body>
 
 </html>
