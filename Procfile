@@ -1,1 +1,1 @@
-web: gunicorn creativefails.wsgi
+web: gunicorn creativefails.wsgi:application

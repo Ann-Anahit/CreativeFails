@@ -113,7 +113,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_creativefails = 'creativefails.wsgi.creativefails'
+WSGI_APPLICATION = 'creativefails.wsgi.application'
 
 
 # Database
