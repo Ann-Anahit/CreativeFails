@@ -35,7 +35,7 @@ def custom_login(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('home') 
+                return redirect('post_list') 
     else:
         form = AuthenticationForm()
     return render(request, 'accounts/post_list.html', {'form': form})

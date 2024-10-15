@@ -60,6 +60,7 @@
 
         <div class="blog-posts">
             <h2>Recent Posts</h2>
+            {% if user.is_authenticated %}
             {% for post in posts %}
             <article>
                 <h3>{{ post.title }}</h3>
@@ -77,7 +78,6 @@
                         class="author">{{ post.user.username }}</span>
                 </div>
                 <!-- Edit and delete buttons for post owner -->
-
 
                 <!-- Display edit and delete options only for post owners -->
                 {% if post.user == user %}
@@ -142,9 +142,11 @@
                 </form>
             </article>
             <hr>
-            {% empty %}
-            <p>No posts yet.</p>
             {% endfor %}
+            {% else %}
+            <p>No posts yet.</p>
+            <p>Sign up/in to see the posts and to share your experiences.</p>
+            {% endif %}
         </div>
         </div>
 

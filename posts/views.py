@@ -21,12 +21,15 @@ def post_unlike(request, post_id):
     return redirect('post_detail', post_id=post.id)
 
 @login_required
-def home_view(request):
-    """View for the homepage, showing all posts."""
-    posts = Post.objects.all()
-    return render(request, 'map/home.html', {'posts': posts})
+def home_view(request):  
+    """View for the homepage, showing all posts or a sign-up prompt."""
+    posts = Post.objects.prefetch_related('comments').all()
+    is_authenticated = request.user.is_authenticated  # Check if the user is authenticated
 
-
+    return render(request, 'map/home.html', {
+        'posts': posts,
+        'is_authenticated': is_authenticated,
+    })
 @login_required
 def write_article_view(request, post_id=None):
     """View for creating or editing posts."""

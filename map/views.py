@@ -14,11 +14,19 @@ def profile_view(request):
 
 def home_view(request):  
     posts = Post.objects.prefetch_related('comments').all()
-    return render(request, 'map/home.html')  
+    is_authenticated = request.user.is_authenticated  # Check if the user is authenticated
 
+    return render(request, 'map/home.html', {
+        'posts': posts,
+        'is_authenticated': is_authenticated,
+    })  
 def login_view(request):
-    posts = Post.objects.prefetch_related('comments').all()
-    return render(request, 'map/home.html')  
+    """Redirect authenticated users away from the login page."""
+    if request.user.is_authenticated:
+        return redirect('home')  # Redirect to home if already logged in
+    
+    # Handle login logic here (if you have any)
+    return render(request, 'accounts/login.html')
 
 def logout_view(request):
     logout(request)
@@ -32,7 +40,7 @@ def register_view(request):
             user = form.save(commit=False)  
             user.set_password(form.cleaned_data['password'])  
             user.save()  
-            return redirect('map/home')   
+            return redirect('home')   
     else:  
         form = RegistrationForm()  
 
