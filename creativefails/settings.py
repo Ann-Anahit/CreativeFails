@@ -49,7 +49,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    '8000-annanahit-creativefails-8udd0a6m0nc.ws.codeinstitute-ide.net',
+    '8000-annanahit-creativefails-x5hg19bxatc.ws.codeinstitute-ide.net',
     '.herokuapp.com'
 ]
 CSRF_TRUSTED_ORIGINS = [
