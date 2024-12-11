@@ -73,10 +73,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "cloudinary_storage",
-    "allauth",
-    "allauth.account",
-    "allauth.socialaccount",
-    'django_summernote',
     "map", 
     "cloudinary",
     "accounts",
@@ -95,8 +91,7 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    'allauth.account.middleware.AccountMiddleware',
+    "django.middleware.clickjacking.XFrameOptionsMiddleware"
 ]
 
 
