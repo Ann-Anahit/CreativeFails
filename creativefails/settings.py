@@ -42,14 +42,14 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    '8000-annanahit-creativefails-x5hg19bxatc.ws.codeinstitute-ide.net',
+    '8000-annanahit-creativefails-svohtdtofef.ws.codeinstitute-ide.net',
     '.herokuapp.com'
 ]
 CSRF_TRUSTED_ORIGINS = [
@@ -73,6 +73,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "cloudinary_storage",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    'django_summernote',
     "map", 
     "cloudinary",
     "accounts",
@@ -92,6 +96,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 

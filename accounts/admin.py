@@ -15,7 +15,7 @@ class CustomUserAdmin(UserAdmin):
     ordering = ['username']  # Order by username
 
     fieldsets = (
-        (None, {'fields': ('username', 'password')}),
+        (None, {'fields': ('username', 'password', 'is_artist')}),
         ('Personal info', {'fields': ('profile_picture', 'bio')}),
         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
         ('Important dates', {'fields': ('last_login', 'created_at')}),
