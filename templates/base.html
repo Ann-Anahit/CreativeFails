@@ -28,7 +28,9 @@
                         <li><a href="{% url 'home' %}"><img class="logo" src="{% static 'images/logo_cf.png' %}"
                                     alt="Logo"></a></li>
                         {% if user.is_authenticated %}
-                        <li><a href="{% url 'write_article' %}">Write Article</a></li>
+                            {% if user.is_artist %}
+                                <li><a href="{% url 'write_article' %}">Write Article</a></li>
+                            {% endif %}
                         <li>
                             <a href="{% url 'logout' %}" id="logout-link">Logout</a>
                             <form id="logout-form" action="{% url 'logout' %}" method="POST" style="display: none;">

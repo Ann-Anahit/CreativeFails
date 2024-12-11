@@ -2,9 +2,9 @@
 {% load static %}
 
 {% block content %}
+{% if user.is_artist %}
 <div class="registration-form">
     <h2>{% if post %}Edit Post{% else %}Write Article{% endif %}</h2>
-
     <!-- Display form errors -->
     {% if form.errors %}
     <div class="error">
@@ -20,12 +20,14 @@
         </ul>
     </div>
     {% endif %}
-
     <form action="{% if post %}{% url 'update_post' post.pk %}{% else %}{% url 'write_article' %}{% endif %}"
         method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">{% if post %}Update{% else %}Submit{% endif %}</button>
     </form>
-</div>
+</div> 
+{% else %}
+<h2>You are not artist</h2>
+{% endif %}
 {% endblock %}
