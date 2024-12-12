@@ -24,7 +24,7 @@ def post_unlike(request, post_id):
 def home_view(request):  
     """View for the homepage, showing all posts or a sign-up prompt."""
     posts = Post.objects.prefetch_related('comments').all()
-    is_authenticated = request.user.is_authenticated  # Check if the user is authenticated
+    is_authenticated = request.user.is_authenticated  
 
     return render(request, 'map/home.html', {
         'posts': posts,
@@ -36,17 +36,17 @@ def write_article_view(request, post_id=None):
     post = None
     if post_id:  # Editing an existing post
         post = get_object_or_404(Post, id=post_id)
-        if post.user != request.user:  # Ensure the post belongs to the logged-in user
+        if post.user != request.user: 
             return HttpResponseForbidden("You can only edit your own posts.")
 
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
-            new_post = form.save(commit=False)  # Don't save to the DB yet
-            new_post.user = request.user  # Set the user field to the logged-in user
-            new_post.save()  # Now save to the DB
+            new_post = form.save(commit=False)
+            new_post.user = request.user  
+            new_post.save() 
             messages.success(request, 'Your post has been saved successfully!')
-            return redirect('post_list')  # Redirect to post list after saving
+            return redirect('post_list') 
     else:
         form = PostForm(instance=post)
 
@@ -55,16 +55,15 @@ def write_article_view(request, post_id=None):
 @login_required
 def post_list_view(request):
     """View to list all posts."""
-    posts = Post.objects.all()  # Retrieve all posts from the database
+    posts = Post.objects.all() 
     for post in posts:
-        # Check if the current user has liked each post
         post.is_liked = post.likes.filter(id=request.user.id).exists()
     
     context = {
-        'posts': posts,  # Pass the posts to the template
+        'posts': posts,  
     }
     
-    return render(request, 'map/home.html', context)  # Pass the full context
+    return render(request, 'map/home.html', context) 
  
 
 @login_required
@@ -135,7 +134,6 @@ def add_comment_view(request, post_id):
     else:  
         form = CommentForm()  
     
-    # For rendering the post details and the comment form  
     return render(request, 'posts/post_detail.html', {'post': post, 'comment_form': form})
 
 @login_required

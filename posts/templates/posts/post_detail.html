@@ -7,16 +7,14 @@
 
 
 {% if post.image %}
-<!-- Display the image if it exists -->
+
 <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 100%;">
 {% else %}
-<!-- Show a default image if no image exists for the post -->
 <img src="{% static 'images/default.jpg' %}" alt="Default image">
 {% endif %}
 
 <p>Posted by {{ post.user.username }} on {{ post.created_at }}</p>
 {% if is_owner %}
-<!-- Only display these actions if the user owns the post -->
 <a href="{% url 'edit_post' post.id %}">Edit Post</a> |
 <a href="{% url 'delete_post' post.id %}">Delete Post</a>
 {% endif %}
@@ -26,17 +24,14 @@
     <form action="{% url 'post_like' post.id %}" method="POST">
         {% csrf_token %}
         {% if liked %}
-        <!-- Show "Unlike" button -->
         <button type="submit">Unlike</button>
         {% else %}
-        <!-- Show "Like" button -->
         <button type="submit">Like</button>
         {% endif %}
     </form>
     {% else %}
     <p>Login to like this post.</p>
     {% endif %}
-    <!-- Display like count -->
     <span>{{ post.likes.count }} likes</span>
 </div>
 
