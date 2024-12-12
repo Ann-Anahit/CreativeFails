@@ -294,7 +294,6 @@ header {
 
   .blog-posts img {
     max-width: 100%;
-    /* Full width for smaller screens */
   }
 
   .blog-posts {
@@ -334,7 +333,6 @@ form div {
   flex-direction: column;
 }
 
-
 footer {
   background-color: #C2A4CD;
   display: flex;
@@ -345,10 +343,7 @@ footer {
   padding: 16px 0;
   width: 100%;
   margin-top: 150px;
-
-
 }
-
 
 footer img {
   height: 32px;

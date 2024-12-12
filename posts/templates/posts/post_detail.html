@@ -4,21 +4,17 @@
 {% block content %}
 <h1>{{ post.title }}</h1>
 <p>{{ post.content }}</p>
-
-
 {% if post.image %}
 
 <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 100%;">
 {% else %}
 <img src="{% static 'images/default.webp' %}" alt="Default image">
 {% endif %}
-
 <p>Posted by {{ post.user.username }} on {{ post.created_at }}</p>
 {% if is_owner %}
 <a href="{% url 'edit_post' post.id %}">Edit Post</a> |
 <a href="{% url 'delete_post' post.id %}">Delete Post</a>
 {% endif %}
-
 <div class="like-section">
     {% if user.is_authenticated %}
     <form action="{% url 'post_like' post.id %}" method="POST">
@@ -34,10 +30,7 @@
     {% endif %}
     <span>{{ post.likes.count }} likes</span>
 </div>
-
 <hr>
-
-<!-- Comments Section -->
 <h2>Comments</h2>
 {% for comment in comments %}
 <div>
@@ -51,7 +44,6 @@
 <p>No comments yet.</p>
 {% endfor %}
 
-<!-- Comment Form -->
 {% if user.is_authenticated %}
 <form action="{% url 'add_comment' post.id %}" method="POST">
     {% csrf_token %}
@@ -61,7 +53,6 @@
 {% else %}
 <p>Please log in to comment.</p>
 {% endif %}
-<!-- Display success messages -->
 {% if messages %}
 <div class="messages">
     {% for message in messages %}
@@ -69,8 +60,6 @@
     {% endfor %}
 </div>
 {% endif %}
-
-<!-- Back to Home button -->
 <a href="{% url 'home' %}" class="btn btn-primary">Back to Home</a>
 
 {% endblock %}

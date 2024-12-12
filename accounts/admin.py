@@ -8,7 +8,6 @@ class CustomUserAdmin(UserAdmin):
     form = CustomUserChangeForm
     model = CustomUser
     
-
     list_display = ['username', 'is_staff', 'is_active'] 
     list_filter = ['is_staff', 'is_active']
     search_fields = ['username']  

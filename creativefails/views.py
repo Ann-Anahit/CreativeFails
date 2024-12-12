@@ -6,7 +6,6 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 
-
 class CustomLoginView(LoginView):
     def form_valid(self, form):
         user = form.get_user()

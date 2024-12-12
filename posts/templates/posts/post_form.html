@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block title %}{% if post %}Edit Post{% else %}Write Article{% endif %}{% endblock %}
 
 {% block content %}
@@ -11,7 +10,6 @@
         method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-
         <button type="submit">{% if post %}Update{% else %}Submit{% endif %}</button>
     </form>
 

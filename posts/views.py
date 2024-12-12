@@ -161,5 +161,3 @@ def delete_comment(request, comment_id):
         return redirect('post_detail', post_id=comment.post.id) 
 
     return render(request, 'comments/delete_comment.html', {'comment': comment})
-
-
