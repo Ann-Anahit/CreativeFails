@@ -19,14 +19,16 @@ def post_unlike(request, post_id):
         post.likes.remove(request.user)
     return redirect('post_detail', post_id=post.id)
 
-def home_view(request):  
+def home_view(request):
     """View for the homepage, showing all posts or a sign-up prompt."""
     posts = Post.objects.prefetch_related('comments').all()
-    is_authenticated = request.user.is_authenticated  
+    is_authenticated = request.user.is_authenticated 
 
     return render(request, 'map/home.html', {
         'posts': posts,
+        'is_authenticated': is_authenticated,  
     })
+    
 @login_required
 def write_article_view(request, post_id=None):
     """View for creating or editing posts."""
@@ -154,10 +156,15 @@ def edit_comment(request, comment_id):
 @login_required
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
+    post = comment.post 
+
+    if post.user != request.user: 
+        messages.error(request, "You are not authorized to delete comments on this post.")
+        return redirect('post_detail', post_id=post.id)
 
     if request.method == "POST":
         comment.delete()
-        messages.success(request, 'Your comment has been deleted successfully!')
-        return redirect('post_detail', post_id=comment.post.id) 
+        messages.success(request, 'The comment has been deleted successfully!')
+        return redirect('post_detail', post_id=post.id)
 
-    return render(request, 'comments/delete_comment.html', {'comment': comment})
+    return render(request, 'comments/delete_comment.html', {'comment': comment, 'post': post})
