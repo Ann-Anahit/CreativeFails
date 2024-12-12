@@ -59,6 +59,7 @@
             <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 300px; max-height: 300px;">
             {% else %}
             <p>No image available</p>
+            <img src="{% static 'images/default.webp' %}" alt="Default image">
             {% endif %}
 
             <div class="meta">
