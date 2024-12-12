@@ -10,7 +10,7 @@
 
 <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 100%;">
 {% else %}
-<img src="{% static 'images/default.jpg' %}" alt="Default image">
+<img src="{% static 'images/default.webp' %}" alt="Default image">
 {% endif %}
 
 <p>Posted by {{ post.user.username }} on {{ post.created_at }}</p>
