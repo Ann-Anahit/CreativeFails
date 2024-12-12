@@ -22,7 +22,6 @@
                         <div class="line"></div>
                         <div class="line"></div>
                     </div>
-
                     <!-- Navigation menu -->
                     <ul class="nav-links" id="nav-links">
                         <li><a href="{% url 'home' %}"><img class="logo" src="{% static 'images/logo_cf.png' %}"
@@ -41,10 +40,31 @@
                         <li><a href="{% url 'login' %}">Login</a></li>
                         <li><a href="{% url 'register' %}">Register</a></li>
                         {% endif %}
+                        <li>
+                            <div class="nav-container">            
+                                <div class="dropdown">
+                                    <button class="dropbtn">
+                                        <i class="fa fa-user"></i> 
+                                        <span>Account</span> 
+                                    </button>
+                                    <div class="dropdown-content">
+                                        <ol>
+                                            <li>Welcome</li>
+                                            <li><a href="{% url 'write_article' %}">WriteArticle</a></li>
+                                            <li>
+                                                <a href="{% url 'logout' %}" id="logout-link">Logouts</a>
+                                                <form id="logout-form" action="{% url 'logout' %}" method="POST" style="display: none;">
+                                                    {% csrf_token %}
+                                                </form>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </nav>
-
             <script>
                 document.getElementById('logout-link').addEventListener('click', function (event) {
                     event.preventDefault();
