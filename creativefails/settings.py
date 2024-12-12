@@ -63,7 +63,6 @@ X_FRAME_OPTIONS = 'ALLOWALL'
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
-# creativefails definition
 
 INSTALLED_APPS = [
     "django.contrib.admin",

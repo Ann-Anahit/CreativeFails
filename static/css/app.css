@@ -1,5 +1,3 @@
-/* colors */
-/* spacing */
 html,
 body {
   margin: 0;
@@ -182,7 +180,6 @@ main .blog-posts article .meta .author {
   display: flex;
   gap: 10px;
   margin-top: 10px;
-
 }
 
 .interaction-buttons form {
@@ -192,7 +189,6 @@ main .blog-posts article .meta .author {
 .interaction-buttons textarea {
   width: 100%;
   height: 40px;
-
 }
 
 .btn,
@@ -205,7 +201,6 @@ button {
   font-size: 1rem;
   cursor: pointer;
   text-decoration: none;
-
 }
 
 .btn:hover,
@@ -217,7 +212,6 @@ img {
   margin: 0 16px;
 }
 
-/* Add these styles to app.css */
 header {
   position: relative;
 }
@@ -225,7 +219,7 @@ header {
 .nav-links {
   list-style: none;
   display: flex;
-  /* Show links in a row by default */
+
   margin: 0;
   padding: 0;
 }
@@ -236,7 +230,6 @@ header {
 
 .hamburger {
   display: none;
-  /* Hidden by default */
   flex-direction: column;
   cursor: pointer;
 }
@@ -253,42 +246,37 @@ header {
 @media (max-width: 768px) {
   .nav-links {
     display: none;
-    /* Hide links by default */
+ 
     flex-direction: column;
-    /* Stack links vertically */
+
     position: absolute;
     top: 60px;
-    /* Position below the header */
+
     right: 0;
     background-color: #C2A4CD;
-    /* Background color for the menu */
     width: 100%;
-    /* Full width */
+
   }
 
   .nav-links.active {
     display: flex;
-    /* Show links when active */
   }
 
   .hamburger {
     display: flex;
-    /* Show hamburger on small screens */
+
   }
 
   .hamburger.open .line:nth-child(2) {
     opacity: 0;
-    /* Hide the middle line */
   }
 
   .hamburger.open .line:nth-child(1) {
     transform: rotate(-45deg) translate(-5px, 6px);
-    /* Rotate top line */
   }
 
   .hamburger.open .line:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
-    /* Rotate bottom line */
   }
 
   .blog-posts,
@@ -371,7 +359,7 @@ footer img {
 }
 
 .dropbtn {
-  background-color: #4CAF50; /* Green */
+  background-color: #4CAF50;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -397,5 +385,3 @@ ol {
   padding-left: 0;
   margin-left: 0;
 }
-
-/*# sourceMappingURL=app.css.map */

@@ -32,7 +32,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = []  # No email field required now
+    REQUIRED_FIELDS = []  
 
     def __str__(self):
-        return self.username  # Change to return username instead of email
+        return self.username 

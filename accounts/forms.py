@@ -8,7 +8,7 @@ class CustomUserCreationForm(UserCreationForm):
     
     class Meta:
         model = CustomUser
-        fields = ('username', 'password1', 'password2', 'artist')  # Removed email field
+        fields = ('username', 'password1', 'password2', 'artist')
 
     def clean_username(self):
         """Check if the username already exists."""
@@ -33,4 +33,4 @@ class CustomUserChangeForm(UserChangeForm):
     
     class Meta:
         model = CustomUser
-        fields = ('username',)  # Specify fields you want to change
+        fields = ('username',) 

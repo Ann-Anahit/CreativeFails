@@ -8,11 +8,11 @@ class CustomUserAdmin(UserAdmin):
     form = CustomUserChangeForm
     model = CustomUser
     
-    # Update list_display, search_fields, and ordering
-    list_display = ['username', 'is_staff', 'is_active']  # No email here
+
+    list_display = ['username', 'is_staff', 'is_active'] 
     list_filter = ['is_staff', 'is_active']
-    search_fields = ['username']  # Search by username only
-    ordering = ['username']  # Order by username
+    search_fields = ['username']  
+    ordering = ['username'] 
 
     fieldsets = (
         (None, {'fields': ('username', 'password', 'is_artist')}),
