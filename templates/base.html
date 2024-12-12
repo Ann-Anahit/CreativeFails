@@ -12,74 +12,70 @@
 </head>
 
 <body>
+
     <div class="wrapper">
         <header>
             <nav>
                 <div class="nav-container">
-                    <!-- Hamburger icon -->
+                   <!--  Hamburger icon 
                     <div class="hamburger" id="hamburger">
                         <div class="line"></div>
                         <div class="line"></div>
                         <div class="line"></div>
                     </div>
+                    <div id="hamburger" class="hamburger">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                    
+                    <nav id="nav-links" class="nav-links">
+                        <a href="{% url 'home' %}">Home</a> 
+                    </nav> -->
+                    
                     <!-- Navigation menu -->
                     <ul class="nav-links" id="nav-links">
-                        <li><a href="{% url 'home' %}"><img class="logo" src="{% static 'images/logo_cf.png' %}"
-                                    alt="Logo"></a></li>
-                        {% if user.is_authenticated %}
-                            {% if user.is_artist %}
-                                <li><a href="{% url 'write_article' %}">Write Article</a></li>
-                            {% endif %}
                         <li>
-                            <a href="{% url 'logout' %}" id="logout-link">Logout</a>
-                            <form id="logout-form" action="{% url 'logout' %}" method="POST" style="display: none;">
-                                {% csrf_token %}
-                            </form>
+                            <a href="{% url 'home' %}">
+                                <img class="logo" src="{% static 'images/logo_cf.png' %}" alt="Logo">
+                            </a>
                         </li>
-                        {% else %}
-                        <li><a href="{% url 'login' %}">Login</a></li>
-                        <li><a href="{% url 'register' %}">Register</a></li>
-                        {% endif %}
-                        <li>
-                            <div class="nav-container">            
-                                <div class="dropdown">
-                                    <button class="dropbtn">
-                                        <i class="fa fa-user"></i> 
-                                        <span>Account</span> 
-                                    </button>
-                                    <div class="dropdown-content">
-                                        <ol>
-                                            <li>Welcome</li>
-                                            <li><a href="{% url 'write_article' %}">WriteArticle</a></li>
-                                            <li>
-                                                <a href="{% url 'logout' %}" id="logout-link">Logouts</a>
-                                                <form id="logout-form" action="{% url 'logout' %}" method="POST" style="display: none;">
-                                                    {% csrf_token %}
-                                                </form>
-                                            </li>
-                                        </ol>
+                    
+                        {% if user.is_authenticated %}
+                            <li>
+                                <div class="nav-container">
+                                    <div class="dropdown">
+                                        <button class="button">
+                                            <i class="fa fa-user"></i>
+                                            <span>Account</span>
+                                        </button>
+                                        <div class="dropdown-content">
+                                            <ol class="btn">
+                                                <li>Welcome, {{ user.username }}</li>
+                                                {% if user.is_artist %}
+                                                    <li><a href="{% url 'write_article' %}" class="btn">Post</a></li>
+                                                    <li><a href="{% url 'user_posts' %}" class="btn">YourPosts</a></li> 
+                                                {% endif %}
+                                                <li>
+                                                    <form action="{% url 'logout' %}" method="post">
+                                                        {% csrf_token %}
+                                                        <button type="submit" class="btn">Logout</button>
+                                                    </form>
+                                                </li>
+                                            </ol>
+                                        </div>
+                                        
                                     </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
+                        {% else %}
+                            <li><a href="{% url 'login' %}">Login</a></li>
+                            <li><a href="{% url 'register' %}">Register</a></li>
+                        {% endif %}
                     </ul>
+                    
                 </div>
             </nav>
-            <script>
-                document.getElementById('logout-link').addEventListener('click', function (event) {
-                    event.preventDefault();
-                    document.getElementById('logout-form').submit();
-                });
-
-                // Hamburger menu toggle
-                const hamburger = document.getElementById('hamburger');
-                const navLinks = document.getElementById('nav-links');
-
-                hamburger.addEventListener('click', () => {
-                    navLinks.classList.toggle('active');
-                    hamburger.classList.toggle('open');
-                });
-            </script>
         </header>
 
         <main class="main-container">

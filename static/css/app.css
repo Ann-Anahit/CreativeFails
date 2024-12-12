@@ -194,13 +194,14 @@ main .blog-posts article .meta .author {
 .btn,
 button {
   margin: 5px 16px;
-  padding: 5px 10px;
+  padding: 5px 15px;
   border: none;
   border-radius: 5px;
   background-color: #7fd9c2;
   font-size: 1rem;
   cursor: pointer;
   text-decoration: none;
+  color: #333333;
 }
 
 .btn:hover,
@@ -356,15 +357,6 @@ footer img {
 .dropdown {
   position: relative;
   display: inline-block;
-}
-
-.dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
 }
 
 .dropdown-content {

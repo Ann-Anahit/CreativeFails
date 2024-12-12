@@ -27,13 +27,7 @@ CLOUDINARY_STORAGE = {
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_URL = '/media/'
 
-
-
-
-
-# Define templates directory
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -43,8 +37,6 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -62,7 +54,6 @@ X_FRAME_OPTIONS = 'ALLOWALL'
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
-
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -93,7 +84,6 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware"
 ]
 
-
 ROOT_URLCONF = 'creativefails.urls'
 
 TEMPLATES = [
@@ -117,7 +107,6 @@ WSGI_APPLICATION = 'creativefails.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))

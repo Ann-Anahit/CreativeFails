@@ -9,7 +9,7 @@
     {% if post.image %}
     <img src="{{ post.image.url }}" alt="{{ post.title }}">
     {% else %}
-    <img src="{% static 'images/default.jpg' %}" alt="Default image">
+    <img src="{% static 'images/default.webp' %}" alt="Default image">
     {% endif %}
     <div class="image-flash">
         <p>{{ post.content|truncatewords:30 }}</p>

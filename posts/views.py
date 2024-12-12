@@ -13,14 +13,12 @@ def post_like(request, post_id):
         post.likes.add(request.user)
     return redirect('post_detail', post_id=post.id)
 
-@login_required
 def post_unlike(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     if request.user.is_authenticated:
         post.likes.remove(request.user)
     return redirect('post_detail', post_id=post.id)
 
-@login_required
 def home_view(request):  
     """View for the homepage, showing all posts or a sign-up prompt."""
     posts = Post.objects.prefetch_related('comments').all()
@@ -28,13 +26,12 @@ def home_view(request):
 
     return render(request, 'map/home.html', {
         'posts': posts,
-        'is_authenticated': is_authenticated,
     })
 @login_required
 def write_article_view(request, post_id=None):
     """View for creating or editing posts."""
     post = None
-    if post_id:  # Editing an existing post
+    if post_id: 
         post = get_object_or_404(Post, id=post_id)
         if post.user != request.user: 
             return HttpResponseForbidden("You can only edit your own posts.")
@@ -64,7 +61,10 @@ def post_list_view(request):
     }
     
     return render(request, 'map/home.html', context) 
- 
+
+def user_posts(request):
+    posts = Post.objects.filter(user=request.user) 
+    return render(request, 'posts/user_posts.html', {'posts': posts})
 
 @login_required
 def post_detail_view(request, post_id):
