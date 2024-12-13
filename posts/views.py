@@ -16,6 +16,14 @@ def post_like(request, post_id):
             post.likes.add(request.user) 
     return redirect('post_detail', post_id=post.id)
 
+@login_required
+def post_unlike(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if request.user.is_authenticated:
+        if request.user in post.likes.all():
+            post.likes.remove(request.user)  
+    return redirect('post_detail', post_id=post.id)
+
 def home_view(request):
     """View for the homepage, showing all posts or a sign-up prompt."""
     posts = Post.objects.prefetch_related('comments').all()
