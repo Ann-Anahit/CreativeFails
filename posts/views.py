@@ -45,6 +45,10 @@ def write_article_view(request, post_id=None):
             return redirect('post_list') 
     else:
         form = PostForm(instance=post)
+        
+    if not request.user.is_artist:
+        messages.error(request, "You must be an artist to access this page.")
+        return redirect('home')
 
     return render(request, 'posts/write_article.html', {'form': form, 'post': post})
 
