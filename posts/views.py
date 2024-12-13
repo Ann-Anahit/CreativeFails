@@ -117,18 +117,20 @@ def edit_post(request, post_id):
 
     return render(request, 'posts/edit_post.html', {'form': form, 'post': post})
 
-@login_required  
-def delete_post(request, post_id):  
-    """View to delete a post."""  
-    post = get_object_or_404(Post, pk=post_id)  
+@login_required
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+
     if post.user != request.user:
-        return HttpResponseForbidden("You can only delete your own posts.")  
-    
-    if request.method == 'POST':  
-        post.delete()  
-        messages.success(request, 'Your post has been deleted successfully!')  
-        return redirect('home')  
-    return render(request, 'posts/delete_post.html', {'post': post})  
+        messages.error(request, "You are not authorized to delete this post.")
+        return redirect('post_detail', post_id=post.id)
+
+    if request.method == 'POST':
+        post.delete()
+        messages.success(request, "The post has been deleted successfully!")
+        return redirect('post_list')
+
+    return render(request, 'posts/delete_post.html', {'post': post})
 
 @login_required  
 def custom_logout_view(request):  
@@ -176,8 +178,8 @@ def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
     post = comment.post 
 
-    if post.user != request.user: 
-        messages.error(request, "You are not authorized to delete comments on this post.")
+    if post.user != request.user and comment.user != request.user:
+        messages.error(request, "You are not authorized to delete this comment.")
         return redirect('post_detail', post_id=post.id)
 
     if request.method == "POST":
