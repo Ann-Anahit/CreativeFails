@@ -101,12 +101,12 @@
                     <i class="far fa-heart"></i>
                 </span>
                 {% endif %}
-                {{ post.likes.count }} like(s)
+                {{ post.likes.count }} 
             
                 <a href="{% url 'post_detail' post.id %}">
                     <i class="far fa-comments"></i>
                 </a>
-                {{ post.comments.count }} comment(s)
+                {{ post.comments.count }} 
             </div>
             
             <div class="comments">
@@ -114,7 +114,6 @@
                 {% for comment in post.comments.all %}
                 <div class="comment">
                     <p><strong>{{ comment.user.username }}</strong>: {{ comment.content }}</p>
-                    <p>Likes: {{ comment.likes.count|default:0 }}</p>
                 </div>
                 {% empty %}
                 <p>No comments yet. Be the first to comment!</p>

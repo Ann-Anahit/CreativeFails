@@ -4,6 +4,12 @@
 {% block content %}
 <h1>My Posts</h1>
 
+<div class="stats">
+    <p><strong>Total Posts:</strong> {{ total_posts }}</p>
+    <p><strong>Total Comments:</strong> {{ total_comments }}</p>
+    <p><strong>Total Likes:</strong> {{ total_likes }}</p>
+</div>
+
 {% for post in posts %}
 <div class="post">
     <h2>{{ post.title }}</h2>

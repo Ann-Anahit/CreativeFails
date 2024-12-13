@@ -66,8 +66,17 @@ def post_list_view(request):
     return render(request, 'map/home.html', context) 
 
 def user_posts(request):
-    posts = Post.objects.filter(user=request.user) 
-    return render(request, 'posts/user_posts.html', {'posts': posts})
+    user_posts = Post.objects.filter(user=request.user)
+    total_posts = user_posts.count()
+    total_comments = Comment.objects.filter(post__in=user_posts).count()
+    total_likes = sum(post.likes.count() for post in user_posts)  
+
+    return render(request, 'posts/user_posts.html', {
+        'posts': user_posts,
+        'total_posts': total_posts,
+        'total_comments': total_comments,
+        'total_likes': total_likes,
+    })
 
 @login_required
 def post_detail_view(request, post_id):
