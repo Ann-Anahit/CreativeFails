@@ -10,13 +10,10 @@ from .forms import PostForm, CommentForm
 def post_like(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     if request.user.is_authenticated:
-        post.likes.add(request.user)
-    return redirect('post_detail', post_id=post.id)
-
-def post_unlike(request, post_id):
-    post = get_object_or_404(Post, id=post_id)
-    if request.user.is_authenticated:
-        post.likes.remove(request.user)
+        if request.user in post.likes.all():
+            post.likes.remove(request.user) 
+        else:
+            post.likes.add(request.user) 
     return redirect('post_detail', post_id=post.id)
 
 def home_view(request):
