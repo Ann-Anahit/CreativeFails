@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<h1>Your Posts</h1>
+<h1>My Posts</h1>
 
 {% for post in posts %}
 <div class="post">
@@ -11,9 +11,9 @@
     <a href="{% url 'post_detail' post.id %}" class="btn">Click to see the post</a>
     
     {% if post.image %}
-    <img src="{{ post.image.url }}" alt="{{ post.title }}">
+    <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-img">
     {% else %}
-    <img src="{% static 'images/default.webp' %}" alt="Default image">
+    <img src="{% static 'images/default.webp' %}" alt="Default image" class="post-img">
     {% endif %}
     
     <div class="meta">

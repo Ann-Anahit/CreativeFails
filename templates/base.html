@@ -8,6 +8,7 @@
     <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
     <link rel="stylesheet" href="{% static 'css/webfonts.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <title>{% block title %}Creative Fails{% endblock %}</title>
 </head>
 
@@ -38,7 +39,7 @@
                                                 <li>Welcome, {{ user.username }}</li>
                                                 {% if user.is_artist %}
                                                     <li><a href="{% url 'write_article' %}" class="btn">Post</a></li>
-                                                    <li><a href="{% url 'user_posts' %}" class="btn">YourPosts</a></li> 
+                                                    <li><a href="{% url 'user_posts' %}" class="btn">MyPosts</a></li> 
                                                 {% endif %}
                                                 <li>
                                                     <form action="{% url 'logout' %}" method="post">

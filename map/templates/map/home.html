@@ -13,15 +13,15 @@
 
 {% block content %}
 <header>
-    <div class="header-element">
+    <!--<div class="header-element">
         <nav>
             <div class="hamburger" id="hamburger">
                 <div class="line"></div>
                 <div class="line"></div>
                 <div class="line"></div>
-            </div>
+            </div>‚
         </nav>
-    </div>
+    </div> -->
     <div class="hero">
         <h1>Creative Fails</h1>
     </div>
@@ -56,10 +56,10 @@
             <p>{{ post.content|truncatewords:30 }}</p>
 
             {% if post.image %}
-            <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 300px; max-height: 300px;">
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-img">
             {% else %}
             <p>No image available</p>
-            <img src="{% static 'images/default.webp' %}" alt="Default image">
+            <img src="{% static 'images/default.webp' %}" alt="Default image" class="post-img">
             {% endif %}
 
             <div class="meta">
@@ -75,7 +75,7 @@
             {% endif %}
 
             <div class="post-bar">
-                <!-- Like Functionality -->
+                
                 {% if user.is_authenticated %}
                     {% if post.user == user %}
                     <span title="You can't like your own post!">
@@ -85,7 +85,7 @@
                     <form action="{% url 'post_unlike' post.id %}" method="POST" style="display: inline;">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-icon">
-                            <i class="fa-solid fa-heart" style="color: red;"></i>
+                            <i class="fa-solid fa-heart"></i>
                         </button>
                     </form>
                     {% else %}
