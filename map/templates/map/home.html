@@ -76,9 +76,9 @@
             <div class="post-bar">
                 {% if user.is_authenticated %}
                     {% if post.user == user %}
-                    <span title="You can't like your own post!">
+                    <button title="You can't like your own post!">
                         <i class="far fa-heart"></i>
-                    </span>
+                    </button>
                     {% elif post.is_liked %}
                     <form action="{% url 'post_unlike' post.id %}" method="POST" style="display: inline;">
                         {% csrf_token %}
@@ -95,15 +95,15 @@
                     </form>
                     {% endif %}
                 {% else %}
-                <span title="Log in to like posts!">
+                <button title="Log in to like posts!">
                     <i class="far fa-heart"></i>
-                </span>
+                </button>
                 {% endif %}
                 {{ post.likes.count }} 
             
-                <a href="{% url 'post_detail' post.id %}">
+                <button><a href="{% url 'post_detail' post.id %}">
                     <i class="far fa-comments"></i>
-                </a>
+                </a></button>
                 {{ post.comments.count }} 
             </div>
             
