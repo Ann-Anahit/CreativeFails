@@ -39,7 +39,7 @@
         <i class="fas fa-edit"></i> Save changes
     </button>
 </form>
-
+<a href="{% url 'delete_post' post.id %}" class="btn">Delete Post</a>
 <a href="{% url 'post_detail' post.id %}" class="btn btn-secondary">
     <i class="fas fa-times"></i> Cancel
 </a>

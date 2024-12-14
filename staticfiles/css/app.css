@@ -217,7 +217,6 @@ img {
   margin: 0 16px;
 }
 
-/* Add these styles to app.css */
 header {
   position: relative;
 }
@@ -225,7 +224,6 @@ header {
 .nav-links {
   list-style: none;
   display: flex;
-  /* Show links in a row by default */
   margin: 0;
   padding: 0;
 }
@@ -236,7 +234,6 @@ header {
 
 .hamburger {
   display: none;
-  /* Hidden by default */
   flex-direction: column;
   cursor: pointer;
 }
@@ -249,46 +246,35 @@ header {
   transition: 0.4s;
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
-    /* Hide links by default */
     flex-direction: column;
-    /* Stack links vertically */
     position: absolute;
     top: 60px;
-    /* Position below the header */
     right: 0;
     background-color: #C2A4CD;
-    /* Background color for the menu */
     width: 100%;
-    /* Full width */
   }
 
   .nav-links.active {
     display: flex;
-    /* Show links when active */
   }
 
   .hamburger {
     display: flex;
-    /* Show hamburger on small screens */
   }
 
   .hamburger.open .line:nth-child(2) {
     opacity: 0;
-    /* Hide the middle line */
   }
 
   .hamburger.open .line:nth-child(1) {
     transform: rotate(-45deg) translate(-5px, 6px);
-    /* Rotate top line */
   }
 
   .hamburger.open .line:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
-    /* Rotate bottom line */
   }
 
   .blog-posts,
@@ -305,7 +291,6 @@ header {
 
   .blog-posts img {
     max-width: 100%;
-    /* Full width for smaller screens */
   }
 
   .blog-posts {
@@ -326,6 +311,7 @@ header {
   padding: 10px;
   font-size: 1rem;
   margin-top: 10px;
+  text-decoration: none;
 }
 
 .comment {

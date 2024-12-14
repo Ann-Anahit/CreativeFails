@@ -52,14 +52,14 @@
         <h2>Recent Posts</h2>
         {% for post in posts %}
         <article>
-            <h3>{{ post.title }}</h3>
-            <p>{{ post.content|truncatewords:30 }}</p>
+           <a href="{% url 'post_detail' post.id %}" ><h3>{{ post.title }}</h3></a>
+            <a href="{% url 'post_detail' post.id %}" ><p>{{ post.content|truncatewords:30 }}</p></a>
 
             {% if post.image %}
-            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-img">
+            <a href="{% url 'post_detail' post.id %}"><img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-img" style="max-width: 300px; max-height: 300px;"></a>
             {% else %}
             <p>No image available</p>
-            <img src="{% static 'images/default.webp' %}" alt="Default image" class="post-img">
+            <a href="{% url 'post_detail' post.id %}"><img src="{% static 'images/default.webp' %}" alt="Default image" class="post-img" style="max-width: 300px; max-height: 300px;"></a>
             {% endif %}
 
             <div class="meta">
@@ -69,13 +69,11 @@
 
             {% if user.is_authenticated and post.user == user %}
             <p>
-                <a href="{% url 'edit_post' post.id %}" class="btn">Edit Post</a> |
-                <a href="{% url 'delete_post' post.id %}" class="btn">Delete Post</a>
+                <a href="{% url 'edit_post' post.id %}" class="btn">Edit Post</a>
             </p>
             {% endif %}
 
             <div class="post-bar">
-                
                 {% if user.is_authenticated %}
                     {% if post.user == user %}
                     <span title="You can't like your own post!">
