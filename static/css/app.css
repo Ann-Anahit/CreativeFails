@@ -55,13 +55,17 @@ header nav ul li {
 header nav ul li a {
   text-decoration: none;
   font-size: 16px;
-  color: #e3e3e3;
+  color: black;
 }
 
 header nav ul li a img.logo {
   height: 32px;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
 header nav ul li a:hover {
   color: #7fd9c2;
 }
@@ -71,6 +75,7 @@ header .hero {
   padding: 16px;
   text-align: center;
 }
+
 .about-section {
   padding: 40px;
   background-color: #f9f9f9;
@@ -159,7 +164,7 @@ main .blog-posts article .meta .author {
 
 .meta {
   font-size: 0.9rem;
-  color: #888;
+  color: black;
   margin-top: 10px;
 }
 
@@ -187,7 +192,7 @@ main .blog-posts article .meta .author {
 .registration-form form div label {
   margin-bottom: 0.5rem;
   font-size: 16px;
-  color: #e3e3e3;
+  color: black;
 }
 
 .registration-form form div input {
@@ -237,17 +242,52 @@ img {
 header {
   position: relative;
 }
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 
 .nav-links {
-  list-style: none;
   display: flex;
+  list-style: none;
+  padding-left: 0; 
 
-  margin: 0;
-  padding: 0;
 }
 
 .nav-links li {
-  margin: 0 15px;
+  margin-right: 20px;
+}
+
+.account-btn-container {
+  margin-left: auto; 
+}
+.account-btn {
+  margin-left: 10px;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 50px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+ol {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
 }
 
 .hamburger {
@@ -268,12 +308,9 @@ header {
 @media (max-width: 768px) {
   .nav-links {
     display: none;
- 
     flex-direction: column;
-
     position: absolute;
     top: 60px;
-
     right: 0;
     background-color: #C2A4CD;
     width: 100%;
@@ -384,29 +421,4 @@ footer img {
   font-size: 14px;
   color: #4f4e4f;
   text-align: center;
-}
-
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 50px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-ol {
-  list-style-type: none; 
-  padding-left: 0;
-  margin-left: 0;
 }

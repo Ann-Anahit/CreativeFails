@@ -46,21 +46,24 @@ CreativeFails is a dynamic platform designed for artists to embrace and learn fr
 #### First Time User
 
 * I want to share my Experiences.
-* I want to Receive and Give Feedback.
-* I want to Signe up and Sign in.
-* I want responsiveness from my website.   
-* I want to Connect with the Community.
+* I want to edit/delete my posts.
+* I want to receive and give Feedback.
+* I want to comment and like the other posts.
+* I want to signe up and sign in.
+* I want responsiveness from my website.
+* I want to sign out.
 
 #### Returning User
 
 * I want to edit my posts.
-* I want to Explore New art Projects.
-* I want to write new articles.
+* I want to edit my comments.
+* I want to be able to dislike the other posts.
+ 
 
 #### Frequent User
 
-* I want to Keep my profile and project gallery fresh, update it.
-* I want to Use my expertise to mentor newer members and offer constructive feedback.
+* I want to keep my profile and project gallery fresh, update it.
+* I want to use my expertise to mentor newer members and offer constructive feedback.
 
 [Back to top](<#content>)
 
