@@ -28,6 +28,10 @@ def home_view(request):
         'top_3_posts': top_3_posts,
         'is_authenticated': is_authenticated,
     })
+
+def about_view(request):
+    return render(request, 'map/about.html')
+
 def login_view(request):
     """Redirect authenticated users away from the login page."""
     if request.user.is_authenticated:

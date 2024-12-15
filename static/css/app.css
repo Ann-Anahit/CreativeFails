@@ -71,6 +71,27 @@ header .hero {
   padding: 16px;
   text-align: center;
 }
+.about-section {
+  padding: 40px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h1,
+.about-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.about-section p {
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-align: justify;
+}
 
 main .welcome {
   border: 8px solid #C2A4CD;
