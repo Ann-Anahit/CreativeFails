@@ -72,7 +72,7 @@
                 <a href="{% url 'edit_post' post.id %}" class="btn">Edit Post</a>
             </p>
             {% endif %}
-
+            
             <div class="post-bar">
                 {% if user.is_authenticated %}
                     {% if post.user == user %}
@@ -137,3 +137,10 @@
 </main>
 
 {% endblock content %}
+
+<form action="{% url 'delete_comment' comment.pk %}" method="post" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this comment?');">
+        <i class="fas fa-trash-alt"></i>
+    </button>
+</form>
