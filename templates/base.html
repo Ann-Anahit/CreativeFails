@@ -66,16 +66,23 @@
             {% block content %}{% endblock %}
         </main>
         <footer>
-            <a href="https://www.twitter.com/" target="_blank" rel="noopener" aria-label="Visit our Twitter page">
-                <img src="{% static 'images/x-twitter.png' %}" alt="Twitter" class="social">
-            </a>
-            <a href="https://github.com" aria-label="Open-source code GitHub" target="_blank">
-                <img src="{% static 'images/github.png' %}" alt="GitHub" class="social">
-            </a>
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Visit our Instagram page">
-                <img src="{% static 'images/instagram.png' %}" alt="Instagram" class="social">
-            </a>
-        </footer>
+            <div class="footer-content">
+                <div class="social-icons">
+                    <a href="https://www.twitter.com/" target="_blank" rel="noopener" aria-label="Visit our Twitter page">
+                        <img src="{% static 'images/x-twitter.png' %}" alt="Twitter">
+                    </a>
+                    <a href="https://github.com" aria-label="Open-source code GitHub" target="_blank">
+                        <img src="{% static 'images/github.png' %}" alt="GitHub">
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Visit our Instagram page">
+                        <img src="{% static 'images/instagram.png' %}" alt="Instagram">
+                    </a>
+                </div>
+                <div class="author">
+                    &copy; Anna Afijan 2024 | For educational purposes only.
+                </div>
+            </div>
+        </footer>        
     </div>
 </body>
 
