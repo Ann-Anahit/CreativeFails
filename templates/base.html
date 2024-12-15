@@ -40,7 +40,6 @@
                                                 {% if user.is_artist %}
                                                     <li><a href="{% url 'home' %}" class="btn">Homepage</a></li>
                                                     <li><a href="{% url 'about' %}" class="btn">About</a></li>
-                                                    <li><a href="{% url 'contact' %}" class="btn">Contuct Us</a></li>
                                                     <li><a href="{% url 'write_article' %}" class="btn">CreateNewPost</a></li>
                                                     <li><a href="{% url 'user_posts' %}" class="btn"> {{ user.username }}'s Posts</a></li> 
                                                 {% endif %}

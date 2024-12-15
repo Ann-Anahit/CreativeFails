@@ -5,8 +5,6 @@ from django.conf import settings
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from posts.models import Post
-from django.http import HttpResponse
-from django.core.mail import send_mail
 
 def profile_view(request):
     user = request.user  
@@ -60,19 +58,3 @@ def register_view(request):
 
 def custom_404_view(request, exception):
     return render(request, '404.html', status=404)
-
-def contact_view(request):
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        message = request.POST.get('message')
-    
-        send_mail(
-            f'Contact Form Submission from {name}',
-            f'Message:\n{message}\n\nFrom: {email}',
-            'your_email@example.com',
-            ['recipient@example.com'],
-        )
-        return HttpResponse('Thank you for your message!')  
-
-    return render(request, 'map/contact.html')
