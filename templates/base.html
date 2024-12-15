@@ -37,13 +37,13 @@
                                         <ol class="btn">
                                             <li>Welcome, {{ user.username }}</li>
                                             {% if user.is_artist %}
-                                                <li><a href="{% url 'write_article' %}" class="btn">Create New Post</a></li>
-                                                <li><a href="{% url 'user_posts' %}" class="btn">Your Posts</a></li> 
+                                                <li><a href="{% url 'write_article' %}">Create New Post</a></li>
+                                                <li><a href="{% url 'user_posts' %}">Your Posts</a></li> 
                                             {% endif %}
                                             <li>
                                                 <form action="{% url 'logout' %}" method="post">
                                                     {% csrf_token %}
-                                                    <button type="submit" class="btn">Logout</button>
+                                                    <button type="submit">Logout</button>
                                                 </form>
                                             </li>
                                         </ol>

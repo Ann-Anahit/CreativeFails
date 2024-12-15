@@ -72,12 +72,11 @@ CreativeFails is a dynamic platform designed for artists to embrace and learn fr
 ### Website Structure
 
 My plan was to support artists at all levels. The Home Page welcomes users and highlights featured projects. User Dashboard provides access to posts. Share Your Work lets you upload and showcase projects.
-This website consists of a home page, a posts page, a login page, a registration page.
+This website consists of a home page, an about page, a posts page, a login page, a registration page.
 
 These additional features will be introduced soon.
 
 Explore: A gallery, search function, and success stories.
-Feedback & Discussion: For sharing and receiving comments.
 Resources: Articles, workshops, and tools.
 Challenges & Collaboration: Current challenges and group projects.
 Events: Upcoming activities.
@@ -114,31 +113,27 @@ Some other singular colors also appear in the project.
 The ERD is pretty simple.
 Entities and Relationships:
 1. User:
-Attributes: id, username, email, password, date_joined, is_active
+Attributes: id, username, email, password, date_joined, is_active and is_artist
 A User can create many Posts.
 A User can like many Posts (many-to-many).
 A User can comment on many Posts.
-A User can like many Comments.
+
 2. Post:
 Attributes: id, title, content, created_at, updated_at, image, user_id (foreign key to User)
 A Post belongs to a User.
 A Post can have many Likes (many-to-many with User).
 A Post can have many Comments.
+
 3. Like:
 Through table connecting User and Post (many-to-many relationship).
 Attributes: id, user_id, post_id, created_at
 A Like belongs to both a User and a Post.
+
 4. Comment:
 Attributes: id, content, created_at, post_id (foreign key to Post), user_id (foreign key to User)
 A Comment belongs to a User.
-A Comment belongs to a Post.
-A Comment can receive Likes (many-to-many with User).
-5. Category (optional):
-Attributes: id, name, description
-A Post can belong to one Category, but a Category can have many Posts.
-6. Tag (optional):
-Attributes: id, name
-A Post can have many Tags, and a Tag can belong to many Posts (many-to-many).
+A Comment belongs to a Post. (many-to-many with User).
+
 
 
 ![Creative-Fails Diagram](documentation/images/ERD.png)
@@ -160,7 +155,7 @@ This is a multi-page website and all of them are responsive. On each page we hav
 - A favicon.<br>
 ![Creative-Fails favicon](documentation/images/favicon.png)
 
-- A navigation bar with clickable logo will take the user to the home page and the menu with sign up button highlighted to facilitate the user experience. If the user can scroll down, the navigation bar will be fixed at the top of the screen for easy access. There is a top bar on top of the navigation bar with the login navigation source.
+- A navigation bar with clickable logo will take the user to the home page and the menu with sign up button highlighted to facilitate the user experience. There is a top bar on top of the navigation bar with the login navigation source.
 ![Creative-Fails navbar](documentation/images/navbar.png)
 
 - A footer with social media icons that lead to external pages and to my github page in case you click my name.
@@ -171,11 +166,18 @@ This is a multi-page website and all of them are responsive. On each page we hav
 ### The Home Page
 
 
- The Home Page is displayed initially, featuring a welcome text and navigation options.  Clicking the "Sign In" link takes users to the Sign-In Page, and after signing in, they are redirected to the Posts Page to view and interact with posts.
+ The Home Page is displayed initially, featuring three most commented posts and a button See all posts. The logged out user can't interact with posts and can only read the posts. 
+ If a user is registered as an artist, they can create and share their own posts, comment on other posts, and like all posts. On the other hand, if the user is not registered as an artist, they can only read all posts, comment on them, and like them, but they cannot create or share their own posts.
 
 ![Creative-Fails home page](documentation/images/home.png)
 
 [Back to top](<#content>)
+
+### The About Page
+
+    The About Page is displayed initially, featuring a welcome text and navigation options.  Clicking the "Sign In" link takes users to the Sign-In Page, and after signing in, they are redirected to the Posts Page to view and interact with posts.
+
+
 
 ### The Posts page
 
