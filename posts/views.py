@@ -6,6 +6,7 @@ from django.contrib import messages
 from .models import Post, Comment  
 from .forms import PostForm, CommentForm  
 
+
 @login_required
 def post_like(request, post_id):
     post = get_object_or_404(Post, id=post_id)
@@ -90,10 +91,11 @@ def user_posts(request):
 def post_detail_view(request, post_id):
     """View to display a single post's details."""
     post = get_object_or_404(Post, id=post_id)
-    print(f"Post: {post.title}, Image: {post.image}") 
+    print(f"Post: {post.title}, Image: {post.image}")
     is_owner = request.user == post.user
     comments = Comment.objects.filter(post=post)    
     liked = post.likes.filter(id=request.user.id).exists()  
+
     return render(request, 'posts/post_detail.html', {
         'post': post,
         'is_owner': is_owner,
