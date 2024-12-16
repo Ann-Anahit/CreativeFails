@@ -326,7 +326,7 @@ ul {
 
   }
 
-  .nav-links.active {
+  .nav-links .active {
     display: flex;
   }
 

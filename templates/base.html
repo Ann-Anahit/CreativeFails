@@ -38,7 +38,7 @@
                                             <li>Welcome, {{ user.username }}</li>
                                             {% if user.is_artist %}
                                                 <li><a href="{% url 'write_article' %}">Create New Post</a></li>
-                                                <li><a href="{% url 'user_posts' %}">Your Posts</a></li> 
+                                                <li><a href="{% url 'user_posts' %}">My Posts</a></li> 
                                             {% endif %}
                                             <li>
                                                 <form action="{% url 'logout' %}" method="post">
