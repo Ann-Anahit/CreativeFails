@@ -108,9 +108,7 @@ main {
 .interaction-buttons {
     display: flex;
     gap: 10px;
-    /* Space between the buttons */
     margin-top: 10px;
-    /* Space above the buttons */
 
     p {
         margin: 0;
@@ -118,13 +116,10 @@ main {
 
     form {
         flex: 1;
-        /* Allow the comment form to take available space */
 
         textarea {
             width: 100%;
-            /* Make the textarea take the full width */
             height: 40px;
-            /* Adjust the height as necessary */
         }
     }
 }

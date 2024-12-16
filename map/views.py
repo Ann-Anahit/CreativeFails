@@ -6,6 +6,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from posts.models import Post
 from django.core.paginator import Paginator
+from django.db.models import Count
 
 
 def home_view(request):
@@ -17,7 +18,7 @@ def home_view(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     
-    return render(request, 'home.html', {
+    return render(request, 'map/home.html', {
         'top_3_posts': top_3_posts,
         'page_obj': page_obj,
     })
