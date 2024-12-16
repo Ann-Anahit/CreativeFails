@@ -43,7 +43,7 @@
             <ul>
                 {% for post in top_3_posts %}
                     <li>
-                        <strong>{{ post.title }}</strong><br>
+                        <strong>{{ post.title }}</strong>
                         <p>{{ post.content }}</p>
                         
                         {% if post.image %}
@@ -53,8 +53,7 @@
                         <a href="{% url 'post_detail' post.id %}"><img src="{% static 'images/default.webp' %}" alt="Default image"
                                 class="post-img" style="max-width: 300px; max-height: 300px;"></a>
                         {% endif %}
-                        
-                        <br>
+
                         <span>{{ post.comments.count }} comments</span>
                     </li>
                 {% endfor %}
@@ -149,11 +148,3 @@
 <a href="{% url 'post_list' %}" class="btn ">See all posts</a>
 
 {% endblock content %}
-
-<form action="{% url 'delete_comment' comment.pk %}" method="post" style="display:inline;">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger"
-        onclick="return confirm('Are you sure you want to delete this comment?');">
-        <i class="fas fa-trash-alt"></i>
-    </button>
-</form>

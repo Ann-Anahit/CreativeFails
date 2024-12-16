@@ -303,7 +303,10 @@ ol {
   margin: 4px 0;
   transition: 0.4s;
 }
-
+.post .article {
+  display: none;
+  flex-direction: row;
+}
 /* Responsive Styles */
 @media (max-width: 768px) {
   .nav-links {
@@ -338,7 +341,6 @@ ol {
     transform: rotate(45deg) translate(-5px, -6px);
   }
 
-  .blog-posts,
   .register-form,
   .main-container {
     padding: 0.5rem;
