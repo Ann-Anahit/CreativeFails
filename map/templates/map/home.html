@@ -37,148 +37,91 @@
             and shared learning.
         </h3>
     </div>
+    {% include 'posts/blog_posts.html' %}
+    {% for post in posts %}
+    <article>
+        <a href="{% url 'post_detail' post.id %}">
+            <h3>{{ post.title }}</h3>
+        </a>
+        <a href="{% url 'post_detail' post.id %}">
+            <p>{{ post.content|truncatewords:30 }}</p>
+        </a>
 
-    <div class="blog-posts">
-       
-        {% if top_3_posts %}
-            <div class="posts-grid">
-                {% for post in top_3_posts %}
-                    <div class="post-card">
-                        <h3 class="post-title">{{ post.title }}</h3>
-                        {% if post.image %}
-                            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
-                        {% else %}
-                            <a href="{% url 'post_detail' post.id %}">
-                                <img src="{% static 'images/default.webp' %}" alt="Default image" class="post-image">
-                            </a>
-                        {% endif %}
-                        <p class="post-content">{{ post.content|truncatewords:50 }}...</p>
-                        <div class="post-meta">
-                            <span>{{ post.comments.count }} comments</span> | 
-                            <span>{{ post.likes.count }} likes</span>
-                        </div>
-                        <a href="{% url 'post_detail' post.id %}" class="read-more">Read more</a>
-                    </div>
-                {% endfor %}
-            </div>
-        {% endif %}
-        
-        <hr>
-        {% if page_obj %}
-            <div class="posts-grid">
-                {% for post in page_obj %}
-                    <div class="post-card">
-                        <h3 class="post-title">{{ post.title }}</h3>
-                        {% if post.image %}
-                            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
-                        {% else %}
-                            <a href="{% url 'post_detail' post.id %}">
-                                <img src="{% static 'images/default.webp' %}" alt="Default image" class="post-image">
-                            </a>
-                        {% endif %}
-                        <p class="post-content">{{ post.content|truncatewords:50 }}...</p>
-                        <div class="post-meta">
-                            <span>{{ post.comments.count }} comments</span> | 
-                            <span>{{ post.likes.count }} likes</span>
-                        </div>
-                        <a href="{% url 'post_detail' post.id %}" class="read-more">Read more</a>
-                    </div>
-                {% endfor %}
-            </div>
-            <div class="pagination">
-                {% if page_obj.has_previous %}
-                    <a href="?page={{ page_obj.previous_page_number }}" class="pagination-btn">Previous</a>
-                {% endif %}
-                {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}" class="pagination-btn">Next</a>
-                {% endif %}
-            </div>
+        {% if post.image %}
+        <a href="{% url 'post_detail' post.id %}"><img src="{{ post.image.url }}" alt="{{ post.title }}"
+                class="post-img" style="max-width: 300px; max-height: 300px;"></a>
+        {% else %}
+        <p>No image available</p>
+        <a href="{% url 'post_detail' post.id %}"><img src="{% static 'images/default.webp' %}" alt="Default image"
+                class="post-img" style="max-width: 300px; max-height: 300px;"></a>
         {% endif %}
 
-        {% for post in posts %}
-        <article>
-            <a href="{% url 'post_detail' post.id %}">
-                <h3>{{ post.title }}</h3>
-            </a>
-            <a href="{% url 'post_detail' post.id %}">
-                <p>{{ post.content|truncatewords:30 }}</p>
-            </a>
+        <div class="meta">
+            Posted on <span class="date">{{ post.created_at|date:"Y-m-d H:i" }}</span> by <span
+                class="author">{{ post.user.username }}</span>
+        </div>
 
-            {% if post.image %}
-            <a href="{% url 'post_detail' post.id %}"><img src="{{ post.image.url }}" alt="{{ post.title }}"
-                    class="post-img" style="max-width: 300px; max-height: 300px;"></a>
+        {% if user.is_authenticated and post.user == user %}
+        <p>
+            <a href="{% url 'edit_post' post.id %}" class="btn">Edit Post</a>
+        </p>
+        {% endif %}
+
+        <div class="post-bar">
+            {% if user.is_authenticated %}
+            {% if post.user == user %}
+            <button type="submit" class="btn btn-icon" title="You can't like your own post!">
+                <i class="far fa-heart"></i>
+            </button>
+            {% elif post.is_liked %}
+            <form action="{% url 'post_unlike' post.id %}" method="POST" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-icon">
+                    <i class="fa-solid fa-heart"></i>
+                </button>
+            </form>
             {% else %}
-            <p>No image available</p>
-            <a href="{% url 'post_detail' post.id %}"><img src="{% static 'images/default.webp' %}" alt="Default image"
-                    class="post-img" style="max-width: 300px; max-height: 300px;"></a>
-            {% endif %}
-
-            <div class="meta">
-                Posted on <span class="date">{{ post.created_at|date:"Y-m-d H:i" }}</span> by <span
-                    class="author">{{ post.user.username }}</span>
-            </div>
-
-            {% if user.is_authenticated and post.user == user %}
-            <p>
-                <a href="{% url 'edit_post' post.id %}" class="btn">Edit Post</a>
-            </p>
-            {% endif %}
-
-            <div class="post-bar">
-                {% if user.is_authenticated %}
-                {% if post.user == user %}
-                <button type="submit" class="btn btn-icon" title="You can't like your own post!">
-                    <i class="far fa-heart"></i>
+            <form action="{% url 'post_like' post.id %}" method="POST" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-icon">
+                    <i class="fa-regular fa-heart"></i>
                 </button>
-                {% elif post.is_liked %}
-                <form action="{% url 'post_unlike' post.id %}" method="POST" style="display: inline;">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-icon">
-                        <i class="fa-solid fa-heart"></i>
-                    </button>
-                </form>
-                {% else %}
-                <form action="{% url 'post_like' post.id %}" method="POST" style="display: inline;">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-icon">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-                </form>
-                {% endif %}
-                {% else %}
-                <button title="Log in to like posts!"><a href="{% url 'post_detail' post.id %}">
-                        <i class="far fa-heart"></i></a>
-                </button>
-                {% endif %}
-                {{ post.likes.count }}
+            </form>
+            {% endif %}
+            {% else %}
+            <button title="Log in to like posts!"><a href="{% url 'post_detail' post.id %}">
+                    <i class="far fa-heart"></i></a>
+            </button>
+            {% endif %}
+            {{ post.likes.count }}
 
-                <button><a href="{% url 'post_detail' post.id %}">
-                        <i class="far fa-comments"></i>
-                    </a></button>
-                {{ post.comments.count }}
+            <button><a href="{% url 'post_detail' post.id %}">
+                    <i class="far fa-comments"></i>
+                </a></button>
+            {{ post.comments.count }}
+        </div>
+
+        <div class="comments">
+            <h4>Comments</h4>
+            {% for comment in post.comments.all %}
+            <div class="comment">
+                <p><strong>{{ comment.user.username }}</strong>: {{ comment.content }}</p>
             </div>
+            {% empty %}
+            <p>No comments yet. Be the first to comment!</p>
+            {% endfor %}
 
-            <div class="comments">
-                <h4>Comments</h4>
-                {% for comment in post.comments.all %}
-                <div class="comment">
-                    <p><strong>{{ comment.user.username }}</strong>: {{ comment.content }}</p>
-                </div>
-                {% empty %}
-                <p>No comments yet. Be the first to comment!</p>
-                {% endfor %}
-
-                {% if user.is_authenticated %}
-                <form action="{% url 'add_comment' post.id %}" method="POST">
-                    {% csrf_token %}
-                    <!-- <textarea name="content" placeholder="Add a comment..." required></textarea>-->
-                </form>
-                {% else %}
-                <p><a href="{% url 'login' %}">Log in</a> to add a comment.</p>
-                {% endif %}
-            </div>
-        </article>
-        {% endfor %}
+            {% if user.is_authenticated %}
+            <form action="{% url 'add_comment' post.id %}" method="POST">
+                {% csrf_token %}
+                <!-- <textarea name="content" placeholder="Add a comment..." required></textarea>-->
+            </form>
+            {% else %}
+            <p><a href="{% url 'login' %}">Log in</a> to add a comment.</p>
+            {% endif %}
+        </div>
+    </article>
+    {% endfor %}
     </div>
 </main>
 <a href="{% url 'post_list' %}" class="btn ">See all posts</a>

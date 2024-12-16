@@ -67,7 +67,7 @@ a {
   color: black;
 }
 header nav ul li a:hover {
-  color: #7fd9c2;
+  color: #D76B5A;
 }
 
 header .hero {
@@ -232,7 +232,7 @@ button {
 
 .btn:hover,
 button:hover {
-  background-color: #EB8573;
+  background-color: #7fd9c2;
 }
 
 img {
@@ -247,13 +247,13 @@ header {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-}
 
+}
 .nav-links {
   display: flex;
   list-style: none;
-  padding-left: 0; 
-
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links li {
@@ -261,7 +261,9 @@ header {
 }
 
 .account-btn-container {
-  margin-left: auto; 
+  margin-left: auto; /* Pushes the account button to the right */
+  display: flex;
+  align-items: center; /* Ensures proper vertical alignment */
 }
 .account-btn {
   margin-left: 10px;
@@ -307,8 +309,8 @@ ul {
   margin: 4px 0;
   transition: 0.4s;
 }
-.post .article {
-  display: none;
+.post .article{
+  display: flex;
   flex-direction: row;
 }
 /* Responsive Styles */
@@ -435,6 +437,17 @@ footer img {
   margin-bottom: 20px;
 }
 
+/* General Styling */
+.posts-grid, .all-posts-grid {
+  gap: 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.all-posts-grid {
+  margin-top: 40px;
+}
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -442,6 +455,8 @@ footer img {
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  flex-shrink: 1;
 }
 
 .post-card {
