@@ -31,34 +31,70 @@
     {% if user.is_authenticated %}
     <h2>Hello, {{ user.username }}!</h2>
     {% endif %}
-   
+
     <div class="welcome">
-        <h3>Welcome to Creative Fails, we want to inspire and connect artists and creators through transparency, humor, and shared learning.
+        <h3>Welcome to Creative Fails, we want to inspire and connect artists and creators through transparency, humor,
+            and shared learning.
         </h3>
     </div>
 
     <div class="blog-posts">
-        <h2>Top 3 Most-Commented Posts</h2>
+       
         {% if top_3_posts %}
-            <ul>
+            <div class="posts-grid">
                 {% for post in top_3_posts %}
-                    <li>
-                        <strong>{{ post.title }}</strong>
-                        <p>{{ post.content }}</p>
-                        
+                    <div class="post-card">
+                        <h3 class="post-title">{{ post.title }}</h3>
                         {% if post.image %}
-                            <img src="{{ post.image.url }}" alt="{{ post.title }}" style="width: 200px; height: auto;">
+                            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
                         {% else %}
-                        <p>No image available</p>
-                        <a href="{% url 'post_detail' post.id %}"><img src="{% static 'images/default.webp' %}" alt="Default image"
-                                class="post-img" style="max-width: 300px; max-height: 300px;"></a>
+                            <a href="{% url 'post_detail' post.id %}">
+                                <img src="{% static 'images/default.webp' %}" alt="Default image" class="post-image">
+                            </a>
                         {% endif %}
-
-                        <span>{{ post.comments.count }} comments</span>
-                    </li>
+                        <p class="post-content">{{ post.content|truncatewords:50 }}...</p>
+                        <div class="post-meta">
+                            <span>{{ post.comments.count }} comments</span> | 
+                            <span>{{ post.likes.count }} likes</span>
+                        </div>
+                        <a href="{% url 'post_detail' post.id %}" class="read-more">Read more</a>
+                    </div>
                 {% endfor %}
-            </ul>
+            </div>
         {% endif %}
+        
+        <hr>
+        {% if page_obj %}
+            <div class="posts-grid">
+                {% for post in page_obj %}
+                    <div class="post-card">
+                        <h3 class="post-title">{{ post.title }}</h3>
+                        {% if post.image %}
+                            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
+                        {% else %}
+                            <a href="{% url 'post_detail' post.id %}">
+                                <img src="{% static 'images/default.webp' %}" alt="Default image" class="post-image">
+                            </a>
+                        {% endif %}
+                        <p class="post-content">{{ post.content|truncatewords:50 }}...</p>
+                        <div class="post-meta">
+                            <span>{{ post.comments.count }} comments</span> | 
+                            <span>{{ post.likes.count }} likes</span>
+                        </div>
+                        <a href="{% url 'post_detail' post.id %}" class="read-more">Read more</a>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="pagination">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}" class="pagination-btn">Previous</a>
+                {% endif %}
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}" class="pagination-btn">Next</a>
+                {% endif %}
+            </div>
+        {% endif %}
+
         {% for post in posts %}
         <article>
             <a href="{% url 'post_detail' post.id %}">

@@ -5,29 +5,28 @@ from django.conf import settings
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from posts.models import Post
+from django.core.paginator import Paginator
+
+
+def home_view(request):
+    top_3_posts = Post.objects.annotate(num_comments=Count('comments')).order_by('-num_comments')[:3]
+    
+    other_posts = Post.objects.annotate(num_comments=Count('comments')).order_by('-num_comments')[3:]
+    
+    paginator = Paginator(other_posts, 3)  
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    
+    return render(request, 'home.html', {
+        'top_3_posts': top_3_posts,
+        'page_obj': page_obj,
+    })
 
 def profile_view(request):
     user = request.user  
     posts = Post.objects.prefetch_related('comments').all()
     return render(request, 'accounts/profile.html', {'user': user})
 
-def home_view(request):  
-    posts = Post.objects.prefetch_related('comments').all()
-    is_authenticated = request.user.is_authenticated
-
-    print(f"Total Posts: {len(posts)}")
-    for post in posts:
-        print(f"Post: {post.title}, Comments: {post.comments.count()}")
-
-    sorted_posts = sorted(posts, key=lambda post: post.comments.count(), reverse=True)
-
-    top_3_posts = sorted_posts[:3]
-    print(f"Top 3 Posts: {[post.title for post in top_3_posts]}")
-
-    return render(request, 'map/home.html', {
-        'top_3_posts': top_3_posts,
-        'is_authenticated': is_authenticated,
-    })
 
 def about_view(request):
     return render(request, 'map/about.html')

@@ -147,14 +147,14 @@ main .blog-posts article .meta .author {
 
 .blog-posts {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin: 0 auto;
   padding: 20px;
   max-width: 1000px;
   width: 100%;
 }
 
-.blog-posts article {
+.blog-posts  {
   background: #f9f9f9;
   margin-bottom: 20px;
   padding: 20px;
@@ -289,7 +289,11 @@ ol {
   padding-left: 0;
   margin-left: 0;
 }
-
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
 .hamburger {
   display: none;
   flex-direction: column;
@@ -423,4 +427,93 @@ footer img {
   font-size: 14px;
   color: #4f4e4f;
   text-align: center;
+}
+.section-title {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.post-card {
+  border: 1px solid #C2A4CD;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  min-height: 400px;
+}
+
+.post-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.post-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.post-content {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+.post-meta {
+  font-size: 12px;
+  color: #777;
+  margin-top: auto;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #EB8573;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.read-more:hover {
+  background-color: #D76B5A;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.pagination-btn {
+  margin: 0 5px;
+  padding: 8px 16px;
+  background-color: #C2A4CD;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.pagination-btn:hover {
+  background-color: #A586B4;
 }
