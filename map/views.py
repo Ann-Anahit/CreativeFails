@@ -57,4 +57,4 @@ def register_view(request):
     return render(request, 'accounts/register.html', {'form': form})
 
 def custom_404_view(request, exception):
-    return render(request, '404.html', status=404)
+    return render(request, 'map/404.html', status=404)

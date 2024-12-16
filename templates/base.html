@@ -20,11 +20,11 @@
                     <!-- Navigation menu -->
                     <ul class="nav-links">
                         <li>
-                            <a href="{% url 'home' %}">
+                            <a href="{% url 'homepage' %}">
                                 <img class="logo" src="{% static 'images/logo_cf.png' %}" alt="Logo">
                             </a>
                         </li>
-                        <li><a href="{% url 'home' %}">Homepage</a></li>
+                        <li><a href="{% url 'homepage' %}">Homepage</a></li>
                         <li><a href="{% url 'about' %}">About</a></li>
                         {% if user.is_authenticated %}
                             <li class="account-btn-container">
