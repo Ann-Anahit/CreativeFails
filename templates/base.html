@@ -24,15 +24,21 @@
                                 <img class="logo" src="{% static 'images/logo_cf.png' %}" alt="Logo">
                             </a>
                         </li>
-                        <li><a href="{% url 'homepage' %}">Homepage</a></li>
-                        <li><a href="{% url 'about' %}">About</a></li>
+                        <li>
+                            <a href="{% url 'homepage' %}">
+                                <i class="fa fa-home"></i> Homepage
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'about' %}">
+                                <i class="fa fa-info-circle"></i> About
+                            </a>
+                        </li>
                         {% if user.is_authenticated %}
                             <li class="account-btn-container">
                                 <div class="dropdown">
-                                    <button class="button">
                                         <i class="fa fa-user"></i>
                                         <span class="account-btn">Account</span>
-                                    </button>
                                     <div class="dropdown-content">
                                         <ol class="btn">
                                             <li>Welcome, {{ user.username }}</li>
@@ -53,14 +59,12 @@
                         {% else %}
                             <li class="account-btn-container">
                                 <div class="dropdown">
-                                    <button class="button">
                                         <i class="fa fa-user"></i>
                                         <span class="account-btn">Account</span>
-                                    </button>
                                     <div class="dropdown-content">
                                         <ol class="btn">
-                                            <li><a href="{% url 'login' %}">Login</a></li>
-                                            <li><a href="{% url 'register' %}">Register</a></li>
+                                            <li><a href="{% url 'login' %}">Sign in</a></li>
+                                            <li><a href="{% url 'register' %}">Sign up</a></li>
                                         </ol>
                                     </div>
                                 </div>

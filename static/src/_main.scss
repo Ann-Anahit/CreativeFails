@@ -139,26 +139,8 @@ button .btn {
     }
 }
 
-@media (max-width: 768px) {
-
-    .register-form,
-    .main-container {
-        padding: 0.5rem;
-        max-width: 200px;
-        margin: 0;
-    }
-
-    form div {
-        flex-direction: column;
-    }
-}
-
 .post-detail {
-    h1 {
-        color: $black_color;
-    }
-
-    p {
+    h1 p {
         color: $black_color;
     }
 

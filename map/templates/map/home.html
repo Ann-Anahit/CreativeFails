@@ -13,15 +13,6 @@
 
 {% block content %}
 <header>
-    <!--<div class="header-element">
-        <nav>
-            <div class="hamburger" id="hamburger">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>‚
-        </nav>
-    </div> -->
     <div class="hero">
         <h1>Creative Fails</h1>
     </div>
@@ -49,7 +40,7 @@
                     <img src="{% static 'images/default.webp' %}" alt="Default image" class="post-image">
                 {% endif %}
                 
-                <p class="post-content">{{ post.content|truncatewords:50 }}...</p>
+                <p class="post-content">{{ post.content|truncatewords:30 }}...</p>
                 
                 <div class="post-meta">
                     <span>{{ post.comments.count }} comments</span> | 
@@ -157,6 +148,6 @@
     {% endfor %}
     </div>
 </main>
-<a href="{% url 'post_list' %}" class="btn ">See all posts</a>
+<a href="{% url 'post_list' %}" class="btn see-bth">See all posts</a>
 
 {% endblock content %}
