@@ -47,6 +47,8 @@ header nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  width: 100%;
+  justify-content: space-between;
 }
 header nav ul li {
   padding: 16px;
@@ -54,13 +56,28 @@ header nav ul li {
 header nav ul li a {
   text-decoration: none;
   font-size: 16px;
-  color: #e3e3e3;
+  color: #333333;
 }
 header nav ul li a img.logo {
   height: 32px;
 }
 header nav ul li a:hover {
   color: #7fd9c2;
+}
+header nav ul li.account-btn-container {
+  justify-self: flex-end;
+}
+header nav ul .dropdown {
+  position: relative;
+}
+header nav ul .dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 16px;
+  left: 0;
+}
+header nav ul .dropdown:hover .dropdown-content {
+  display: block;
 }
 header .hero {
   margin: 0 auto;
@@ -103,16 +120,9 @@ main .blog-posts article .meta .author {
 }
 
 .main-container {
-  display: flex;
-  flex-grow: 1;
-  align-items: center;
-  justify-content: center;
-  align-items: flex-start;
   padding: 20px;
-  gap: 20px;
   text-align: center;
   margin: 0 auto;
-  flex: 1;
 }
 
 .wrapper {

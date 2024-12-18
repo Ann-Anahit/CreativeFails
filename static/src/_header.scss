@@ -13,14 +13,15 @@ header {
       list-style: none;
       margin: 0;
       padding: 0;
-
+      width: 100%;
+      justify-content: space-between;
       li {
         padding: $basic_distance;
 
         a {
           text-decoration: none;
           font-size: 16px;
-          color: $white_color;
+          color: $black_color;
 
           img.logo {
             height: 32px;
@@ -28,6 +29,23 @@ header {
 
           &:hover {
             color: $secondary_color;
+          }
+        }
+        &.account-btn-container {
+          justify-self: flex-end;
+        }
+      }
+      .dropdown {
+        position: relative;
+        .dropdown-content{
+          display: none;
+          position: absolute;
+          top: 16px;
+          left: 0;
+        }
+        &:hover {
+          .dropdown-content {
+            display:block;
           }
         }
       }
