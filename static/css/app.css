@@ -4,13 +4,14 @@ html,
 body {
   margin: 0;
   min-width: 100%;
-  min-height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 * {
   font-family: "Roboto";
   color: #333333;
-  line-height: 1.5;
 }
 
 h1 {
@@ -25,17 +26,21 @@ h4 {
   font-weight: bold;
 }
 
+article {
+  font-family: "Roboto";
+  font-size: 16px;
+  line-height: 1.5;
+}
+
 header {
   display: flex;
   flex-direction: column;
   margin: 0;
 }
-
 header nav {
   background-color: #C2A4CD;
   width: 100%;
 }
-
 header nav ul {
   display: flex;
   align-items: center;
@@ -43,25 +48,20 @@ header nav ul {
   margin: 0;
   padding: 0;
 }
-
 header nav ul li {
   padding: 16px;
 }
-
-header nav li a {
+header nav ul li a {
   text-decoration: none;
   font-size: 16px;
   color: #e3e3e3;
 }
-
 header nav ul li a img.logo {
   height: 32px;
 }
-
 header nav ul li a:hover {
   color: #7fd9c2;
 }
-
 header .hero {
   margin: 0 auto;
   padding: 16px;
@@ -73,37 +73,31 @@ main .welcome {
   padding: 0 16px;
   line-height: 24px;
   text-align: justify;
+  flex: 1;
 }
-
 main .blog-posts {
   line-height: 24px;
 }
-
 main .blog-posts h2,
 main .blog-posts h3,
 main .blog-posts p,
 main .blog-posts .meta {
   padding: 0 24px;
 }
-
 main .blog-posts article {
   border-bottom: 4px solid #7fd9c2;
   padding-bottom: 16px;
 }
-
 main .blog-posts article:nth-of-type(even) {
   border-color: #C2A4CD;
 }
-
 main .blog-posts article .meta {
   font-size: 12px;
   color: rgba(51, 51, 51, 0.5);
 }
-
 main .blog-posts article .meta .date {
   color: #7fd9c2;
 }
-
 main .blog-posts article .meta .author {
   color: #C2A4CD;
 }
@@ -121,27 +115,17 @@ main .blog-posts article .meta .author {
   flex: 1;
 }
 
-.blog-posts {
+.wrapper {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  padding: 20px;
-  max-width: 1000px;
-  width: 100%;
+  min-height: 100vh;
 }
 
-.blog-posts article {
-  background: #f9f9f9;
-  margin-bottom: 20px;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.meta {
-  font-size: 0.9rem;
-  color: #888;
-  margin-top: 10px;
+.container {
+  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .registration-form {
@@ -153,24 +137,21 @@ main .blog-posts article .meta .author {
   max-width: 400px;
   text-align: center;
   width: 100%;
+  margin-top: auto;
   margin: auto;
 }
-
 .registration-form form {
   display: flex;
   flex-direction: column;
 }
-
 .registration-form form div {
   margin-bottom: 1rem;
 }
-
 .registration-form form div label {
   margin-bottom: 0.5rem;
   font-size: 16px;
-  color: #e3e3e3;
+  color: #333333;
 }
-
 .registration-form form div input {
   padding: 0.5rem;
   border: 1px solid #e3e3e3;
@@ -182,355 +163,50 @@ main .blog-posts article .meta .author {
   display: flex;
   gap: 10px;
   margin-top: 10px;
-
 }
-
+.interaction-buttons p {
+  margin: 0;
+}
 .interaction-buttons form {
   flex: 1;
 }
-
-.interaction-buttons textarea {
+.interaction-buttons form textarea {
   width: 100%;
   height: 40px;
 }
 
-.btn {
-  padding: 10px;
-  font-size: 1rem;
-  margin-top: 10px;
-}
-
-.btn,
-button {
-  margin: 5px 16px;
-  padding: 5px 10px;
+button .btn {
+  padding: 0.75rem;
   border: none;
   border-radius: 5px;
-  background-color: #E8AE9D;
+  background-color: #7fd9c2;
+  color: #333333;
   font-size: 1rem;
   cursor: pointer;
-  text-decoration: none;
-
 }
-
-.btn:hover,
-button:hover {
-  background-color: #C2A4CD;
-}
-
-img {
-  margin: 0 16px;
-}
-
-header {
-  position: relative;
-}
-
-/* Account dropdown button */
-.account-btn-container {
-  position: relative;
-}
-
-.account-btn-container .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #C2A4CD;
-  min-width: 150px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  right: 0; 
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.account-btn-container .dropdown-content ol {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.account-btn-container .dropdown-content li {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-.account-btn-container .dropdown-content li a,
-.account-btn-container .dropdown-content li button {
-  text-decoration: none;
-  color: #333;
-  display: block;
-  width: 100%;
-  text-align: left;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.account-btn-container .dropdown-content li:last-child {
-  border-bottom: none;
-}
-
-/* Show dropdown on hover */
-.account-btn-container:hover .dropdown-content {
-  display: block;
-}
-/* Navigation Bar */
-nav {
-    background-color: #C2A4CD;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    align-items: center;
-    gap: 20px;
-}
-
-.nav-links li {
-    position: relative;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #333333;
-    font-weight: lighter;
-}
-
-.logo {
-    height: 50px;
-}
-
-.account-btn-container {
-    position: relative;
-    margin-left: auto;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: white;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    border-radius: 5px;
-    z-index: 1000;
-}
-
-.dropdown-content.active {
-    display: block;
-}
-
-.dropdown-content .btn li {
-    padding: 5px 10px;
-}
-
-.dropdown-content .btn li:hover {
-    background-color: #f0f0f0;
-}
-
-/* Hamburger Menu */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    z-index: 1001;
-}
-.hamburger .line {
-    width: 25px;
-    height: 3px;
-    background-color: #333333;
-}
-
-/* General Styling */
-.posts-grid, .all-posts-grid {
-  gap: 20px;
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
-}
-
-.all-posts-grid {
-  margin-top: 40px;
-}
-.posts-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-shrink: 1;
-}
-
-.post-card {
-  border: 1px solid #C2A4CD;
-  border-radius: 8px;
-  padding: 16px;
-  background-color: #f9f9f9;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
-  min-height: 400px;
-}
-
-.post-title {
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.post-image {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.post-content {
-  font-size: 14px;
-  color: #555;
-  margin-bottom: 10px;
-  text-align: justify;
-}
-
-.post-meta {
-  font-size: 12px;
-  color: #777;
-  margin-top: auto;
-}
-
-.read-more {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px 12px;
+button .btn:hover {
   background-color: #EB8573;
-  color: white;
+}
+
+.post-detail h1 p {
+  color: #333333;
+}
+.post-detail a {
+  margin-right: 10px;
+  color: #7fd9c2;
   text-decoration: none;
-  font-weight: bold;
-  border-radius: 5px;
 }
-
-.read-more:hover {
-  background-color: #D76B5A;
+.post-detail .btn,
+.post-detail button {
+  background-color: #7fd9c2;
+  color: #333333;
+  border: none;
+  padding: 10px 5px;
+  cursor: pointer;
 }
-
-.pagination {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-.pagination-btn {
-  margin: 0 5px;
-  padding: 8px 16px;
+.post-detail .btn:hover,
+.post-detail button:hover {
   background-color: #C2A4CD;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 5px;
-}
-
-.pagination-btn:hover {
-  background-color: #A586B4;
-}
-.blog-posts article {
-  padding: 15px;
-}
-
-.blog-posts img {
-  max-width: 100%;
-}
-
-.blog-posts {
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: calc(50% - 20px);
-  margin: 10px;
-  padding: 10px;
-}
-
-.meta {
-font-size: 0.8rem;
-}
-
-.comment {
-margin-top: 20px;
-}
-
-.comment textarea {
-width: 100%;
-height: 100px;
-margin-bottom: 10px;
-border-radius: 4px;
-padding: 10px;
-font-size: 1rem;
-}
-
-form div {
-flex-direction: column;
-}
-
-/* Responsive Design */
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .nav-links {
-      display: none;
-      flex-direction: column;
-      top: 60px;
-      right: 0;
-      background-color: #C2A4CD;
-      width: 100%;
-  }
-
-  .nav-links.active {
-      display: flex; /* Show the nav links when the 'active' class is added */
-  }
-
-  .hamburger {
-      display: flex;
-  }
-
-  .hamburger.open .line:nth-child(2) {
-      opacity: 0;
-  }
-
-  .hamburger.open .line:nth-child(1) {
-      transform: rotate(-45deg) translate(-5px, 6px);
-  }
-
-  .hamburger.open .line:nth-child(3) {
-      transform: rotate(45deg) translate(-5px, -6px);
-  }
-
-  @media (max-width: 390px) {
-    .post-card {
-      background-color: #f9f9f9;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      display: flex;
-      flex-direction: row;
-      justify-content:center;
-      text-align: center;
-      min-height: 400px;
-      width: 360px;
-    }
-    .posts-grid, .all-posts-grid {
-      padding: 10px;
-      gap: 10px;
-    }
-  
-    .posts-grid {
-      grid-template-columns: 1fr; /* Make each post take up the full width */
-      display: grid; /* Ensure grid layout */
-      line-height: 1.5;
-    }
-  }
 }
 
 footer {
@@ -544,26 +220,47 @@ footer {
   width: 100%;
   margin-top: 150px;
 }
-
-footer img {
-  height: 32px;
-}
-.footer-content {
+footer .footer-content {
   display: flex;
   flex-direction: column;
-  align-items: center; 
-  gap: 16px; 
+  align-items: center;
+  gap: 16px;
 }
-
-.social-icons {
+footer .footer-content .social-icons {
   display: flex;
-  gap: 32px;
+  gap: 16px;
+}
+footer .footer-content .social-icons img {
+  height: 32px;
 }
 
-.author {
-  font-size: 14px;
-  color: #4f4e4f;
+.profile-header {
   text-align: center;
 }
+.profile-header h1 {
+  color: #333333;
+  margin-bottom: 16px;
+}
+.profile-header p {
+  color: #7fd9c2;
+  font-size: 16px;
+}
 
-/*# sourceMappingURL=app.css.map */
+.about-section {
+  padding: 40px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.about-section h1, .about-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+.about-section p {
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-align: justify;
+}/*# sourceMappingURL=app.css.map */

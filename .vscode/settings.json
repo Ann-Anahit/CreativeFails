@@ -15,4 +15,12 @@
    "files.autoSave": "off",
    "workbench.colorTheme": "Visual Studio Dark",
    "terminal.integrated.gpuAcceleration": "canvas",
+   "liveSassCompile.settings.formats": [
+      {
+         "format": "expanded",
+         "extensionName": ".css",
+         "savePath": "~/../css/",
+         "savePathReplacementPairs": null
+      }
+   ],
 }
