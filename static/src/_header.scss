@@ -46,11 +46,10 @@ header {
           position: absolute;
           top: 100%;
           background-color: $primary_color;
-          border: 1px solid $white_color;
+          border: 8px solid $white_color;
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-          padding: $basic_distance_large;
+          padding: $basic_distance;
           z-index: 10;
-          min-width: 150px;
           right: 0;
           left: auto;
           white-space: nowrap;
@@ -79,7 +78,7 @@ header {
                 color: $secondary_color;
               }
             }
-
+            
             button {
               all: unset;
 
