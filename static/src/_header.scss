@@ -32,44 +32,121 @@ header {
             color: $secondary_color;
           }
         }
+
         &.account-btn-container {
           justify-self: flex-end;
         }
       }
+
       .dropdown {
         position: relative;
 
-        .dropdown-content{
+        .dropdown-content {
           display: none;
           position: absolute;
-          top: 16px;
-          left: 0;
-
-          ol .btn {
-            li {
-              a {
-                text-decoration: underline; 
-
-                &:hover {
-                  color: $secondary_color;
-                }
-              }
-            }
-          }
+          top: 100%;
+          background-color: $primary_color;
+          border: 1px solid $white_color;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          padding: $basic_distance_large;
+          z-index: 10;
+          min-width: 150px;
+          right: 0;
+          left: auto;
+          white-space: nowrap;
         }
+
         &:hover {
           .dropdown-content {
             display: block;
+          }
+        }
+
+        ol {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          width: 100%;
+
+          li {
+            padding: 8px 0;
+
+            a {
+              text-decoration: none;
+              color: $black_color;
+
+              &:hover {
+                color: $secondary_color;
+              }
+            }
+
+            button {
+              all: unset;
+
+              cursor: pointer;
+              color: $black_color;
+
+              &:hover {
+                color: $secondary_color;
+              }
+            }
           }
         }
       }
     }
   }
 
-
   .hero {
     margin: 0 auto;
     padding: $basic_distance;
     text-align: center;
+  }
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  li {
+    position: relative;
+  }
+
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: $white_color;
+    font-size: 16px;
+
+    .nav-text {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(-5px);
+      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    &:hover {
+      .nav-text {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      i {
+        color: $white_color;
+      }
+    }
+
+    i {
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
   }
 }

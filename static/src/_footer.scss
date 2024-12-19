@@ -14,12 +14,14 @@ footer {
         flex-direction: column;
         align-items: center; 
         gap: 16px;
+
         .social-icons {
             display: flex;
             gap: 16px;
+
             img {
                 height: 32px;
             }
         }
-      }
+    }
 }

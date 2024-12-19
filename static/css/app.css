@@ -73,22 +73,88 @@ header nav ul .dropdown {
 header nav ul .dropdown .dropdown-content {
   display: none;
   position: absolute;
-  top: 16px;
-  left: 0;
-}
-header nav ul .dropdown .dropdown-content ol .btn li a {
-  text-decoration: underline;
-}
-header nav ul .dropdown .dropdown-content ol .btn li a:hover {
-  color: #7fd9c2;
+  top: 100%;
+  background-color: #C2A4CD;
+  border: 1px solid #e3e3e3;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  z-index: 10;
+  min-width: 150px;
+  right: 0;
+  left: auto;
+  white-space: nowrap;
 }
 header nav ul .dropdown:hover .dropdown-content {
   display: block;
+}
+header nav ul .dropdown ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+header nav ul .dropdown ol li {
+  padding: 8px 0;
+}
+header nav ul .dropdown ol li a {
+  text-decoration: none;
+  color: #333333;
+}
+header nav ul .dropdown ol li a:hover {
+  color: #7fd9c2;
+}
+header nav ul .dropdown ol li button {
+  all: unset;
+  cursor: pointer;
+  color: #333333;
+}
+header nav ul .dropdown ol li button:hover {
+  color: #7fd9c2;
 }
 header .hero {
   margin: 0 auto;
   padding: 16px;
   text-align: center;
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.nav-links li {
+  position: relative;
+}
+.nav-links a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #e3e3e3;
+  font-size: 16px;
+}
+.nav-links a .nav-text {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.nav-links a:hover .nav-text {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+.nav-links a:hover i {
+  color: #e3e3e3;
+}
+.nav-links a i {
+  font-size: 16px;
+  transition: color 0.3s ease;
 }
 
 main .welcome {
@@ -102,6 +168,7 @@ main img {
   display: block;
   width: 100%;
   height: auto;
+  margin: 0 auto;
 }
 main .blog-posts {
   line-height: 24px;
