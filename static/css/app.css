@@ -76,6 +76,12 @@ header nav ul .dropdown .dropdown-content {
   top: 16px;
   left: 0;
 }
+header nav ul .dropdown .dropdown-content ol .btn li a {
+  text-decoration: underline;
+}
+header nav ul .dropdown .dropdown-content ol .btn li a:hover {
+  color: #7fd9c2;
+}
 header nav ul .dropdown:hover .dropdown-content {
   display: block;
 }
@@ -120,9 +126,9 @@ main .blog-posts article .meta .author {
 }
 
 .main-container {
-  padding: 20px;
   text-align: center;
   margin: 0 auto;
+  width: 100%;
 }
 
 .wrapper {

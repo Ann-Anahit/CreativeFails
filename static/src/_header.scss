@@ -15,6 +15,7 @@ header {
       padding: 0;
       width: 100%;
       justify-content: space-between;
+
       li {
         padding: $basic_distance;
 
@@ -37,20 +38,34 @@ header {
       }
       .dropdown {
         position: relative;
+
         .dropdown-content{
           display: none;
           position: absolute;
           top: 16px;
           left: 0;
+
+          ol .btn {
+            li {
+              a {
+                text-decoration: underline; 
+
+                &:hover {
+                  color: $secondary_color;
+                }
+              }
+            }
+          }
         }
         &:hover {
           .dropdown-content {
-            display:block;
+            display: block;
           }
         }
       }
     }
   }
+
 
   .hero {
     margin: 0 auto;
