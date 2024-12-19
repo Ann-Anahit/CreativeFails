@@ -336,10 +336,10 @@ footer .footer-content {
 }
 footer .footer-content .social-icons {
   display: flex;
-  gap: 16px;
+  gap: 24px;
 }
 footer .footer-content .social-icons img {
-  height: 32px;
+  height: 24px;
 }
 
 .profile-header {

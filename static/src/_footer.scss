@@ -17,10 +17,10 @@ footer {
 
         .social-icons {
             display: flex;
-            gap: 16px;
+            gap: $basic_distance_large;
 
             img {
-                height: 32px;
+                height: 24px;
             }
         }
     }
