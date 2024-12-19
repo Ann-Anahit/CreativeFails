@@ -221,6 +221,7 @@ main .blog-posts article .meta .author {
   text-align: center;
   margin: 0 auto;
   width: 100%;
+  flex-grow: 1;
 }
 
 .wrapper {
@@ -244,9 +245,8 @@ main .blog-posts article .meta .author {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 400px;
   text-align: center;
-  width: 100%;
   margin-top: auto;
-  margin: auto;
+  margin: 0 auto;
 }
 .registration-form form {
   display: flex;
@@ -326,7 +326,6 @@ footer {
   gap: 32px;
   padding: 16px 0;
   width: 100%;
-  margin-top: 150px;
 }
 footer .footer-content {
   display: flex;

@@ -1,26 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block head %}
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
-<link rel="stylesheet" href="{% static 'css/webfonts.css' %}">
-<link rel="stylesheet" href="{% static 'css/app.css' %}">
-<title>Register - Creative Fails</title>
-{% endblock head %}
-
 {% block content %}
-<main class="main-container">
+    <div class="hero">
+        <h1>Creative Fails</h1>
+    </div>
     <div class="registration-form">
         <h2>Register</h2>
-        
+
         {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
         {% endif %}
 
         <form action="{% url 'register' %}" method="post">
@@ -30,23 +23,23 @@
                 {{ form.username.label_tag }}
                 {{ form.username }}
                 {% if form.username.errors %}
-                <ul class="errorlist">
-                    {% for error in form.username.errors %}
-                    <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
+                    <ul class="errorlist">
+                        {% for error in form.username.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
                 {% endif %}
             </div>
-            
+
             <div>
                 {{ form.password1.label_tag }}
                 {{ form.password1 }}
                 {% if form.password1.errors %}
-                <ul class="errorlist">
-                    {% for error in form.password1.errors %}
-                    <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
+                    <ul class="errorlist">
+                        {% for error in form.password1.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
                 {% endif %}
             </div>
 
@@ -54,11 +47,11 @@
                 {{ form.password2.label_tag }}
                 {{ form.password2 }}
                 {% if form.password2.errors %}
-                <ul class="errorlist">
-                    {% for error in form.password2.errors %}
-                    <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
+                    <ul class="errorlist">
+                        {% for error in form.password2.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
                 {% endif %}
             </div>
 
@@ -66,9 +59,9 @@
                 {{ form.artist.label_tag }}
                 {{ form.artist }}
             </div>
-            
+
             <button type="submit">Sign up</button>
         </form>
     </div>
-</main>
-{% endblock content %}
+
+{% endblock %}

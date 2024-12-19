@@ -24,7 +24,8 @@
         method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">{% if post %}Update{% else %}Submit{% endif %}</button>
+        <button type="submit">{% if post %}Update{% else %}Create{% endif %}</button>
+        <a class="btn" href="{% url 'user_posts' %}"><i class="fa-regular fa-rectangle-xmark"></i> Cancel</a>
     </form>
 </div> 
 {% endif %}
