@@ -98,6 +98,11 @@ main .welcome {
   text-align: justify;
   flex: 1;
 }
+main img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 main .blog-posts {
   line-height: 24px;
 }
@@ -106,6 +111,10 @@ main .blog-posts h3,
 main .blog-posts p,
 main .blog-posts .meta {
   padding: 0 24px;
+}
+main .blog-posts img {
+  max-width: 300px;
+  max-height: 300px;
 }
 main .blog-posts article {
   border-bottom: 4px solid #7fd9c2;
@@ -123,6 +132,23 @@ main .blog-posts article .meta .date {
 }
 main .blog-posts article .meta .author {
   color: #C2A4CD;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.post-card {
+  border: 1px solid #C2A4CD;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 400px;
 }
 
 .main-container {

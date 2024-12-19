@@ -6,7 +6,11 @@ main {
         text-align: justify;
         flex: 1;
     }
-
+    img {
+        display: block; 
+        width: 100%; 
+        height: auto; 
+    }
     .blog-posts {
         line-height: 24px;
 
@@ -16,7 +20,10 @@ main {
         .meta {
             padding: 0 calc($basic_distance + 8px);
         }
-
+        img{
+            max-width: 300px; 
+            max-height: 300px
+        }
         article {
             border-bottom: 4px solid $secondary_color;
             padding-bottom: $basic_distance;
@@ -39,6 +46,22 @@ main {
             }
         }
     }
+}
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px; 
+    width: 100%;
+    margin: 0 auto; 
+}
+
+.post-card{
+  border: 1px solid $primary_color;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: $quaternary_color;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 400px;
 }
 
 .main-container {
