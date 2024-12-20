@@ -60,7 +60,7 @@ header nav ul li a img.logo {
   height: 32px;
 }
 header nav ul li a:hover {
-  color: #7fd9c2;
+  color: #dfd0e5;
 }
 header nav ul li.account-btn-container {
   justify-self: flex-end;
@@ -92,7 +92,12 @@ header nav ul .dropdown ol {
 }
 header nav ul .dropdown ol .btn {
   font-size: 24px;
+}
+header nav ul .dropdown ol .bold {
   font-weight: bold;
+}
+header nav ul .dropdown ol .red {
+  color: #c64f62;
 }
 header nav ul .dropdown ol .fa-power-off {
   color: #c64f62;
@@ -105,7 +110,7 @@ header nav ul .dropdown ol li a {
   color: #333333;
 }
 header nav ul .dropdown ol li a:hover {
-  color: #7fd9c2;
+  color: #dfd0e5;
 }
 header nav ul .dropdown ol li button {
   all: unset;
@@ -113,7 +118,7 @@ header nav ul .dropdown ol li button {
   color: #333333;
 }
 header nav ul .dropdown ol li button:hover {
-  color: #7fd9c2;
+  color: #dfd0e5;
 }
 header .hero {
   margin: 0 auto;
@@ -140,7 +145,7 @@ header .hero {
   flex-direction: column;
   align-items: center;
   text-decoration: none;
-  color: #e3e3e3;
+  color: #dfd0e5;
   font-size: 16px;
 }
 .nav-links a .nav-text {
@@ -157,7 +162,7 @@ header .hero {
   transform: translateY(0);
 }
 .nav-links a:hover i {
-  color: #e3e3e3;
+  color: #dfd0e5;
 }
 .nav-links a i {
   font-size: 16px;
@@ -195,7 +200,7 @@ main .blog-posts img {
   max-height: 300px;
 }
 main .blog-posts article {
-  border-bottom: 4px solid #7fd9c2;
+  border-bottom: 4px solid #dfd0e5;
   padding-bottom: 16px;
 }
 main .blog-posts article:nth-of-type(even) {
@@ -206,7 +211,7 @@ main .blog-posts article .meta {
   color: rgba(51, 51, 51, 0.5);
 }
 main .blog-posts article .meta .date {
-  color: #7fd9c2;
+  color: #dfd0e5;
 }
 main .blog-posts article .meta .author {
   color: #c2a4cd;
@@ -299,7 +304,7 @@ button .btn {
   padding: 0.75rem;
   border: none;
   border-radius: 5px;
-  background-color: #7fd9c2;
+  background-color: #dfd0e5;
   color: #333333;
   font-size: 1rem;
   cursor: pointer;
@@ -313,12 +318,12 @@ button .btn:hover {
 }
 .post-detail a {
   margin-right: 10px;
-  color: #7fd9c2;
+  color: #dfd0e5;
   text-decoration: none;
 }
 .post-detail .btn,
 .post-detail button {
-  background-color: #7fd9c2;
+  background-color: #dfd0e5;
   color: #333333;
   border: none;
   padding: 10px 5px;
