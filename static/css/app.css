@@ -92,6 +92,9 @@ header nav ul .dropdown ol {
   list-style: none;
   width: 100%;
 }
+header nav ul .dropdown ol .fa-power-off {
+  color: #c64f62;
+}
 header nav ul .dropdown ol li {
   padding: 8px 0;
 }
@@ -162,6 +165,9 @@ main .welcome {
   line-height: 24px;
   text-align: justify;
   flex: 1;
+}
+main .welcome .post-content {
+  font-size: 16px;
 }
 main img {
   display: block;
@@ -339,18 +345,6 @@ footer .footer-content .social-icons {
 }
 footer .footer-content .social-icons img {
   height: 24px;
-}
-
-.profile-header {
-  text-align: center;
-}
-.profile-header h1 {
-  color: #333333;
-  margin-bottom: 16px;
-}
-.profile-header p {
-  color: #7fd9c2;
-  font-size: 16px;
 }
 
 .about-section {

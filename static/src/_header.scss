@@ -67,6 +67,10 @@ header {
           list-style: none;
           width: 100%;
 
+          .fa-power-off {
+            color: $red_color;
+          }
+
           li {
             padding: 8px 0;
 
@@ -126,7 +130,10 @@ header {
       visibility: hidden;
       opacity: 0;
       transform: translateY(-5px);
-      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
       font-size: 12px;
       white-space: nowrap;
     }
