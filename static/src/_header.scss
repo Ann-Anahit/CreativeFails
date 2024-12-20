@@ -6,6 +6,8 @@ header {
   nav {
     background-color: $primary_color;
     width: 100%;
+    padding: 16px 0;
+
 
     ul {
       display: flex;
@@ -17,8 +19,6 @@ header {
       justify-content: space-between;
 
       li {
-        padding: $basic_distance;
-
         a {
           text-decoration: none;
           font-size: 16px;
@@ -66,6 +66,11 @@ header {
           padding: 0;
           list-style: none;
           width: 100%;
+
+          .btn {
+            font-size: 24px;
+            font-weight: bold;
+          }
 
           .fa-power-off {
             color: $red_color;

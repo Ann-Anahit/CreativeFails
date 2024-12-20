@@ -40,6 +40,7 @@ header {
 header nav {
   background-color: #c2a4cd;
   width: 100%;
+  padding: 16px 0;
 }
 header nav ul {
   display: flex;
@@ -49,9 +50,6 @@ header nav ul {
   padding: 0;
   width: 100%;
   justify-content: space-between;
-}
-header nav ul li {
-  padding: 16px;
 }
 header nav ul li a {
   text-decoration: none;
@@ -91,6 +89,10 @@ header nav ul .dropdown ol {
   padding: 0;
   list-style: none;
   width: 100%;
+}
+header nav ul .dropdown ol .btn {
+  font-size: 24px;
+  font-weight: bold;
 }
 header nav ul .dropdown ol .fa-power-off {
   color: #c64f62;
