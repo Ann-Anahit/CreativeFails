@@ -171,6 +171,7 @@ main .welcome {
 }
 main .welcome .post-content {
   font-size: 16px;
+  font-weight: lighter;
 }
 main img {
   display: block;
