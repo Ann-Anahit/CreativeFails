@@ -20,7 +20,7 @@
             {% csrf_token %}
 
             <div>
-                {{ form.username.label_tag }}
+                Username
                 {{ form.username }}
                 {% if form.username.errors %}
                     <ul class="errorlist">
@@ -32,7 +32,7 @@
             </div>
 
             <div>
-                {{ form.password1.label_tag }}
+                Password
                 {{ form.password1 }}
                 {% if form.password1.errors %}
                     <ul class="errorlist">
@@ -44,7 +44,7 @@
             </div>
 
             <div>
-                {{ form.password2.label_tag }}
+                Password confirmation
                 {{ form.password2 }}
                 {% if form.password2.errors %}
                     <ul class="errorlist">
@@ -56,7 +56,7 @@
             </div>
 
             <div>
-                If you are an artist or want to post stories, please check the box.
+                If you are an artist or want to post stories, please check the box
                 {{ form.is_artist }}
             </div>
 
