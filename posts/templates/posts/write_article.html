@@ -2,31 +2,39 @@
 {% load static %}
 
 {% block content %}
-{% if user.is_artist %}
-<div class="registration-form">
-    <h2>{% if post %}Edit Post{% else %}Write Article{% endif %}</h2>
-  
-    {% if form.errors %}
-    <div class="error">
-        <ul>
-            {% for field in form %}
-            {% for error in field.errors %}
-            <li>{{ field.label }}: {{ error }}</li>
-            {% endfor %}
-            {% endfor %}
-            {% for error in form.non_field_errors %}
-            <li>{{ error }}</li>
-            {% endfor %}
-        </ul>
-    </div>
+    {% if user.is_artist %}
+        <div class="registration-form">
+            <h2>
+                {% if post %}Edit Post{% else %}Write Article
+                {% endif %}
+            </h2>
+
+            {% if form.errors %}
+                <div class="error">
+                    <ul>
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <li>{{ field.label }}:
+                                    {{ error }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            <form action="{% if post %}{% url 'update_post' post.pk %}{% else %}{% url 'write_article' %}{% endif %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">
+                    {% if post %}Update{% else %}Create
+                    {% endif %}
+                </button>
+                <a class="btn" href="{% url 'user_posts' %}">
+                    <i class="fa-regular fa-rectangle-xmark"></i>
+                    Cancel</a>
+            </form>
+        </div>
     {% endif %}
-    <form action="{% if post %}{% url 'update_post' post.pk %}{% else %}{% url 'write_article' %}{% endif %}"
-        method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">{% if post %}Update{% else %}Create{% endif %}</button>
-        <a class="btn" href="{% url 'user_posts' %}"><i class="fa-regular fa-rectangle-xmark"></i> Cancel</a>
-    </form>
-</div> 
-{% endif %}
 {% endblock %}
