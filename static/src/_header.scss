@@ -113,6 +113,9 @@ header {
   display: flex;
   align-items: center;
   gap: 20px;
+  .account-btn-container {
+    margin-left: auto;
+}
 
   li {
     position: relative;

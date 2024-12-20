@@ -127,6 +127,9 @@ header .hero {
   align-items: center;
   gap: 20px;
 }
+.nav-links .account-btn-container {
+  margin-left: auto;
+}
 .nav-links li {
   position: relative;
 }
