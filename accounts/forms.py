@@ -25,7 +25,7 @@ class CustomUserCreationForm(UserCreationForm):
         return password 
 
     def clean_aritst(self):
-        artist = self.cleaned_data.get('artist')
+        artist = self.cleaned_data.get('is_artist')
         return artist
 
 class CustomUserChangeForm(UserChangeForm):
