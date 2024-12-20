@@ -8,7 +8,7 @@ class CustomUserCreationForm(UserCreationForm):
     
     class Meta:
         model = CustomUser
-        fields = ('username', 'password1', 'password2', 'artist')
+        fields = ('username', 'password1', 'password2', 'is_artist')
 
     def clean_username(self):
         """Check if the username already exists."""
@@ -24,9 +24,9 @@ class CustomUserCreationForm(UserCreationForm):
             raise ValidationError('Your password must contain at least 6 characters.')
         return password 
 
-    def clean_aritst(self):
-        artist = self.cleaned_data.get('is_artist')
-        return artist
+    def clean_is_artist(self):
+        is_artist = self.cleaned_data.get('is_artist')
+        return is_artist
 
 class CustomUserChangeForm(UserChangeForm):
     """Form for updating an existing user."""
