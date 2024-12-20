@@ -7,9 +7,9 @@ main {
         flex: 1;
     }
     img {
-        display: block; 
-        width: 100%; 
-        height: auto; 
+        display: block;
+        width: 100%;
+        height: auto;
         margin: 0 auto;
     }
     .blog-posts {
@@ -21,8 +21,8 @@ main {
         .meta {
             padding: 0 calc($basic_distance + 8px);
         }
-        img{
-            max-width: 300px; 
+        img {
+            max-width: 300px;
             max-height: 300px;
         }
         article {
@@ -51,18 +51,18 @@ main {
 .posts-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 16px; 
+    gap: 16px;
     width: 100%;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
-.post-card{
-  border: 1px solid $primary_color;
-  border-radius: 8px;
-  padding: 16px;
-  background-color: $quaternary_color;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  min-height: 400px;
+.post-card {
+    border: 1px solid $primary_color;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: $quaternary_color;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    min-height: 400px;
 }
 
 .main-container {
@@ -100,16 +100,13 @@ main {
         display: flex;
         flex-direction: column;
 
-
         div {
             margin-bottom: 1rem;
-
 
             label {
                 margin-bottom: 0.5rem;
                 font-size: 16px;
                 color: $black_color;
-
             }
 
             input {
@@ -140,7 +137,6 @@ main {
         }
     }
 }
-
 
 button .btn {
     padding: 0.75rem;
