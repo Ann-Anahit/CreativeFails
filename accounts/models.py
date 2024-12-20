@@ -28,7 +28,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     created_at = models.DateTimeField(default=timezone.now)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-
+    is_artist = models.BooleanField(default=False)
+    
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'username'
