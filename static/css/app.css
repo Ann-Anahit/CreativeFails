@@ -7,6 +7,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
 }
 
 * {
@@ -60,7 +61,7 @@ header nav ul li a img.logo {
   height: 32px;
 }
 header nav ul li a:hover {
-  color: #AC8D8A;
+  color: #DFD0E5;
 }
 header nav ul li.account-btn-container {
   justify-self: flex-end;
@@ -110,7 +111,7 @@ header nav ul .dropdown ol li a {
   color: #333333;
 }
 header nav ul .dropdown ol li a:hover {
-  color: #AC8D8A;
+  color: #DFD0E5;
 }
 header nav ul .dropdown ol li button {
   all: unset;
@@ -118,7 +119,7 @@ header nav ul .dropdown ol li button {
   color: #333333;
 }
 header nav ul .dropdown ol li button:hover {
-  color: #AC8D8A;
+  color: #DFD0E5;
 }
 header .hero {
   margin: 0 auto;
@@ -143,7 +144,7 @@ header .hero {
 .nav-links a {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   text-decoration: none;
   color: #AC8D8A;
   font-size: 16px;
@@ -162,7 +163,7 @@ header .hero {
   transform: translateY(0);
 }
 .nav-links a:hover i {
-  color: #AC8D8A;
+  color: #DFD0E5;
 }
 .nav-links a i {
   font-size: 16px;
@@ -180,16 +181,29 @@ main .welcome p.post-content {
   font-size: 16px;
   font-weight: lighter;
 }
-main img {
+main button.btn {
+  text-decoration: none;
+  background-color: #EEDAAB;
+  color: #333333;
+  border: none;
+  padding: 10px 5px;
+  cursor: pointer;
+}
+main button.btn:hover {
+  background-color: #c2a4cd;
+}
+
+img {
   display: block;
   width: 100%;
   height: auto;
   margin: 0 auto;
 }
-main .blog-posts {
+
+.blog-posts {
   line-height: 24px;
 }
-main .blog-posts .posts-grid {
+.blog-posts .posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 16px;
@@ -197,7 +211,7 @@ main .blog-posts .posts-grid {
   margin: 0 auto;
   padding: 8px 0;
 }
-main .blog-posts .posts-grid post-card {
+.blog-posts .posts-grid post-card {
   border: 1px solid #c2a4cd;
   border-radius: 8px;
   padding: 16px;
@@ -205,17 +219,17 @@ main .blog-posts .posts-grid post-card {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   min-height: 400px;
 }
-main .blog-posts h2,
-main .blog-posts h3,
-main .blog-posts p,
-main .blog-posts .meta {
-  padding: 0 24px;
-}
-main .blog-posts img.post-image {
+.blog-posts .posts-grid post-card img.post-image {
   max-width: 300px;
   max-height: 300px;
 }
-main .blog-posts a.btn {
+.blog-posts h2,
+.blog-posts h3,
+.blog-posts p,
+.blog-posts .meta {
+  padding: 0 24px;
+}
+.blog-posts a.btn {
   background-color: #AC8D8A;
   color: #333333;
   border: none;
@@ -223,27 +237,29 @@ main .blog-posts a.btn {
   margin: 16px;
   cursor: pointer;
 }
-main .blog-posts a.btn:hover {
+.blog-posts a.btn:hover {
   background-color: #c2a4cd;
 }
-main .blog-posts article {
+.blog-posts article {
   border-bottom: 4px solid #AC8D8A;
   padding-bottom: 16px;
 }
-main .blog-posts article:nth-of-type(even) {
+.blog-posts article:nth-of-type(even) {
   border-color: #c2a4cd;
 }
-main .blog-posts article .meta {
+.blog-posts article .meta {
   font-size: 12px;
   color: rgba(51, 51, 51, 0.5);
 }
-main .blog-posts article .meta span.date {
+.blog-posts article .meta span.date {
   color: #AC8D8A;
 }
-main .blog-posts article .meta span.author {
+.blog-posts article .meta span.author {
   color: #c2a4cd;
 }
-
+.blog-posts article .post-bar button.btn.btn-icon i.far.fa-heart {
+  color: #c64f62;
+}
 .main-container {
   text-align: center;
   margin: 0 auto;
@@ -317,18 +333,6 @@ main .blog-posts article .meta span.author {
   margin-right: 10px;
   color: #AC8D8A;
   text-decoration: none;
-}
-
-button.btn {
-  text-decoration: none;
-  background-color: #EEDAAB;
-  color: #333333;
-  border: none;
-  padding: 10px 5px;
-  cursor: pointer;
-}
-button.btn:hover {
-  background-color: #c2a4cd;
 }
 
 footer {

@@ -60,7 +60,7 @@ header nav ul li a img.logo {
   height: 32px;
 }
 header nav ul li a:hover {
-  color: #AC8D8A;
+  color: #DFD0E5;
 }
 header nav ul li.account-btn-container {
   justify-self: flex-end;
@@ -110,7 +110,7 @@ header nav ul .dropdown ol li a {
   color: #333333;
 }
 header nav ul .dropdown ol li a:hover {
-  color: #AC8D8A;
+  color: #DFD0E5;
 }
 header nav ul .dropdown ol li button {
   all: unset;
@@ -118,7 +118,7 @@ header nav ul .dropdown ol li button {
   color: #333333;
 }
 header nav ul .dropdown ol li button:hover {
-  color: #AC8D8A;
+  color: #DFD0E5;
 }
 header .hero {
   margin: 0 auto;
@@ -143,7 +143,7 @@ header .hero {
 .nav-links a {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   text-decoration: none;
   color: #AC8D8A;
   font-size: 16px;
@@ -162,7 +162,7 @@ header .hero {
   transform: translateY(0);
 }
 .nav-links a:hover i {
-  color: #AC8D8A;
+  color: #DFD0E5;
 }
 .nav-links a i {
   font-size: 16px;
