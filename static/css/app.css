@@ -13,6 +13,7 @@ body {
 * {
   font-family: "Roboto";
   color: #333333;
+  text-decoration: none;
 }
 
 h1 {

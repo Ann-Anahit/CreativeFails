@@ -12,6 +12,7 @@ body {
 * {
   font-family: "Roboto";
   color: #333333;
+  text-decoration: none;
 }
 
 h1 {
@@ -334,14 +335,14 @@ main .blog-posts article .meta .author {
   text-decoration: none;
 }
 
-.btn button {
+button .btn {
   background-color: #EEDAAB;
   color: #333333;
   border: none;
   padding: 10px 5px;
   cursor: pointer;
 }
-.btn button:hover {
+button .btn:hover {
   background-color: #c2a4cd;
 }
 
