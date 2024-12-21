@@ -85,7 +85,6 @@ img {
         }
 
         .meta {
-            font-size: 12px;
             color: transparentize($black_color, 0.5);
 
             span.date {
@@ -96,31 +95,7 @@ img {
                 color: $primary_color;
             }
         }
-        .post-bar {
-
-			button.btn.btn-icon {
-
-				i.far.fa-heart {
-                    color: $denied_color;
-
-				}
-			}
-			form {
-
-			}
-			button {
-
-			}
-		}
-		.comments {
-
-			h4 {
-
-			}
-			.comment {
-
-			}
-		}
+        
     }
 }
 

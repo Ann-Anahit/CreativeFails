@@ -248,7 +248,6 @@ img {
   border-color: #c2a4cd;
 }
 .blog-posts article .meta {
-  font-size: 12px;
   color: rgba(51, 51, 51, 0.5);
 }
 .blog-posts article .meta span.date {
@@ -257,9 +256,7 @@ img {
 .blog-posts article .meta span.author {
   color: #c2a4cd;
 }
-.blog-posts article .post-bar button.btn.btn-icon i.far.fa-heart {
-  color: #c64f62;
-}
+
 .main-container {
   text-align: center;
   margin: 0 auto;
