@@ -5,6 +5,7 @@ main {
         line-height: $basic_distance_large;
         text-align: justify;
         flex: 1;
+
         .post-content {
             font-size: 16px;
             font-weight: lighter;
@@ -29,6 +30,19 @@ main {
             max-width: 300px;
             max-height: 300px;
         }
+        a.btn {
+            background-color: $primary_color;
+            color: $black_color;
+            border: none;
+            padding: 8px;
+            margin: 16px;
+            cursor: pointer;
+        
+            &:hover {
+                background-color: $secondary_color;
+            }
+
+        }
         article {
             border-bottom: 4px solid $secondary_color;
             padding-bottom: $basic_distance;
@@ -52,6 +66,7 @@ main {
         }
     }
 }
+
 .posts-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -68,6 +83,21 @@ main {
     background-color: $quaternary_color;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     min-height: 400px;
+
+    .btn {
+        text-decoration: none;
+        padding: 0.75rem;
+        border: none;
+        border-radius: 5px;
+        background-color: $secondary_color;
+        color: $black_color;
+        font-size: 1rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $tertiary_color;
+        }
+    }
 }
 
 .main-container {
@@ -143,20 +173,6 @@ main {
     }
 }
 
-button .btn {
-    padding: 0.75rem;
-    border: none;
-    border-radius: 5px;
-    background-color: $secondary_color;
-    color: $black_color;
-    font-size: 1rem;
-    cursor: pointer;
-
-    &:hover {
-        background-color: $tertiary_color;
-    }
-}
-
 .post-detail {
     h1 p {
         color: $black_color;
@@ -168,16 +184,17 @@ button .btn {
         text-decoration: none;
     }
 
-    .btn,
-    button {
-        background-color: $secondary_color;
-        color: $black_color;
-        border: none;
-        padding: 10px 5px;
-        cursor: pointer;
+   
+}
+.btn
+button {
+    background-color: $tertiary_color;
+    color: $black_color;
+    border: none;
+    padding: 10px 5px;
+    cursor: pointer;
 
-        &:hover {
-            background-color: $primary_color;
-        }
+    &:hover {
+        background-color: $primary_color;
     }
 }

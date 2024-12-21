@@ -57,7 +57,7 @@
                     <span>{{ post.likes.count }} likes</span>
                 </div>
                 
-                <a href="{% url 'post_detail' post.id %}" class="read-more">Read more</a>
+                <a href="{% url 'post_detail' post.id %}" class="btn">Read more</a>
             </div>
             {% endfor %}
         </div>
@@ -65,10 +65,10 @@
     
     <div class="pagination">
         {% if page_obj.has_previous %}
-            <a href="?page={{ page_obj.previous_page_number }}" class="pagination-btn">Previous</a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="btn">Previous</a>
         {% endif %}
         {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}" class="pagination-btn">Next</a>
+            <a href="?page={{ page_obj.next_page_number }}" class="btn">Next</a>
         {% endif %}
     </div>
     

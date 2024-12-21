@@ -60,7 +60,7 @@ header nav ul li a img.logo {
   height: 32px;
 }
 header nav ul li a:hover {
-  color: #dfd0e5;
+  color: #AC8D8A;
 }
 header nav ul li.account-btn-container {
   justify-self: flex-end;
@@ -110,7 +110,7 @@ header nav ul .dropdown ol li a {
   color: #333333;
 }
 header nav ul .dropdown ol li a:hover {
-  color: #dfd0e5;
+  color: #AC8D8A;
 }
 header nav ul .dropdown ol li button {
   all: unset;
@@ -118,7 +118,7 @@ header nav ul .dropdown ol li button {
   color: #333333;
 }
 header nav ul .dropdown ol li button:hover {
-  color: #dfd0e5;
+  color: #AC8D8A;
 }
 header .hero {
   margin: 0 auto;
@@ -145,7 +145,7 @@ header .hero {
   flex-direction: column;
   align-items: center;
   text-decoration: none;
-  color: #dfd0e5;
+  color: #AC8D8A;
   font-size: 16px;
 }
 .nav-links a .nav-text {
@@ -162,7 +162,7 @@ header .hero {
   transform: translateY(0);
 }
 .nav-links a:hover i {
-  color: #dfd0e5;
+  color: #AC8D8A;
 }
 .nav-links a i {
   font-size: 16px;
@@ -199,8 +199,19 @@ main .blog-posts img {
   max-width: 300px;
   max-height: 300px;
 }
+main .blog-posts a.btn {
+  background-color: #c2a4cd;
+  color: #333333;
+  border: none;
+  padding: 8px;
+  margin: 16px;
+  cursor: pointer;
+}
+main .blog-posts a.btn:hover {
+  background-color: #AC8D8A;
+}
 main .blog-posts article {
-  border-bottom: 4px solid #dfd0e5;
+  border-bottom: 4px solid #AC8D8A;
   padding-bottom: 16px;
 }
 main .blog-posts article:nth-of-type(even) {
@@ -211,7 +222,7 @@ main .blog-posts article .meta {
   color: rgba(51, 51, 51, 0.5);
 }
 main .blog-posts article .meta .date {
-  color: #dfd0e5;
+  color: #AC8D8A;
 }
 main .blog-posts article .meta .author {
   color: #c2a4cd;
@@ -233,6 +244,19 @@ main .blog-posts article .meta .author {
   background-color: #f9f9f9;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   min-height: 400px;
+}
+.post-card .btn {
+  text-decoration: none;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #AC8D8A;
+  color: #333333;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.post-card .btn:hover {
+  background-color: #EEDAAB;
 }
 
 .main-container {
@@ -301,37 +325,23 @@ main .blog-posts article .meta .author {
   height: 40px;
 }
 
-button .btn {
-  padding: 0.75rem;
-  border: none;
-  border-radius: 5px;
-  background-color: #dfd0e5;
-  color: #333333;
-  font-size: 1rem;
-  cursor: pointer;
-}
-button .btn:hover {
-  background-color: #eb8573;
-}
-
 .post-detail h1 p {
   color: #333333;
 }
 .post-detail a {
   margin-right: 10px;
-  color: #dfd0e5;
+  color: #AC8D8A;
   text-decoration: none;
 }
-.post-detail .btn,
-.post-detail button {
-  background-color: #dfd0e5;
+
+.btn button {
+  background-color: #EEDAAB;
   color: #333333;
   border: none;
   padding: 10px 5px;
   cursor: pointer;
 }
-.post-detail .btn:hover,
-.post-detail button:hover {
+.btn button:hover {
   background-color: #c2a4cd;
 }
 
