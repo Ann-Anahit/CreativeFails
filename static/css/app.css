@@ -223,6 +223,7 @@ main .blog-posts article .meta .author {
   gap: 16px;
   width: 100%;
   margin: 0 auto;
+  padding: 8px 0;
 }
 
 .post-card {
