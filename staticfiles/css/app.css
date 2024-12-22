@@ -9,6 +9,21 @@ body {
   flex-direction: column;
 }
 
+button,
+.btn {
+  text-decoration: none;
+  background-color: #87C5C8;
+  color: #333333;
+  border: none;
+  padding: 8px;
+  margin: 8px;
+  cursor: pointer;
+}
+button:hover,
+.btn:hover {
+  background-color: #c2a4cd;
+}
+
 * {
   font-family: "Roboto";
   color: #333333;
@@ -200,17 +215,6 @@ main .blog-posts img {
   max-width: 300px;
   max-height: 300px;
 }
-main .blog-posts a.btn {
-  background-color: #c2a4cd;
-  color: #333333;
-  border: none;
-  padding: 8px;
-  margin: 16px;
-  cursor: pointer;
-}
-main .blog-posts a.btn:hover {
-  background-color: #AC8D8A;
-}
 main .blog-posts article {
   border-bottom: 4px solid #AC8D8A;
   padding-bottom: 16px;
@@ -245,19 +249,6 @@ main .blog-posts article .meta .author {
   background-color: #f9f9f9;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   min-height: 400px;
-}
-.post-card .btn {
-  text-decoration: none;
-  padding: 0.75rem;
-  border: none;
-  border-radius: 5px;
-  background-color: #AC8D8A;
-  color: #333333;
-  font-size: 1rem;
-  cursor: pointer;
-}
-.post-card .btn:hover {
-  background-color: #EEDAAB;
 }
 
 .main-container {
@@ -339,7 +330,8 @@ button .btn {
   background-color: #EEDAAB;
   color: #333333;
   border: none;
-  padding: 10px 5px;
+  padding: 8px;
+  margin: 24px;
   cursor: pointer;
 }
 button .btn:hover {

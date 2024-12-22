@@ -7,3 +7,17 @@ body {
   flex-direction: column;
   text-decoration: none;
 }
+button, 
+.btn {
+  text-decoration: none;
+  background-color: $access_color;
+  color: $black_color;
+  border: none;
+  padding: 8px;
+  margin: 8px;
+  cursor: pointer;
+
+  &:hover {
+      background-color: $primary_color;
+  }
+}
