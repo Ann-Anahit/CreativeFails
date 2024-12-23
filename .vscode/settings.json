@@ -19,8 +19,11 @@
       {
          "format": "expanded",
          "extensionName": ".css",
-         "savePath": "~/../css/",
+         "savePath": "~/../static/css/",
          "savePathReplacementPairs": null
       }
+   ],
+   "liveSassCompile.settings.autoprefix": [
+
    ],
 }
