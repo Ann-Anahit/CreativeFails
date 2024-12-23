@@ -55,8 +55,8 @@ header {
 }
 header nav {
   background-color: #c2a4cd;
-  width: 100%;
-  padding: 16px 0;
+  width: calc(100% - 32px);
+  padding: 16px;
 }
 header nav ul.nav-links {
   display: flex;
@@ -67,19 +67,19 @@ header nav ul.nav-links {
   width: 100%;
   justify-content: space-between;
 }
-header nav ul.nav-links li a {
+header nav ul.nav-links li a, header nav ul.nav-links li .nav-item {
   text-decoration: none;
   font-size: 1rem;
   color: #333333;
   position: relative;
 }
-header nav ul.nav-links li a img.logo {
+header nav ul.nav-links li a img.logo, header nav ul.nav-links li .nav-item img.logo {
   height: 32px;
 }
-header nav ul.nav-links li a:hover i {
+header nav ul.nav-links li a:hover i, header nav ul.nav-links li .nav-item:hover i {
   color: #DFD0E5;
 }
-header nav ul.nav-links li a:hover::before {
+header nav ul.nav-links li a:hover::before, header nav ul.nav-links li .nav-item:hover::before {
   display: block;
   content: attr(data-tooltip);
   position: absolute;
@@ -88,6 +88,11 @@ header nav ul.nav-links li a:hover::before {
 }
 header nav ul.nav-links li.account-btn-container {
   justify-self: flex-end;
+  cursor: pointer;
+}
+header nav ul.nav-links li.account-btn-container .nav-item:hover::before {
+  left: 0;
+  transform: translateX(calc(-100% - 0.5rem));
 }
 header nav ul.nav-links .dropdown {
   position: relative;

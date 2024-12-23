@@ -5,8 +5,8 @@ header {
 
   nav {
     background-color: $primary_color;
-    width: 100%;
-    padding: 16px 0;
+    width: calc(100% - 32px);
+    padding: 16px;
 
 
     ul.nav-links {
@@ -19,7 +19,7 @@ header {
       justify-content: space-between;
 
       li {
-        a {
+        a,.nav-item {
           text-decoration: none;
           font-size: 1rem;
           color: $black_color;
@@ -45,6 +45,15 @@ header {
 
         &.account-btn-container {
           justify-self: flex-end;
+          cursor: pointer;
+          .nav-item {
+            &:hover {
+              &::before {
+                left: 0;
+                transform: translateX(calc(-100% - 0.5rem));
+              }
+            }
+          }
         }
       }
 
