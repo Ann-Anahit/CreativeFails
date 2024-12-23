@@ -142,37 +142,6 @@ header .hero {
   text-align: center;
 }
 
-.nav-links {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  gap: 32px;
-}
-.nav-links .account-btn-container {
-  margin-left: auto;
-}
-.nav-links li {
-  position: relative;
-}
-.nav-links a {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-decoration: none;
-  color: #AC8D8A;
-  font-size: 16px;
-}
-.nav-links a:hover i {
-  color: #DFD0E5;
-}
-.nav-links a i {
-  font-size: 16px;
-  transition: color 0.3s ease;
-}
-
 main .welcome {
   border: 8px solid #c2a4cd;
   padding: 0 16px;
@@ -244,12 +213,6 @@ main .blog-posts article .meta .author {
   margin: 0 auto;
   width: 100%;
   flex-grow: 1;
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
 }
 
 .container {
