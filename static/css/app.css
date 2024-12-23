@@ -58,7 +58,7 @@ header nav {
   width: 100%;
   padding: 16px 0;
 }
-header nav ul {
+header nav ul.nav-links {
   display: flex;
   align-items: center;
   list-style: none;
@@ -67,24 +67,32 @@ header nav ul {
   width: 100%;
   justify-content: space-between;
 }
-header nav ul li a {
+header nav ul.nav-links li a {
   text-decoration: none;
-  font-size: 16px;
+  font-size: 1rem;
   color: #333333;
-}
-header nav ul li a img.logo {
-  height: 32px;
-}
-header nav ul li a:hover {
-  color: #DFD0E5;
-}
-header nav ul li.account-btn-container {
-  justify-self: flex-end;
-}
-header nav ul .dropdown {
   position: relative;
 }
-header nav ul .dropdown .dropdown-content {
+header nav ul.nav-links li a img.logo {
+  height: 32px;
+}
+header nav ul.nav-links li a:hover i {
+  color: #DFD0E5;
+}
+header nav ul.nav-links li a:hover::before {
+  display: block;
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 0;
+  left: 1.5rem;
+}
+header nav ul.nav-links li.account-btn-container {
+  justify-self: flex-end;
+}
+header nav ul.nav-links .dropdown {
+  position: relative;
+}
+header nav ul.nav-links .dropdown .dropdown-content {
   display: none;
   position: absolute;
   top: 100%;
@@ -97,43 +105,43 @@ header nav ul .dropdown .dropdown-content {
   left: auto;
   white-space: nowrap;
 }
-header nav ul .dropdown:hover .dropdown-content {
+header nav ul.nav-links .dropdown:hover .dropdown-content {
   display: block;
 }
-header nav ul .dropdown ol {
+header nav ul.nav-links .dropdown ol {
   margin: 0;
   padding: 0;
   list-style: none;
   width: 100%;
 }
-header nav ul .dropdown ol .btn {
+header nav ul.nav-links .dropdown ol .btn {
   font-size: 24px;
 }
-header nav ul .dropdown ol .bold {
+header nav ul.nav-links .dropdown ol .bold {
   font-weight: bold;
 }
-header nav ul .dropdown ol .red {
+header nav ul.nav-links .dropdown ol .red {
   color: #c64f62;
 }
-header nav ul .dropdown ol .fa-power-off {
+header nav ul.nav-links .dropdown ol .fa-power-off {
   color: #c64f62;
 }
-header nav ul .dropdown ol li {
+header nav ul.nav-links .dropdown ol li {
   padding: 8px 0;
 }
-header nav ul .dropdown ol li a {
+header nav ul.nav-links .dropdown ol li a {
   text-decoration: none;
   color: #333333;
 }
-header nav ul .dropdown ol li a:hover {
+header nav ul.nav-links .dropdown ol li a:hover {
   color: #DFD0E5;
 }
-header nav ul .dropdown ol li button {
+header nav ul.nav-links .dropdown ol li button {
   all: unset;
   cursor: pointer;
   color: #333333;
 }
-header nav ul .dropdown ol li button:hover {
+header nav ul.nav-links .dropdown ol li button:hover {
   color: #DFD0E5;
 }
 header .hero {

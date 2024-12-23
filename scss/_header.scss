@@ -9,7 +9,7 @@ header {
     padding: 16px 0;
 
 
-    ul {
+    ul.nav-links {
       display: flex;
       align-items: center;
       list-style: none;
@@ -21,15 +21,25 @@ header {
       li {
         a {
           text-decoration: none;
-          font-size: 16px;
+          font-size: 1rem;
           color: $black_color;
+          position: relative;
 
           img.logo {
             height: 32px;
           }
 
           &:hover {
-            color: $hover_color;
+            i {
+              color: $hover_color;
+            }
+            &::before {
+              display: block;
+              content: attr(data-tooltip);
+              position: absolute;
+              top: 0;
+              left:1.5rem;
+            }
           }
         }
 
