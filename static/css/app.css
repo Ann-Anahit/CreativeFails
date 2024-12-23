@@ -144,12 +144,13 @@ header .hero {
 }
 
 .nav-links {
+  display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 32px;
 }
 .nav-links .account-btn-container {
   margin-left: auto;
@@ -164,19 +165,6 @@ header .hero {
   text-decoration: none;
   color: #AC8D8A;
   font-size: 16px;
-}
-.nav-links a .nav-text {
-  visibility: hidden;
-  opacity: 0;
-  transform: translateY(-5px);
-  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
-  font-size: 12px;
-  white-space: nowrap;
-}
-.nav-links a:hover .nav-text {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0);
 }
 .nav-links a:hover i {
   color: #DFD0E5;

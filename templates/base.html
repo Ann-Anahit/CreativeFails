@@ -27,21 +27,18 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{% url 'homepage' %}">
+                            <a href="{% url 'homepage' %}" data-tooltip="Homepage">
                                 <i class="fa fa-home"></i>
-                                <span class="nav-text">Homepage</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{% url 'about' %}">
+                            <a href="{% url 'about' %}" data-tooltip="About">
                                 <i class="fa fa-info-circle"></i>
-                                <span class="nav-text">About</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{% url 'post_list' %}">
+                            <a href="{% url 'post_list' %}" data-tooltip="Blog">
                                 <i class="fa fa-list-alt"></i> 
-                                <span class="nav-text"> All Posts</span>
                             </a>
                         </li>
                         {% if user.is_authenticated %}
