@@ -2,11 +2,18 @@ header {
   display: flex;
   flex-direction: column;
   margin: 0;
+  background-color: $primary_color;
+  align-items: center;
 
   nav {
-    background-color: $primary_color;
     width: calc(100% - 32px);
+    max-width: 1280px;
     padding: 16px;
+    display: flex;
+    .logo {
+      height: 48px;
+      margin-right: 32px;
+    }
 
 
     ul.nav-links {

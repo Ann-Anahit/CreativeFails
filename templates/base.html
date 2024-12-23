@@ -18,12 +18,10 @@
     <body>
         <header>
             <nav>
+                <a href="{% url 'homepage' %}">
+                    <img class="logo" src="{% static 'images/logo_cf.png' %}" alt="Logo">
+                </a>
                 <ul class="nav-links">
-                    <li>
-                        <a href="{% url 'homepage' %}">
-                            <img class="logo" src="{% static 'images/logo_cf.png' %}" alt="Logo">
-                        </a>
-                    </li>
                     <li>
                         <a href="{% url 'homepage' %}" data-tooltip="Homepage">
                             <i class="fa fa-home"></i>
@@ -96,6 +94,7 @@
                         </li>
                     {% endif %}
                 </ul>
+
             </nav>
         </header>
         <main class="main-container"> {% block content %}{% endblock %}
