@@ -18,7 +18,6 @@
     <body>
         <header>
             <nav>
-                <!-- Navigation menu -->
                 <ul class="nav-links">
                     <li>
                         <a href="{% url 'homepage' %}">
@@ -47,9 +46,9 @@
                                     <i class="fa fa-user"></i>
                                 </div>
                                 <div class="dropdown-content">
-                                    <ol>
-                                        <li class="bold">Welcome,
-                                            {{ user.username }}</li>
+                                    <ul class="dropdown-list">
+                                        <p>Welcome,
+                                            {{ user.username }}</p>
                                         {% if user.is_artist %}
                                             <li>
                                                 <a href="{% url 'write_article' %}">Create New Post</a>
@@ -67,19 +66,18 @@
                                                 </button>
                                             </form>
                                         </li>
-                                    </ol>
+                                    </ul>
                                 </div>
                             </div>
                         </li>
                     {% else %}
                         <li class="account-btn-container">
                             <div class="dropdown">
-                                <a href="#">
+                                <div class="nav-item" data-tooltip="Account">
                                     <i class="fa fa-user"></i>
-                                    <span class="nav-text">Account</span>
-                                </a>
+                                </div>
                                 <div class="dropdown-content">
-                                    <ol class="btn">
+                                    <ul class="dropdown-list">
                                         <li class="account-btn-container">
                                             <a href="{% url 'login' %}">
                                                 <i class="fa fa-user"></i>
@@ -92,7 +90,7 @@
                                                 <span class="nav-text">Sign Up</span>
                                             </a>
                                         </li>
-                                    </ol>
+                                    </ul>
                                 </div>
                             </div>
                         </li>
