@@ -31,7 +31,7 @@ main {
             max-width: 300px;
             max-height: 300px;
         }
-      
+
         article {
             border-bottom: 4px solid $secondary_color;
             padding-bottom: $basic_distance;
@@ -72,6 +72,7 @@ main {
     background-color: $quaternary_color;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     min-height: 400px;
+    margin: 16px;
 }
 
 .main-container {
@@ -96,7 +97,6 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 400px;
     text-align: center;
-    margin-top: auto;
     margin: 0 auto;
 
     form {
@@ -152,7 +152,7 @@ main {
         text-decoration: none;
     }
 
-   
+
 }
 button .btn {
     background-color: $tertiary_color;

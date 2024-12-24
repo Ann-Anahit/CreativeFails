@@ -65,29 +65,8 @@ header nav .logo {
   height: 48px;
   margin-right: 32px;
 }
-header nav .mobile-nav-icon {
-  width: 1.5rem;
-  height: 0.25rem;
-  background-color: #333333;
-  position: relative;
-}
-header nav .mobile-nav-icon::before {
-  content: "";
-  position: absolute;
-  top: 16px;
-  left: 0;
-  width: 100%;
-  height: 0.25rem;
-  background-color: #333333;
-}
-header nav .mobile-nav-icon::after {
-  content: "";
-  position: absolute;
-  top: 32px;
-  left: 0;
-  width: 100%;
-  height: 0.25rem;
-  background-color: #333333;
+header nav .burger-menu {
+  display: none;
 }
 header nav ul.nav-links {
   display: flex;
@@ -98,19 +77,23 @@ header nav ul.nav-links {
   width: 100%;
   justify-content: space-between;
 }
-header nav ul.nav-links li a, header nav ul.nav-links li .nav-item {
+header nav ul.nav-links li a,
+header nav ul.nav-links li .nav-item {
   text-decoration: none;
   font-size: 1rem;
   color: #333333;
   position: relative;
 }
-header nav ul.nav-links li a img.logo, header nav ul.nav-links li .nav-item img.logo {
+header nav ul.nav-links li a img.logo,
+header nav ul.nav-links li .nav-item img.logo {
   height: 32px;
 }
-header nav ul.nav-links li a:hover i, header nav ul.nav-links li .nav-item:hover i {
+header nav ul.nav-links li a:hover i,
+header nav ul.nav-links li .nav-item:hover i {
   color: #DFD0E5;
 }
-header nav ul.nav-links li a:hover::before, header nav ul.nav-links li .nav-item:hover::before {
+header nav ul.nav-links li a:hover::before,
+header nav ul.nav-links li .nav-item:hover::before {
   display: block;
   content: attr(data-tooltip);
   position: absolute;
@@ -172,6 +155,55 @@ header nav ul.nav-links .dropdown .dropdown-content .dropdown-list .fa-power-off
 }
 header nav ul.nav-links .dropdown:hover .dropdown-content {
   display: block;
+}
+@media screen and (max-width: 768px) {
+  header nav .burger-menu {
+    display: block;
+    position: relative;
+    width: 48px;
+    height: 48px;
+  }
+  header nav .burger-menu #menu-toggle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    z-index: 150;
+  }
+  header nav .burger-menu:has(#menu-toggle:checked) ~ ul.nav-links {
+    border: 1px solid red;
+  }
+  header nav .burger-menu .mobile-nav-icon {
+    width: 100%;
+    height: 0.25rem;
+    background-color: #333333;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 2px;
+  }
+  header nav .burger-menu .mobile-nav-icon::before {
+    content: "";
+    position: absolute;
+    top: 16px;
+    left: 0;
+    width: 100%;
+    height: 0.25rem;
+    border-radius: 2px;
+    background-color: #333333;
+  }
+  header nav .burger-menu .mobile-nav-icon::after {
+    content: "";
+    position: absolute;
+    top: 32px;
+    left: 0;
+    width: 100%;
+    height: 0.25rem;
+    border-radius: 2px;
+    background-color: #333333;
+  }
 }
 header .hero {
   margin: 0 auto;
@@ -246,6 +278,7 @@ main .blog-posts article .meta .author {
   background-color: #f9f9f9;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   min-height: 400px;
+  margin: 16px;
 }
 
 .main-container {
@@ -270,7 +303,6 @@ main .blog-posts article .meta .author {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 400px;
   text-align: center;
-  margin-top: auto;
   margin: 0 auto;
 }
 .registration-form form {
