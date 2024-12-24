@@ -147,8 +147,6 @@ header {
                     right: 0;
                     opacity: 0;
                     z-index: 150;
-                    &:checked {
-                    }
                 }
 
                 &:has(#menu-toggle:checked) {
