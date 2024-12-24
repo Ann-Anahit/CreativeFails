@@ -10,6 +10,7 @@ header {
         max-width: 1280px;
         padding: 16px;
         display: flex;
+        position: relative;
 
         .logo {
             height: 48px;
@@ -124,9 +125,15 @@ header {
         }
 
         @media screen and (max-width: 768px) {
+            ul.nav-links {
+                display: none;
+            }
+
             .burger-menu {
                 display: block;
-                position: relative;
+                position: absolute;
+                top: 1.5rem;
+                right: 1rem;
                 width: 48px;
                 height: 48px;
                 #menu-toggle {
@@ -142,7 +149,7 @@ header {
                 }
                 &:has(#menu-toggle:checked) {
                     & ~ ul.nav-links {
-                        border: 1px solid red;
+                        display: inline-block;
                     }
                 }
                 .mobile-nav-icon {

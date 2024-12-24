@@ -60,6 +60,7 @@ header nav {
   max-width: 1280px;
   padding: 16px;
   display: flex;
+  position: relative;
 }
 header nav .logo {
   height: 48px;
@@ -157,9 +158,14 @@ header nav ul.nav-links .dropdown:hover .dropdown-content {
   display: block;
 }
 @media screen and (max-width: 768px) {
+  header nav ul.nav-links {
+    display: none;
+  }
   header nav .burger-menu {
     display: block;
-    position: relative;
+    position: absolute;
+    top: 1.5rem;
+    right: 1rem;
     width: 48px;
     height: 48px;
   }
@@ -173,7 +179,7 @@ header nav ul.nav-links .dropdown:hover .dropdown-content {
     z-index: 150;
   }
   header nav .burger-menu:has(#menu-toggle:checked) ~ ul.nav-links {
-    border: 1px solid red;
+    display: inline-block;
   }
   header nav .burger-menu .mobile-nav-icon {
     width: 100%;
