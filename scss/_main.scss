@@ -66,6 +66,8 @@ main {
 }
 
 .post-card {
+    display: flex;
+    flex-direction: column;
     border: 1px solid $primary_color;
     border-radius: 8px;
     padding: 16px;
@@ -150,19 +152,5 @@ main {
         margin-right: 10px;
         color: $secondary_color;
         text-decoration: none;
-    }
-
-
-}
-button .btn {
-    background-color: $tertiary_color;
-    color: $black_color;
-    border: none;
-    padding: 8px;
-    margin: 24px;
-    cursor: pointer;
-
-    &:hover {
-        background-color: $primary_color;
     }
 }

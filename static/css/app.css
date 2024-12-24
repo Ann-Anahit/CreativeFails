@@ -12,11 +12,12 @@ body {
 button,
 .btn {
   text-decoration: none;
+  font-size: 16px;
   background-color: #87C5C8;
   color: #333333;
   border: none;
   padding: 8px;
-  margin: 8px;
+  margin: 16px;
   cursor: pointer;
 }
 button:hover,
@@ -322,6 +323,8 @@ main .blog-posts article .meta .author {
 }
 
 .post-card {
+  display: flex;
+  flex-direction: column;
   border: 1px solid #c2a4cd;
   border-radius: 8px;
   padding: 16px;
@@ -397,18 +400,6 @@ main .blog-posts article .meta .author {
   margin-right: 10px;
   color: #AC8D8A;
   text-decoration: none;
-}
-
-button .btn {
-  background-color: #EEDAAB;
-  color: #333333;
-  border: none;
-  padding: 8px;
-  margin: 24px;
-  cursor: pointer;
-}
-button .btn:hover {
-  background-color: #c2a4cd;
 }
 
 footer {

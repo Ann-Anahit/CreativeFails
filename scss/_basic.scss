@@ -6,17 +6,18 @@ body {
   display: flex;
   flex-direction: column;
 }
-button, 
+button,
 .btn {
   text-decoration: none;
+  font-size: 16px;
   background-color: $access_color;
   color: $black_color;
   border: none;
   padding: 8px;
-  margin: 8px;
+  margin: 16px;
   cursor: pointer;
 
   &:hover {
-      background-color: $primary_color;
+    background-color: $primary_color;
   }
 }
