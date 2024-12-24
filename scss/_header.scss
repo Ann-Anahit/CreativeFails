@@ -135,6 +135,7 @@ header {
                 right: 1rem;
                 width: 48px;
                 height: 48px;
+
                 #menu-toggle {
                     position: absolute;
                     top: 0;
@@ -159,6 +160,7 @@ header {
                         padding-left: 16px;
                         background-color: $primary_color;
                         li {
+                            border-bottom: 1px solid $white_color;
                             a,
                             .nav-item {
                                 &::before {
@@ -189,7 +191,6 @@ header {
                     top: 0;
                     left: 0;
                     border-radius: 2px;
-
                     &::before {
                         content: "";
                         position: absolute;

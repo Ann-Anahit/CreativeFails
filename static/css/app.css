@@ -189,6 +189,9 @@ header nav ul.nav-links .dropdown:hover .dropdown-content {
     padding-left: 16px;
     background-color: #c2a4cd;
   }
+  header nav .burger-menu:has(#menu-toggle:checked) ~ ul.nav-links li {
+    border-bottom: 1px solid #e3e3e3;
+  }
   header nav .burger-menu:has(#menu-toggle:checked) ~ ul.nav-links li a::before,
   header nav .burger-menu:has(#menu-toggle:checked) ~ ul.nav-links li .nav-item::before {
     display: block;
