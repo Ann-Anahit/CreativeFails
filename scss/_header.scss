@@ -150,6 +150,22 @@ header {
                 &:has(#menu-toggle:checked) {
                     & ~ ul.nav-links {
                         display: inline-block;
+                        margin-top: 80px;
+                        li {
+                            a,
+                            .nav-item {
+                                &::before {
+                                    display: block;
+                                    content: attr(data-tooltip);
+                                    position: absolute;
+                                    top: 0;
+                                    left: 1.5rem;
+                                }
+                            }
+                            &.account-btn-container {
+                                justify-self: unset;
+                            }
+                        }
                     }
                 }
                 .mobile-nav-icon {
