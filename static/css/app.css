@@ -117,7 +117,6 @@ header nav ul.nav-links .dropdown .dropdown-content {
   display: none;
   position: absolute;
   top: 100%;
-  background-color: #c2a4cd;
   border: 8px solid #e3e3e3;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 16px;
@@ -162,6 +161,10 @@ header nav ul.nav-links .dropdown:hover .dropdown-content {
   header nav ul.nav-links {
     display: none;
   }
+  header nav .account-btn-container {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
   header nav .burger-menu {
     display: block;
     position: absolute;
@@ -187,11 +190,12 @@ header nav ul.nav-links .dropdown:hover .dropdown-content {
     top: 80px;
     left: 0;
     gap: 1.5rem;
-    padding-left: 16px;
     background-color: #c2a4cd;
   }
   header nav .burger-menu:has(#menu-toggle:checked) ~ ul.nav-links li {
+    min-width: 100%;
     border-bottom: 1px solid #e3e3e3;
+    padding: 0.5rem;
   }
   header nav .burger-menu:has(#menu-toggle:checked) ~ ul.nav-links li a::before,
   header nav .burger-menu:has(#menu-toggle:checked) ~ ul.nav-links li .nav-item::before {
@@ -202,6 +206,8 @@ header nav ul.nav-links .dropdown:hover .dropdown-content {
     left: 1.5rem;
   }
   header nav .burger-menu:has(#menu-toggle:checked) ~ ul.nav-links li.account-btn-container {
+    border-bottom: none;
+    background-color: #87C5C8;
     justify-self: unset;
   }
   header nav .burger-menu:has(#menu-toggle:checked) ~ ul.nav-links li.account-btn-container .nav-item::before {
@@ -241,16 +247,19 @@ header nav ul.nav-links .dropdown:hover .dropdown-content {
     position: relative;
     top: 100%;
     right: 24px;
-    background-color: #c2a4cd;
     padding: 16px;
+    padding-bottom: 0;
     border: none;
     box-shadow: none;
   }
   header nav ul.nav-links .dropdown .dropdown-content .dropdown-list {
+    border-bottom: none;
     list-style-type: none;
     padding-left: 0;
     display: flex;
     flex-direction: column;
+    min-width: 100%;
+    padding: 0.5rem;
   }
   header nav ul.nav-links .dropdown .dropdown-content .dropdown-list p {
     display: none;
