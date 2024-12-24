@@ -179,8 +179,15 @@ header nav ul.nav-links .dropdown:hover .dropdown-content {
     z-index: 150;
   }
   header nav .burger-menu:has(#menu-toggle:checked) ~ ul.nav-links {
-    display: inline-block;
-    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    gap: 1.5rem;
+    padding-left: 16px;
+    background-color: #c2a4cd;
   }
   header nav .burger-menu:has(#menu-toggle:checked) ~ ul.nav-links li a::before,
   header nav .burger-menu:has(#menu-toggle:checked) ~ ul.nav-links li .nav-item::before {
@@ -192,6 +199,24 @@ header nav ul.nav-links .dropdown:hover .dropdown-content {
   }
   header nav .burger-menu:has(#menu-toggle:checked) ~ ul.nav-links li.account-btn-container {
     justify-self: unset;
+  }
+  header nav .burger-menu:has(#menu-toggle:checked) ~ ul.nav-links li.account-btn-container .nav-item::before {
+    transform: none;
+  }
+  header nav .burger-menu:has(#menu-toggle:checked) ~ ul.nav-links li.dropdown-content {
+    position: relative;
+    top: 100%;
+    background-color: #c2a4cd;
+    padding: 16px;
+  }
+  header nav .burger-menu:has(#menu-toggle:checked) ~ ul.nav-links li.dropdown-content .dropdown-list {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  header nav .burger-menu:has(#menu-toggle:checked) ~ ul.nav-links li.dropdown-content .dropdown-list p {
+    display: none;
   }
   header nav .burger-menu .mobile-nav-icon {
     width: 100%;
