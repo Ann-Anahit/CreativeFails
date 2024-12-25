@@ -12,9 +12,9 @@
 {% endblock head %}
 
 {% block content %}
-    <div class="hero">
-        <h1>Creative Fails</h1>
-    </div>
+<div class="hero">
+    <h1>Creative Fails</h1>
+</div>
 
 
 <div>
@@ -22,56 +22,70 @@
     <h2>Hello, {{ user.username }}!</h2>
     {% endif %}
 
-    <div class="welcome"></h3>
-        <h3>**Welcome to Creative Fails**  
+    <div class="welcome">
+        </h3>
+        <h3>**Welcome to Creative Fails**
 
-           <p class="post-content"> At Creative Fails, we celebrate the beauty of imperfection and the power of shared experiences. Our mission is to inspire and connect artists and creators through transparency, humor, and shared learning.  
-            
-            We know that creativity isn’t always a smooth journey. It’s filled with trial and error, breakthroughs and setbacks, masterpieces, and—yes—those moments that don’t quite turn out as planned. But here’s the thing: every misstep is a stepping stone to growth, every “fail” is an opportunity to learn, and every shared story brings us closer as a creative community.  
-            
-            Here, failure isn’t something to be feared or hidden. It’s something to be embraced, laughed about, and transformed into fuel for future success. Through humor and honesty, we aim to break down the stigma around failure and show that even the most accomplished artists and creators have had their share of mishaps along the way.  
-            
-            Creative Fails is more than a platform—it’s a safe space for creators of all kinds to come together, share their stories, and find encouragement from a like-minded community. Whether you’re a painter, writer, designer, filmmaker, or just someone trying their hand at something new, you’ll find a supportive network here ready to lift you up and cheer you on.  
-            
-            So, join us in celebrating the fails that make the wins so much sweeter. Share your stories, laugh at your blunders, and connect with fellow creators who know exactly how it feels to take a creative risk. Together, we’ll turn mistakes into masterpieces and keep the spirit of creativity alive and thriving.  
-            
-            Welcome to Creative Fails—where every fail is a step toward something amazing!
-        </p>
+            <p class="post-content"> At Creative Fails, we celebrate the beauty of imperfection and the power of shared
+                experiences. Our mission is to inspire and connect artists and creators through transparency, humor, and
+                shared learning.
+
+                We know that creativity isn’t always a smooth journey. It’s filled with trial and error, breakthroughs
+                and setbacks, masterpieces, and—yes—those moments that don’t quite turn out as planned. But here’s the
+                thing: every misstep is a stepping stone to growth, every “fail” is an opportunity to learn, and every
+                shared story brings us closer as a creative community.
+
+                Here, failure isn’t something to be feared or hidden. It’s something to be embraced, laughed about, and
+                transformed into fuel for future success. Through humor and honesty, we aim to break down the stigma
+                around failure and show that even the most accomplished artists and creators have had their share of
+                mishaps along the way.
+
+                Creative Fails is more than a platform—it’s a safe space for creators of all kinds to come together,
+                share their stories, and find encouragement from a like-minded community. Whether you’re a painter,
+                writer, designer, filmmaker, or just someone trying their hand at something new, you’ll find a
+                supportive network here ready to lift you up and cheer you on.
+
+                So, join us in celebrating the fails that make the wins so much sweeter. Share your stories, laugh at
+                your blunders, and connect with fellow creators who know exactly how it feels to take a creative risk.
+                Together, we’ll turn mistakes into masterpieces and keep the spirit of creativity alive and thriving.
+
+                Welcome to Creative Fails—where every fail is a step toward something amazing!
+            </p>
     </div>
     <div class="blog-posts">
         <div class="posts-grid">
             {% for post in page_obj %}
             <div class="post-card">
                 <h3 class="post-title">{{ post.title }}</h3>
-                
+
                 {% if post.image %}
-                    <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
+                <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
                 {% else %}
-                    <img src="{% static 'images/default.webp' %}" alt="Default image" class="post-image">
+                <img src="{% static 'images/default.webp' %}" alt="Default image" class="post-image">
                 {% endif %}
-                
+
                 <p class="post-content">{{ post.content|truncatewords:30 }}...</p>
-                
+
                 <div class="post-meta">
-                    <span>{{ post.comments.count }} comments</span> | 
+                    <span>{{ post.comments.count }} comments</span> |
                     <span>{{ post.likes.count }} likes</span>
                 </div>
-                
+
                 <a href="{% url 'post_detail' post.id %}" class="btn">Read more</a>
             </div>
             {% endfor %}
         </div>
     </div>
-    
+
     <div class="pagination">
         {% if page_obj.has_previous %}
-            <a href="?page={{ page_obj.previous_page_number }}" class="btn">Previous</a>
+        <a href="?page={{ page_obj.previous_page_number }}" class="btn">⬅️</a>
         {% endif %}
         {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}" class="btn">Next</a>
+        <a href="?page={{ page_obj.next_page_number }}" class="btn">➡️</a>
         {% endif %}
     </div>
-    
+
     {% for post in posts %}
     <article>
         <a href="{% url 'post_detail' post.id %}">
@@ -91,8 +105,8 @@
         {% endif %}
 
         <div class="meta">
-            Posted on <span class="date">{{ post.created_at|date:"Y-m-d H:i" }}</span> by <span
-                class="author">{{ post.user.username }}</span>
+            Posted on <span class="date">{{ post.created_at|date:"Y-m-d H:i" }}</span> by <span class="author">{{
+                post.user.username }}</span>
         </div>
 
         {% if user.is_authenticated and post.user == user %}
@@ -155,7 +169,7 @@
         </div>
     </article>
     {% endfor %}
-    </div>
+</div>
 </div>
 
 {% endblock content %}

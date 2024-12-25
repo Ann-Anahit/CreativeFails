@@ -173,8 +173,8 @@ header nav ul.nav-links .dropdown:hover .dropdown-content {
     position: absolute;
     top: 1.5rem;
     right: 1rem;
-    width: 48px;
-    height: 48px;
+    width: 36px;
+    height: 36px;
   }
   header nav .burger-menu #menu-toggle {
     position: absolute;
@@ -412,6 +412,10 @@ main .blog-posts article .meta .author {
   margin-right: 10px;
   color: #AC8D8A;
   text-decoration: none;
+}
+
+.form-group {
+  display: block;
 }
 
 footer {
