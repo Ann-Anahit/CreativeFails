@@ -154,6 +154,15 @@ main {
         text-decoration: none;
     }
 }
-.form-group {
-    display: block;
+.edit-form {
+    padding: 1rem;
+    fieldset {
+        display: flex;
+        flex-direction: column;
+        text-align: start;
+    }
+}
+
+.edit-img {
+    max-width: 200px;
 }
