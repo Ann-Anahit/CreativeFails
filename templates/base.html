@@ -31,8 +31,16 @@
                             <ul class="dropdown-list">
                                 <p>Welcome, {{user.username}}
                                 </p>{% if user.is_artist %}
-                                <li> <a href="{% url 'write_article' %}">Create New Post</a> </li>
-                                <li> <a href="{% url 'user_posts' %}">My Posts</a> </li>{% endif %}
+                                <li>
+                                    <a href="{% url 'write_article' %}">
+                                        <i class="fas fa-pen"></i> Create New Post
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'user_posts' %}">
+                                        <i class="fas fa-folder-open"></i> My Blog
+                                    </a>
+                                </li>{% endif %}
                                 <li>
                                     <form action="{% url 'logout' %}" method="post">{% csrf_token %}<button
                                             type="submit" class="red"> <i class="fa fa-power-off"></i> Logout </button>

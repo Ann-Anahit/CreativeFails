@@ -154,6 +154,7 @@ header nav ul.nav-links .dropdown .dropdown-content .dropdown-list .red {
   padding: 0;
   margin: 0;
   font-size: 1rem;
+  flex-direction: unset;
 }
 header nav ul.nav-links .dropdown .dropdown-content .dropdown-list .fa-power-off {
   color: #c64f62;
