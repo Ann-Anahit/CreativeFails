@@ -4,7 +4,6 @@
 {% block content %}
 <h1>My Posts</h1>
 
-<!-- Statistics Section -->
 <div class="stats">
     <p>
         <strong>Total Posts:</strong>
@@ -20,12 +19,11 @@
     </p>
 </div>
 
-<!-- Create Post Button -->
 <div>
     <a href="{% url 'write_article' %}" class="btn">Create a new post</a>
 </div>
 
-<!-- User's Posts Section -->
+
 {% for post in posts %}
 <div class="post">
     <h2>{{ post.title }}</h2>

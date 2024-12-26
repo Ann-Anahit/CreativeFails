@@ -11,9 +11,6 @@ body {
 
 button,
 .btn {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
   text-decoration: none;
   font-size: 16px;
   background-color: #87C5C8;
@@ -23,15 +20,13 @@ button,
   margin: 16px;
   cursor: pointer;
 }
-button.btn-primary, button.btn-secondary, button.btn-danger,
-.btn.btn-primary,
-.btn.btn-secondary,
-.btn.btn-danger {
-  flex-direction: row;
-}
 button:hover,
 .btn:hover {
   background-color: #c2a4cd;
+}
+
+.action-buttons {
+  display: flex;
 }
 
 * {
@@ -359,6 +354,7 @@ main .blog-posts article .meta .author {
   margin: 0 auto;
   width: 100%;
   flex-grow: 1;
+  padding-bottom: 32px;
 }
 
 .container {

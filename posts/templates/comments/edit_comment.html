@@ -3,16 +3,19 @@
 
 {% block content %}
 <h2>Edit</h2>
+
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+    <button type="submit" class="action-buttons"><i class="fa-solid fa-floppy-disk"></i> Save</button>
 </form>
-<form method="POST" action="{% url 'delete_comment' comment.id %}">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>
-</form>
+<div class="action-buttons">
+    <form method="POST" action="{% url 'delete_comment' comment.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>
+    </form>
 
-<a class="btn" href="{% url 'post_detail' post_id=comment.post.id %}"><i class="fa-regular fa-rectangle-xmark"></i> Cancel</a>
-
+    <a class="btn" href="{% url 'post_detail' post_id=comment.post.id %}"><i class="fa-regular fa-rectangle-xmark"></i>
+        Cancel</a>
+</div>
 {% endblock %}

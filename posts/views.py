@@ -158,7 +158,6 @@ def add_comment_view(request, post_id):
             comment.post = post  
             comment.user = request.user   
             comment.save()  
-            messages.success(request, 'Your comment has been added successfully!')  
             return redirect('post_detail', post_id=post.id)  
     else:  
         form = CommentForm()  

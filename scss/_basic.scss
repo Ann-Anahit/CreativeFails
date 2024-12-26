@@ -8,9 +8,6 @@ body {
 }
 button,
 .btn {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
   text-decoration: none;
   font-size: 16px;
   background-color: $access_color;
@@ -20,13 +17,11 @@ button,
   margin: 16px;
   cursor: pointer;
 
-  &.btn-primary,
-  &.btn-secondary,
-  &.btn-danger {
-    flex-direction: row;
-  }
-
   &:hover {
     background-color: $primary_color;
   }
+}
+
+.action-buttons {
+  display: flex;
 }
