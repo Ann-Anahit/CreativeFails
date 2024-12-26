@@ -20,8 +20,10 @@ button,
   margin: 16px;
   cursor: pointer;
 
-  .btn-primary {
-    flex-direction: none;
+  &.btn-primary,
+  &.btn-secondary,
+  &.btn-danger {
+    flex-direction: row;
   }
 
   &:hover {

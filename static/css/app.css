@@ -23,9 +23,11 @@ button,
   margin: 16px;
   cursor: pointer;
 }
-button .btn-primary,
-.btn .btn-primary {
-  flex-direction: none;
+button.btn-primary, button.btn-secondary, button.btn-danger,
+.btn.btn-primary,
+.btn.btn-secondary,
+.btn.btn-danger {
+  flex-direction: row;
 }
 button:hover,
 .btn:hover {
