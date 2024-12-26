@@ -20,6 +20,10 @@ button,
   margin: 16px;
   cursor: pointer;
 
+  .btn-primary {
+    flex-direction: none;
+  }
+
   &:hover {
     background-color: $primary_color;
   }

@@ -89,7 +89,8 @@
 {% if user.is_authenticated %}
 <form action="{% url 'add_comment' post.id %}" method="POST">
     {% csrf_token %}
-    {{ comment_form.as_p }}
+    <label for="comment"></label>
+    <textarea id="comment" name="comment" rows="4" required></textarea>
     <button type="submit">Add Comment</button>
 </form>
 {% else %}

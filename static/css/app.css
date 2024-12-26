@@ -23,6 +23,10 @@ button,
   margin: 16px;
   cursor: pointer;
 }
+button .btn-primary,
+.btn .btn-primary {
+  flex-direction: none;
+}
 button:hover,
 .btn:hover {
   background-color: #c2a4cd;
