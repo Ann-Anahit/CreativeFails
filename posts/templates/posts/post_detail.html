@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+
 <h1>{{ post.title }}</h1>
 <p>{{ post.content }}</p>
 
@@ -47,10 +48,10 @@
         {% csrf_token %}
         {% if liked %}
         <button type="submit">
-            <i class="fas fa-thumbs-down"></i>Unlike</button>
+            <i class="fas fa-thumbs-down"></i></button>
         {% else %}
         <button type="submit">
-            <i class="fas fa-thumbs-up"></i>Like</button>
+            <i class="fas fa-thumbs-up"></i></button>
         {% endif %}
     </form>
     {% else %}
@@ -61,6 +62,22 @@
 </div>
 {% endif %}
 <h2>Comments</h2>
+
+{% if user.is_authenticated %}
+<form action="{% url 'add_comment' post.id %}" method="POST" class="comment-form">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="content"></label>
+        <textarea name="content" class="form-control" placeholder="Write your comment here..." required>
+            {{ comment_form.content.value|default:'' }}
+        </textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Comment</button>
+</form>
+{% else %}
+<p>Please log in to comment.</p>
+{% endif %}
 
 {% for comment in comments %}
 <div>
@@ -91,32 +108,6 @@
 <p>No comments yet.</p>
 {% endfor %}
 
-{% if user.is_authenticated %}
-<form action="{% url 'add_comment' post.id %}" method="POST" class="comment-form">
-    {% csrf_token %}
-
-    <div class="form-group">
-        <label for="content"></label>
-        <textarea name="content" class="form-control" placeholder="Write your comment here..." required>
-            {{ comment_form.content.value|default:'' }}
-        </textarea>
-        {% if comment_form.content.errors %}
-        <ul class="errorlist">
-            {% for error in comment_form.content.errors %}
-            <li>{{ error }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-    </div>
-
-
-    <button type="submit" class="btn btn-primary">Add Comment</button>
-</form>
-
-{% else %}
-<p>Please log in to comment.</p>
-{% endif %}
-
 {% if messages %}
 <div class="messages">
     {% for message in messages %}
@@ -124,5 +115,4 @@
     {% endfor %}
 </div>
 {% endif %}
-
 {% endblock %}
