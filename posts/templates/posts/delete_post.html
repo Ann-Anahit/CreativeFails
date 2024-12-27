@@ -1,59 +1,31 @@
 {% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block title %}Delete Post{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Delete Post</title>
-    <link rel="stylesheet" href="{% static 'path/to/your/styles.css' %}">
-</head>
+{% block content %}
+<h1>Delete Post</h1>
 
-<body>
-    {% block content %}
-    <h1>Delete Post</h1>
-    <form action="{% url 'edit_post' post.id %}" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
+<p>Are you sure you want to delete the following post?</p>
 
-        <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" name="title" id="title" value="{{ form.title.value }}" class="form-control">
-        </div>
+<fieldset class="edit-form">
+    <legend>Post Details</legend>
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.content }}</p>
+    {% if post.image %}
+    <div class="post-image">
+        <img src="{{ post.image.url }}" alt="Post Image">
+    </div>
+    {% endif %}
+</fieldset>
 
-        <div class="form-group">
-            <label for="content">Content</label>
-            <textarea name="content" id="content" class="form-control">{{ form.content.value }}</textarea>
-        </div>
-
-        <div class="form-group">
-            <label for="image">Image</label>
-            <input type="file" name="image" id="image" class="form-control">
-            <div>
-                {% if post.image %}<img src="{{ post.image.url }}" alt="Current Image" style="max-width: 200px;">
-                {% else %}
-                No image selected
-                {% endif %}
-            </div>
-        </div>
-
-        {% if form.errors %}
-        <ul>
-            {% for field in form %}
-            {% for error in field.errors %}
-            <li>{{ error }}</li>
-            {% endfor %}
-            {% endfor %}
-        </ul>
-        {% endif %}
-    </form>
-    <p>Are you sure you want to delete the post titled "{{ post.title }}"?</p>
-    <form action="{% url 'delete_post' post.id %}" method="POST">
-        {% csrf_token %}
-        <button type="submit">Yes, Delete</button>
-        <a href="{% url 'post_detail' post.id %}">Cancel</a>
-    </form>
-    {% endblock %}
-</body>
-
-</html>
+<form action="{% url 'delete_post' post.id %}" method="POST" class="delete-form">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">
+        <i class="fas fa-trash-alt"></i> Yes, Delete
+    </button>
+    <a href="{% url 'post_detail' post.id %}" class="btn btn-secondary">
+        <i class="fas fa-times"></i> Cancel
+    </a>
+</form>
+{% endblock %}

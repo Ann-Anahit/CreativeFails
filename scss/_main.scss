@@ -102,6 +102,13 @@ main {
     text-align: center;
     margin: 0 auto;
 
+    .form-group {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        text-align: start;
+    }
+
     form {
         display: flex;
         flex-direction: column;

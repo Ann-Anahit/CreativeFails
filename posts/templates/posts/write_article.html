@@ -2,39 +2,59 @@
 {% load static %}
 
 {% block content %}
-    {% if user.is_artist %}
-        <div class="registration-form">
-            <h2>
-                {% if post %}Edit Post{% else %}Write Article
-                {% endif %}
-            </h2>
+{% if user.is_artist %}
+<div class="registration-form">
+    <h2>
+        {% if post %}Edit Post{% else %}Write Article
+        {% endif %}
+    </h2>
 
-            {% if form.errors %}
-                <div class="error">
-                    <ul>
-                        {% for field in form %}
-                            {% for error in field.errors %}
-                                <li>{{ field.label }}:
-                                    {{ error }}</li>
-                            {% endfor %}
-                        {% endfor %}
-                        {% for error in form.non_field_errors %}
-                            <li>{{ error }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            {% endif %}
-            <form action="{% if post %}{% url 'update_post' post.pk %}{% else %}{% url 'write_article' %}{% endif %}" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">
-                    {% if post %}Update{% else %}Create
-                    {% endif %}
-                </button>
-                <a class="btn" href="{% url 'user_posts' %}">
-                    <i class="fa-regular fa-rectangle-xmark"></i>
-                    Cancel</a>
-            </form>
-        </div>
+    {% if form.errors %}
+    <div class="error">
+        <ul>
+            {% for field in form %}
+            {% for error in field.errors %}
+            <li>{{ field.label }}: {{ error }}</li>
+            {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
     {% endif %}
+
+    <form action="{% if post %}{% url 'update_post' post.pk %}{% else %}{% url 'write_article' %}{% endif %}"
+        method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="{{ form.title.id_for_label }}">Title</label>
+            {{ form.title }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.content.id_for_label }}">Content</label>
+            {{ form.content }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.image.id_for_label }}">Image</label>
+            {{ form.image }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            {% if post %}
+            <i class="fas fa-save"></i> Update
+            {% else %}
+            <i class="fas fa-plus-circle"></i> Create
+            {% endif %}
+        </button>
+
+        <a class="btn" href="{% url 'user_posts' %}">
+            <i class="fa-regular fa-rectangle-xmark"></i> Cancel
+        </a>
+    </form>
+</div>
+{% endif %}
 {% endblock %}

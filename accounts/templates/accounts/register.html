@@ -2,66 +2,65 @@
 {% load static %}
 
 {% block content %}
-    <div class="hero">
-        <h1>Creative Fails</h1>
-    </div>
-    <div class="registration-form">
-        <h2>Register</h2>
+<div class="hero">
+    <h1>Creative Fails</h1>
+</div>
+<div class="registration-form">
+    <h2>Register</h2>
 
-        {% if messages %}
-            <ul>
-                {% for message in messages %}
-                    <li>{{ message }}</li>
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+
+        <div class="form-field">
+            <label for="id_username">Username</label>
+            {{ form.username }}
+            {% if form.username.errors %}
+            <ul class="errorlist">
+                {% for error in form.username.errors %}
+                <li>{{ error }}</li>
                 {% endfor %}
             </ul>
-        {% endif %}
+            {% endif %}
+        </div>
 
-        <form action="{% url 'register' %}" method="post">
-            {% csrf_token %}
+        <div class="form-field">
+            <label for="id_password1">Password</label>
+            {{ form.password1 }}
+            {% if form.password1.errors %}
+            <ul class="errorlist">
+                {% for error in form.password1.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
 
-            <div>
-                Username
-                {{ form.username }}
-                {% if form.username.errors %}
-                    <ul class="errorlist">
-                        {% for error in form.username.errors %}
-                            <li>{{ error }}</li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-            </div>
+        <div class="form-field">
+            <label for="id_password2">Password confirmation</label>
+            {{ form.password2 }}
+            {% if form.password2.errors %}
+            <ul class="errorlist">
+                {% for error in form.password2.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
 
-            <div>
-                Password
-                {{ form.password1 }}
-                {% if form.password1.errors %}
-                    <ul class="errorlist">
-                        {% for error in form.password1.errors %}
-                            <li>{{ error }}</li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-            </div>
+        <div class="form-field">
+            <label for="id_is_artist">If you are an artist or want to post stories, please check the box</label>
+            {{ form.is_artist }}
+        </div>
 
-            <div>
-                Password confirmation
-                {{ form.password2 }}
-                {% if form.password2.errors %}
-                    <ul class="errorlist">
-                        {% for error in form.password2.errors %}
-                            <li>{{ error }}</li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-            </div>
-
-            <div>
-                If you are an artist or want to post stories, please check the box
-                {{ form.is_artist }}
-            </div>
-
-            <button type="submit">Sign up</button>
-        </form>
-    </div>
-
+        <button type="submit">Sign up</button>
+    </form>
+</div>
 {% endblock %}

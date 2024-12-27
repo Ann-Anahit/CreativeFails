@@ -132,7 +132,7 @@ def delete_post(request, post_id):
 
     if request.method == 'POST':
         post.delete()
-        return redirect('post_list')
+        return redirect('user_posts')
 
     return render(request, 'posts/delete_post.html', {'post': post})
 
