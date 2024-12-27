@@ -48,7 +48,7 @@
 <form action="{% url 'delete_post' post.id %}" method="POST" class="delete-form">
     {% csrf_token %}
     <button type="submit" class="btn btn-danger">
-        <i class="fas fa-trash-alt"></i> Yes, Delete
+        <i class="fas fa-trash-alt"></i>Delete
     </button>
     <a href="{% url 'post_detail' post.id %}" class="btn btn-secondary">
         <i class="fas fa-times"></i> Cancel
