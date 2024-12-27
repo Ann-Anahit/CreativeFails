@@ -16,16 +16,20 @@
 </p>
 
 {% if is_owner %}
-<a href="{% url 'edit_post' post.id %}">
-    <i class="fas fa-edit"></i>
-    Edit Post
-</a>
-|
-<a href="{% url 'delete_post' post.id %}">
-    <i class="fas fa-trash-alt"></i>
-    Delete Post
-</a>
-
+<div class="action-buttons">
+    <div class="btn">
+        <a href="{% url 'edit_post' post.id %}">
+            <i class="fas fa-edit"></i>
+            Edit Post
+        </a>
+    </div>
+    <div class="btn">
+        <a href="{% url 'delete_post' post.id %}">
+            <i class="fas fa-trash-alt"></i>
+            Delete Post
+        </a>
+    </div>
+</div>
 {% endif %}
 
 <div class="like-section">
