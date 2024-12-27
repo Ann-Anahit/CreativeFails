@@ -91,11 +91,27 @@
 {% endfor %}
 
 {% if user.is_authenticated %}
-<form action="{% url 'add_comment' post.id %}" method="POST">
+<form action="{% url 'add_comment' post.id %}" method="POST" class="comment-form">
     {% csrf_token %}
-    {{ comment_form.as_p }}
-    <button type="submit">Add Comment</button>
+
+    <div class="form-group">
+        <label for="content"></label>
+        <textarea name="content" class="form-control" placeholder="Write your comment here..." required>
+            {{ comment_form.content.value|default:'' }}
+        </textarea>
+        {% if comment_form.content.errors %}
+        <ul class="errorlist">
+            {% for error in comment_form.content.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Add Comment</button>
 </form>
+
 {% else %}
 <p>Please log in to comment.</p>
 {% endif %}
