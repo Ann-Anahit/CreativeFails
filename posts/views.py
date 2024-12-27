@@ -50,8 +50,7 @@ def write_article_view(request, post_id=None):
             new_post = form.save(commit=False)
             new_post.user = request.user  
             new_post.save() 
-            messages.success(request, 'Your post has been saved successfully!')
-            return redirect('post_list') 
+            return redirect('user_posts') 
     else:
         form = PostForm(instance=post)
         
@@ -117,7 +116,6 @@ def edit_post(request, post_id):
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your post has been updated successfully!')
             return redirect('post_detail', post_id=post.id)
     else:
         form = PostForm(instance=post)
@@ -134,7 +132,6 @@ def delete_post(request, post_id):
 
     if request.method == 'POST':
         post.delete()
-        messages.success(request, "The post has been deleted successfully!")
         return redirect('post_list')
 
     return render(request, 'posts/delete_post.html', {'post': post})
@@ -172,7 +169,6 @@ def edit_comment(request, comment_id):
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your comment has been updated successfully!')
             return redirect('post_detail', post_id=comment.post.id)  
     else:
         form = CommentForm(instance=comment)
