@@ -16,7 +16,6 @@
     <h1>Creative Fails</h1>
 </div>
 
-
 <div>
     {% if user.is_authenticated %}
     <h2>Hello, {{ user.username }}!</h2>
@@ -125,7 +124,7 @@
         <div class="post-bar">
             {% if user.is_authenticated %}
             {% if post.user == user %}
-            <button type="submit" class="btn btn-icon" title="You can't like your own post!">
+            <button type="submit" class="btn btn-icon">
                 <i class="far fa-heart"></i>
             </button>
             {% elif post.is_liked %}
