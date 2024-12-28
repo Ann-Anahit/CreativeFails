@@ -6,6 +6,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 
+
 class CustomLoginView(LoginView):
     def form_valid(self, form):
         user = form.get_user()
@@ -25,11 +26,6 @@ def register_view(request):
         form = UserCreationForm()
     return render(request, 'accounts/register.html', {'form': form})
 
-@login_required
-def profile_view(request):
-    user = request.user
-    context = {'user': user}
-    return render(request, 'accounts/profile.html', context)
 
 def logout_view(request):
     logout(request)

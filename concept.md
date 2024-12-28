@@ -8,19 +8,20 @@ Users can leave comments, like posts.
 ## Features
 
 ### Must have
+* Role based User
 * User can register
 * User can sign in/log in
-* User can post article (blog post)
-
+* User, if Artist can post article (blog post) 
+* Artist User can CRUD own post
 
 ### Should Have
-* User can comment on blog posts
-* User can update profile (first name, last name, email, password)
-* User can add image (only url not upload) to blog post
+* Artist User can comment and like every post 
+* User can edit and delete the own comments
+* Artist User can delete also every comment from own post
 
 ### Could Have
 * User can upload image
-* User can set profile picture
+* User can set 
 
 ### Won’t Have this time
 * Create event models and database schema

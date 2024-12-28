@@ -36,23 +36,13 @@ def custom_login(request):
             if user is not None:
                 login(request, user)
                 messages.success(request, f'Welcome back, {user.username}!')
-                return redirect('post_list') 
-            else:
-                messages.error(request, 'Invalid login credentials.')
+                return redirect('home')
         else:
             messages.error(request, 'Invalid login credentials. Please try again.')
     else:
         form = AuthenticationForm()
-    return render(request, 'accounts/post_list.html', {'form': form})
-
-@login_required
-def profile_view(request):
-    user = request.user
-    return render(request, 'map/home.html', {'user': user})  
-
-class CustomLogoutView(LogoutView):
-    next_page = 'home' 
-
+    return render(request, 'accounts/login.html', {'form': form})
+    
 def logout_view(request):
     logout(request)
     messages.success(request, 'You have been logged out successfully.')

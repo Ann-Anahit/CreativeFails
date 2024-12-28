@@ -2,38 +2,46 @@
 {% load static %}
 
 {% block content %}
-    current user:
-    {{ user.id }}
-    post auther:
-    {{ post.author.id }}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+current user:
+{{ user.id }}
+post auther:
+{{ post.author.id }}
 
-    <h1>Recent Posts</h1>
-    {% for post in posts %}
-        <div class="post">
-            <h2>{{ post.title }}</h2>
-            <p>{{ post.content }}</p>
-            <a href="{% url 'post_detail' post_id=post.id %}" class="btn">Click to see the post</a>
-            {% if post.image %}
-                <img src="{{ post.image.url }}" alt="{{ post.title }}">
-                {% else %}
-                    <img src="{% static 'images/default.webp' %}" alt="Default image">
-                    {% endif %}
-                    <div class="meta">
-                        Posted on
-                        <span class="date">{{ post.created_at|date:"Y-m-d H:i" }}</span>
-                        by
-                        <span class="author">{{ post.user.username }}</span>
-                    </div>
-                    {% if user.is_authenticated and post.user == user %}
-                        <div class="post-actions">
-                            <a href="{% url 'edit_post' post.pk %}" class="btn btn-primary">Edit</a>
-                            <form action="{% url 'delete_post' post.pk %}" method="post" style="display:inline;">
-                                {% csrf_token %}
-                                {{ form.as_p }}
-                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this post?');">Delete</button>
-                            </form>
-                        </div>
-                    {% endif %}
-                </div>
-            {% endfor %}
-        {% endblock %}
+<h1>Recent Posts</h1>
+{% for post in posts %}
+<div class="post">
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.content }}</p>
+    <a href="{% url 'post_detail' post_id=post.id %}" class="btn">Click to see the post</a>
+    {% if post.image %}
+    <img src="{{ post.image.url }}" alt="{{ post.title }}">
+    {% else %}
+    <img src="{% static 'images/default.webp' %}" alt="Default image">
+    {% endif %}
+    <div class="meta">
+        Posted on
+        <span class="date">{{ post.created_at|date:"Y-m-d H:i" }}</span>
+        by
+        <span class="author">{{ post.user.username }}</span>
+    </div>
+    {% if user.is_authenticated and post.user == user %}
+    <div class="post-actions">
+        <a href="{% url 'edit_post' post.pk %}" class="btn btn-primary">Edit</a>
+        <form action="{% url 'delete_post' post.pk %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-danger"
+                onclick="return confirm('Are you sure you want to delete this post?');">Delete</button>
+        </form>
+    </div>
+    {% endif %}
+</div>
+{% endfor %}
+{% endblock %}
