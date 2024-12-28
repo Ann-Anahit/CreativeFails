@@ -285,14 +285,8 @@ main .welcome {
   border: 8px solid #c2a4cd;
   padding: 0 16px;
   line-height: 24px;
-  display: flex;
   text-align: justify;
   flex: 1;
-}
-main .welcome p {
-  font-size: 16px;
-  text-align: center;
-  padding: 16px;
 }
 main .welcome .post-content {
   font-size: 16px;
