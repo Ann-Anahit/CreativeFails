@@ -56,15 +56,17 @@
         <div class="posts-grid">
             {% for post in page_obj %}
             <div class="post-card">
-                <h3 class="post-title">{{ post.title }}</h3>
+                <a href="{% url 'post_detail' post.id %}">
+                    <h3 class="post-title">{{ post.title }}</h3>
 
-                {% if post.image %}
-                <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
-                {% else %}
-                <img src="{% static 'images/default.webp' %}" alt="Default image" class="post-image">
-                {% endif %}
+                    {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
+                    {% else %}
+                    <img src="{% static 'images/default.webp' %}" alt="Default image" class="post-image">
+                    {% endif %}
 
-                <p class="post-content">{{ post.content|truncatewords:30 }}...</p>
+                    <p class="post-content">{{ post.content|truncatewords:30 }}...</p>
+                </a>
 
                 <div class="post-meta">
                     <span>{{ post.comments.count }} comments</span> |
