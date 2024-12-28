@@ -40,19 +40,22 @@
     </ul>
     {% endif %}
 
-    <button type="submit" class="btn btn-primary">
-        <i class="fas fa-edit"></i>
-        Save changes
-    </button>
+    <div class="action-buttons">
+        <button type="submit" class="btn btn-primary">
+            <i class="fas fa-edit"></i>
+            Save changes
+        </button>
+        <div class="btn">
+            <a href="{% url 'delete_post' post.id %}">
+                <i class="fas fa-trash-alt"></i>
+                Delete Post
+            </a>
+        </div>
+        <div class="btn">
+            <a href="{% url 'post_detail' post.id %}" class="btn btn-secondary">
+                <i class="fas fa-times"></i> Cancel
+            </a>
+        </div>
+    </div>
 </form>
-<form action="{% url 'delete_post' post.id %}" method="POST" class="delete-form">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger">
-        <i class="fas fa-trash-alt"></i>Delete
-    </button>
-    <a href="{% url 'post_detail' post.id %}" class="btn btn-secondary">
-        <i class="fas fa-times"></i> Cancel
-    </a>
-</form>
-
 {% endblock %}
