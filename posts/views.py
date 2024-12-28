@@ -63,7 +63,7 @@ def write_article_view(request, post_id=None):
 @login_required
 def post_list_view(request):
     """View to list all posts."""
-    posts = Post.objects.all() 
+    posts = Post.objects.all().order_by('-created_at')
     for post in posts:
         post.is_liked = post.likes.filter(id=request.user.id).exists()
     
@@ -79,7 +79,7 @@ def user_posts(request):
         messages.error(request, "You must be an artist to access this page.")
         return redirect('home')
     
-    user_posts = Post.objects.filter(user=request.user)
+    user_posts = Post.objects.filter(user=request.user).order_by('-created_at') 
     total_posts = user_posts.count()
     total_comments = Comment.objects.filter(post__in=user_posts).count()
     total_likes = sum(post.likes.count() for post in user_posts)
