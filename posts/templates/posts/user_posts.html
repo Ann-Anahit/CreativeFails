@@ -23,12 +23,12 @@
     <a href="{% url 'write_article' %}">Create a new post</a>
 </div>
 
+<div class="posts-container">
+    {% for post in page_obj %}
+    <div class="post">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.truncated_content }}</p>
 
-{% for post in posts %}
-<div class="post">
-    <a href="{% url 'post_detail' post.id %}">
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.content }}</p>
         {% if post.image %}
         <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-img"
             style="max-width: 300px; max-height: 300px;">
@@ -54,11 +54,20 @@
             </form>
         </div>
         {% endif %}
+    </div>
+    {% empty %}
+    <p>No posts to display.</p>
+    {% endfor %}
 </div>
-{% empty %}
-<p>You have no posts yet.</p>
-{% endfor %}
 
-{% include 'posts/blog_posts.html' %}
+<div class="pagination">
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" class="btn"> <i class="fas fa-arrow-left"></i></a>
+    {% endif %}
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" class="btn"> <i class="fas fa-arrow-right"></i></a>
+    {% endif %}
+</div>
 
 {% endblock %}

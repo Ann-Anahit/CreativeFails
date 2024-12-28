@@ -4,6 +4,8 @@ from django.http import HttpResponseForbidden
 from django.contrib import messages  
 from .models import Post, Comment  
 from .forms import PostForm, CommentForm  
+from django.core.paginator import Paginator
+from django.utils.text import Truncator
 
 
 @login_required
@@ -55,32 +57,48 @@ def write_article_view(request, post_id=None):
 def post_list_view(request):
     """View to list all posts."""
     posts = Post.objects.all().order_by('-created_at')
-    for post in posts:
+
+    paginator = Paginator(posts, 4) 
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    for post in page_obj:
         post.is_liked = post.likes.filter(id=request.user.id).exists()
-    
+
     context = {
-        'posts': posts,
+        'page_obj': page_obj,
     }
-    
-    return render(request, 'map/home.html', context) 
+
+    return render(request, 'map/home.html', context)
 
 @login_required
 def user_posts(request):
     if not request.user.is_artist:
         messages.error(request, "You must be an artist to access this page.")
         return redirect('home')
-    
+
     user_posts = Post.objects.filter(user=request.user).order_by('-created_at')
-    total_posts = user_posts.count()
+
+    posts_with_truncated_content = []
+    for post in user_posts:
+        post.truncated_content = Truncator(post.content).words(6, truncate='...')
+        posts_with_truncated_content.append(post)
+
+    total_posts = len(posts_with_truncated_content)
     total_comments = Comment.objects.filter(post__in=user_posts).count()
     total_likes = sum(post.likes.count() for post in user_posts)
 
+    paginator = Paginator(posts_with_truncated_content, 8)  
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
     return render(request, 'posts/user_posts.html', {
-        'posts': user_posts,
+        'page_obj': page_obj,
         'total_posts': total_posts,
         'total_comments': total_comments,
         'total_likes': total_likes,
     })
+
 
 @login_required
 def post_detail_view(request, post_id):

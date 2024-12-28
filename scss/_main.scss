@@ -191,3 +191,39 @@ main {
         border-radius: 4px;
     }
 }
+
+.posts-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 20px;
+
+    .post {
+        background: $quaternary_color;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 16px;
+        width: 200px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 16px;
+        h3 {
+            font-size: 1.5em;
+            margin-bottom: 16px;
+        }
+        p {
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+    }
+    .post-img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+        margin-bottom: 8px;
+    }
+}
+.meta {
+    font-size: 0.9em;
+    color: $secondary_color;
+}

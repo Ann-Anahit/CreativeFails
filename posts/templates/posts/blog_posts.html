@@ -3,36 +3,37 @@
 <div class="blog-posts">
     <div class="posts-grid">
         {% for post in page_obj %}
-            <div class="post-card">
-                <h3 class="post-title">{{ post.title }}</h3>
+        <div class="post-card">
+            <h3 class="post-title">{{ post.title }}</h3>
 
-                {% if post.image %}
-                    <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
-                    {% else %}
-                        <img src="{% static 'images/default.webp' %}" alt="Default image" class="post-image">
-                        {% endif %}
+            {% if post.image %}
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
+            {% else %}
+            <img src="{% static 'images/default.webp' %}" alt="Default image" class="post-image">
+            {% endif %}
 
-                        <p class="post-content">{{ post.content|truncatewords:50 }}...</p>
+            <p class="post-content">{{ post.content|truncatewords:50 }}...</p>
 
-                        <div class="post-meta">
-                            <span>{{ post.comments.count }}
-                                comments</span>
-                            |
-                            <span>{{ post.likes.count }}
-                                likes</span>
-                        </div>
-
-                        <a href="{% url 'post_detail' post.id %}" class="read-more">Read more</a>
-                    </div>
-                {% endfor %}
+            <div class="post-meta">
+                <span>{{ post.comments.count }}
+                    comments</span>
+                |
+                <span>{{ post.likes.count }}
+                    likes</span>
             </div>
-        </div>
 
-        <div class="pagination">
-            {% if page_obj.has_previous %}
-                <a href="?page={{ page_obj.previous_page_number }}" class="pagination-btn">Previous</a>
-            {% endif %}
-            {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}" class="pagination-btn">Next</a>
-            {% endif %}
+            <a href="{% url 'post_detail' post.id %}" class="read-more">Read more</a>
         </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="pagination">
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" class="btn"> <i class="fas fa-arrow-left"></i></a>
+    {% endif %}
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" class="btn"> <i class="fas fa-arrow-right"></i></a>
+    {% endif %}
+</div>
