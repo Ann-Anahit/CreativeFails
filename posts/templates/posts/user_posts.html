@@ -30,11 +30,9 @@
         <p>{{ post.truncated_content }}</p>
 
         {% if post.image %}
-        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-img"
-            style="max-width: 300px; max-height: 300px;">
+        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-img">
         {% else %}
-        <img src="{% static 'images/default.webp' %}" alt="Default image" class="post-img"
-            style="max-width: 300px; max-height: 300px;">
+        <img src="{% static 'images/default.webp' %}" alt="Default image" class="post-img">
         {% endif %}
 
         <div class="meta">

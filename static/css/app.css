@@ -486,8 +486,7 @@ main .blog-posts article .meta .author {
   border-radius: 4px;
   margin-bottom: 8px;
 }
-
-.meta {
+.posts-container .meta {
   font-size: 0.9em;
   color: #ebb573;
 }
