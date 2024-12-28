@@ -95,8 +95,8 @@ header nav ul.nav-links li a img.logo,
 header nav ul.nav-links li .nav-item img.logo {
   height: 32px;
 }
-header nav ul.nav-links li a:hover i,
-header nav ul.nav-links li .nav-item:hover i {
+header nav ul.nav-links li a:hover,
+header nav ul.nav-links li .nav-item:hover {
   color: #dfd0e5;
 }
 header nav ul.nav-links li a:hover::before,

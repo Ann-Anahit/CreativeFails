@@ -21,12 +21,13 @@
             </div>
 
             <ul class="nav-links">
-                <li> <a href="{% url 'homepage' %}" data-tooltip="Homepage"> <i class="fa fa-home"></i> </a> </li>
-                <li> <a href="{% url 'about' %}" data-tooltip="About"> <i class="fa fa-info-circle"></i> </a> </li>
-                <li> <a href="{% url 'post_list' %}" data-tooltip="Blog"> <i class="fa fa-list-alt"></i> </a> </li>
+                <li> <a href="{% url 'homepage' %}">Homepage <i class="fa fa-home"></i> </a>
+                </li>
+                <li> <a href="{% url 'about' %}">About <i class="fa fa-info-circle"></i> </a> </li>
+                <li> <a href="{% url 'post_list' %}">Blog <i class="fa fa-list-alt"></i> </a> </li>
                 {% if user.is_authenticated %}<li class="account-btn-container">
                     <div class="dropdown">
-                        <div class="nav-item" data-tooltip="Account"> <i class="fa fa-user"></i> </div>
+                        <div class="nav-item">Account <i class="fa fa-user"></i> </div>
                         <div class="dropdown-content">
                             <ul class="dropdown-list">
                                 <p>Welcome, {{user.username}}

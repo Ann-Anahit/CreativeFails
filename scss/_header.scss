@@ -43,9 +43,8 @@ header {
                     }
 
                     &:hover {
-                        i {
-                            color: $hover_color;
-                        }
+                        color: $hover_color;
+
                         &::before {
                             display: block;
                             content: attr(data-tooltip);
