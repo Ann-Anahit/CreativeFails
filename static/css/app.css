@@ -438,6 +438,24 @@ main .blog-posts article .meta .author {
   max-width: 200px;
 }
 
+.messages {
+  list-style-type: none;
+  padding: 0;
+}
+.messages .success {
+  background-color: #d4edda;
+  color: #155724;
+}
+.messages .success .error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+.messages li {
+  margin: 8px 0;
+  padding: 8px;
+  border-radius: 4px;
+}
+
 footer {
   background-color: #c2a4cd;
   display: flex;

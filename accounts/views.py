@@ -18,6 +18,7 @@ def register_view(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
+            messages.success(request, 'Registration successful! You are now logged in.')
             return redirect('home')  
         else:
             messages.error(request, 'Please correct the errors below.')
@@ -34,7 +35,12 @@ def custom_login(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
+                messages.success(request, f'Welcome back, {user.username}!')
                 return redirect('post_list') 
+            else:
+                messages.error(request, 'Invalid login credentials.')
+        else:
+            messages.error(request, 'Invalid login credentials. Please try again.')
     else:
         form = AuthenticationForm()
     return render(request, 'accounts/post_list.html', {'form': form})
@@ -49,4 +55,5 @@ class CustomLogoutView(LogoutView):
 
 def logout_view(request):
     logout(request)
+    messages.success(request, 'You have been logged out successfully.')
     return redirect('home') 
