@@ -106,7 +106,7 @@ def post_detail_view(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     print(f"Post: {post.title}, Image: {post.image}")
     is_owner = request.user == post.user
-    comments = Comment.objects.filter(post=post)
+    comments = Comment.objects.filter(post=post).order_by('-created_at')
     liked = post.likes.filter(id=request.user.id).exists()
 
     return render(request, 'posts/post_detail.html', {
