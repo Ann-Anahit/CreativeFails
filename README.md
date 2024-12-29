@@ -6,7 +6,7 @@ Welcome to Creative Fails! This is a platform where people can share their stori
 Visit the deployed website here → [Creative-Fails](https://creativefails-b08c6c63e317.herokuapp.com/)<br>
 The User Stories you can see here → [GitHub Project](https://github.com/users/Ann-Anahit/projects/1/views/1)
 
-![Creative-Fails](documentation/images/am-i-responsive.png)
+![Creative-Fails](documentation/images/Am-I-Resposive.png)
 
 ## Content
 
@@ -22,14 +22,14 @@ The User Stories you can see here → [GitHub Project](https://github.com/users/
     * [Features](#features)
     * [Future Features](#future-features)
 * [Technologies Used](#technologies-used)
-* [Deployment, Fork and Clone](#deployment-fork-and-clone)
-    * [Deployment](#deployment)
-    * [Fork](#how-to-fork)
-    * [Clone](#how-to-clone)
 * [Testing](#testing)
 * [Bugs](#bugs)
     * [Known Bugs](#known-bugs)
     * [Fixed Bugs](#fixed-bugs)
+* [Deployment, Fork and Clone](#deployment-fork-and-clone)
+    * [Deployment](#deployment)
+    * [Fork](#how-to-fork)
+    * [Clone](#how-to-clone)
 * [Credits](#credits)
 * [Content](#content)
 * [Media](#media)
@@ -57,6 +57,7 @@ CreativeFails is a dynamic platform designed for artists to embrace and learn fr
 
 * I want to edit my posts.
 * I want to edit my comments.
+* I want to delete the comments of other users under my post.
 * I want to be able to dislike the other posts.
  
 
@@ -71,12 +72,12 @@ CreativeFails is a dynamic platform designed for artists to embrace and learn fr
 
 ### Website Structure
 
-My plan was to support artists at all levels. The Home Page welcomes users and highlights featured projects. User Dashboard provides access to posts. Share Your Work lets you upload and showcase projects.
-This website consists of a home page, an about page, a posts page, a login page, a registration page.
+My plan was to support artists at all levels. The Home Page welcomes users and highlights featured projects. User Dashboard provides access to current user posts. Share your work lets you upload and showcase projects.
+This website consists of a home page, an about page, a blog page, a user blog page, a create new post page, a login page, a registration page.
 
 These additional features will be introduced soon.
 
-Explore: A gallery, search function, and success stories.
+Explore: search function, and success stories.
 Resources: Articles, workshops, and tools.
 Challenges & Collaboration: Current challenges and group projects.
 Events: Upcoming activities.
@@ -88,20 +89,20 @@ Privacy Policy & Terms of Service: Ensure transparency and user rights.
 
 ### Wireframes
 
-Figma was the software I opted to create the wireframes. I created wireframes for mobile and desktop.
+Balsamiq was the software I opted to create the wireframes. I created wireframes from the homepage for mobile and desktop.
 
 <br><br>
 Home page<br>
-<img src="documentation/images/wareframe.png">
+<img src="documentation/images/Wireframe.png">
 
 
 [Back to top](<#content>)
 
 ### Color Scheme
 
-This website has two main colors, `#C2A4CD` being the primary was used for the the navigation bar and details. The color `#609C8B` was used to make some hover effects.
-and `#FFFFFF` in addition to the black color `#050505` as the font color, 
-Some other singular colors also appear in the project. 
+This website has two main colors, `#C2A4CD` being the primary was used for the the navigation bar and details. The color `#87c5c8` was used for the buttons. This secondary color `#ebb573`is used to make hover effects for the buttons. This color `#721c24` is used for hover from delete buttons.This colors `#d4edda` & `#dfd4e3` are used for the background from post cards. 
+For background I used often this color as white color`#e3e3e3`. As font color I used this color `#333333`.  
+For success messages I used this two colors: `#155724` and `#d4edda`. For negative messages these two colors: `#721c24` and `#dfd4e3`.
 
 ![Creative-Fails Color Scheme](documentation/images/colors.png)
 
@@ -143,7 +144,9 @@ A Comment belongs to a Post. (many-to-many with User).
 ### Typography
 
 The fonts I chose to use were [Roboto](https://fonts.google.com/specimen/Roboto) and [Bebas-Neue] (https://fonts.google.com/specimen/Bebas+Neue?query=bebas+neue) from Google Fonts and as a fall back font, sans-serif.
-
+![Creative-Fails Font1](documentation/images/Font1.png)
+![Creative-Fails Font2](documentation/images/Font2.png)
+![Creative-Fails Font](documentation/images/Font3.png)
 [Back to top](<#content>)
 
 ## Features and Future Features
@@ -156,7 +159,10 @@ This is a multi-page website and all of them are responsive. On each page we hav
 ![Creative-Fails favicon](documentation/images/favicon.png)
 
 - A navigation bar with clickable logo will take the user to the home page and the menu with sign up button highlighted to facilitate the user experience. There is a top bar on top of the navigation bar with the login navigation source.
-![Creative-Fails navbar](documentation/images/navbar.png)
+![Creative-Fails navbar](documentation/images/navbar-signin.png)
+![Creative-Fails navbar](documentation/images/navbar-signout.png)
+![Creative-Fails navbar](documentation/images/navbar-responsiv.png)
+![Creative-Fails navbar](documentation/images/navbar-responsive1.png)
 
 - A footer with social media icons that lead to external pages and to my github page in case you click my name.
 ![Creative-Fails footer](documentation/images/footer.png)
@@ -166,44 +172,53 @@ This is a multi-page website and all of them are responsive. On each page we hav
 ### The Home Page
 
 
- The Home Page is displayed initially, featuring three most commented posts and a button See all posts. The logged out user can't interact with posts and can only read the posts. 
+ The Home Page is displayed initially, featuring three most commented posts and pagination buttons. The logged out user can't interact with posts and can only see the homepage with posts. 
  If a user is registered as an artist, they can create and share their own posts, comment on other posts, and like all posts. On the other hand, if the user is not registered as an artist, they can only read all posts, comment on them, and like them, but they cannot create or share their own posts.
 
 ![Creative-Fails home page](documentation/images/home.png)
+
 
 [Back to top](<#content>)
 
 ### The About Page
 
-    The About Page is displayed initially, featuring a welcome text and navigation options.  Clicking the "Sign In" link takes users to the Sign-In Page, and after signing in, they are redirected to the Posts Page to view and interact with posts.
+The About Page is displayed initially, featuring a welcome text and navigation options. 
 
+![Creative-Fails about page](documentation/images/about.png)
 
+### The Blog page
 
-### The Posts page
-
-When users click the logo, they are directed to the Posts Page, which displays all posts from all users.
-![Creative-Fails Posts page](documentation/images/posts.png)
+In the blog page there are displayed all posts from all users after 12 posts there are paginations.
+![Creative-Fails Posts page](documentation/images/blog.png)
 
 [Back to top](<#content>)
 
-### Sign In Page
+### The My Blog page
 
+In the My blog page there are displayed all posts from the current User after 8 posts there are paginations.
+![Creative-Fails Posts page](documentation/images/my-blog.png)
+
+
+### Sign In Page
+Clicking the "Sign In" link takes users to the Sign-In Page, and after signing in, they are redirected to the Posts Page to view and interact with posts.
 A page where the user can log in to their account.
-![Creative-Fails sign in page](documentation/images/sign_in_page.png)
+![Creative-Fails sign in page](documentation/images/login.png)
 
 [Back to top](<#content>)
 
 ### Sign Up Page
 
-The user can sign up here.
-![Creative-Fails sign up page](documentation/images/sign_up_page.png)
+The user can sign up here if he wants to create own posts, he must sign up as an artist.
+![Creative-Fails sign up page](documentation/images/register.png)
 
 [Back to top](<#content>)
 
 ### Write Article Page
 
-This page will take you to the login page in case you are not logged in, but in case you are, you are redirected to the write article page. 
-![Creative-Fails write article page](documentation/images/write_article.png)
+This page will take you to the login page in case you are not logged in, but in case you are, you are redirected to the write article page if you are registered as an artist. 
+If the user doesn't add category there won't be written 
+![Creative-Fails write article page](documentation/images/create-post.png)
+
 
 [Back to top](<#content>)
 
