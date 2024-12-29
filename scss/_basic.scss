@@ -14,14 +14,16 @@ button,
   color: $black_color;
   border: none;
   padding: 8px;
-  margin: 8px;
+  margin: 16px;
   cursor: pointer;
 
   &:hover {
     background-color: $secondary_color;
   }
 }
-
+.create {
+  justify-self: center;
+}
 .action-buttons {
   display: flex;
   justify-content: center;

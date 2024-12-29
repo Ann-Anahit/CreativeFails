@@ -2,25 +2,31 @@
 {% load static %}
 
 {% block content %}
-<h1>{{ post.title }}</h1>
-<p>
-    By <span class="username">{{ post.user.username }}</span></br>
-    <span class="date">{{ post.created_at }}</span>
-</p>
-{% if post.category %}
-<p>Category: {{ post.category }}</p>
-{% endif %}
+<div class="detail">
+    <h1>{{ post.title }}</h1>
+    {% if post.category %}
+    <p><strong>Category:</strong> {{ post.category }}</p>
+    {% endif %}
+    <div class="meta">
+        Posted on
+        <span class="date">{{ post.created_at|date:"Y-m-d H:i" }}</span>
+        by
+        <span class="author">{{ post.user.username }}</span>
+    </div>
+</div>
 {% if post.image %}
 <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 100%;">
 {% else %}
 <img src="{% static 'images/default.webp' %}" alt="Default image">
 {% endif %}
-<p>{{ post.content }}</p>
-{% if post.learned_lessons %}
-<h2>Lessons learnt</h2>
-<p>{{ post.learned_lessons }}</p>
-{% endif %}
-
+<div class="welcome">
+    <p>{{ post.content }}</p>
+    {% if post.learned_lessons %}
+    <h2>-Lessons learnt-</h2>
+    <p>{{ post.learned_lessons }}</p>
+    {% endif %}
+</div>
+<hr>
 {% if is_owner %}
 <div class="action-buttons">
     <form action="{% url 'post_like' post.id %}" method="POST">

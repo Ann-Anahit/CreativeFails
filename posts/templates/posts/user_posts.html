@@ -4,21 +4,19 @@
 {% block content %}
 <h1>My Posts</h1>
 
-<div class="welcome state">
-    <p>
-        <strong>Posts:</strong>
-        {{ total_posts }}
-    </p>
-    <p>
-        <strong>Comments:</strong>
-        {{ total_comments }}
-    </p>
-    <p>
-        <strong>Likes:</strong>
-        {{ total_likes }}
-    </p>
+<div class="welcome">
+    <div class="state">
+        <p class="total">
+            <strong>Posts:</strong> {{ total_posts }}
+        </p>
+        <p class="total">
+            <strong>Comments:</strong> {{ total_comments }}
+        </p>
+        <p class="total">
+            <strong>Likes:</strong> {{ total_likes }}
+        </p>
+    </div>
 </div>
-
 <div class="btn create">
     <a href="{% url 'write_article' %}">Create a new post</a>
 </div>

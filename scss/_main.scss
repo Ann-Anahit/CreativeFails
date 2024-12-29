@@ -7,6 +7,14 @@ main {
         text-align: justify;
         flex: 1;
 
+        .state {
+            text-align: center;
+            display: flex;
+            p {
+                margin: 8px;
+            }
+        }
+
         .post-content {
             font-size: 16px;
             font-weight: lighter;
@@ -222,12 +230,16 @@ main {
         border-radius: 4px;
         margin-bottom: 8px;
     }
-    .meta {
-        font-size: 0.9em;
-        color: $secondary_color;
-    }
 }
 .red,
 :hover.btn-danger {
     background-color: $denied_color;
+}
+.meta {
+    font-size: 0.9em;
+    color: $secondary_color;
+    text-align: left;
+}
+.detail {
+    text-align: left;
 }
