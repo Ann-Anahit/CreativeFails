@@ -3,9 +3,10 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .models import CustomUser
 from django.core.exceptions import ValidationError
 
+
 class CustomUserCreationForm(UserCreationForm):
     """Form for creating a new user."""
-    
+
     class Meta:
         model = CustomUser
         fields = ('username', 'password1', 'password2', 'is_artist')
@@ -21,16 +22,18 @@ class CustomUserCreationForm(UserCreationForm):
         """Ensure the password meets minimum length requirements."""
         password = self.cleaned_data.get('password1')
         if password and len(password) < 6:
-            raise ValidationError('Your password must contain at least 6 characters.')
-        return password 
+            raise ValidationError
+            ('Your password must contain at least 6 characters.')
+        return password
 
     def clean_is_artist(self):
         is_artist = self.cleaned_data.get('is_artist')
         return is_artist
 
+
 class CustomUserChangeForm(UserChangeForm):
     """Form for updating an existing user."""
-    
+
     class Meta:
         model = CustomUser
-        fields = ('username',) 
+        fields = ('username',)

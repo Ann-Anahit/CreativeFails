@@ -5,8 +5,10 @@ from django.contrib import messages
 from .forms import CustomUserCreationForm
 from django.contrib.auth.views import LoginView
 
+
 class CustomLoginView(LoginView):
     template_name = 'accounts/login.html'
+
 
 def register_view(request):
     if request.method == 'POST':
@@ -14,13 +16,15 @@ def register_view(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            messages.success(request, 'Registration successful! You are now logged in.')
+            successMessage = 'Registration successful! You are now logged in.'
+            messages.success(request, successMessage)
             return redirect('home')
         else:
             messages.error(request, 'Please correct the errors below.')
     else:
         form = CustomUserCreationForm()
     return render(request, 'accounts/register.html', {'form': form})
+
 
 def custom_login(request):
     if request.method == 'POST':
@@ -34,11 +38,13 @@ def custom_login(request):
                 messages.success(request, f'Welcome back, {user.username}!')
                 return redirect('home')
         else:
-            messages.error(request, 'Invalid login credentials. Please try again.')
+            errorText = 'Invalid login credentials. Please try again.'
+            messages.error(request, invalidCredentialsMessage)
     else:
         form = AuthenticationForm()
     return render(request, 'accounts/login.html', {'form': form})
-    
+
+
 def logout_view(request):
     logout(request)
     messages.success(request, 'You have been logged out successfully.')

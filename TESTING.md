@@ -1,6 +1,6 @@
 # Creative Fails Website - Testing
 
-![Creative Fails](documentation/images/am-i-responsive.png)
+![Creative Fails](documentation/images/Am-I-Resposive.png)
 
 Visit the deployed website here → [Creative Fails](https://creativefails-b08c6c63e317.herokuapp.com/)
 
@@ -22,11 +22,11 @@ Visit the deployed website here → [Creative Fails](https://creativefails-b08c6
 
 | Expectation                                              | Result                                                                                                                                        |
 | :------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- |
-| I want to share my experiences and read other about other projects.                                    |  The user gets to informations really quickly. |
-|I want to Receive and Give Feedback.                                        | The User can only read the other posts, he can't give feedback yet.
-| I want to Signe up and Sign in. | The User can sign up and sign in easily.                                                  |
-| I want responsiveness from my website.                   | The website has full responsiveness.                                                                                                          |
-|I want to Connect with the Community.                                        | The User can comment and like the other posts 
+I want to Signe up and Sign in. | I can sign up and sign in without any difficulty.
+I want the option to sign up as an artist to create my own blog posts.                       | I can register as an artist and create my own posts.     
+I want to share my experiences and read about other projects.                                    |  I can quickly access and explore valuable information. |
+|I want to Receive and Give Feedback.                                        | I can comment on posts to share or receive feedback.   | I want responsiveness from my website.                   | 	I experience full responsiveness, ensuring a seamless experience on all  devices.              |
+|I want to Connect with the Community.          | The User can comment the other posts 
 <br>
 - Returning Visitors
 
@@ -34,7 +34,10 @@ Visit the deployed website here → [Creative Fails](https://creativefails-b08c6
 | :--------------------------------------------------- | :-------------------------------------------------------------------------------------- |
 | I want to edit my posts | The user can edit and delete the own posts.
 | I want to Explore New art Projects.                | The user can see the posts and read them.              |
-| I want to write new articles.                  | The user can write new articles.|
+| I want to create new posts.                  | The user can create new posts.                     
+I want to edit and delete my own posts | The user can edit and delete the own posts.
+I want to delete any comment from my posts | The user can delete also the comments from other users. | 
+I want to deslike some posts            | The user can dislike the posts  
 
 
 [Back to top](#content)
@@ -43,18 +46,19 @@ Visit the deployed website here → [Creative Fails](https://creativefails-b08c6
 
 | Feature                                                                     | Expectation                                                                   | Action                                                        | Result |
 | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------- | ------ |
-| Logo                                                                   | If you click on the Logo, the posts is supposed to open     | Click the arrows                                              | Passed |
+| Logo                                                                   | If you click on the Logo, the homepage is supposed to open     | Click the arrows                                              | Passed |
 | Navbar buttons                                                              | Take the user to the respective section                                       | Click buttons                                                 | Passed |
-| Write article                                                           | Go to the write article page. If user not signed in, ask to sign in                 | Click on the button                                           | Passed |
+| Create new post                                                           | Go to the write article page. If user not signed in, ask to sign in                 | Click on the button                                           | Passed |
 | Top bar                                                                     | Change the menu when a user signs in/out                                      | Sign in/out                                                   | Passed |
-| Write article Page                                                               | You can write an  article and the date and time of your post will be printed also the author                                                 |write article and submit                                         | Passed |
-| Logout                                                                      | Signs out of the account                                                      | Click the button                                              | Passed |
-| Account creation                                                            | Create account                                                                | Fill out the form                                             | Passed |
-| User knows they're signed in                                                | Display user name on the screen after sign in                                 | Look at the screen                                            | Passed |
+| Write article Page                                                               | You can write an  article and the date and time of your post will be printed also the author. You can add an image, a write a category and write what you have learnt from that creative failure, which you post.                                                 |write article page                                         | Passed | 
+| write article and create                        |If you don't add a text in category or learnt lesson field, on the post page won't be that fields  | write article and create |Passed
+Logout                                                                      | Signs out of the account                                                      | Click the button                                              | Passed |
+| Account creation                                                            | Create account as an artist and as non artist                                                               | Fill out the form                                             | Passed |
+| User knows they're signed in                                                | Display a welcome message  on the screen after sign in                                 | Look at the screen                                            | Passed |
 | Empty, false or wrong values                                                | Forms don't allow empty or false values                                       | Try to submit a form with empty inputs, wrong characters, etc | Passed |
 | Footer links open externally                                                | Footer links open externally                                                  | Click on the links in the footer                              | Passed |
-| Success message                                                             | User get a sucess message after submit any form (login, signup, booking, etc) | Submit a form                                                 | Passed |
-| Admin panel                                                                 | Admin can manage and edit informations, images and delete things              | Edit informations, update images, delete things               | Passed |
+| Success messages                                                             | User get sucess messages after submit any form (login, signup, booking, etc) and after any action| Submit a form                                                 | Passed |
+
 
 <br>
 
@@ -71,18 +75,19 @@ I tested the website in different browsers, both on computer and mobile. iOS tes
 
 [Back to top](#content)
 
-## Automated Testing
+## Validators Testing
 
 ### HTML Validator
 
-[W3C](https://validator.w3.org/) checked the HTML of the website and it passed the validation. An error message shows up.
+[W3C](https://validator.w3.org/) checked the HTML of the website. There are some error messages because of {% load static %}.
+
 ![HTML Validation](documentation/images/html_validator.png)
 
 ### CSS Validator
 
 The CSS was validated by [W3C Jigsaw](https://jigsaw.w3.org/css-validator/) and passed the test. To see the full result, click on the name below.
 
-- [CSS](documentation/pdf/css_validator.pdf)
+![CSS Validation](documentation/images/css_validation.png)
 
 
 ### Python Validation

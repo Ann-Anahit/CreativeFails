@@ -1,9 +1,9 @@
-from django.shortcuts import render, get_object_or_404, redirect  
-from django.contrib.auth.decorators import login_required  
-from django.http import HttpResponseForbidden  
-from django.contrib import messages  
-from .models import Post, Comment  
-from .forms import PostForm, CommentForm  
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseForbidden
+from django.contrib import messages
+from .models import Post, Comment
+from .forms import PostForm, CommentForm
 from django.core.paginator import Paginator
 from django.utils.text import Truncator
 
@@ -19,6 +19,7 @@ def post_like(request, post_id):
         messages.success(request, "You liked the post.")
     return redirect('post_detail', post_id=post.id)
 
+
 @login_required
 def post_unlike(request, post_id):
     post = get_object_or_404(Post, id=post_id)
@@ -26,6 +27,7 @@ def post_unlike(request, post_id):
         post.likes.remove(request.user)
         messages.success(request, "You unliked the post.")
     return redirect('post_detail', post_id=post.id)
+
 
 @login_required
 def write_article_view(request, post_id=None):
@@ -53,12 +55,13 @@ def write_article_view(request, post_id=None):
 
     return render(request, 'posts/write_article.html', {'form': form, 'post': post})
 
+
 @login_required
 def post_list_view(request):
     """View to list all posts."""
     posts = Post.objects.all().order_by('-created_at')
 
-    paginator = Paginator(posts, 12) 
+    paginator = Paginator(posts, 12)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
@@ -70,6 +73,7 @@ def post_list_view(request):
     }
 
     return render(request, 'map/home.html', context)
+
 
 @login_required
 def user_posts(request):
@@ -88,7 +92,7 @@ def user_posts(request):
     total_comments = Comment.objects.filter(post__in=user_posts).count()
     total_likes = sum(post.likes.count() for post in user_posts)
 
-    paginator = Paginator(posts_with_truncated_content, 8)  
+    paginator = Paginator(posts_with_truncated_content, 8)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
@@ -117,6 +121,7 @@ def post_detail_view(request, post_id):
         'comment_form': CommentForm(),
     })
 
+
 @login_required
 def edit_post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
@@ -131,6 +136,7 @@ def edit_post(request, post_id):
         form = PostForm(instance=post)
 
     return render(request, 'posts/edit_post.html', {'form': form, 'post': post})
+
 
 @login_required
 def delete_post(request, post_id):
@@ -153,30 +159,32 @@ def delete_image(request, post_id):
 
     if post.image:
         post.image.delete()
-        post.image = None 
+        post.image = None
 
     post.save()
     return redirect('post_detail', post_id=post.id)
 
-@login_required  
-def add_comment_view(request, post_id):  
-    """View to add a comment to a post."""  
+
+@login_required
+def add_comment_view(request, post_id):
+    """View to add a comment to a post."""
     post = get_object_or_404(Post, id=post_id)
-    
-    if request.method == 'POST':  
+
+    if request.method == 'POST':
         content = request.POST.get('content')
         form = CommentForm(request.POST)
-        if form.is_valid():  
+        if form.is_valid():
             comment = form.save(commit=False)
             comment.post = post
             comment.user = request.user
             comment.save()
             messages.success(request, "Your comment has been added successfully!")
             return redirect('post_detail', post_id=post.id)
-    else:  
-        form = CommentForm()  
-    
+    else:
+        form = CommentForm()
+
     return render(request, 'posts/post_detail.html', {'post': post, 'comment_form': form})
+
 
 @login_required
 def edit_comment(request, comment_id):
@@ -192,6 +200,7 @@ def edit_comment(request, comment_id):
         form = CommentForm(instance=comment)
 
     return render(request, 'comments/edit_comment.html', {'form': form, 'comment': comment})
+
 
 @login_required
 def delete_comment(request, comment_id):
