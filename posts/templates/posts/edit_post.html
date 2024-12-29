@@ -21,6 +21,16 @@
     </fieldset>
 
     <fieldset>
+        <label for="category">Category</label>
+        <input type="text" name="category" id="category" value="{{ form.category.value }}" class="form-control">
+    </fieldset>
+    <fieldset>
+        <label for="category">Lessons learnt</label>
+        <input type="text" name="learned_lessons" id="learned_lessons" value="{{ form.learned_lessons.value }}"
+            class="form-control">
+    </fieldset>
+
+    <fieldset>
         <label for="image">Image</label>
         <input type="file" name="image" class="form-control">
         {% if post.image %}

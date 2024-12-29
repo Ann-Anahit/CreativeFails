@@ -2,19 +2,24 @@
 {% load static %}
 
 {% block content %}
-
 <h1>{{ post.title }}</h1>
-<p>{{ post.content }}</p>
-
+<p>
+    By <span class="username">{{ post.user.username }}</span></br>
+    <span class="date">{{ post.created_at }}</span>
+</p>
+{% if post.category %}
+<p>Category: {{ post.category }}</p>
+{% endif %}
 {% if post.image %}
 <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 100%;">
 {% else %}
 <img src="{% static 'images/default.webp' %}" alt="Default image">
 {% endif %}
-
-<p>
-    Posted by <span class="username">{{ post.user.username }}</span> on <span class="date">{{ post.created_at }}</span>
-</p>
+<p>{{ post.content }}</p>
+{% if post.learned_lessons %}
+<h2>Lessons learnt</h2>
+<p>{{ post.learned_lessons }}</p>
+{% endif %}
 
 {% if is_owner %}
 <div class="action-buttons">
