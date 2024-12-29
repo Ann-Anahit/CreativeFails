@@ -9,7 +9,6 @@ Visit the deployed website here → [Creative Fails](https://creativefails-b08c6
 - [Testing User Stories](#testing-user-stories)
 - [Manual Testing](#manual-testing)
   - [Browser Testing](#browser-testing)
-- [Automated Testing](#automated-testing)
   - [HTML Validator](#html-validator)
   - [CSS Validator](#css-validator)
   - [JavaScript Validator](#javascript-validator)

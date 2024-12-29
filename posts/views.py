@@ -58,7 +58,7 @@ def post_list_view(request):
     """View to list all posts."""
     posts = Post.objects.all().order_by('-created_at')
 
-    paginator = Paginator(posts, 4) 
+    paginator = Paginator(posts, 12) 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
