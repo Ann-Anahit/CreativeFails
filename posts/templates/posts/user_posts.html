@@ -25,16 +25,19 @@
 
 <div class="posts-container">
     {% for post in page_obj %}
+
     <div class="post">
-        <h3>{{ post.title }}</h3>
-        <p>{{ post.truncated_content }}</p>
-
-        {% if post.image %}
-        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-img">
-        {% else %}
-        <img src="{% static 'images/default.webp' %}" alt="Default image" class="post-img">
-        {% endif %}
-
+        <a href="{% url 'post_detail' post.id %}" class="read">
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.truncated_content }}</p>
+        </a>
+        <a href="{% url 'post_detail' post.id %}" class="read">
+            {% if post.image %}
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-img">
+            {% else %}
+            <img src="{% static 'images/default.webp' %}" alt="Default image" class="post-img">
+            {% endif %}
+        </a>
         <div class="meta">
             Posted on
             <span class="date">{{ post.created_at|date:"Y-m-d H:i" }}</span>

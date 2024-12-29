@@ -72,7 +72,7 @@
                     <span>{{ post.likes.count }} likes</span>
                 </div>
 
-                <a href="{% url 'post_detail' post.id %}" class="btn">Read more</a>
+                <a href="{% url 'post_detail' post.id %}" class="btn read">Read more</a>
             </div>
             {% endfor %}
         </div>
@@ -103,11 +103,11 @@
 
         {% if post.image %}
         <a href="{% url 'post_detail' post.id %}"><img src="{{ post.image.url }}" alt="{{ post.title }}"
-                class="post-img" style="max-width: 300px; max-height: 300px;"></a>
+                class="post-img"></a>
         {% else %}
         <p>No image available</p>
         <a href="{% url 'post_detail' post.id %}"><img src="{% static 'images/default.webp' %}" alt="Default image"
-                class="post-img" style="max-width: 300px; max-height: 300px;"></a>
+                class="post-img"></a>
         {% endif %}
 
         <div class="meta">
