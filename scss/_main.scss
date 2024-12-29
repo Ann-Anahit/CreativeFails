@@ -178,11 +178,11 @@ main {
     list-style-type: none;
     padding: 0;
     .success {
-        background-color: #d4edda;
-        color: #155724;
+        background-color: $access_background;
+        color: $access_color2;
         .error {
-            background-color: #f8d7da;
-            color: #721c24;
+            background-color: $quaternary_color;
+            color: $denied_color2;
         }
     }
     li {
@@ -200,8 +200,8 @@ main {
     margin-top: 20px;
 
     .post {
-        background: $quaternary_color;
-        border: 1px solid #ddd;
+        background: $access_background;
+        border: 1px solid $white_color;
         border-radius: 8px;
         padding: 16px;
         width: 200px;
@@ -226,4 +226,9 @@ main {
         font-size: 0.9em;
         color: $secondary_color;
     }
+}
+.red,
+:hover.btn-danger {
+    color: $denied_color2;
+    background-color: $denied_color;
 }

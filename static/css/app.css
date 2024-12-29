@@ -344,7 +344,7 @@ main .blog-posts article .meta .author {
   border: 1px solid #c2a4cd;
   border-radius: 8px;
   padding: 16px;
-  background-color: #f9f9f9;
+  background-color: #dfd4e3;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   min-height: 400px;
   margin: 16px;
@@ -447,7 +447,7 @@ main .blog-posts article .meta .author {
   color: #155724;
 }
 .messages .success .error {
-  background-color: #f8d7da;
+  background-color: #dfd4e3;
   color: #721c24;
 }
 .messages li {
@@ -464,8 +464,8 @@ main .blog-posts article .meta .author {
   margin-top: 20px;
 }
 .posts-container .post {
-  background: #f9f9f9;
-  border: 1px solid #ddd;
+  background: #d4edda;
+  border: 1px solid #e3e3e3;
   border-radius: 8px;
   padding: 16px;
   width: 200px;
@@ -489,6 +489,12 @@ main .blog-posts article .meta .author {
 .posts-container .meta {
   font-size: 0.9em;
   color: #ebb573;
+}
+
+.red,
+:hover.btn-danger {
+  color: #721c24;
+  background-color: #c64f62;
 }
 
 footer {
