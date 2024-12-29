@@ -213,12 +213,71 @@ The user can sign up here if he wants to create own posts, he must sign up as an
 
 [Back to top](<#content>)
 
-### Write Article Page
+### Create new Post Page
 
-This page will take you to the login page in case you are not logged in, but in case you are, you are redirected to the write article page if you are registered as an artist. 
-If the user doesn't add category there won't be written 
+This page automatically redirects you based on your login and registration status. If you're not logged in, you'll be taken to the login page. If you're already logged in and registered as an artist, you'll be redirected to the "Write Article" page.
+If no category or lessons learned are added to your post, these sections will remain empty.
+If no image is uploaded, a placeholder image will be displayed instead.
+
 ![Creative-Fails write article page](documentation/images/create-post.png)
 
+
+### Post Detail Page
+
+On the post detail page, users can view the selected post in detail, including a larger image. They can leave comments, edit or delete their own comments, or like the post.
+If the user is the post owner, additional options are available:
+- Edit or delete the post.
+- Remove the image from the post.
+- Delete comments made by other users on their post.
+![Creative-Fails sign up page](documentation/images/postdetail.png)
+
+### Edit Post Page
+
+On the Edit Post page, users can:
+
+Update the content of the post.
+Replace the existing image.
+Save the changes.
+Delete the entire post.
+Cancel the editing process using the Cancel button.
+
+![Creative-Fails sign up page](documentation/images/edit-post.png)
+
+### Delete Post Page
+
+On the Delete page, users can view the image in a larger size and choose one of the following options:
+Delete only the image.
+Delete the entire post.
+Cancel the action.
+
+![Creative-Fails sign up page](documentation/images/delete-post.png)
+
+### Edit Comment Page
+
+On the Edit Comment page, users can:
+
+Update the content of the comment.
+Save the changes.
+Delete the entire comment.
+Cancel the editing process using the Cancel button.
+
+To delete a comment quickly, the user can simply click Delete (no need to go through the Edit option). A confirmation message will then appear, asking:
+"Are you sure you want to delete this comment?"
+The user can then:
+Click OK to confirm and delete the comment.
+Click Cancel to keep the comment.
+
+![Creative-Fails sign up page](documentation/images/edit-comment.png)
+![Creative-Fails sign up page](documentation/images/delete-comment.png)
+
+
+For all actions, the user receives a confirmation message:
+
+On Deleting: A prompt asks for confirmation, such as, "Are you sure you want to delete this?"
+On Saving Changes: A message confirms success, like "Your changes have been saved successfully."
+On Liking: A message confirms, "You liked the post."
+On Removing an Image: A notification appears, stating, "The image has been removed."
+These messages ensure clarity and confirmation for every action the user performs.
 
 [Back to top](<#content>)
 
@@ -235,32 +294,41 @@ If the user doesn't add category there won't be written
 - Community: Member directories and groups.
 - Help & Support: FAQs and contact information.
 - Blog: Updates on news and guest posts.
--Privacy Policy & Terms of Service: Ensure transparency and user rights.
+- Privacy Policy & Terms of Service: Ensure transparency and user rights.
 
 [Back to top](<#content>)
 
 ## Technologies Used
 
 - HTML5 to create the website structure.
-- CSS3 to style the website.
+- SCSS to style the website.
 - JavaScript to create the interactions on the website.
 - [Python](https://www.python.org/) + [Django](https://www.djangoproject.com/) to create the fullstack project.
 - [Git](https://git-scm.com/) for version control.
 - [GitPod](https://www.gitpod.io/) as IDE to create the website.
 - [GitHub](https://github.com/) to store files for the website.
-- [Figma](https://www.figma.com/) to create the wireframes.
+- [Balsamiq](https://balsamiq.com/wireframes/) to create the wireframe.
 - [Chat GPT](https://chat.openai.com/) to generate fictional texts.
 - [Google Fonts](https://fonts.google.com/) to import the font used on the website.
 - [Favico](https://favicon.io/favicon-converter/) to create favicon.
-- [Logo](https://www.canva.com/) to create Logo.
+- [Canva](https://www.canva.com/) to create Logo.
 - [Am I Responsive?](https://ui.dev/amiresponsive) to display the website image across various devices.
-- [Appetize.io](https://appetize.io/) to simulate the iOS environment.
 - [PostgreSQL](https://www.postgresql.org/) through Code Institute databases.
 - [Python Tutor](https://pythontutor.com/) to debug my code.
 - [Python Validator](https://pep8ci.herokuapp.com/#) by Code Institute to catch some errors and validate my code.
-- [Lucidchart](https://www.lucidchart.com/) to create the flowcharts.
+- [Lucidchart](https://www.lucidchart.com/) to create the ERD.
 - [Heroku](https://www.heroku.com/) to deploy this project.
 - [Cloudinary](https://cloudinary.com/) to store the images uploaded on the website.
+
+
+
+## Testing
+
+Performed tests can be found in [TESTING.md](TESTING.md).
+
+
+## Bugs
+no bugs
 
 [Back to top](<#content>)
 
@@ -300,21 +368,6 @@ The application has been deployed from GitHub to Heroku by following the steps:
 
 [Back to top](<#content>)
 
-## Testing
-
-Performed tests can be found in [TESTING.md](TESTING.md).
-
-[Back to top](<#content>)
-
-## Bugs
-no bugs
-
-### Fixed Bugs
-
-- A few days after submitting the project, the link didn't open, so I managed to correct this error.
-
-[Back to top](<#content>)
-
 ## Credits
 
 - The most of the features of my website were developed with the guidance of the lessons from the Code Institute's I Think Therefore I Blog project.
@@ -324,9 +377,11 @@ no bugs
 
 ## Acknowledgments
 
-I would like to acknowledge:
-- Kay Welfare - My cohort facilitator who's always there for us.
-- Tristan and my sister Seda for supporting me.
+I would like to acknowledge the following individuals for their incredible support and encouragement:
+
+My brother, Davit Zakharyan – for inspiration and support.
+Tristan and my sisters, Seda and Tatewik – for their unwavering support and belief in me.
+My mentor, Mitko Bachvarov – for his mentorship and inspiration.
 
 
 [Back to top](<#content>)
