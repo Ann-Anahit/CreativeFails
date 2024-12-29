@@ -12,12 +12,21 @@
     <legend>Post Details</legend>
     <h2>{{ post.title }}</h2>
     <p>{{ post.content }}</p>
+
     {% if post.image %}
     <div class="post-image">
         <img src="{{ post.image.url }}" alt="Post Image">
+
+        <form action="{% url 'delete_image' post.id %}" method="POST" class="delete-image-form">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">
+                <i class="fas fa-trash-alt"></i> Delete Image
+            </button>
+        </form>
     </div>
     {% endif %}
 </fieldset>
+
 
 <form action="{% url 'delete_post' post.id %}" method="POST" class="delete-form">
     {% csrf_token %}

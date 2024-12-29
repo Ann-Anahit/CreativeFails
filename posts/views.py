@@ -147,6 +147,17 @@ def delete_post(request, post_id):
 
     return render(request, 'posts/delete_post.html', {'post': post})
 
+
+def delete_image(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+
+    if post.image:
+        post.image.delete()
+        post.image = None 
+
+    post.save()
+    return redirect('post_detail', post_id=post.id)
+
 @login_required  
 def add_comment_view(request, post_id):  
     """View to add a comment to a post."""  
