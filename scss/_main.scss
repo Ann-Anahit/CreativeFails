@@ -231,7 +231,10 @@ main {
         margin-bottom: 8px;
     }
 }
-.red,
+.red {
+    color: $denied_color;
+}
+
 :hover.btn-danger {
     background-color: $denied_color;
 }
