@@ -119,7 +119,11 @@ I used [PageSpeed Insights](https://pagespeed.web.dev/) to test the full perform
 
 [Home](documentation/images/home_d.png)<br>
 
-[Posts](documentation/images/posts_d.png)<br>
+[About](documentation/images/about_d.png)<br>
+
+[Blog ](documentation/images/blog_d.png)<br>
+
+[My Blog ](documentation/images/my-post_d.png)<br>
 
 [Sign in](documentation/images/signin_d.png)<br>
 
