@@ -5,12 +5,12 @@ from django.contrib import messages
 from .forms import CustomUserCreationForm
 from django.contrib.auth.views import LoginView
 
-
 class CustomLoginView(LoginView):
     template_name = 'accounts/login.html'
 
-
 def register_view(request):
+    if request.user.is_authenticated:
+        return redirect('home')
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
@@ -27,6 +27,8 @@ def register_view(request):
 
 
 def custom_login(request):
+    if request.user.is_authenticated:
+        return redirect('home')
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
