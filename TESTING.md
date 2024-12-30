@@ -92,7 +92,10 @@ The CSS was validated by [W3C Jigsaw](https://jigsaw.w3.org/css-validator/) and 
 
 ### Python Validation
 
-[PEP8](https://pep8ci.herokuapp.com/) found some issues and I fixed them all.
+[PEP8 Validation](https://pep8ci.herokuapp.com/) found some issues and I fixed them all. Only couple of lines are too long.
+
+![PEP8 Validation](documentation/images/Python-validator.png)
+
 
 ### Lighthouse
 
@@ -102,7 +105,9 @@ I used [PageSpeed Insights](https://pagespeed.web.dev/) to test the full perform
 
 [Home](documentation/images/home_m.png)<br>
 
-[Posts](documentation/images/posts_m.png)<br>
+[About](documentation/images/about_m.png)<br>
+
+[Blog](documentation/images/posts_m.png)<br>
 
 [Sign in](documentation/images/signin_m.png)<br>
 
