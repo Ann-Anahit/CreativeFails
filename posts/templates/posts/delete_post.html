@@ -5,14 +5,26 @@
 
 {% block content %}
 <h1>Delete Post</h1>
-
-<p class="red">Are you sure you want to delete the following post?</p>
-
+<h3 class="red">Are you sure you want to delete the following post?</h3>
 <fieldset class="edit-form">
     <legend>Post Details</legend>
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.content }}</p>
-
+    <div class="detail">
+        <h1>{{ post.title }}</h1>
+        {% if post.category %}
+        <p><strong>Category: </strong>{{ post.category }}</p>
+        {% endif %}
+        <div class="meta">
+            Posted on
+            <span class="date">{{ post.created_at|date:"Y-m-d H:i" }}</span>
+        </div>
+    </div>
+    <div class="welcome">
+        <p>{{ post.content }}</p>
+        {% if post.learned_lessons %}
+        <h2>-Lessons learnt-</h2>
+        <p>{{ post.learned_lessons }}</p>
+        {% endif %}
+    </div>
     {% if post.image %}
     <div class="post-image">
         <img src="{{ post.image.url }}" alt="Post Image">
