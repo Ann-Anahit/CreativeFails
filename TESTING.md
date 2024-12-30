@@ -109,6 +109,8 @@ I used [PageSpeed Insights](https://pagespeed.web.dev/) to test the full perform
 
 [Blog](documentation/images/posts_m.png)<br>
 
+[My Blog](documentation/images/my-post_m.png)<br>
+
 [Sign in](documentation/images/signin_m.png)<br>
 
 [Registration](documentation/images/registration_m.png)<br>
@@ -127,7 +129,7 @@ I used [PageSpeed Insights](https://pagespeed.web.dev/) to test the full perform
 
 [Sign in](documentation/images/signin_d.png)<br>
 
-[Registration](documentation/images/registration_d.png)<br>
+[Registration](documentation/images/register_d.png)<br>
 
 [Write article](documentation/images/write_article_d.png)<br><br>
 
