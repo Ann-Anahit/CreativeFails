@@ -502,7 +502,10 @@ main .blog-posts article .meta .author {
   margin-bottom: 8px;
 }
 
-.red,
+.red {
+  color: #c64f62;
+}
+
 :hover.btn-danger {
   background-color: #c64f62;
 }
