@@ -39,7 +39,7 @@ def custom_login(request):
                 return redirect('home')
         else:
             errorText = 'Invalid login credentials. Please try again.'
-            messages.error(request, invalidCredentialsMessage)
+            messages.error(request, errorText)
     else:
         form = AuthenticationForm()
     return render(request, 'accounts/login.html', {'form': form})
